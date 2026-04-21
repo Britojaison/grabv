@@ -381,8 +381,8 @@ export default function Home() {
           <div className="relative w-full max-w-[1440px] mx-auto px-8 z-10 flex flex-col items-start pb-8">
 
             {/* Top Row: Headings and Showcase Image */}
-            <div className="w-full flex flex-col lg:flex-row justify-between items-start gap-12 mb-8 -mt-6">
-              <div className="flex flex-col items-start w-full lg:w-[60%]">
+            <div className="w-full flex flex-col lg:flex-row justify-between items-start gap-8 mb-8 -mt-6">
+              <div className="flex flex-col items-start w-full lg:w-[50%]">
                 {/* Ingredients Pill */}
                 <div
                   className="px-6 py-2 rounded-full mb-6 shadow-md"
@@ -404,14 +404,14 @@ export default function Home() {
                 </div>
 
                 {/* Subtitle */}
-                <p className="max-w-2xl font-bold leading-[1.3] text-[22px]" style={{ color: 'rgb(21, 107, 54)' }}>
+                <p className="max-w-2xl font-bomstad font-normal leading-[1.3] text-[25px]" style={{ color: 'rgb(21, 107, 54)' }}>
                   Every ingredient printed. Every batch tested.<br />
                   You deserve to know what you're feeding your family.
                 </p>
               </div>
 
               {/* Showcase Image - cook2.svg - Responsive intrinsic aspect ratio to prevent cropping */}
-              <div className="w-full lg:w-[420px] aspect-[462/367] relative mt-4 shrink-0">
+              <div className="w-full lg:w-[650px] aspect-[462/367] relative -mt-20 shrink-0 lg:mr-12">
                 <Image
                   src="/images/cook2.svg"
                   alt="Cooking Showcase"
@@ -445,10 +445,10 @@ export default function Home() {
                   </div>
                   {/* Ingredient Text */}
                   <div className="flex flex-col">
-                    <h4 className="font-kura text-[24px] leading-tight" style={{ color: 'rgb(21, 107, 54)' }}>
+                    <h4 className="font-bomstad font-bold text-[30px] leading-tight" style={{ color: 'rgb(21, 107, 54)' }}>
                       {item.title}
                     </h4>
-                    <p className="font-bold text-[18px] leading-tight" style={{ color: 'rgb(21, 107, 54)' }}>
+                    <p className="font-bomstad font-normal text-[25px] leading-tight" style={{ color: 'rgb(12, 61, 27)' }}>
                       {item.desc}
                     </p>
                   </div>
@@ -513,7 +513,7 @@ export default function Home() {
                       height={38}
                     />
                   </div>
-                  <span className="font-bold text-[24px]" style={{ color: 'rgb(21, 107, 54)' }}>
+                  <span className="font-bomstad font-normal text-[25px]" style={{ color: 'rgb(21, 107, 54)' }}>
                     {item}
                   </span>
                 </div>
