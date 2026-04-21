@@ -156,33 +156,61 @@ export default function Home() {
 
         {/* Features Bottom Bar - Content elevated to stay above yellow ragged edge */}
         <div className="w-full relative pt-16 pb-32 z-[10]">
-          <div className="w-full max-w-[1440px] mx-auto px-8 flex flex-col xl:flex-row gap-6 relative z-[30]">
+          <div className="w-full max-w-[1440px] mx-auto px-8 relative z-[30]">
 
-            {/* Features list restricted so it doesn't collide with Gravy bowl on right */}
-            <div className="w-full lg:w-[60%] grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-12">
-              <div className="flex items-center gap-6">
-                <Image src="/images/tick.svg" alt="Tick" width={75} height={75} className="object-contain shrink-0" />
-                <span className="text-[#156b36] font-bold whitespace-nowrap" style={{ fontSize: '30px' }}>Zero Preservatives</span>
+            {/* Features Rows of Pills - Staggered layout as per Figma */}
+            <div className="flex flex-col gap-5 items-start lg:w-[75%]">
+
+              {/* Row 1 */}
+              <div className="flex flex-wrap items-center gap-5">
+                {/* Ready in 10 min */}
+                <div className="bg-white rounded-full px-7 py-3 flex items-center gap-3 shadow-sm border border-neutral-100">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgb(21,107,54)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
+                  </svg>
+                  <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad whitespace-nowrap">Ready in 10 min</span>
+                </div>
+                {/* Slow cooked */}
+                <div className="bg-white rounded-full px-7 py-3 flex items-center gap-3 shadow-sm border border-neutral-100">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgb(21,107,54)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 7c1.5 0 2.5 1 4 1s2.5-1 4-1 2.5 1 4 1 2.5-1 4-1" /><path d="M2 12c1.5 0 2.5 1 4 1s2.5-1 4-1 2.5 1 4 1 2.5-1 4-1" /><path d="M2 17c1.5 0 2.5 1 4 1s2.5-1 4-1 2.5 1 4 1 2.5-1 4-1" />
+                  </svg>
+                  <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad whitespace-nowrap">Slow cooked</span>
+                </div>
+                {/* FSSAI Certified */}
+                <div className="bg-white rounded-full px-7 py-3 flex items-center gap-3 shadow-sm border border-neutral-100">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgb(21,107,54)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><polyline points="9 11 11 13 15 9" />
+                  </svg>
+                  <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad whitespace-nowrap">FSSAI Certified</span>
+                </div>
               </div>
-              <div className="flex items-center gap-6">
-                <Image src="/images/tick.svg" alt="Tick" width={75} height={75} className="object-contain shrink-0" />
-                <span className="text-[#156b36] font-bold whitespace-nowrap" style={{ fontSize: '30px' }}>Slow Cooked</span>
+
+              {/* Row 2 - Shifted for staggered effect */}
+              <div className="flex flex-wrap items-center gap-5 ml-0 lg:ml-20">
+                {/* Zero Preservatives */}
+                <div className="bg-white rounded-full px-7 py-3 flex items-center gap-3 shadow-sm border border-neutral-100">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgb(21,107,54)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" /><polyline points="8 12 11 15 16 9" />
+                  </svg>
+                  <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad whitespace-nowrap">Zero Preservatives</span>
+                </div>
+                {/* Cold Chain Packed */}
+                <div className="bg-white rounded-full px-7 py-3 flex items-center gap-3 shadow-sm border border-neutral-100">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgb(21,107,54)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0z" /><path d="M11.5 15.5 L12.5 16.5 M13.5 15.5 L14.5 16.5" /><circle cx="13" cy="16" r="2" fill="rgb(21,107,54)" /><text x="16" y="12" fill="rgb(21,107,54)" fontSize="18" fontWeight="bold">*</text>
+                  </svg>
+                  <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad whitespace-nowrap">Cold Chain Packed</span>
+                </div>
               </div>
-              <div className="flex items-center gap-6">
-                <Image src="/images/tick.svg" alt="Tick" width={75} height={75} className="object-contain shrink-0" />
-                <span className="text-[#156b36] font-bold whitespace-nowrap" style={{ fontSize: '30px' }}>Ready In 5 Mins</span>
-              </div>
-              <div className="flex items-center gap-6">
-                <Image src="/images/tick.svg" alt="Tick" width={75} height={75} className="object-contain shrink-0" />
-                <span className="text-[#156b36] font-bold whitespace-nowrap" style={{ fontSize: '30px' }}>Fresh & Flavorful</span>
-              </div>
+
             </div>
 
           </div>
         </div>
 
         {/* What is GrabV Section */}
-        <section className="w-full relative pt-20 pb-5 flex flex-col items-center">
+        <section className="w-full relative pt-0 pb-5 flex flex-col items-center">
           {/* Full-width Yellow Torn Background - Refined overlap to hit only the bottom of the pot */}
           <div className="absolute inset-x-0 -top-[140px] bottom-0 z-20 pointer-events-none">
             <div className="relative w-full h-[calc(100%+140px)]">
@@ -200,7 +228,7 @@ export default function Home() {
           <div className="relative w-full max-w-[1440px] mx-auto px-8 z-[40] flex flex-col lg:flex-row items-center gap-12">
 
             {/* Left Content */}
-            <div className="w-full lg:w-[55%] flex flex-col items-start pt-12">
+            <div className="w-full lg:w-[50%] flex flex-col items-start pt-0">
               {/* Question Pill */}
               <div
                 style={{ backgroundColor: 'rgb(247, 0, 52)' }}
@@ -212,7 +240,7 @@ export default function Home() {
               </div>
 
               {/* Secret Heading */}
-              <div className="mb-6">
+              <div className="mb-6 w-full">
                 <h2 className="font-kura leading-[0.9] text-[75px] m-0 p-0" style={{ color: 'rgb(247, 0, 52)' }}>
                   Your Secret to
                 </h2>
@@ -240,8 +268,8 @@ export default function Home() {
             </div>
 
             {/* Right Content - Product Image */}
-            <div className="w-full lg:w-[45%] flex justify-center lg:justify-end relative h-[500px]">
-              <div className="relative w-full h-full max-w-[550px]">
+            <div className="w-full lg:w-[50%] flex justify-center lg:justify-end relative h-[650px] lg:-mr-12">
+              <div className="relative w-full h-full max-w-[800px]">
                 <Image
                   src="/images/product 1.svg"
                   alt="Product Showcase"
@@ -270,9 +298,8 @@ export default function Home() {
                 <h2 className="font-kura leading-[0.9] text-[65px] mb-8" style={{ color: 'rgb(21, 107, 54)' }}>
                   In 4 Steps
                 </h2>
-                <p className="font-bomstad font-bold text-[30px] leading-[1.2]" style={{ color: 'rgb(21, 107, 54)' }}>
-                  No Chopping. No Prep.<br />
-                  No Recipe Needed
+                <p className="font-bomstad font-normal text-[25px] leading-[1.2]" style={{ color: 'rgb(21, 107, 54)' }}>
+                  No Chopping. No Prep. No Recipe Needed
                 </p>
               </div>
 
@@ -300,23 +327,23 @@ export default function Home() {
                     <Image src="/images/clock.svg" alt="Clock" width={24} height={24} />
                     <div className="flex flex-col">
                       <span className="font-bold text-[18px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>10 Min</span>
-                      <span className="text-[10px] font-bold" style={{ color: 'rgb(16, 107, 54)' }}>cooking time</span>
+                      <span className="text-[10px] font-bold" style={{ color: 'rgb(16, 107, 54)', letterSpacing: '0.05em' }}>cooking time</span>
                     </div>
                   </div>
                   <div className="w-[1px] h-8 bg-neutral-400/30" />
                   <div className="flex flex-col">
                     <span className="font-bold text-[18px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>Zero %</span>
-                    <span className="text-[10px] font-bold" style={{ color: 'rgb(16, 107, 54)' }}>Preservatives</span>
+                    <span className="text-[10px] font-bold" style={{ color: 'rgb(16, 107, 54)', letterSpacing: '0.05em' }}>Preservatives</span>
                   </div>
                   <div className="w-[1px] h-8 bg-neutral-400/30" />
                   <div className="flex flex-col">
                     <span className="font-bold text-[18px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>20+</span>
-                    <span className="text-[10px] font-bold" style={{ color: 'rgb(16, 107, 54)' }}>Dishes possible</span>
+                    <span className="text-[10px] font-bold" style={{ color: 'rgb(16, 107, 54)', letterSpacing: '0.05em' }}>Dishes possible</span>
                   </div>
                   <div className="w-[1px] h-8 bg-neutral-400/30" />
                   <div className="flex flex-col">
                     <span className="font-bold text-[18px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>750 G</span>
-                    <span className="text-[10px] font-bold" style={{ color: 'rgb(16, 107, 54)' }}>Per pouch</span>
+                    <span className="text-[10px] font-bold" style={{ color: 'rgb(16, 107, 54)', letterSpacing: '0.05em' }}>Per pouch</span>
                   </div>
                 </div>
               </div>
@@ -352,7 +379,7 @@ export default function Home() {
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>
-                      <p className="text-[24px] font-bold leading-[1.3] whitespace-pre-line" style={{ color: 'rgb(21, 107, 54)' }}>
+                      <p className="font-bomstad font-normal text-[25px] leading-[1.3] whitespace-pre-line" style={{ color: 'rgb(21, 107, 54)' }}>
                         {item.text}
                       </p>
                     </div>
