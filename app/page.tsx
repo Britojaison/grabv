@@ -76,6 +76,7 @@ export default function Home() {
                 alt="Leaf"
                 width={27}
                 height={27}
+                className="w-auto h-auto"
                 style={{ filter: 'brightness(0) invert(34%) sepia(35%) saturate(1048%) hue-rotate(97deg) brightness(93%) contrast(92%)' }}
               />
               <span className="font-bomstad font-medium tracking-wide whitespace-nowrap" style={{ fontSize: '27px', color: 'rgb(21, 107, 54)' }}>
@@ -211,10 +212,10 @@ export default function Home() {
 
               {/* Secret Heading */}
               <div className="mb-6">
-                <h2 className="font-kura leading-[0.9] text-[75px] uppercase m-0 p-0" style={{ color: 'rgb(247, 0, 52)' }}>
+                <h2 className="font-kura leading-[0.9] text-[75px] m-0 p-0" style={{ color: 'rgb(247, 0, 52)' }}>
                   Your Secret to
                 </h2>
-                <h2 className="font-kura leading-[0.9] text-[75px] uppercase m-0 p-0">
+                <h2 className="font-kura leading-[0.9] text-[75px] m-0 p-0">
                   <span style={{ color: 'rgb(21, 107, 54)' }}>Effortless </span>
                   <span style={{ color: 'rgb(247, 0, 52)' }}>Cooking</span>
                 </h2>
@@ -262,10 +263,10 @@ export default function Home() {
 
               {/* Titles */}
               <div className="flex flex-col items-start text-left">
-                <h2 className="font-kura leading-[0.9] text-[65px] uppercase m-0 p-0" style={{ color: 'rgb(247, 0, 52)' }}>
+                <h2 className="font-kura leading-[0.9] text-[65px] m-0 p-0" style={{ color: 'rgb(247, 0, 52)' }}>
                   Pouch To Plate
                 </h2>
-                <h2 className="font-kura leading-[0.9] text-[65px] uppercase mb-8" style={{ color: 'rgb(21, 107, 54)' }}>
+                <h2 className="font-kura leading-[0.9] text-[65px] mb-8" style={{ color: 'rgb(21, 107, 54)' }}>
                   In 4 Steps
                 </h2>
                 <p className="font-bomstad font-bold text-[30px] leading-[1.2]" style={{ color: 'rgb(21, 107, 54)' }}>
@@ -285,7 +286,7 @@ export default function Home() {
                     alt="Chef Illustration"
                     width={220}
                     height={220}
-                    className="object-contain"
+                    className="object-contain w-auto h-auto"
                   />
                 </div>
 
@@ -298,23 +299,23 @@ export default function Home() {
                     <Image src="/images/clock.svg" alt="Clock" width={24} height={24} />
                     <div className="flex flex-col">
                       <span className="font-bold text-[18px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>10 Min</span>
-                      <span className="text-[10px] uppercase font-bold" style={{ color: 'rgb(16, 107, 54)' }}>cooking time</span>
+                      <span className="text-[10px] font-bold" style={{ color: 'rgb(16, 107, 54)' }}>cooking time</span>
                     </div>
                   </div>
                   <div className="w-[1px] h-8 bg-neutral-400/30" />
                   <div className="flex flex-col">
                     <span className="font-bold text-[18px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>Zero %</span>
-                    <span className="text-[10px] uppercase font-bold" style={{ color: 'rgb(16, 107, 54)' }}>Preservatives</span>
+                    <span className="text-[10px] font-bold" style={{ color: 'rgb(16, 107, 54)' }}>Preservatives</span>
                   </div>
                   <div className="w-[1px] h-8 bg-neutral-400/30" />
                   <div className="flex flex-col">
                     <span className="font-bold text-[18px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>20+</span>
-                    <span className="text-[10px] uppercase font-bold" style={{ color: 'rgb(16, 107, 54)' }}>Dishes possible</span>
+                    <span className="text-[10px] font-bold" style={{ color: 'rgb(16, 107, 54)' }}>Dishes possible</span>
                   </div>
                   <div className="w-[1px] h-8 bg-neutral-400/30" />
                   <div className="flex flex-col">
                     <span className="font-bold text-[18px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>750 G</span>
-                    <span className="text-[10px] uppercase font-bold" style={{ color: 'rgb(16, 107, 54)' }}>Per pouch</span>
+                    <span className="text-[10px] font-bold" style={{ color: 'rgb(16, 107, 54)' }}>Per pouch</span>
                   </div>
                 </div>
               </div>
@@ -337,7 +338,7 @@ export default function Home() {
                       className="absolute -top-[36px] left-1/2 -translate-x-1/2 w-[178px] h-[72px] rounded-b-full flex items-center justify-center z-20 pb-2 shadow-md"
                       style={{ backgroundColor: 'rgb(247, 216, 13)' }}
                     >
-                      <span className="font-kura text-[28px] text-[#f70034] uppercase">Step {item.step}</span>
+                      <span className="font-kura text-[28px] text-[#f70034]">Step {item.step}</span>
                     </div>
 
                     {/* Step Card */}
@@ -386,17 +387,17 @@ export default function Home() {
                   className="px-6 py-2 rounded-full mb-6 shadow-md"
                   style={{ backgroundColor: 'rgb(247, 0, 52)' }}
                 >
-                  <span className="text-white font-bold text-[20px] uppercase font-bomstad tracking-wider">
+                  <span className="text-white font-bold text-[20px] font-bomstad tracking-wider">
                     Ingredients & Purity
                   </span>
                 </div>
 
                 {/* Main Heading */}
                 <div className="mb-6">
-                  <h2 className="font-kura leading-[0.9] text-[65px] uppercase m-0 p-0" style={{ color: 'rgb(247, 0, 52)' }}>
+                  <h2 className="font-kura leading-[0.9] text-[65px] m-0 p-0" style={{ color: 'rgb(247, 0, 52)' }}>
                     Fresh Food
                   </h2>
-                  <h2 className="font-kura leading-[0.9] text-[65px] uppercase m-0 p-0" style={{ color: 'rgb(21, 107, 54)' }}>
+                  <h2 className="font-kura leading-[0.9] text-[65px] m-0 p-0" style={{ color: 'rgb(21, 107, 54)' }}>
                     Nothing Hidden
                   </h2>
                 </div>
@@ -443,7 +444,7 @@ export default function Home() {
                   </div>
                   {/* Ingredient Text */}
                   <div className="flex flex-col">
-                    <h4 className="font-kura text-[24px] uppercase leading-tight" style={{ color: 'rgb(21, 107, 54)' }}>
+                    <h4 className="font-kura text-[24px] leading-tight" style={{ color: 'rgb(21, 107, 54)' }}>
                       {item.title}
                     </h4>
                     <p className="font-bold text-[18px] leading-tight" style={{ color: 'rgb(21, 107, 54)' }}>
@@ -545,14 +546,14 @@ export default function Home() {
                 className="px-8 py-2 rounded-full mb-10 overflow-hidden shadow-sm"
                 style={{ backgroundColor: 'rgb(97, 143, 40)' }}
               >
-                <span className="font-bold text-[22px] tracking-tight uppercase" style={{ color: 'rgb(247, 216, 13)' }}>
+                <span className="font-bold text-[22px] tracking-tight" style={{ color: 'rgb(247, 216, 13)' }}>
                   Make 20+ dishes with GrabV
                 </span>
               </div>
 
               {/* Main Heading */}
               <div className="mb-8 flex items-baseline justify-center gap-4 flex-wrap">
-                <h2 className="font-kura text-[85px] uppercase leading-[0.9]" style={{ color: 'rgb(247, 216, 13)' }}>
+                <h2 className="font-kura text-[85px] leading-[0.9]" style={{ color: 'rgb(247, 216, 13)' }}>
                   Cook anything
                 </h2>
                 <h2 className="font-bomstad font-bold text-[85px] leading-[0.9] text-white">
@@ -586,7 +587,7 @@ export default function Home() {
               <div className="flex-1 h-[2px]" style={{ backgroundColor: 'rgb(21, 107, 54)' }} />
               <div className="flex items-center gap-3 px-8 py-3 rounded-full" style={{ backgroundColor: 'rgb(179, 202, 183)' }}>
                 <div className="w-3.5 h-3.5 rounded-full" style={{ backgroundColor: 'rgb(21, 107, 54)' }} />
-                <span className="font-bold text-[22px] uppercase tracking-[0.1em]" style={{ color: 'rgb(21, 107, 54)' }}>
+                <span className="font-bold text-[22px] tracking-[0.1em]" style={{ color: 'rgb(21, 107, 54)' }}>
                   VEGETARIAN
                 </span>
               </div>
@@ -622,10 +623,10 @@ export default function Home() {
 
                   {/* Card Content */}
                   <div className="flex flex-col items-start px-2">
-                    <span className="text-[18px] font-bold mb-2 uppercase tracking-wide" style={{ color: 'rgb(21, 107, 54)' }}>
+                    <span className="text-[18px] font-bold mb-2 tracking-wide" style={{ color: 'rgb(21, 107, 54)' }}>
                       Indian classic
                     </span>
-                    <h3 className="font-kura text-[40px] uppercase leading-tight mb-4" style={{ color: 'rgb(247, 0, 52)' }}>
+                    <h3 className="font-kura text-[40px] leading-tight mb-4" style={{ color: 'rgb(247, 0, 52)' }}>
                       {item.title}
                     </h3>
                     <p className="text-[20px] leading-[1.4] font-medium whitespace-pre-line" style={{ color: 'rgb(21, 107, 54)' }}>
@@ -640,7 +641,7 @@ export default function Home() {
               <div className="flex-1 h-[2px]" style={{ backgroundColor: 'rgb(247, 0, 52)' }} />
               <div className="flex items-center gap-3 px-8 py-3 rounded-full" style={{ backgroundColor: 'rgba(247, 0, 52, 0.15)' }}>
                 <div className="w-3.5 h-3.5 rounded-full" style={{ backgroundColor: 'rgb(247, 0, 52)' }} />
-                <span className="font-bold text-[22px] uppercase tracking-[0.1em]" style={{ color: 'rgb(247, 0, 52)' }}>
+                <span className="font-bold text-[22px] tracking-[0.1em]" style={{ color: 'rgb(247, 0, 52)' }}>
                   NON-VEGETARIAN
                 </span>
               </div>
@@ -676,10 +677,10 @@ export default function Home() {
 
                   {/* Card Content */}
                   <div className="flex flex-col items-start px-2">
-                    <span className="text-[18px] font-bold mb-2 uppercase tracking-wide" style={{ color: 'rgb(21, 107, 54)' }}>
+                    <span className="text-[18px] font-bold mb-2 tracking-wide" style={{ color: 'rgb(21, 107, 54)' }}>
                       Indian classic
                     </span>
-                    <h3 className="font-kura text-[40px] uppercase leading-tight mb-4" style={{ color: 'rgb(247, 0, 52)' }}>
+                    <h3 className="font-kura text-[40px] leading-tight mb-4" style={{ color: 'rgb(247, 0, 52)' }}>
                       {item.title}
                     </h3>
                     <p className="text-[20px] leading-[1.4] font-medium whitespace-pre-line" style={{ color: 'rgb(21, 107, 54)' }}>
@@ -696,7 +697,7 @@ export default function Home() {
               style={{ backgroundColor: 'rgb(21, 107, 54)' }}
             >
               <div className="flex flex-col items-start text-left z-10">
-                <h2 className="font-kura text-[55px] uppercase leading-tight mb-2">
+                <h2 className="font-kura text-[55px] leading-tight mb-2">
                   <span style={{ color: 'rgb(247, 216, 13)' }}>20+ Recipes. </span>
                   <span className="text-white">One pouch.</span>
                 </h2>
@@ -732,7 +733,7 @@ export default function Home() {
               </div>
 
               {/* Heading */}
-              <h2 className="font-kura text-[85px] uppercase leading-[0.9] mb-12">
+              <h2 className="font-kura text-[85px] leading-[0.9] mb-12">
                 <span style={{ color: 'rgb(247, 0, 52)' }}>How we make </span>
                 <span style={{ color: 'rgb(21, 107, 54)' }}>every pouch</span>
               </h2>
@@ -800,13 +801,13 @@ export default function Home() {
                 className="px-8 py-2 rounded-full mb-10"
                 style={{ backgroundColor: 'rgb(97, 143, 40)' }}
               >
-                <span className="font-bold text-[22px] tracking-tight uppercase" style={{ color: 'rgb(247, 216, 13)' }}>
+                <span className="font-bold text-[22px] tracking-tight" style={{ color: 'rgb(247, 216, 13)' }}>
                   What people are saying
                 </span>
               </div>
 
               {/* Heading */}
-              <h2 className="font-kura text-[85px] uppercase leading-[0.9] mb-20 text-center">
+              <h2 className="font-kura text-[85px] leading-[0.9] mb-20 text-center">
                 <span className="text-white">Our GrabV </span>
                 <span style={{ color: 'rgb(247, 216, 13)' }}>Your Review</span>
               </h2>
@@ -861,13 +862,13 @@ export default function Home() {
                 className="px-8 py-2 rounded-full mb-6"
                 style={{ backgroundColor: 'rgb(92, 113, 20)' }}
               >
-                <span className="font-bold text-[22px] uppercase tracking-wide" style={{ color: 'rgb(247, 216, 13)' }}>
+                <span className="font-bold text-[22px] tracking-wide" style={{ color: 'rgb(247, 216, 13)' }}>
                   Get GrabV
                 </span>
               </div>
 
               {/* Heading */}
-              <h2 className="font-kura text-[85px] uppercase leading-[0.9] mb-6">
+              <h2 className="font-kura text-[85px] leading-[0.9] mb-6">
                 <span style={{ color: 'rgb(247, 216, 13)' }}>Ready to cook </span><br />
                 <span className="text-white">smarter, Everyday?</span>
               </h2>
@@ -920,7 +921,7 @@ export default function Home() {
               </div>
               {/* Company */}
               <div className="flex flex-col items-start gap-2">
-                <h4 className="text-white text-[24px] font-bold uppercase mb-2 tracking-wide">Company</h4>
+                <h4 className="text-white text-[24px] font-bold mb-2 tracking-wide">Company</h4>
                 <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">Our Story</a>
                 <a href="#" className="text-[#f7d80d] font-bold text-[20px] transition-colors">Process</a>
                 <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">Quality Promise</a>
@@ -932,7 +933,7 @@ export default function Home() {
             <div className="flex flex-col gap-8">
               {/* Product */}
               <div className="flex flex-col items-start gap-2 pr-16">
-                <h4 className="text-white text-[24px] font-bold uppercase mb-2 tracking-wide">Product</h4>
+                <h4 className="text-white text-[24px] font-bold mb-2 tracking-wide">Product</h4>
                 <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">All Purpose Gravy</a>
                 <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">Ingredients</a>
                 <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">How to Use</a>
@@ -940,7 +941,7 @@ export default function Home() {
               </div>
               {/* Order */}
               <div className="flex flex-col items-start gap-2">
-                <h4 className="text-white text-[24px] font-bold uppercase mb-2 tracking-wide">Order</h4>
+                <h4 className="text-white text-[24px] font-bold mb-2 tracking-wide">Order</h4>
                 <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">Shop Online</a>
                 <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">WhatsApp Order</a>
                 <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">Bulk Orders</a>

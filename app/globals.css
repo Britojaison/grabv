@@ -1,11 +1,103 @@
 @import "tailwindcss";
 
+/* ── Kura Display ── */
+@font-face {
+  font-family: "Kura Display";
+  src: url("/fonts/kura/Kura-Regular.woff2") format("woff2"),
+       url("/fonts/kura/Kura-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Bomstad Display ── */
+@font-face {
+  font-family: "Bomstad Display";
+  src: url("/fonts/bomstad-display/BomstadDisplay-Thin.woff2") format("woff2"),
+       url("/fonts/bomstad-display/BomstadDisplay-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bomstad Display";
+  src: url("/fonts/bomstad-display/BomstadDisplay-ExtraLight.woff2") format("woff2"),
+       url("/fonts/bomstad-display/BomstadDisplay-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bomstad Display";
+  src: url("/fonts/bomstad-display/BomstadDisplay-Light.woff2") format("woff2"),
+       url("/fonts/bomstad-display/BomstadDisplay-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bomstad Display";
+  src: url("/fonts/bomstad-display/BomstadDisplay-Regular.woff2") format("woff2"),
+       url("/fonts/bomstad-display/BomstadDisplay-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bomstad Display";
+  src: url("/fonts/bomstad-display/BomstadDisplay-Medium.woff2") format("woff2"),
+       url("/fonts/bomstad-display/BomstadDisplay-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bomstad Display";
+  src: url("/fonts/bomstad-display/BomstadDisplay-SemiBold.woff2") format("woff2"),
+       url("/fonts/bomstad-display/BomstadDisplay-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bomstad Display";
+  src: url("/fonts/bomstad-display/BomstadDisplay-Bold.woff2") format("woff2"),
+       url("/fonts/bomstad-display/BomstadDisplay-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bomstad Display";
+  src: url("/fonts/bomstad-display/BomstadDisplay-ExtraBold.woff2") format("woff2"),
+       url("/fonts/bomstad-display/BomstadDisplay-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bomstad Display";
+  src: url("/fonts/bomstad-display/BomstadDisplay-Black.woff2") format("woff2"),
+       url("/fonts/bomstad-display/BomstadDisplay-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-brand-yellow: rgb(247, 216, 13);
   --color-brand-green: rgb(21, 107, 54);
   --color-brand-dark-green: rgb(12, 61, 27);
-  --font-kura: var(--font-kura, "Kura", sans-serif);
-  --font-bomstad: var(--font-bomstad, "Bomstad display", serif);
+  --font-kura: "Kura Display", serif;
+  --font-bomstad: "Bomstad Display", sans-serif;
 }
 
 :root {
@@ -16,4 +108,5 @@
 body {
   background-color: var(--background);
   color: var(--foreground);
+  font-family: "Bomstad Display", sans-serif;
 }
