@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -22,12 +23,12 @@ export default function Home() {
           </div>
 
           <nav className="flex items-center gap-12 text-white font-medium">
-            <a href="#" className="hover:text-brand-yellow transition-colors text-[18px]">Home</a>
-            <a href="#" className="hover:text-brand-yellow transition-colors text-[18px]">Recipes</a>
-            <a href="#" className="hover:text-brand-yellow transition-colors text-[18px]">Products</a>
-            <a href="#" className="hover:text-brand-yellow transition-colors text-[18px] whitespace-nowrap">our Story</a>
-            <a href="#" className="hover:text-brand-yellow transition-colors text-[18px] whitespace-nowrap">Contact us</a>
-            <a href="#" className="hover:text-brand-yellow transition-colors text-[18px]">FAQ</a>
+            <Link href="/" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Home</Link>
+            <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Recipes</Link>
+            <Link href="/products" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Products</Link>
+            <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">our Story</Link>
+            <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Contact us</Link>
+            <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">FAQ</Link>
           </nav>
 
           <button
@@ -789,17 +790,27 @@ export default function Home() {
             </div>
           </div>
         </section>
-        {/* Reviews & Final CTA Section */}
-        <section className="w-full py-32 flex flex-col items-center" style={{ backgroundColor: 'rgb(21, 107, 54)' }}>
-          <div className="w-full max-w-[1440px] mx-auto px-8 flex flex-col items-start">
+        {/* Reviews Section */}
+        <div className="w-full relative flex flex-col items-center">
+          {/* Green Header with Jagged Edge */}
+          <div className="w-full relative pt-20 pb-32 flex flex-col items-center text-center">
+            <div className="absolute inset-0 z-0 overflow-hidden">
+              <Image
+                src="/images/bg%20green.svg"
+                alt="Background"
+                fill
+                className="object-cover object-bottom scale-x-[-1]"
+                priority
+              />
+              {/* Fallback color */}
+              <div className="absolute inset-0 bg-[rgb(12,61,27)] -z-10" />
+            </div>
 
-            {/* Header Content - Centered manually */}
-            <div className="w-full flex flex-col items-center text-center mb-20">
-
-              {/* Badge */}
+            <div className="relative z-10 flex flex-col items-center">
+              {/* What people are saying Pill */}
               <div
-                className="px-8 py-2 rounded-full mb-10"
-                style={{ backgroundColor: 'rgb(97, 143, 40)' }}
+                className="px-8 py-2 rounded-full mb-10 border-2 border-[rgb(12,61,27)]"
+                style={{ backgroundColor: 'rgb(247, 216, 13)' }}
               >
                 <span className="font-bold text-[22px] tracking-tight" style={{ color: 'rgb(247, 216, 13)' }}>
                   What people are saying
@@ -812,181 +823,177 @@ export default function Home() {
                 <span style={{ color: 'rgb(247, 216, 13)' }}>Your Review</span>
               </h2>
             </div>
+          </div>
 
-            {/* Reviews Column - Left aligned to match timeline */}
-            <div className="w-full flex flex-col gap-8 mb-24">
-              {[1, 2, 3].map((item, idx) => (
-                <div
-                  key={idx}
-                  className="w-full max-w-[1440px] mx-auto h-[277px] px-8 py-12 rounded-[15px] flex flex-col items-start justify-center text-left relative"
-                  style={{ backgroundColor: 'rgb(42, 119, 50)' }}
-                >
-                  {/* Stars - all 5 with gap-1 */}
-                  <div className="flex gap-1 mb-6 text-[28px]">
-                    {[1, 2, 3, 4, 5].map((s) => (
-                      <span key={s} style={{ color: s <= 3 ? 'rgb(247, 216, 13)' : 'white' }}>★</span>
-                    ))}
+          {/* Review Cards Grid */}
+          <div className="w-full max-w-[1440px] mx-auto px-8 py-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[1, 2, 3, 4, 5, 6].map((item) => (
+              <div key={item} className="p-8 rounded-[20px] bg-white border border-[rgb(247, 216, 13)] shadow-sm flex flex-col gap-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 rounded-full overflow-hidden relative border border-neutral-100">
+                    <Image src="/images/review.svg" alt="User" fill className="object-cover" />
                   </div>
-
-                  {/* Quote */}
-                  <p className="text-white text-[25px] font-medium leading-[1.4] mb-8">
-                    "I was sceptical — how can a ready base taste this good? The onions are actually caramelised properly. My husband thought I'd been cooking all afternoon."
-                  </p>
-
-                  {/* User Profile */}
-                  <div className="flex items-center gap-5">
-                    <div className="w-[68px] h-[68px] rounded-full overflow-hidden border-2 border-white/10 relative bg-white/10 shadow-sm">
-                      <Image
-                        src="/images/review.svg"
-                        alt="Shneha Mehta"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-white text-[22px] font-bold">Shneha Mehta</span>
-                      <span className="text-white/60 text-[18px]">Delhi</span>
-                    </div>
+                  <div className="flex flex-col">
+                    <span className="text-[20px] font-bold" style={{ color: 'rgb(21, 107, 54)' }}>Shneha Mehta</span>
+                    <span className="text-[16px] text-neutral-400">Delhi</span>
                   </div>
                 </div>
-              ))}
-            </div>
-
-            {/* Final CTA Box */}
-            <div
-              className="w-full max-w-[1440px] mx-auto h-[635px] rounded-[15px] p-24 flex flex-col items-center justify-center text-center relative overflow-hidden"
-              style={{ backgroundColor: 'rgb(12, 61, 27)' }}
-            >
-              {/* Badge */}
-              <div
-                className="px-8 py-2 rounded-full mb-6"
-                style={{ backgroundColor: 'rgb(92, 113, 20)' }}
-              >
-                <span className="font-bold text-[22px] tracking-wide" style={{ color: 'rgb(247, 216, 13)' }}>
-                  Get GrabV
-                </span>
-              </div>
-
-              {/* Heading */}
-              <h2 className="font-kura text-[85px] leading-[0.9] mb-6">
-                <span style={{ color: 'rgb(247, 216, 13)' }}>Ready to cook </span><br />
-                <span className="text-white">smarter, Everyday?</span>
-              </h2>
-
-              {/* Subtext */}
-              <p className="text-white text-[24px] font-medium opacity-90 mb-10 max-w-3xl leading-relaxed">
-                Order 750g Or 250g pouch. A week of effortless dinners. Zero<br /> preservatives. Shipped cold, direct to your door.
-              </p>
-
-              {/* Buttons */}
-              <div className="flex flex-wrap items-center justify-center gap-6 mb-10">
-                <button className="bg-[#f70034] text-white px-12 py-5 rounded-full text-[24px] font-bold shadow-xl hover:scale-105 transition-all">
-                  Order 750g
-                </button>
-                <button className="bg-white text-[#f70034] px-12 py-5 rounded-full text-[24px] font-bold shadow-xl hover:scale-105 transition-all">
-                  Order 250g
-                </button>
-                <button className="bg-white text-[#156b36] px-12 py-5 rounded-full text-[24px] font-bold shadow-xl flex items-center gap-4 hover:scale-105 transition-all">
-                  <div className="w-8 h-8 relative">
-                    <Image src="/images/whatsapp.svg" alt="WhatsApp" fill className="object-contain" />
-                  </div>
-                  <span className="text-[24px]">WhatsApp Us</span>
-                </button>
-              </div>
-
-              {/* Footer text */}
-              <div className="text-white text-[20px] font-medium tracking-wide">
-                Free delivery on orders above ₹499 • Ships within 48 hours • FSSAI Certified
-              </div>
-            </div>
-
-          </div>
-        </section>
-      </main>
-      {/* Footer Section */}
-      <footer className="w-full py-10 flex flex-col items-center border-t border-white/5" style={{ backgroundColor: 'rgb(12, 61, 27)' }}>
-        <div className="w-full max-w-[1440px] mx-auto px-8 flex flex-col">
-
-          <div className="w-full flex justify-between gap-16 mb-8">
-
-            <div className="flex flex-col gap-8 max-w-[450px]">
-              {/* Brand */}
-              <div className="flex flex-col items-start text-left">
-                <h3 className="font-kura text-[55px] leading-none mb-3" style={{ color: 'rgb(247, 216, 13)' }}>
-                  GrabV
-                </h3>
-                <p className="text-white text-[20px] leading-[1.6] opacity-90 font-medium">
-                  Fresh & Flavourful. Slow-cooked homemade gravies with zero preservatives, made with love in Bengaluru.
+                <div className="flex gap-1">
+                  {[1, 2, 3, 4, 5].map((s) => (
+                    <span key={s} className="text-[24px]" style={{ color: 'rgb(247, 216, 13)' }}>★</span>
+                  ))}
+                </div>
+                <p className="text-[18px] leading-relaxed font-medium" style={{ color: 'rgb(21, 107, 54)' }}>
+                  "I was sceptical — how can a ready base taste this good? The onions are actually caramelised properly. My husband thought I'd been cooking all afternoon."
                 </p>
               </div>
-              {/* Company */}
-              <div className="flex flex-col items-start gap-2">
-                <h4 className="text-white text-[24px] font-bold mb-2 tracking-wide">Company</h4>
-                <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">Our Story</a>
-                <a href="#" className="text-[#f7d80d] font-bold text-[20px] transition-colors">Process</a>
-                <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">Quality Promise</a>
-                <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">Contact Us</a>
-              </div>
-            </div>
-
-            {/* Right Column */}
-            <div className="flex flex-col gap-8">
-              {/* Product */}
-              <div className="flex flex-col items-start gap-2 pr-16">
-                <h4 className="text-white text-[24px] font-bold mb-2 tracking-wide">Product</h4>
-                <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">All Purpose Gravy</a>
-                <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">Ingredients</a>
-                <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">How to Use</a>
-                <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">Recipes</a>
-              </div>
-              {/* Order */}
-              <div className="flex flex-col items-start gap-2">
-                <h4 className="text-white text-[24px] font-bold mb-2 tracking-wide">Order</h4>
-                <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">Shop Online</a>
-                <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">WhatsApp Order</a>
-                <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">Bulk Orders</a>
-                <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">Gift a Pouch</a>
-              </div>
-            </div>
-
-          </div>
-
-
-
-          {/* Bottom Footer Content */}
-          <div className="flex flex-col md:flex-row justify-between items-center gap-12">
-
-            {/* Copyright Info */}
-            <div className="text-white/60 text-[18px] max-w-lg text-center md:text-left leading-relaxed">
-              © 2026 GrabV. All rights reserved. 88gb Digital <br className="hidden lg:block" /> Mraketing & Technology Company
-            </div>
-
-            {/* Socials & Certifications */}
-            <div className="flex flex-col md:flex-row items-center gap-12">
-              <div className="flex flex-col items-center md:items-end gap-3 font-bomstad">
-                <span className="text-white text-[18px] font-bold">Follow Us</span>
-                <div className="flex items-center gap-5">
-                  <a href="#" className="w-8 h-8 relative hover:scale-110 transition-transform">
-                    <Image src="/images/whatsapp1.svg" alt="WhatsApp" fill className="object-contain" />
-                  </a>
-                  <a href="#" className="w-8 h-8 relative hover:scale-110 transition-transform">
-                    <Image src="/images/facebook.svg" alt="Facebook" fill className="object-contain" />
-                  </a>
-                  <a href="#" className="w-8 h-8 relative hover:scale-110 transition-transform">
-                    <Image src="/images/insta.svg" alt="Instagram" fill className="object-contain" />
-                  </a>
-                </div>
-              </div>
-
-              {/* FSSAI Logo */}
-              <div className="p-1 px-4 bg-white rounded flex items-center justify-center">
-                <Image src="/images/fssai.svg" alt="FSSAI" width={90} height={45} className="object-contain h-12 w-auto" />
-              </div>
-            </div>
-
+            ))}
           </div>
         </div>
-      </footer>
+
+        {/* Final CTA Box */}
+        <div
+          className="w-full max-w-[1440px] mx-auto h-[635px] rounded-[15px] p-24 flex flex-col items-center justify-center text-center relative overflow-hidden"
+          style={{ backgroundColor: 'rgb(12, 61, 27)' }}
+        >
+          {/* Badge */}
+          <div
+            className="px-8 py-2 rounded-full mb-6"
+            style={{ backgroundColor: 'rgb(92, 113, 20)' }}
+          >
+            <span className="font-bold text-[22px] tracking-wide" style={{ color: 'rgb(247, 216, 13)' }}>
+              Get GrabV
+            </span>
+          </div>
+
+          {/* Heading */}
+          <h2 className="font-kura text-[85px] leading-[0.9] mb-6">
+            <span style={{ color: 'rgb(247, 216, 13)' }}>Ready to cook </span><br />
+            <span className="text-white">smarter, Everyday?</span>
+          </h2>
+
+          {/* Subtext */}
+          <p className="text-white text-[22px] font-medium opacity-90 mb-12 max-w-3xl leading-relaxed">
+            Order 750g Or 250g pouch. A week of effortless dinners. Zero preservatives. Shipped cold, direct to your door.
+          </p>
+
+          {/* Buttons */}
+          <div className="flex flex-wrap items-center justify-center gap-6 mb-10">
+            <button className="bg-[#f70034] text-white px-12 py-5 rounded-full text-[24px] font-bold shadow-xl hover:scale-105 transition-all">
+              Order 750g
+            </button>
+            <button className="bg-white text-[#f70034] px-12 py-5 rounded-full text-[24px] font-bold shadow-xl hover:scale-105 transition-all">
+              Order 250g
+            </button>
+            <button className="bg-white text-[#156b36] px-12 py-5 rounded-full text-[24px] font-bold shadow-xl flex items-center gap-4 hover:scale-105 transition-all">
+              <div className="w-8 h-8 relative">
+                <Image src="/images/whatsapp.svg" alt="WhatsApp" fill className="object-contain" />
+              </div>
+              <span className="text-[24px]">WhatsApp Us</span>
+            </button>
+          </div>
+
+          {/* Footer text */}
+          <div className="text-white text-[18px] font-medium tracking-wide flex items-center gap-4 opacity-80">
+            <span>Free delivery on orders above ₹499</span>
+            <span>•</span>
+            <span>Ships within 48 hours</span>
+            <span>•</span>
+            <div className="h-10 w-24 relative invert brightness-0">
+              <Image src="/images/fssai.svg" alt="FSSAI" fill className="object-contain" />
+            </div>
+            <span>Certified</span>
+          </div>
+        </div>
     </div>
+      </main >
+    {/* Footer Section */ }
+    < footer className = "w-full py-10 flex flex-col items-center border-t border-white/5" style = {{ backgroundColor: 'rgb(12, 61, 27)' }
+}>
+  <div className="w-full max-w-[1440px] mx-auto px-8 flex flex-col">
+
+    <div className="w-full flex justify-between gap-16 mb-8">
+
+      <div className="flex flex-col gap-8 max-w-[450px]">
+        {/* Brand */}
+        <div className="flex flex-col items-start text-left">
+          <h3 className="font-kura text-[55px] leading-none mb-3" style={{ color: 'rgb(247, 216, 13)' }}>
+            GrabV
+          </h3>
+          <p className="text-white text-[20px] leading-[1.6] opacity-90 font-medium">
+            Fresh & Flavourful. Slow-cooked homemade gravies with zero preservatives, made with love in Bengaluru.
+          </p>
+        </div>
+        {/* Company */}
+        <div className="flex flex-col items-start gap-2">
+          <h4 className="text-white text-[24px] font-bold mb-2 tracking-wide">Company</h4>
+          <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">Our Story</a>
+          <a href="#" className="text-[#f7d80d] font-bold text-[20px] transition-colors">Process</a>
+          <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">Quality Promise</a>
+          <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">Contact Us</a>
+        </div>
+      </div>
+
+      {/* Right Column */}
+      <div className="flex flex-col gap-8">
+        {/* Product */}
+        <div className="flex flex-col items-start gap-2 pr-16">
+          <h4 className="text-white text-[24px] font-bold mb-2 tracking-wide">Product</h4>
+          <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">All Purpose Gravy</a>
+          <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">Ingredients</a>
+          <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">How to Use</a>
+          <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">Recipes</a>
+        </div>
+        {/* Order */}
+        <div className="flex flex-col items-start gap-2">
+          <h4 className="text-white text-[24px] font-bold mb-2 tracking-wide">Order</h4>
+          <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">Shop Online</a>
+          <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">WhatsApp Order</a>
+          <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">Bulk Orders</a>
+          <a href="#" className="text-white hover:text-[#f7d80d] text-[20px] font-medium transition-colors">Gift a Pouch</a>
+        </div>
+      </div>
+
+      {/* Column 3: Product Box */}
+      <div className="rounded-[30px] p-10 flex flex-col h-full" style={{ backgroundColor: 'rgb(80, 118, 52)' }}>
+        <h4 className="text-[28px] font-bold mb-8" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
+        <div className="flex flex-col gap-4 text-white text-[20px] font-medium font-bomstad">
+          <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors">All Purpose Gravy</Link>
+          <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors">Ingredients</Link>
+          <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors">How to Use</Link>
+          <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors">Recipes</Link>
+        </div>
+      </div>
+
+
+
+      {/* Bottom Footer Content */}
+      <div className="flex flex-col md:flex-row justify-between items-center gap-12">
+
+        {/* Copyright Info */}
+        <div className="text-white/60 text-[18px] max-w-lg text-center md:text-left leading-relaxed">
+          © 2026 GrabV. All rights reserved. 88gb Digital <br className="hidden lg:block" /> Mraketing & Technology Company
+        </div>
+
+        {/* Social Links at Bottom Right of this box */}
+        <div className="flex flex-col items-end gap-3 self-end mt-8">
+          <span className="text-white text-[16px] font-bold font-bomstad">Follow Us</span>
+          <div className="flex items-center gap-4">
+            <Link href="#" className="w-8 h-8 relative hover:scale-110 transition-transform invert brightness-0">
+              <Image src="/images/facebook.svg" alt="Facebook" fill className="object-contain" />
+            </Link>
+            <Link href="#" className="w-8 h-8 relative hover:scale-110 transition-transform invert brightness-0">
+              <Image src="/images/whatsapp1.svg" alt="WhatsApp" fill className="object-contain" />
+            </Link>
+            <Link href="#" className="w-8 h-8 relative hover:scale-110 transition-transform invert brightness-0">
+              <Image src="/images/insta.svg" alt="Instagram" fill className="object-contain" />
+            </Link>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+    </div >
   );
 }
