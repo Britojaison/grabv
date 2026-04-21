@@ -9,7 +9,7 @@ export default function Home() {
         style={{ backgroundColor: 'rgb(12, 61, 27)' }}
         className="relative z-[100] w-full flex-shrink-0 shadow-md"
       >
-        <div className="max-w-[1440px] mx-auto px-16 h-[80px] flex items-center justify-between">
+        <div className="max-w-[1440px] mx-auto px-8 h-[80px] flex items-center justify-between">
           <div className="flex items-center">
             <Image
               src="/images/logo.svg"
@@ -36,9 +36,11 @@ export default function Home() {
               height: '37px',
               borderRadius: '5px',
               fontSize: '18px',
-              backgroundColor: 'rgb(247, 216, 13)'
+              backgroundColor: 'rgb(247, 216, 13)',
+              color: 'rgb(12, 61, 27)',
+              letterSpacing: '0.05em'
             }}
-            className="text-black font-semibold flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0"
+            className="font-bomstad font-medium flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0"
           >
             Order Now
           </button>
@@ -60,41 +62,42 @@ export default function Home() {
         </div>
 
         {/* Content Wrapper constrained to 1440px with correct z-index */}
-        <div className="relative w-full max-w-[1440px] mx-auto px-16 h-[800px] shrink-0 z-30 flex">
+        <div className="relative w-full max-w-[1440px] mx-auto px-8 h-[800px] shrink-0 z-30 flex">
 
           {/* Left Text Content - In normal flow so alignment strictly matches navbar */}
           <div className="w-full lg:w-[60%] pt-[70px] z-20 flex flex-col">
             {/* Fresh & Flavorful Pill */}
             <div
-              style={{ height: '60px' }}
-              className="w-fit px-8 bg-[#788e24] rounded-full flex items-center justify-center gap-3 mb-8 shadow-md"
+              style={{ height: '60px', backgroundColor: 'rgb(247, 216, 13)' }}
+              className="w-fit px-8 rounded-full flex items-center justify-center gap-3 mb-8 shadow-md"
             >
               <Image
                 src="/images/leaf.svg"
                 alt="Leaf"
                 width={27}
                 height={27}
+                style={{ filter: 'brightness(0) invert(34%) sepia(35%) saturate(1048%) hue-rotate(97deg) brightness(93%) contrast(92%)' }}
               />
-              <span className="text-brand-yellow font-bold uppercase tracking-wide whitespace-nowrap" style={{ fontSize: '27px' }}>
+              <span className="font-bomstad font-medium tracking-wide whitespace-nowrap" style={{ fontSize: '27px', color: 'rgb(21, 107, 54)' }}>
                 Fresh & Flavorful
               </span>
             </div>
 
             {/* Main Heading */}
             <div className="mb-6">
-              <h1 className="font-kura leading-[0.9] text-brand-yellow uppercase m-0 p-0" style={{ fontSize: '80px' }}>
+              <h1 className="font-kura leading-[0.9] text-brand-yellow m-0 p-0" style={{ fontSize: '80px', textTransform: 'none' }}>
                 One Gravy
               </h1>
-              <h1 className="font-kura leading-[0.9] text-white uppercase m-0 p-0" style={{ fontSize: '80px' }}>
+              <h1 className="font-kura leading-[0.9] text-white m-0 p-0" style={{ fontSize: '80px', textTransform: 'none' }}>
                 Endless
               </h1>
-              <h1 className="font-kura leading-[0.9] text-white uppercase m-0 p-0" style={{ fontSize: '80px' }}>
+              <h1 className="font-kura leading-[0.9] text-white m-0 p-0" style={{ fontSize: '80px', textTransform: 'none' }}>
                 Possibilities
               </h1>
             </div>
 
             {/* Description */}
-            <p className="text-white max-w-xl leading-[1.2] mb-10" style={{ fontSize: '25px' }}>
+            <p className="text-white max-w-xl leading-[1.2] mb-10 font-bomstad font-normal" style={{ fontSize: '25px' }}>
               A slow-cooked, preservative-free<br />
               onion-tomato base made with love – dinner<br />
               is ready in 5 minutes.
@@ -102,13 +105,19 @@ export default function Home() {
 
             {/* CTA Buttons - Force single row on desktop to match Figma */}
             <div className="flex flex-wrap lg:flex-nowrap items-center gap-4">
-              <button className="bg-[#0c3d1b] border border-transparent text-white rounded-[32px] px-8 py-3.5 text-[22px] font-medium hover:bg-black transition-all shadow-sm whitespace-nowrap">
+              <button
+                className="bg-[rgb(17,82,40)] border border-transparent text-white rounded-[32px] px-8 py-3.5 text-[22px] font-medium hover:bg-brand-yellow hover:text-[rgb(17,82,40)] transition-all shadow-sm whitespace-nowrap"
+              >
                 Order 750g Pouch
               </button>
-              <button className="bg-[#0c3d1b] border border-transparent text-white rounded-[32px] px-8 py-3.5 text-[22px] font-medium hover:bg-black transition-all shadow-sm whitespace-nowrap">
+              <button
+                className="bg-[rgb(17,82,40)] border border-transparent text-white rounded-[32px] px-8 py-3.5 text-[22px] font-medium hover:bg-brand-yellow hover:text-[rgb(17,82,40)] transition-all shadow-sm whitespace-nowrap"
+              >
                 Order 250g Pouch
               </button>
-              <button className="bg-[#0c3d1b] border border-transparent text-white rounded-[32px] px-8 py-3.5 text-[22px] font-medium hover:bg-black transition-all shadow-sm whitespace-nowrap">
+              <button
+                className="bg-[rgb(17,82,40)] border border-transparent text-white rounded-[32px] px-8 py-3.5 text-[22px] font-medium hover:bg-brand-yellow hover:text-[rgb(17,82,40)] transition-all shadow-sm whitespace-nowrap"
+              >
                 See Recipes
               </button>
             </div>
@@ -144,11 +153,11 @@ export default function Home() {
         </div>
 
         {/* Features Bottom Bar - Content elevated to stay above yellow ragged edge */}
-        <div className="w-full relative pt-16 pb-32 flex justify-center z-[10]">
-          <div className="w-full max-w-[1440px] px-16 flex flex-col xl:flex-row gap-6 relative z-[30]">
+        <div className="w-full relative pt-16 pb-32 z-[10]">
+          <div className="w-full max-w-[1440px] mx-auto px-8 flex flex-col xl:flex-row gap-6 relative z-[30]">
 
             {/* Features list restricted so it doesn't collide with Gravy bowl on right */}
-            <div className="w-full lg:w-[60%] grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-12 pl-4">
+            <div className="w-full lg:w-[60%] grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-12">
               <div className="flex items-center gap-6">
                 <Image src="/images/tick.svg" alt="Tick" width={75} height={75} className="object-contain shrink-0" />
                 <span className="text-[#156b36] font-bold whitespace-nowrap" style={{ fontSize: '30px' }}>Zero Preservatives</span>
@@ -186,7 +195,7 @@ export default function Home() {
           </div>
 
           {/* Content Wrapper - Elevated z-index to stay above background */}
-          <div className="relative w-full max-w-[1440px] px-16 z-[40] flex flex-col lg:flex-row items-center gap-12">
+          <div className="relative w-full max-w-[1440px] mx-auto px-8 z-[40] flex flex-col lg:flex-row items-center gap-12">
 
             {/* Left Content */}
             <div className="w-full lg:w-[55%] flex flex-col items-start pt-12">
@@ -195,7 +204,7 @@ export default function Home() {
                 style={{ backgroundColor: 'rgb(247, 0, 52)' }}
                 className="px-10 py-3.5 rounded-full mb-10 shadow-md"
               >
-                <span className="text-white font-bold text-[28px] uppercase whitespace-nowrap font-bomstad tracking-wider">
+                <span className="text-white font-semibold text-[28px] whitespace-nowrap font-bomstad tracking-wider">
                   What is GrabV ?
                 </span>
               </div>
@@ -205,13 +214,14 @@ export default function Home() {
                 <h2 className="font-kura leading-[0.9] text-[75px] uppercase m-0 p-0" style={{ color: 'rgb(247, 0, 52)' }}>
                   Your Secret to
                 </h2>
-                <h2 className="font-kura leading-[0.9] text-[75px] uppercase m-0 p-0" style={{ color: 'rgb(21, 107, 54)' }}>
-                  Effortless Cooking
+                <h2 className="font-kura leading-[0.9] text-[75px] uppercase m-0 p-0">
+                  <span style={{ color: 'rgb(21, 107, 54)' }}>Effortless </span>
+                  <span style={{ color: 'rgb(247, 0, 52)' }}>Cooking</span>
                 </h2>
               </div>
 
               {/* Description text */}
-              <p className="max-w-xl leading-[1.3] mb-12 font-medium" style={{ fontSize: '25px', color: 'rgb(21, 107, 54)' }}>
+              <p className="max-w-xl leading-[1.3] mb-12 font-semibold font-bomstad" style={{ fontSize: '25px', color: 'rgb(21, 107, 54)' }}>
                 A slow-cooked, preservative-free<br />
                 onion-tomato base made with love – dinner<br />
                 is ready in 5 minutes.
@@ -219,8 +229,8 @@ export default function Home() {
 
               {/* Learn More Button */}
               <button
-                style={{ backgroundColor: 'rgb(12, 61, 27)' }}
-                className="group flex items-center gap-6 px-10 py-4 rounded-[20px] text-white text-[22px] font-bold hover:bg-black transition-all shadow-lg"
+                style={{ backgroundColor: 'rgb(21, 107, 54)' }}
+                className="group flex items-center gap-6 px-10 py-4 rounded-[20px] text-white text-[22px] font-semibold font-bomstad hover:bg-black transition-all shadow-lg"
               >
                 Learn More
                 <Image src="/images/arrow.svg" alt="Arrow" width={32} height={32} className="object-contain" />
@@ -245,7 +255,7 @@ export default function Home() {
 
         {/* Pouch To Plate Section */}
         <section className="w-full py-24 flex flex-col items-center" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
-          <div className="w-full max-w-[1440px] px-16">
+          <div className="w-full max-w-[1440px] mx-auto px-8">
 
             {/* Header Row */}
             <div className="flex flex-col lg:flex-row items-center justify-between gap-12 mb-20 pt-12 relative">
@@ -366,7 +376,7 @@ export default function Home() {
           </div>
 
           {/* Content Wrapper */}
-          <div className="relative w-full max-w-[1200px] px-16 z-10 flex flex-col items-start pb-8">
+          <div className="relative w-full max-w-[1440px] mx-auto px-8 z-10 flex flex-col items-start pb-8">
 
             {/* Top Row: Headings and Showcase Image */}
             <div className="w-full flex flex-col lg:flex-row justify-between items-start gap-12 mb-8 -mt-6">
@@ -466,7 +476,7 @@ export default function Home() {
           {/* Ensure this section slips cleanly under or matches the edge of the previous section if needed.
               We'll use negative margin to pull it up slightly if the torn edge requires it, but for now
               we just stack it normally. */}
-          <div className="w-full max-w-[1240px] px-16 flex flex-col items-center relative z-10 pt-0 pb-16">
+          <div className="w-full max-w-[1440px] mx-auto px-8 flex flex-col items-center relative z-10 pt-0 pb-16">
 
             {/* Title */}
             <h2 className="font-kura font-normal text-[85px] m-0 p-0 leading-[1.1] text-center tracking-wide normal-case">
@@ -572,7 +582,7 @@ export default function Home() {
             style={{ backgroundColor: 'rgb(239, 238, 230)' }}
           >
             {/* Vegetarian Pill with Horizontal Lines */}
-            <div className="w-full max-w-[1240px] px-16 flex items-center gap-8 mb-12 opacity-80">
+            <div className="w-full max-w-[1440px] mx-auto px-8 flex items-center gap-8 mb-12 opacity-80">
               <div className="flex-1 h-[2px]" style={{ backgroundColor: 'rgb(21, 107, 54)' }} />
               <div className="flex items-center gap-3 px-8 py-3 rounded-full" style={{ backgroundColor: 'rgb(179, 202, 183)' }}>
                 <div className="w-3.5 h-3.5 rounded-full" style={{ backgroundColor: 'rgb(21, 107, 54)' }} />
@@ -584,7 +594,7 @@ export default function Home() {
             </div>
 
             {/* Recipe Grid */}
-            <div className="w-full max-w-[1240px] px-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-28">
+            <div className="w-full max-w-[1440px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-28">
               {[
                 { title: "Paneer Butter Masala", desc: "Creamy, rich, restaurant-style.\nJust add paneer to GrabV,\nsimmer 5 minutes, finish with butter." },
                 { title: "Paneer Butter Masala", desc: "Creamy, rich, restaurant-style.\nJust add paneer to GrabV,\nsimmer 5 minutes, finish with butter." },
@@ -626,7 +636,7 @@ export default function Home() {
               ))}
             </div>
             {/* Non-Vegetarian Pill with Horizontal Lines */}
-            <div className="w-full max-w-[1240px] px-16 flex items-center gap-8 mt-24 mb-12 opacity-80">
+            <div className="w-full max-w-[1440px] mx-auto px-8 flex items-center gap-8 mt-24 mb-12 opacity-80">
               <div className="flex-1 h-[2px]" style={{ backgroundColor: 'rgb(247, 0, 52)' }} />
               <div className="flex items-center gap-3 px-8 py-3 rounded-full" style={{ backgroundColor: 'rgba(247, 0, 52, 0.15)' }}>
                 <div className="w-3.5 h-3.5 rounded-full" style={{ backgroundColor: 'rgb(247, 0, 52)' }} />
@@ -638,7 +648,7 @@ export default function Home() {
             </div>
 
             {/* Non-Vegetarian Grid */}
-            <div className="w-full max-w-[1240px] px-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-28 mb-32">
+            <div className="w-full max-w-[1440px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-28 mb-32">
               {[
                 { title: "Paneer Butter Masala", desc: "Creamy, rich, restaurant-style.\nJust add paneer to GrabV,\nsimmer 5 minutes, finish with butter." },
                 { title: "Paneer Butter Masala", desc: "Creamy, rich, restaurant-style.\nJust add paneer to GrabV,\nsimmer 5 minutes, finish with butter." },
@@ -682,7 +692,7 @@ export default function Home() {
 
             {/* CTA Banner Section */}
             <div
-              className="w-full max-w-[1240px] rounded-[20px] p-10 flex flex-col md:flex-row items-center justify-between gap-8 mb-10 overflow-hidden relative"
+              className="w-full max-w-[1440px] mx-auto rounded-[20px] px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-8 mb-10 overflow-hidden relative"
               style={{ backgroundColor: 'rgb(21, 107, 54)' }}
             >
               <div className="flex flex-col items-start text-left z-10">
@@ -706,7 +716,7 @@ export default function Home() {
 
         {/* Manufacturing Process Section */}
         <section className="w-full pt-16 pb-32 flex flex-col items-center" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
-          <div className="w-full max-w-[1240px] px-6 flex flex-col items-start">
+          <div className="w-full max-w-[1440px] mx-auto px-8 flex flex-col items-start">
 
             {/* Header Content - Centered manually */}
             <div className="w-full flex flex-col items-center text-center mb-8">
@@ -780,7 +790,7 @@ export default function Home() {
         </section>
         {/* Reviews & Final CTA Section */}
         <section className="w-full py-32 flex flex-col items-center" style={{ backgroundColor: 'rgb(21, 107, 54)' }}>
-          <div className="w-full max-w-[1240px] px-6 flex flex-col items-start">
+          <div className="w-full max-w-[1440px] mx-auto px-8 flex flex-col items-start">
 
             {/* Header Content - Centered manually */}
             <div className="w-full flex flex-col items-center text-center mb-20">
@@ -807,7 +817,7 @@ export default function Home() {
               {[1, 2, 3].map((item, idx) => (
                 <div
                   key={idx}
-                  className="w-full max-w-[1550px] h-[277px] px-16 py-12 rounded-[15px] flex flex-col items-start justify-center text-left relative"
+                  className="w-full max-w-[1440px] mx-auto h-[277px] px-8 py-12 rounded-[15px] flex flex-col items-start justify-center text-left relative"
                   style={{ backgroundColor: 'rgb(42, 119, 50)' }}
                 >
                   {/* Stars - all 5 with gap-1 */}
@@ -843,7 +853,7 @@ export default function Home() {
 
             {/* Final CTA Box */}
             <div
-              className="w-full max-w-[1282px] h-[635px] rounded-[15px] p-24 flex flex-col items-center justify-center text-center relative overflow-hidden"
+              className="w-full max-w-[1440px] mx-auto h-[635px] rounded-[15px] p-24 flex flex-col items-center justify-center text-center relative overflow-hidden"
               style={{ backgroundColor: 'rgb(12, 61, 27)' }}
             >
               {/* Badge */}
@@ -894,7 +904,7 @@ export default function Home() {
       </main>
       {/* Footer Section */}
       <footer className="w-full py-10 flex flex-col items-center border-t border-white/5" style={{ backgroundColor: 'rgb(12, 61, 27)' }}>
-        <div className="w-full max-w-[1240px] px-6 flex flex-col">
+        <div className="w-full max-w-[1440px] mx-auto px-8 flex flex-col">
 
           <div className="w-full flex justify-between gap-16 mb-8">
 
