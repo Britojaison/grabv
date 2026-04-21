@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -22,12 +23,12 @@ export default function Home() {
           </div>
 
           <nav className="flex items-center gap-12 text-white font-medium">
-            <a href="#" className="hover:text-brand-yellow transition-colors text-[18px]">Home</a>
-            <a href="#" className="hover:text-brand-yellow transition-colors text-[18px]">Recipes</a>
-            <a href="#" className="hover:text-brand-yellow transition-colors text-[18px]">Products</a>
-            <a href="#" className="hover:text-brand-yellow transition-colors text-[18px] whitespace-nowrap">our Story</a>
-            <a href="#" className="hover:text-brand-yellow transition-colors text-[18px] whitespace-nowrap">Contact us</a>
-            <a href="#" className="hover:text-brand-yellow transition-colors text-[18px]">FAQ</a>
+            <Link href="/" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Home</Link>
+            <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Recipes</Link>
+            <Link href="/products" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Products</Link>
+            <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">our Story</Link>
+            <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Contact us</Link>
+            <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">FAQ</Link>
           </nav>
 
           <button
