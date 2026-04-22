@@ -26,8 +26,8 @@ export default function Home() {
             <Link href="/" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Home</Link>
             <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Recipes</Link>
             <Link href="/products" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Products</Link>
-            <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">our Story</Link>
-            <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Contact us</Link>
+            <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Our Story</Link>
+            <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Contact Us</Link>
             <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">FAQ</Link>
           </nav>
 
@@ -72,14 +72,14 @@ export default function Home() {
               style={{ height: '60px', backgroundColor: 'rgb(247, 216, 13)' }}
               className="w-fit px-8 rounded-full flex items-center justify-center gap-3 mb-8 shadow-md"
             >
-              <Image
-                src="/images/leaf.svg"
-                alt="Leaf"
-                width={27}
-                height={27}
-                className="w-auto h-auto"
-                style={{ filter: 'brightness(0) invert(34%) sepia(35%) saturate(1048%) hue-rotate(97deg) brightness(93%) contrast(92%)' }}
-              />
+              <div className="relative w-[27px] h-[27px] shrink-0" style={{ filter: 'brightness(0) invert(34%) sepia(35%) saturate(1048%) hue-rotate(97deg) brightness(93%) contrast(92%)' }}>
+                <Image
+                  src="/images/leaf.svg"
+                  alt="Leaf"
+                  fill
+                  className="object-contain"
+                />
+              </div>
               <span className="font-bomstad font-medium tracking-wide whitespace-nowrap" style={{ fontSize: '27px', color: 'rgb(21, 107, 54)' }}>
                 Fresh & Flavorful
               </span>
@@ -308,13 +308,12 @@ export default function Home() {
                 {/* Chef Illustration - Decreased size and moved higher */}
                 {/* Chef Illustration - Moved higher */}
                 {/* Chef Illustration - Moved down slightly to not crowd the red text */}
-                <div className="w-[220px] h-[220px] mb-0 z-10 transition-all">
+                <div className="relative w-[220px] h-[220px] mb-0 z-10 transition-all shrink-0">
                   <Image
                     src="/images/cook.svg"
                     alt="Chef Illustration"
-                    width={220}
-                    height={220}
-                    className="object-contain w-auto h-auto"
+                    fill
+                    className="object-contain"
                   />
                 </div>
 
@@ -324,7 +323,7 @@ export default function Home() {
                   className="rounded-[10px] flex items-center justify-between px-6 shadow-sm z-0 mt-0"
                 >
                   <div className="flex items-center gap-2">
-                    <Image src="/images/clock.svg" alt="Clock" width={24} height={24} />
+                    <Image src="/images/clock.svg" alt="Clock" width={24} height={24} style={{ width: 'auto', height: 'auto' }} />
                     <div className="flex flex-col">
                       <span className="font-bold text-[18px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>10 Min</span>
                       <span className="text-[10px] font-bold" style={{ color: 'rgb(16, 107, 54)', letterSpacing: '0.05em' }}>cooking time</span>

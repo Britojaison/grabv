@@ -75,8 +75,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`h-full antialiased ${kuraDisplay.variable} ${bomstadDisplay.variable}`}>
-      <body className="min-h-full flex flex-col font-bomstad">{children}</body>
+    <html lang="en" suppressHydrationWarning={true} className={`h-full antialiased ${kuraDisplay.variable} ${bomstadDisplay.variable}`}>
+      <body suppressHydrationWarning={true} className="min-h-full flex flex-col font-bomstad">{children}</body>
     </html>
   );
 }
