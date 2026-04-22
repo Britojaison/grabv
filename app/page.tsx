@@ -284,63 +284,52 @@ export default function Home() {
         </section>
 
         {/* Pouch To Plate Section */}
-        <section className="w-full py-24 flex flex-col items-center" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
+        <section className="w-full pt-28 pb-24 flex flex-col items-center" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
           <div className="w-full max-w-[1440px] mx-auto px-8">
 
-            {/* Header Row */}
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-12 mb-20 pt-12 relative">
+            {/* Header */}
+            <div className="flex flex-col items-center text-center mb-28">
+              <h2 className="font-kura leading-[0.9] text-[46px] sm:text-[56px] lg:text-[65px] m-0 p-0">
+                <span style={{ color: 'rgb(247, 0, 52)' }}>Pouch To Plate </span>
+                <span style={{ color: 'rgb(21, 107, 54)' }}>In 5 Steps</span>
+              </h2>
+              <p className="font-bomstad font-normal text-[17px] sm:text-[20px] lg:text-[25px] leading-[1.2] mt-4" style={{ color: 'rgb(21, 107, 54)' }}>
+                No Chopping. No Prep. No Recipe Needed
+              </p>
 
-              {/* Titles */}
-              <div className="flex flex-col items-start text-left">
-                <h2 className="font-kura leading-[0.9] text-[65px] m-0 p-0" style={{ color: 'rgb(247, 0, 52)' }}>
-                  Pouch To Plate
-                </h2>
-                <h2 className="font-kura leading-[0.9] text-[65px] mb-8" style={{ color: 'rgb(21, 107, 54)' }}>
-                  In 4 Steps
-                </h2>
-                <p className="font-bomstad font-normal text-[25px] leading-[1.2]" style={{ color: 'rgb(21, 107, 54)' }}>
-                  No Chopping. No Prep. No Recipe Needed
-                </p>
-              </div>
-
-              {/* Chef and Stats Pill Container */}
-              <div className="flex flex-col items-center relative pt-10">
-                {/* Chef Illustration - Decreased size and moved higher */}
-                {/* Chef Illustration - Moved higher */}
-                {/* Chef Illustration - Moved down slightly to not crowd the red text */}
-                <div className="relative w-[220px] h-[220px] mb-0 z-10 transition-all shrink-0">
+              <div className="flex flex-col items-center mt-7">
+                <div className="relative w-[320px] h-[327px] sm:w-[367px] sm:h-[375px] z-10 shrink-0">
                   <Image
                     src="/images/cook.svg"
-                    alt="Chef Illustration"
+                    alt="Chef cooking with GrabV"
                     fill
                     className="object-contain"
                   />
                 </div>
 
-                {/* Stats Pill - Exact Figma dimensions 528x54 and sitting right below chef */}
                 <div
-                  style={{ backgroundColor: 'rgb(247, 216, 13)', width: '528px', height: '54px' }}
-                  className="rounded-[10px] flex items-center justify-between px-6 shadow-sm z-0 mt-0"
+                  style={{ backgroundColor: 'rgb(247, 216, 13)' }}
+                  className="w-full max-w-[528px] min-h-[54px] rounded-[10px] flex flex-wrap sm:flex-nowrap items-center justify-center sm:justify-between gap-x-4 gap-y-3 px-5 py-3 shadow-sm -mt-1"
                 >
                   <div className="flex items-center gap-2">
-                    <Image src="/images/clock.svg" alt="Clock" width={24} height={24} style={{ width: 'auto', height: 'auto' }} />
-                    <div className="flex flex-col">
+                    <Image src="/images/clock.svg" alt="" width={31} height={31} />
+                    <div className="flex flex-col text-left">
                       <span className="font-bold text-[18px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>10 Min</span>
                       <span className="text-[10px] font-bold" style={{ color: 'rgb(16, 107, 54)', letterSpacing: '0.05em' }}>cooking time</span>
                     </div>
                   </div>
-                  <div className="w-[1px] h-8 bg-neutral-400/30" />
-                  <div className="flex flex-col">
+                  <div className="hidden sm:block w-[1px] h-8 bg-neutral-400/30" />
+                  <div className="flex flex-col text-left">
                     <span className="font-bold text-[18px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>Zero %</span>
                     <span className="text-[10px] font-bold" style={{ color: 'rgb(16, 107, 54)', letterSpacing: '0.05em' }}>Preservatives</span>
                   </div>
-                  <div className="w-[1px] h-8 bg-neutral-400/30" />
-                  <div className="flex flex-col">
+                  <div className="hidden sm:block w-[1px] h-8 bg-neutral-400/30" />
+                  <div className="flex flex-col text-left">
                     <span className="font-bold text-[18px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>20+</span>
                     <span className="text-[10px] font-bold" style={{ color: 'rgb(16, 107, 54)', letterSpacing: '0.05em' }}>Dishes possible</span>
                   </div>
-                  <div className="w-[1px] h-8 bg-neutral-400/30" />
-                  <div className="flex flex-col">
+                  <div className="hidden sm:block w-[1px] h-8 bg-neutral-400/30" />
+                  <div className="flex flex-col text-left">
                     <span className="font-bold text-[18px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>750 G</span>
                     <span className="text-[10px] font-bold" style={{ color: 'rgb(16, 107, 54)', letterSpacing: '0.05em' }}>Per pouch</span>
                   </div>
@@ -349,36 +338,34 @@ export default function Home() {
             </div>
 
             {/* Steps Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20">
+            <div className="mx-auto grid w-full max-w-[1284px] grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-20">
               {[
                 { step: 1, text: "Add your tempering\n(tadka) in oil." },
-                { step: 2, text: "Sauté veggies or\nprotein of your\nchoice." },
-                { step: 3, text: "Pour GrabV & adjust\nconsistency" },
+                { step: 2, text: "Sauté veggies or\nprotein of your choice." },
+                { step: 3, text: "Pour GrabV &\nadjust consistency" },
                 { step: 4, text: "Sprinkle spices\n& salt to taste." },
-                { step: 5, text: "Cook for 10 mins\nand enjoy!" },
-                { step: 6, text: "Home cooked\ntaste, ready in 10\nmins." }
+                { step: 5, text: "Cook for 10 mins\nand enjoy!" }
               ].map((item) => (
                 <div key={item.step} className="flex flex-col items-center">
-                  <div className="relative group">
-                    {/* Yellow Inverted Step Label - Overlapping card top edge as per Figma */}
+                  <div className="relative group w-full max-w-[230px]">
                     <div
-                      className="absolute -top-[36px] left-1/2 -translate-x-1/2 w-[178px] h-[72px] rounded-b-full flex items-center justify-center z-20 pb-2 shadow-md"
+                      className="absolute -top-[34px] left-1/2 -translate-x-1/2 w-[124px] h-[42px] rounded-full border-2 border-[#f70034] flex items-center justify-center z-20 shadow-sm"
                       style={{ backgroundColor: 'rgb(247, 216, 13)' }}
                     >
-                      <span className="font-kura text-[28px] text-[#f70034]">Step {item.step}</span>
+                      <span className="font-kura text-[21px] leading-none text-[#f70034]">Step {item.step}</span>
                     </div>
 
-                    {/* Step Card */}
-                    <div className="bg-white rounded-[20px] p-6 shadow-sm border border-neutral-100 flex flex-col items-center text-center w-[380px] h-[480px]">
-                      <div className="relative w-[340px] h-[300px] mb-8 rounded-[15px] overflow-hidden">
+                    <div className="bg-white rounded-[5px] p-[5px] shadow-sm border border-[rgb(247,216,13)] flex flex-col items-center text-center w-full h-[290px]">
+                      <div className="relative w-full h-[180px] mb-6 rounded-[5px] overflow-hidden">
                         <Image
                           src={`/images/step ${item.step}.svg`}
                           alt={`Step ${item.step}`}
                           fill
+                          sizes="(max-width: 640px) 230px, 20vw"
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>
-                      <p className="font-bomstad font-normal text-[25px] leading-[1.3] whitespace-pre-line" style={{ color: 'rgb(21, 107, 54)' }}>
+                      <p className="font-bomstad font-normal text-[18px] leading-[22px] whitespace-pre-line px-2 text-center" style={{ color: 'rgb(21, 107, 54)' }}>
                         {item.text}
                       </p>
                     </div>
@@ -404,19 +391,29 @@ export default function Home() {
           </div>
 
           {/* Content Wrapper */}
-          <div className="relative w-full max-w-[1440px] mx-auto px-8 z-10 flex flex-col items-start pb-8">
+          <div className="relative w-full max-w-[1440px] mx-auto px-8 lg:px-[80px] z-10 flex flex-col items-start pb-8">
 
             {/* Top Row: Headings and Showcase Image */}
             <div className="w-full flex flex-col lg:flex-row justify-between items-start gap-8 mb-8 -mt-6">
               <div className="flex flex-col items-start w-full lg:w-[50%]">
                 {/* Ingredients Pill */}
-                <div
-                  className="px-6 py-2 rounded-full mb-6 shadow-md"
-                  style={{ backgroundColor: 'rgb(247, 0, 52)' }}
-                >
-                  <span className="text-white font-bold text-[20px] font-bomstad tracking-wider">
-                    Ingredients & Purity
-                  </span>
+                <div className="relative w-[325px] h-[60px] mb-6 opacity-100">
+                  <div
+                    className="absolute inset-0 w-[325px] h-[60px] rounded-[100px] flex items-center justify-center"
+                    style={{ backgroundColor: 'rgb(247, 0, 52)' }}
+                  >
+                    <span className="text-white font-bold text-[23px] font-bomstad tracking-wider">
+                      Ingredients & Purity
+                    </span>
+                  </div>
+                  <div className="absolute inset-0 -rotate-[2.01deg]">
+                    <Image
+                      src="/images/corner rectangle.svg"
+                      alt=""
+                      fill
+                      className="pointer-events-none object-contain"
+                    />
+                  </div>
                 </div>
 
                 {/* Main Heading */}
@@ -432,12 +429,12 @@ export default function Home() {
                 {/* Subtitle */}
                 <p className="max-w-2xl font-bomstad font-normal leading-[1.3] text-[25px]" style={{ color: 'rgb(21, 107, 54)' }}>
                   Every ingredient printed. Every batch tested.<br />
-                  You deserve to know what you're feeding your family.
+                  You deserve to know what you&apos;re feeding your family.
                 </p>
               </div>
 
-              {/* Showcase Image - cook2.svg - Responsive intrinsic aspect ratio to prevent cropping */}
-              <div className="w-full lg:w-[650px] aspect-[462/367] relative -mt-20 shrink-0 lg:mr-12">
+              {/* Showcase Image */}
+              <div className="w-full lg:w-[651px] lg:h-[367px] relative -mt-20 shrink-0 lg:mr-12">
                 <Image
                   src="/images/cook2.svg"
                   alt="Cooking Showcase"
@@ -448,7 +445,7 @@ export default function Home() {
             </div>
 
             {/* Ingredients Grid - Tightened spacing */}
-            <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-4 mt-2">
+            <div className="w-full lg:w-[1146px] lg:h-[402px] rounded-[10px] grid grid-cols-1 lg:grid-cols-2 gap-x-[120px] gap-y-8 mt-2">
               {[
                 { img: 'onion.svg', title: 'Fresh Onions', desc: 'Slow-fried to golden' },
                 { img: 'cumin.svg', title: 'Whole Cumin & Coriander', desc: 'Bloom-roasted for full aroma' },
@@ -457,9 +454,8 @@ export default function Home() {
                 { img: 'garlic.svg', title: 'Fresh Ginger & Garlic', desc: 'Paste made daily, not dried powder' },
                 { img: 'oil.svg', title: 'Cold-Pressed Sunflower Oil', desc: 'Unrefined, no trans fats' },
               ].map((item, idx) => (
-                <div key={idx} className="flex items-center gap-4">
-                  {/* Ingredient Icon Frame - Shrined to 100x100 */}
-                  <div className="w-[100px] h-[100px] flex-shrink-0 flex items-center justify-center p-2">
+                <div key={idx} className="flex items-center gap-8">
+                  <div className="w-[117px] h-[119px] flex-shrink-0 flex items-center justify-center">
                     <div className="relative w-full h-full">
                       <Image
                         src={`/images/${item.img}`}
@@ -470,11 +466,11 @@ export default function Home() {
                     </div>
                   </div>
                   {/* Ingredient Text */}
-                  <div className="flex flex-col">
-                    <h4 className="font-bomstad font-bold text-[30px] leading-tight" style={{ color: 'rgb(21, 107, 54)' }}>
+                  <div className="flex flex-col gap-3">
+                    <h4 className="font-bomstad font-bold text-[30px] leading-[32px]" style={{ color: 'rgb(21, 107, 54)' }}>
                       {item.title}
                     </h4>
-                    <p className="font-bomstad font-normal text-[25px] leading-tight" style={{ color: 'rgb(12, 61, 27)' }}>
+                    <p className="font-bomstad font-normal text-[18px] leading-[22px]" style={{ color: 'rgb(12, 61, 27)' }}>
                       {item.desc}
                     </p>
                   </div>
@@ -482,19 +478,7 @@ export default function Home() {
               ))}
             </div>
 
-            {/* Red Accent Bar & Long Line from Figma - Made more visible */}
-            <div className="w-full flex items-center justify-center mt-16 relative h-[19px]">
-              {/* Long thin line - passing through center */}
-              <div
-                className="absolute w-full h-[2px] top-1/2 -translate-y-1/2 left-0 right-0 z-0"
-                style={{ backgroundColor: 'rgb(247, 0, 52)' }}
-              />
-              {/* Red Pill */}
-              <div
-                className="rounded-full shadow-sm z-10 relative"
-                style={{ backgroundColor: 'rgb(247, 0, 52)', width: '646px', height: '19px' }}
-              />
-            </div>
+            <div className="w-full mt-16 h-[19px]" />
 
           </div>
         </section>
@@ -569,11 +553,22 @@ export default function Home() {
             {/* Content Wrapper */}
             <div className="relative z-10 flex flex-col items-center">
               {/* Make 20+ dishes Pill */}
-              <div
-                className="px-8 py-2 rounded-full mb-10 overflow-hidden shadow-sm"
-                style={{ backgroundColor: 'rgb(97, 143, 40)' }}
-              >
-                <span className="font-bold text-[22px] tracking-tight" style={{ color: 'rgb(247, 216, 13)' }}>
+              <div className="relative w-[313px] h-[83px] mb-10">
+                <div className="absolute left-[0.76px] top-[7.36px] w-[308.483px] h-[67px] rounded-[100px]">
+                  <Image
+                    src="/images/yellow rectangle.svg"
+                    alt=""
+                    fill
+                    className="pointer-events-none object-fill"
+                  />
+                </div>
+                <Image
+                  src="/images/red border.svg"
+                  alt=""
+                  fill
+                  className="pointer-events-none object-contain"
+                />
+                <span className="absolute inset-0 flex items-center justify-center font-bomstad font-semibold text-[18px] leading-none tracking-normal" style={{ color: 'rgb(21, 107, 54)' }}>
                   Make 20+ dishes with GrabV
                 </span>
               </div>
@@ -650,10 +645,10 @@ export default function Home() {
                         Indian classic
                       </span>
                     </div>
-                    <h3 className="font-kura text-[30px] leading-tight mb-4 whitespace-nowrap" style={{ color: 'rgb(247, 0, 52)' }}>
+                    <h3 className="font-bomstad font-bold text-[30px] leading-none tracking-normal mb-4 whitespace-nowrap" style={{ color: 'rgb(247, 0, 52)' }}>
                       {item.title}
                     </h3>
-                    <p className="font-bomstad text-[25px] leading-[1.4] font-normal whitespace-pre-line" style={{ color: 'rgb(21, 107, 54)' }}>
+                    <p className="font-bomstad text-[18px] leading-none tracking-normal font-normal whitespace-pre-line" style={{ color: 'rgb(21, 107, 54)' }}>
                       {item.desc}
                     </p>
                   </div>
@@ -707,10 +702,10 @@ export default function Home() {
                         Indian classic
                       </span>
                     </div>
-                    <h3 className="font-kura text-[30px] leading-tight mb-4 whitespace-nowrap" style={{ color: 'rgb(247, 0, 52)' }}>
+                    <h3 className="font-bomstad font-bold text-[30px] leading-none tracking-normal mb-4 whitespace-nowrap" style={{ color: 'rgb(247, 0, 52)' }}>
                       {item.title}
                     </h3>
-                    <p className="font-bomstad text-[25px] leading-[1.4] font-normal whitespace-pre-line" style={{ color: 'rgb(21, 107, 54)' }}>
+                    <p className="font-bomstad text-[18px] leading-none tracking-normal font-normal whitespace-pre-line" style={{ color: 'rgb(21, 107, 54)' }}>
                       {item.desc}
                     </p>
                   </div>
@@ -750,11 +745,22 @@ export default function Home() {
             <div className="w-full flex flex-col items-center text-center mb-8">
 
               {/* Badge */}
-              <div
-                className="px-8 py-2 rounded-full mb-10"
-                style={{ backgroundColor: 'rgba(247, 0, 52, 0.15)' }}
-              >
-                <span className="font-bold text-[22px] tracking-tight" style={{ color: 'rgb(247, 0, 52)' }}>
+              <div className="relative w-[282px] h-[75px] mb-10">
+                <div className="absolute left-[0.69px] top-[6.46px] w-[277.615px] h-[60px] rounded-[100px]">
+                  <Image
+                    src="/images/red rectangle.svg"
+                    alt=""
+                    fill
+                    className="pointer-events-none object-fill"
+                  />
+                </div>
+                <Image
+                  src="/images/green border.svg"
+                  alt=""
+                  fill
+                  className="pointer-events-none object-contain"
+                />
+                <span className="absolute inset-0 flex items-center justify-center font-bomstad font-semibold text-[18px] leading-none tracking-normal text-white">
                   Manufacturing Process
                 </span>
               </div>
@@ -766,9 +772,9 @@ export default function Home() {
               </h2>
 
               {/* Subtext */}
-              <div className="max-w-4xl text-[26px] font-bold leading-[1.3] mb-12 px-6 opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+              <div className="max-w-4xl text-[18px] font-bomstad font-normal leading-[1.25] tracking-normal text-center mb-12 px-6 opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
                 No factory line. No bulk shortcuts. Every batch is made by hand<br />
-                the way a good cook would – because that's the only way it<br />
+                the way a good cook would – because that&apos;s the only way it<br />
                 tastes right.
               </div>
             </div>
@@ -797,17 +803,17 @@ export default function Home() {
                       fill
                       className="object-contain"
                     />
-                    <span className="font-kura text-[65px] relative z-10" style={{ color: 'rgb(247, 0, 52)' }}>
+                    <span className="font-kura text-[50px] leading-none tracking-normal relative z-10 w-[30px] h-[40px] flex items-center justify-center pt-[4px]" style={{ color: 'rgb(247, 0, 52)' }}>
                       {item.step}
                     </span>
                   </div>
 
                   {/* Text Content */}
                   <div className="flex flex-col items-start text-left max-w-3xl">
-                    <h4 className="font-bomstad text-[30px] font-medium leading-tight mb-2" style={{ color: 'rgb(21, 107, 54)' }}>
+                    <h4 className="font-bomstad text-[30px] font-semibold leading-none tracking-normal mb-6" style={{ color: 'rgb(21, 107, 54)' }}>
                       {item.title}
                     </h4>
-                    <p className="font-bomstad text-[30px] font-normal leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                    <p className="font-bomstad text-[18px] font-normal leading-none tracking-normal opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
                       {item.desc}
                     </p>
                   </div>
@@ -834,11 +840,13 @@ export default function Home() {
 
             <div className="relative z-10 flex flex-col items-center">
               {/* What people are saying Pill */}
-              <div
-                className="px-8 py-2 rounded-full mb-10 border-2 border-[rgb(12,61,27)]"
-                style={{ backgroundColor: 'rgb(247, 216, 13)' }}
-              >
-                <span className="font-bold text-[22px] tracking-tight" style={{ color: 'rgb(12, 61, 27)' }}>
+              <div className="relative w-[256.03px] h-[72.28px] mb-10">
+                <div
+                  className="absolute inset-0 rounded-[100px]"
+                  style={{ backgroundColor: 'rgb(247, 216, 13)' }}
+                />
+                <div className="absolute inset-0 rounded-[100px] border-2 border-[rgb(247,0,52)] rotate-[2.74deg]" />
+                <span className="absolute inset-0 flex items-center justify-center font-bomstad font-semibold text-[18px] leading-none tracking-normal" style={{ color: 'rgb(21, 107, 54)' }}>
                   What people are saying
                 </span>
               </div>
@@ -853,7 +861,7 @@ export default function Home() {
 
           {/* Review Cards Grid */}
           <div className="w-full max-w-[1440px] mx-auto px-8 py-20 grid grid-cols-1 md:grid-cols-3 gap-8 pb-32">
-            {[1, 2, 3, 4, 5, 6].map((item) => (
+            {[1, 2, 3].map((item) => (
               <div key={item} className="p-8 rounded-[20px] bg-white border border-[rgb(247, 216, 13)] shadow-sm flex flex-col gap-6">
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-16 rounded-full overflow-hidden relative border border-neutral-100">
@@ -870,7 +878,7 @@ export default function Home() {
                   ))}
                 </div>
                 <p className="text-[18px] leading-relaxed font-medium" style={{ color: 'rgb(21, 107, 54)' }}>
-                  "I was sceptical — how can a ready base taste this good? The onions are actually caramelised properly. My husband thought I'd been cooking all afternoon."
+                  &quot;I was sceptical — how can a ready base taste this good? The onions are actually caramelised properly. My husband thought I&apos;d been cooking all afternoon.&quot;
                 </p>
               </div>
             ))}
