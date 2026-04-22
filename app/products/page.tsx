@@ -26,7 +26,7 @@ export default function ProductsListPage() {
                         <Link href="/" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Home</Link>
                         <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Recipes</Link>
                         <Link href="/products" className="text-[rgb(247,216,13)] transition-colors text-[18px]">Products</Link>
-                        <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Our Story</Link>
+                        <Link href="/ourstory" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Our Story</Link>
                         <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Contact Us</Link>
                         <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">FAQ</Link>
                     </nav>
@@ -129,7 +129,7 @@ export default function ProductsListPage() {
                     <div className="rounded-[30px] p-10 flex flex-col h-full" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
                         <h4 className="text-[28px] font-bold mb-8" style={{ color: 'rgb(247, 216, 13)' }}>Company</h4>
                         <div className="flex flex-col gap-4 text-[20px] font-medium font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
-                            <Link href="#" className="hover:opacity-80 transition-opacity">Our Story</Link>
+                            <Link href="/ourstory" className="hover:opacity-80 transition-opacity">Our Story</Link>
                             <Link href="#" className="hover:opacity-80 transition-opacity">Process</Link>
                             <Link href="#" className="hover:opacity-80 transition-opacity">Quality Promise</Link>
                             <Link href="#" className="hover:opacity-80 transition-opacity">Contact Us</Link>
