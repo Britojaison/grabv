@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import MobileNav from "../components/MobileNav";
 
 export default function OurStoryPage() {
     return (
@@ -10,19 +11,19 @@ export default function OurStoryPage() {
                 style={{ backgroundColor: 'rgb(12, 61, 27)' }}
                 className="relative z-[100] w-full flex-shrink-0 shadow-md"
             >
-                <div className="max-w-[1440px] mx-auto px-8 h-[80px] flex items-center justify-between">
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-[64px] lg:h-[80px] flex items-center justify-between">
                     <Link href="/" className="flex items-center">
                         <Image
                             src="/images/logo.svg"
                             alt="GrabV Logo"
                             width={110}
                             height={40}
-                            className="w-auto h-12"
+                            className="w-auto h-9 lg:h-12"
                             priority
                         />
                     </Link>
 
-                    <nav className="flex items-center gap-12 text-white font-medium">
+                    <nav className="hidden lg:flex items-center gap-12 text-white font-medium">
                         <Link href="/" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Home</Link>
                         <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Recipes</Link>
                         <Link href="/products" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Products</Link>
@@ -31,20 +32,20 @@ export default function OurStoryPage() {
                         <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">FAQ</Link>
                     </nav>
 
-                    <button
-                        style={{
-                            width: '142px',
-                            height: '37px',
-                            borderRadius: '5px',
-                            fontSize: '18px',
-                            backgroundColor: 'rgb(247, 216, 13)',
-                            color: 'rgb(12, 61, 27)',
-                            letterSpacing: '0.05em'
-                        }}
-                        className="font-bomstad font-medium flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0"
-                    >
-                        Order Now
-                    </button>
+                    <div className="flex items-center gap-4">
+                        <button
+                            style={{
+                                borderRadius: '5px',
+                                backgroundColor: 'rgb(247, 216, 13)',
+                                color: 'rgb(12, 61, 27)',
+                                letterSpacing: '0.05em'
+                            }}
+                            className="hidden lg:flex font-bomstad font-medium items-center justify-center hover:bg-yellow-400 transition-colors shrink-0 w-[142px] h-[37px] text-[18px]"
+                        >
+                            Order Now
+                        </button>
+                        <MobileNav activePage="Our Story" />
+                    </div>
                 </div>
             </header>
 
@@ -52,7 +53,7 @@ export default function OurStoryPage() {
             <main className="w-full relative flex flex-col items-center">
 
                 {/* Breadcrumb Section */}
-                <div className="w-full max-w-[1440px] mx-auto px-8 py-6">
+                <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
                     <div className="flex items-center gap-2 text-[16px] font-normal font-bomstad" style={{ color: 'rgb(21, 107, 54)' }}>
                         <Link href="/" className="hover:opacity-70 transition-opacity">Home</Link>
                         <span>/</span>
@@ -73,7 +74,7 @@ export default function OurStoryPage() {
                         />
                     </div>
 
-                    <div className="relative w-full max-w-[1440px] mx-auto px-8 z-10 flex flex-col lg:flex-row items-center gap-12">
+                    <div className="relative w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 z-10 flex flex-col lg:flex-row items-center gap-12">
 
                         {/* Left Content */}
                         <div className="w-full lg:w-[55%] flex flex-col items-start">
@@ -84,7 +85,7 @@ export default function OurStoryPage() {
                                     style={{ backgroundColor: 'rgb(247, 0, 52)' }}
                                     className="px-10 py-3.5 rounded-full relative z-10"
                                 >
-                                    <span className="text-white font-normal text-[25px] font-bomstad tracking-wider whitespace-nowrap">
+                                    <span className="text-white font-normal text-[16px] sm:text-[20px] lg:text-[25px] font-bomstad tracking-wider whitespace-nowrap">
                                         How it started
                                     </span>
                                 </div>
@@ -101,17 +102,17 @@ export default function OurStoryPage() {
                             </div>
 
                             {/* Heading */}
-                            <h1 className="font-kura leading-[1] mb-10">
-                                <span className="block text-[60px]" style={{ color: 'rgb(21, 107, 54)' }}>A problem <span style={{ color: 'rgb(247, 0, 52)' }}>every</span></span>
-                                <span className="block text-[60px]" style={{ color: 'rgb(21, 107, 54)' }}>family knows</span>
+                            <h1 className="font-kura leading-[1] mb-6 sm:mb-8 lg:mb-10">
+                                <span className="block text-[36px] sm:text-[48px] lg:text-[60px]" style={{ color: 'rgb(21, 107, 54)' }}>A problem <span style={{ color: 'rgb(247, 0, 52)' }}>every</span></span>
+                                <span className="block text-[36px] sm:text-[48px] lg:text-[60px]" style={{ color: 'rgb(21, 107, 54)' }}>family knows</span>
                             </h1>
 
                             {/* Description Texts */}
-                            <div className="flex flex-col gap-8 max-w-[800px]">
-                                <p className="font-bomstad font-normal text-[25px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
+                            <div className="flex flex-col gap-6 sm:gap-8 max-w-[800px]">
+                                <p className="font-bomstad font-normal text-[16px] sm:text-[20px] lg:text-[25px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
                                     Every evening, millions of Indian families face the same question – what's for dinner, and who has 90 minutes to cook it? The onion-tomato masala alone takes longer than most people have after a full day of work.
                                 </p>
-                                <p className="font-bomstad font-normal text-[25px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
+                                <p className="font-bomstad font-normal text-[16px] sm:text-[20px] lg:text-[25px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
                                     Our founder Priya was one of them. A working mother in Bengaluru, she found herself choosing between quick but unhealthy, or homemade but exhausting. There had to be a better way.
                                 </p>
                             </div>
@@ -137,7 +138,7 @@ export default function OurStoryPage() {
                 <section className="w-full py-4 flex flex-col items-center gap-0">
 
                     {/* Top Sub-section: Image Left, Content Right */}
-                    <div className="w-full max-w-[1440px] mx-auto px-8 flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+                    <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
                         {/* Left Content - Image */}
                         <div className="w-full lg:w-[50%] flex justify-center lg:justify-start">
                             <div className="relative w-full aspect-[581/593] max-w-[650px]">
@@ -159,7 +160,7 @@ export default function OurStoryPage() {
                                     style={{ backgroundColor: 'rgb(247, 216, 13)' }}
                                     className="px-10 py-3 rounded-full relative z-10"
                                 >
-                                    <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad tracking-wider whitespace-nowrap">
+                                    <span className="text-[rgb(21,107,54)] font-normal text-[16px] sm:text-[20px] lg:text-[25px] font-bomstad tracking-wider whitespace-nowrap">
                                         Our Story
                                     </span>
                                 </div>
@@ -177,22 +178,22 @@ export default function OurStoryPage() {
 
                             {/* Heading */}
                             <h2 className="font-kura leading-[0.95] mb-6">
-                                <span className="block text-[60px]" style={{ color: 'rgb(21, 107, 54)' }}>Made with</span>
-                                <span className="block text-[60px]">
+                                <span className="block text-[36px] sm:text-[48px] lg:text-[60px]" style={{ color: 'rgb(21, 107, 54)' }}>Made with</span>
+                                <span className="block text-[36px] sm:text-[48px] lg:text-[60px]">
                                     <span style={{ color: 'rgb(21, 107, 54)' }}>love & </span>
                                     <span style={{ color: 'rgb(247, 0, 52)' }}>slow heat</span>
                                 </span>
                             </h2>
 
                             {/* Description text */}
-                            <p className="font-bomstad font-normal text-[25px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
+                            <p className="font-bomstad font-normal text-[16px] sm:text-[20px] lg:text-[25px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
                                 Every evening, millions of Indian families face the same question – what’s for dinner, and who has 90 minutes to cook it? The onion-tomato masala alone takes longer than most people have after a full day of work.
                             </p>
                         </div>
                     </div>
 
                     {/* Bottom Sub-section: Content Left, Image Right */}
-                    <div className="w-full max-w-[1440px] mx-auto px-8 flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-16 -mt-16 lg:-mt-24">
+                    <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-16 -mt-16 lg:-mt-24">
                         {/* Right Content - Image */}
                         <div className="w-full lg:w-[50%] flex justify-center lg:justify-end">
                             <div className="relative w-full aspect-[581/593] max-w-[700px]">
@@ -214,7 +215,7 @@ export default function OurStoryPage() {
                                     style={{ backgroundColor: 'rgb(247, 216, 13)' }}
                                     className="px-10 py-3 rounded-full relative z-10"
                                 >
-                                    <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad tracking-wider whitespace-nowrap">
+                                    <span className="text-[rgb(21,107,54)] font-normal text-[16px] sm:text-[20px] lg:text-[25px] font-bomstad tracking-wider whitespace-nowrap">
                                         Our Story
                                     </span>
                                 </div>
@@ -232,15 +233,15 @@ export default function OurStoryPage() {
 
                             {/* Heading */}
                             <h2 className="font-kura leading-[0.95] mb-6">
-                                <span className="block text-[60px]" style={{ color: 'rgb(21, 107, 54)' }}>Made with</span>
-                                <span className="block text-[60px]">
+                                <span className="block text-[36px] sm:text-[48px] lg:text-[60px]" style={{ color: 'rgb(21, 107, 54)' }}>Made with</span>
+                                <span className="block text-[36px] sm:text-[48px] lg:text-[60px]">
                                     <span style={{ color: 'rgb(21, 107, 54)' }}>love & </span>
                                     <span style={{ color: 'rgb(247, 0, 52)' }}>slow heat</span>
                                 </span>
                             </h2>
 
                             {/* Description text */}
-                            <p className="font-bomstad font-normal text-[25px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
+                            <p className="font-bomstad font-normal text-[16px] sm:text-[20px] lg:text-[25px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
                                 Every evening, millions of Indian families face the same question – what’s for dinner, and who has 90 minutes to cook it? The onion-tomato masala alone takes longer than most people have after a full day of work.
                             </p>
                         </div>
@@ -300,7 +301,7 @@ export default function OurStoryPage() {
 
                 {/* Amit Shah Section */}
                 <section className="w-full py-24 flex flex-col items-center">
-                    <div className="w-full max-w-[1440px] mx-auto px-8 flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
+                    <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
 
                         {/* Left Content - Image & Box */}
                         <div className="w-full lg:w-[45%] flex flex-col items-center">
@@ -344,21 +345,21 @@ export default function OurStoryPage() {
                         {/* Right Content - Text */}
                         <div className="w-full lg:w-[55%] flex flex-col items-start pt-8">
                             <h2 className="font-kura leading-[0.95] mb-12">
-                                <span className="block text-[60px]" style={{ color: 'rgb(21, 107, 54)' }}>Made with</span>
-                                <span className="block text-[60px]">
+                                <span className="block text-[36px] sm:text-[48px] lg:text-[60px]" style={{ color: 'rgb(21, 107, 54)' }}>Made with</span>
+                                <span className="block text-[36px] sm:text-[48px] lg:text-[60px]">
                                     <span style={{ color: 'rgb(21, 107, 54)' }}>love & </span>
                                     <span style={{ color: 'rgb(247, 0, 52)' }}>slow heat</span>
                                 </span>
                             </h2>
 
                             <div className="flex flex-col gap-12">
-                                <p className="font-bomstad font-normal text-[25px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
+                                <p className="font-bomstad font-normal text-[16px] sm:text-[20px] lg:text-[25px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
                                     Our founder Priya was one of them. A working mother in Bengaluru, she found herself choosing between quick but unhealthy, or homemade but exhausting. There had to be a better way.
                                 </p>
 
                                 {/* Paragraph with red left border */}
                                 <div className="pl-10 border-l-[4px]" style={{ borderColor: 'rgb(247, 0, 52)' }}>
-                                    <p className="font-bomstad font-normal text-[25px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
+                                    <p className="font-bomstad font-normal text-[16px] sm:text-[20px] lg:text-[25px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
                                         Our founder Priya was one of them. A working mother in Bengaluru, she found herself choosing between quick but unhealthy, or homemade but exhausting. There had to be a better way.Our founder Priya was one of them. A working mother in Bengaluru, she found herself choosing between quick but unhealthy, or homemade but exhausting. There had to be a better way.
                                     </p>
                                 </div>
@@ -370,8 +371,8 @@ export default function OurStoryPage() {
             </main>
 
             {/* Footer */}
-            <footer className="w-full py-16 px-8" style={{ backgroundColor: 'rgb(21, 107, 54)' }}>
-                <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <footer className="w-full py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'rgb(21, 107, 54)' }}>
+                <div className="max-w-[1440px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
                     {/* Column 1: Brand Box */}
                     <div className="rounded-[30px] p-10 flex flex-col h-full" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>

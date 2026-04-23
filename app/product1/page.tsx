@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import MobileNav from "../components/MobileNav";
 
 export default function ProductsPage() {
     return (
@@ -10,19 +11,19 @@ export default function ProductsPage() {
                 style={{ backgroundColor: 'rgb(12, 61, 27)' }}
                 className="relative z-[100] w-full flex-shrink-0 shadow-md"
             >
-                <div className="max-w-[1440px] mx-auto px-8 h-[80px] flex items-center justify-between">
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-[64px] lg:h-[80px] flex items-center justify-between">
                     <Link href="/" className="flex items-center">
                         <Image
                             src="/images/logo.svg"
                             alt="GrabV Logo"
                             width={110}
                             height={40}
-                            className="w-auto h-12"
+                            className="w-auto h-9 lg:h-12"
                             priority
                         />
                     </Link>
 
-                    <nav className="flex items-center gap-12 text-white font-medium">
+                    <nav className="hidden lg:flex items-center gap-12 text-white font-medium">
                         <Link href="/" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Home</Link>
                         <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Recipes</Link>
                         <Link href="/products" className="text-[rgb(247,216,13)] transition-colors text-[18px]">Products</Link>
@@ -31,20 +32,20 @@ export default function ProductsPage() {
                         <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">FAQ</Link>
                     </nav>
 
-                    <button
-                        style={{
-                            width: '142px',
-                            height: '37px',
-                            borderRadius: '5px',
-                            fontSize: '18px',
-                            backgroundColor: 'rgb(247, 216, 13)',
-                            color: 'rgb(12, 61, 27)',
-                            letterSpacing: '0.05em'
-                        }}
-                        className="font-bomstad font-medium flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0"
-                    >
-                        Order Now
-                    </button>
+                    <div className="flex items-center gap-4">
+                        <button
+                            style={{
+                                borderRadius: '5px',
+                                backgroundColor: 'rgb(247, 216, 13)',
+                                color: 'rgb(12, 61, 27)',
+                                letterSpacing: '0.05em'
+                            }}
+                            className="hidden lg:flex font-bomstad font-medium items-center justify-center hover:bg-yellow-400 transition-colors shrink-0 w-[142px] h-[37px] text-[18px]"
+                        >
+                            Order Now
+                        </button>
+                        <MobileNav activePage="Products" />
+                    </div>
                 </div>
             </header>
 
@@ -52,7 +53,7 @@ export default function ProductsPage() {
             <main className="w-full relative flex flex-col items-center">
 
                 {/* Content Wrapper for Product Info */}
-                <div className="w-full max-w-[1440px] mx-auto px-8 pt-6 pb-20">
+                <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 pb-12 sm:pb-16 lg:pb-20">
                     {/* Breadcrumbs */}
                     <div className="flex items-center gap-2 text-[16px] mb-10 font-normal tracking-wide font-bomstad" style={{ color: 'rgb(21, 107, 54)' }}>
                         <Link href="/" className="hover:opacity-75 transition-opacity">Home</Link>
@@ -113,20 +114,20 @@ export default function ProductsPage() {
                             </div>
 
                             {/* Title */}
-                            <div className="mb-6">
-                                <h1 className="font-kura leading-[0.95] text-[65px] m-0 p-0" style={{ color: 'rgb(21, 107, 54)', textTransform: 'none' }}>
+                            <div className="mb-4 sm:mb-6">
+                                <h1 className="font-kura leading-[0.95] text-[40px] sm:text-[52px] lg:text-[65px] m-0 p-0" style={{ color: 'rgb(21, 107, 54)', textTransform: 'none' }}>
                                     One Gravy
                                 </h1>
-                                <h1 className="font-kura leading-[0.95] text-[65px] m-0 p-0" style={{ color: 'rgb(247, 0, 52)', textTransform: 'none' }}>
+                                <h1 className="font-kura leading-[0.95] text-[40px] sm:text-[52px] lg:text-[65px] m-0 p-0" style={{ color: 'rgb(247, 0, 52)', textTransform: 'none' }}>
                                     Endless
                                 </h1>
-                                <h1 className="font-kura leading-[0.95] text-[65px] m-0 p-0" style={{ color: 'rgb(247, 0, 52)', textTransform: 'none' }}>
+                                <h1 className="font-kura leading-[0.95] text-[40px] sm:text-[52px] lg:text-[65px] m-0 p-0" style={{ color: 'rgb(247, 0, 52)', textTransform: 'none' }}>
                                     Possibilities
                                 </h1>
                             </div>
 
                             {/* Features Bar */}
-                            <div className="mb-12 flex items-center gap-3 text-[22px] font-medium font-bomstad" style={{ color: 'rgb(21, 107, 54)' }}>
+                            <div className="mb-8 sm:mb-10 lg:mb-12 flex flex-wrap items-center gap-2 sm:gap-3 text-[16px] sm:text-[19px] lg:text-[22px] font-medium font-bomstad" style={{ color: 'rgb(21, 107, 54)' }}>
                                 <span>Onion & Tomato</span>
                                 <span>•</span>
                                 <span>Slow Cooked</span>
@@ -189,13 +190,13 @@ export default function ProductsPage() {
                     </div>
 
                     {/* Explore More Products Section */}
-                    <div className="w-full flex flex-col items-start mb-20 px-4">
-                        <h2 className="font-kura leading-none mb-12">
-                            <span className="block text-[65px]" style={{ color: 'rgb(21, 107, 54)' }}>Explore</span>
-                            <span className="block text-[65px]" style={{ color: 'rgb(247, 0, 52)' }}>More Products</span>
+                    <div className="w-full flex flex-col items-start mb-12 sm:mb-16 lg:mb-20 px-0 sm:px-2 lg:px-4">
+                        <h2 className="font-kura leading-none mb-8 sm:mb-10 lg:mb-12">
+                            <span className="block text-[40px] sm:text-[52px] lg:text-[65px]" style={{ color: 'rgb(21, 107, 54)' }}>Explore</span>
+                            <span className="block text-[40px] sm:text-[52px] lg:text-[65px]" style={{ color: 'rgb(247, 0, 52)' }}>More Products</span>
                         </h2>
 
-                        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-10">
+                        <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
                             {[
                                 { status: 'active', title: 'All Purpose Gravy (Onion & Tomato)' },
                                 { status: 'coming_soon', title: 'All Purpose Gravy (Onion & Tomato)' },
@@ -268,7 +269,7 @@ export default function ProductsPage() {
                                 </div>
 
                                 {/* Heading */}
-                                <h2 className="font-kura text-[85px] leading-[0.9] mb-20 text-center">
+                                <h2 className="font-kura text-[40px] sm:text-[60px] lg:text-[85px] leading-[0.9] mb-10 sm:mb-14 lg:mb-20 text-center">
                                     <span className="text-white">Our GrabV </span>
                                     <span style={{ color: 'rgb(247, 216, 13)' }}>Your Review</span>
                                 </h2>
@@ -276,7 +277,7 @@ export default function ProductsPage() {
                         </div>
 
                         {/* Review Cards Grid */}
-                        <div className="w-full max-w-[1440px] mx-auto px-8 py-20 grid grid-cols-1 md:grid-cols-3 gap-8 pb-32">
+                        <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 pb-16 sm:pb-24 lg:pb-32">
                             {[1, 2, 3, 4, 5, 6].map((item) => (
                                 <div key={item} className="p-8 rounded-[20px] bg-white border border-[rgb(247, 216, 13)] shadow-sm flex flex-col gap-6">
                                     <div className="flex items-center gap-4">
@@ -304,41 +305,41 @@ export default function ProductsPage() {
 
                 {/* Final CTA Box */}
                 <div
-                    className="w-full max-w-[1440px] mx-auto h-[635px] rounded-[15px] p-24 flex flex-col items-center justify-center text-center relative overflow-hidden mb-20"
+                    className="w-[calc(100%-2rem)] sm:w-full max-w-[1440px] mx-auto min-h-[400px] sm:min-h-[500px] lg:h-[635px] rounded-[15px] p-8 sm:p-14 lg:p-24 flex flex-col items-center justify-center text-center relative overflow-hidden mb-12 sm:mb-16 lg:mb-20"
                     style={{ backgroundColor: 'rgb(12, 61, 27)' }
                     }
                 >
                     {/* Badge */}
                     <div
-                        className="px-8 py-2 rounded-full mb-6"
+                        className="px-6 sm:px-8 py-2 rounded-full mb-4 sm:mb-6"
                         style={{ backgroundColor: 'rgb(92, 113, 20)' }}
                     >
-                        <span className="font-bold text-[22px] tracking-wide" style={{ color: 'rgb(247, 216, 13)' }}>
+                        <span className="font-bold text-[16px] sm:text-[19px] lg:text-[22px] tracking-wide" style={{ color: 'rgb(247, 216, 13)' }}>
                             Get GrabV
                         </span>
                     </div>
 
                     {/* Heading */}
-                    <h2 className="font-kura text-[85px] leading-[0.9] mb-6">
+                    <h2 className="font-kura text-[36px] sm:text-[55px] lg:text-[85px] leading-[0.9] mb-4 sm:mb-6">
                         <span style={{ color: 'rgb(247, 216, 13)' }}>Ready to cook </span><br />
                         <span className="text-white">smarter, Everyday?</span>
                     </h2>
 
                     {/* Subtext */}
-                    <p className="text-white text-[22px] font-medium opacity-90 mb-12 max-w-3xl leading-relaxed">
+                    <p className="text-white text-[14px] sm:text-[18px] lg:text-[22px] font-medium opacity-90 mb-6 sm:mb-8 lg:mb-12 max-w-3xl leading-relaxed">
                         Order 750g Or 250g pouch.A week of effortless dinners.Zero preservatives.Shipped cold, direct to your door.
                     </p>
 
                     {/* Buttons */}
-                    <div className="flex flex-wrap items-center justify-center gap-6 mb-10">
-                        <button className="bg-[#f70034] text-white w-[260px] py-5 rounded-full text-[24px] font-bold shadow-xl hover:scale-105 transition-all">
+                    <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 lg:gap-6 mb-6 sm:mb-8 lg:mb-10">
+                        <button className="bg-[#f70034] text-white w-[180px] sm:w-[220px] lg:w-[260px] py-3 sm:py-4 lg:py-5 rounded-full text-[18px] sm:text-[21px] lg:text-[24px] font-bold shadow-xl hover:scale-105 transition-all">
                             Order 750g
                         </button>
-                        <button className="bg-white text-[#f70034] w-[260px] py-5 rounded-full text-[24px] font-bold shadow-xl hover:scale-105 transition-all">
+                        <button className="bg-white text-[#f70034] w-[180px] sm:w-[220px] lg:w-[260px] py-3 sm:py-4 lg:py-5 rounded-full text-[18px] sm:text-[21px] lg:text-[24px] font-bold shadow-xl hover:scale-105 transition-all">
                             Order 250g
                         </button>
-                        <button className="bg-white text-[#156b36] w-[260px] py-5 rounded-full text-[24px] font-bold shadow-xl flex items-center justify-center gap-4 hover:scale-105 transition-all">
-                            <div className="w-8 h-8 relative">
+                        <button className="bg-white text-[#156b36] w-[200px] sm:w-[240px] lg:w-[260px] py-3 sm:py-4 lg:py-5 rounded-full text-[18px] sm:text-[21px] lg:text-[24px] font-bold shadow-xl flex items-center justify-center gap-2 sm:gap-4 hover:scale-105 transition-all">
+                            <div className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 relative">
                                 <Image src="/images/whatsapp.svg" alt="WhatsApp" fill className="object-contain" />
                             </div>
                             <span className="text-[24px]">WhatsApp Us</span>
@@ -346,7 +347,7 @@ export default function ProductsPage() {
                     </div>
 
                     {/* Footer text */}
-                    <div className="text-white text-[25px] font-medium tracking-wide flex items-center gap-4 opacity-80">
+                    <div className="text-white text-[12px] sm:text-[18px] lg:text-[25px] font-medium tracking-wide flex flex-wrap items-center justify-center gap-2 sm:gap-4 opacity-80">
                         <span>Free delivery on orders above ₹499</span>
                         <span className="mx-2">•</span>
                         <span>Ships within 48 hours</span>
@@ -360,8 +361,8 @@ export default function ProductsPage() {
             </main>
 
             {/* New Grid Footer Section */}
-            <footer className="w-full py-16 px-8" style={{ backgroundColor: 'rgb(21, 107, 54)' }}>
-                <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <footer className="w-full py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'rgb(21, 107, 54)' }}>
+                <div className="max-w-[1440px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
                     {/* Column 1: Brand Box */}
                     <div className="rounded-[30px] p-10 flex flex-col h-full" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
