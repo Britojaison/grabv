@@ -226,7 +226,7 @@ export default function Home() {
           </div>
 
           {/* Content Wrapper */}
-          <div className="relative w-full max-w-[1440px] mx-auto px-8 z-[40] flex flex-col lg:flex-row items-center pt-0 -mt-10">
+          <div className="relative w-full max-w-[1440px] mx-auto px-8 z-[40] flex flex-col lg:flex-row items-center pt-0 -mt-36">
 
             {/* Left Content */}
             <div className="w-full lg:w-[40%] flex flex-col items-start pt-0">
