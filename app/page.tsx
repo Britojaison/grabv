@@ -861,7 +861,7 @@ export default function Home() {
               </div>
 
               {/* Heading */}
-              <h2 className="font-kura text-[85px] leading-[0.9] mb-20 text-center uppercase">
+              <h2 className="font-kura text-[85px] leading-[0.9] mb-4 text-center uppercase">
                 <span className="text-white">Our GrabV </span>
                 <span style={{ color: 'rgb(247, 216, 13)' }}>Your Review</span>
               </h2>
