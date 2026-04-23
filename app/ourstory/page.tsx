@@ -51,24 +51,15 @@ export default function OurStoryPage() {
             {/* Main Content */}
             <main className="w-full relative flex flex-col items-center">
 
-                {/* Breadcrumb Section */}
-                <div className="w-full max-w-[1440px] mx-auto px-8 py-6">
-                    <div className="flex items-center gap-2 text-[16px] font-normal font-bomstad" style={{ color: 'rgb(21, 107, 54)' }}>
-                        <Link href="/" className="hover:opacity-70 transition-opacity">Home</Link>
-                        <span>/</span>
-                        <span className="font-normal text-[16px]">Our Story</span>
-                    </div>
-                </div>
-
                 {/* Hero Section - How it started */}
-                <section className="w-full relative pt-12 pb-16 flex flex-col items-center overflow-visible">
+                <section className="w-full relative pt-24 pb-48 flex flex-col items-center overflow-visible">
                     {/* Background Layer - Inverted so straight side on top and torn edge on bottom */}
                     <div className="absolute inset-0 z-0 overflow-hidden">
                         <Image
                             src="/images/bg yellow.svg"
                             alt="Yellow Background"
                             fill
-                            className="object-cover object-top -scale-y-100"
+                            className="object-cover object-bottom"
                             priority
                         />
                     </div>
@@ -77,33 +68,11 @@ export default function OurStoryPage() {
 
                         {/* Left Content */}
                         <div className="w-full lg:w-[55%] flex flex-col items-start">
-                            {/* Pill with Custom Border on Top */}
-                            <div className="relative mb-8 inline-block">
-                                {/* Red Pill Background */}
-                                <div
-                                    style={{ backgroundColor: 'rgb(247, 0, 52)' }}
-                                    className="px-10 py-3.5 rounded-full relative z-10"
-                                >
-                                    <span className="text-white font-normal text-[25px] font-bomstad tracking-wider whitespace-nowrap">
-                                        How it started
-                                    </span>
-                                </div>
-
-                                {/* Border SVG on Top */}
-                                <div className="absolute -inset-1 z-20 pointer-events-none">
-                                    <Image
-                                        src="/images/border3.svg"
-                                        alt="Pill Border"
-                                        fill
-                                        className="object-contain"
-                                    />
-                                </div>
-                            </div>
-
-                            {/* Heading */}
-                            <h1 className="font-kura leading-[1] mb-10">
-                                <span className="block text-[60px]" style={{ color: 'rgb(21, 107, 54)' }}>A problem <span style={{ color: 'rgb(247, 0, 52)' }}>every</span></span>
-                                <span className="block text-[60px]" style={{ color: 'rgb(21, 107, 54)' }}>family knows</span>
+                            <h1 className="font-kura leading-[0.9] mb-10 uppercase">
+                                <span className="block text-[100px]" style={{ color: 'rgb(21, 107, 54)' }}>A PROBLEM</span>
+                                <span className="block text-[60px]" style={{ color: 'rgb(247, 0, 52)' }}>
+                                    EVERY FAMILY KNOWS
+                                </span>
                             </h1>
 
                             {/* Description Texts */}
@@ -119,12 +88,12 @@ export default function OurStoryPage() {
 
                         {/* Right Content - Image */}
                         <div className="w-full lg:w-[45%] flex justify-center lg:justify-end">
-                            <div className="relative w-full aspect-[581/593] max-w-[580px]">
+                            <div className="relative w-full aspect-[581/424] max-w-[581px] rounded-[20px] overflow-hidden border-t-[10px] border-r-[10px] border-[rgb(247,0,52)] lg:-mt-16">
                                 <Image
                                     src="/images/ourstory1.webp"
                                     alt="How it started"
                                     fill
-                                    className="object-contain"
+                                    className="object-cover"
                                     priority
                                 />
                             </div>
@@ -157,15 +126,15 @@ export default function OurStoryPage() {
                                 {/* Yellow Pill Background */}
                                 <div
                                     style={{ backgroundColor: 'rgb(247, 216, 13)' }}
-                                    className="px-10 py-3 rounded-full relative z-10"
+                                    className="px-8 py-2.5 rounded-full relative z-10"
                                 >
-                                    <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad tracking-wider whitespace-nowrap">
-                                        Our Story
+                                    <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad tracking-wider whitespace-nowrap uppercase">
+                                        OUR STORY
                                     </span>
                                 </div>
 
                                 {/* Border SVG on Top */}
-                                <div className="absolute -inset-1 z-20 pointer-events-none">
+                                <div className="absolute -inset-2 z-20 pointer-events-none">
                                     <Image
                                         src="/images/border4.svg"
                                         alt="Pill Border"
@@ -176,11 +145,11 @@ export default function OurStoryPage() {
                             </div>
 
                             {/* Heading */}
-                            <h2 className="font-kura leading-[0.95] mb-6">
-                                <span className="block text-[60px]" style={{ color: 'rgb(21, 107, 54)' }}>Made with</span>
+                            <h2 className="font-kura leading-[0.95] mb-6 uppercase">
+                                <span className="block text-[60px]" style={{ color: 'rgb(21, 107, 54)' }}>MADE WITH</span>
                                 <span className="block text-[60px]">
-                                    <span style={{ color: 'rgb(21, 107, 54)' }}>love & </span>
-                                    <span style={{ color: 'rgb(247, 0, 52)' }}>slow heat</span>
+                                    <span style={{ color: 'rgb(21, 107, 54)' }}>LOVE & </span>
+                                    <span style={{ color: 'rgb(247, 0, 52)' }}>SLOW HEAT</span>
                                 </span>
                             </h2>
 
@@ -212,15 +181,15 @@ export default function OurStoryPage() {
                                 {/* Yellow Pill Background */}
                                 <div
                                     style={{ backgroundColor: 'rgb(247, 216, 13)' }}
-                                    className="px-10 py-3 rounded-full relative z-10"
+                                    className="px-8 py-2.5 rounded-full relative z-10"
                                 >
-                                    <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad tracking-wider whitespace-nowrap">
-                                        Our Story
+                                    <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad tracking-wider whitespace-nowrap uppercase">
+                                        OUR STORY
                                     </span>
                                 </div>
 
                                 {/* Border SVG on Top */}
-                                <div className="absolute -inset-1 z-20 pointer-events-none">
+                                <div className="absolute -inset-2 z-20 pointer-events-none">
                                     <Image
                                         src="/images/border4.svg"
                                         alt="Pill Border"
@@ -231,11 +200,11 @@ export default function OurStoryPage() {
                             </div>
 
                             {/* Heading */}
-                            <h2 className="font-kura leading-[0.95] mb-6">
-                                <span className="block text-[60px]" style={{ color: 'rgb(21, 107, 54)' }}>Made with</span>
+                            <h2 className="font-kura leading-[0.95] mb-6 uppercase">
+                                <span className="block text-[60px]" style={{ color: 'rgb(21, 107, 54)' }}>MADE WITH</span>
                                 <span className="block text-[60px]">
-                                    <span style={{ color: 'rgb(21, 107, 54)' }}>love & </span>
-                                    <span style={{ color: 'rgb(247, 0, 52)' }}>slow heat</span>
+                                    <span style={{ color: 'rgb(21, 107, 54)' }}>LOVE & </span>
+                                    <span style={{ color: 'rgb(247, 0, 52)' }}>SLOW HEAT</span>
                                 </span>
                             </h2>
 
@@ -253,10 +222,10 @@ export default function OurStoryPage() {
                     <div className="w-full relative pt-24 pb-36 flex flex-col items-center text-center overflow-hidden">
                         <div className="absolute inset-0 z-0 overflow-hidden">
                             <Image
-                                src="/images/bg%20green.svg"
+                                src="/images/bg green2.svg"
                                 alt="Background"
                                 fill
-                                className="object-cover object-bottom scale-x-[-1]"
+                                className="object-cover object-top scale-x-[-1]"
                                 priority
                             />
                             {/* Fallback pattern */}
@@ -305,7 +274,7 @@ export default function OurStoryPage() {
                         {/* Left Content - Image & Box */}
                         <div className="w-full lg:w-[45%] flex flex-col items-center">
                             {/* Portrait Image */}
-                            <div className="relative w-full aspect-[430/480] max-w-[430px] rounded-[20px] overflow-hidden shadow-xl mb-12">
+                            <div className="relative w-full aspect-[430/480] max-w-[430px] rounded-[20px] overflow-hidden border-t-[10px] border-r-[10px] border-[rgb(247,0,52)]">
                                 <Image
                                     src="/images/ourstory4.webp"
                                     alt="Amit Shah Portrait"
@@ -315,14 +284,14 @@ export default function OurStoryPage() {
                             </div>
 
                             {/* Name Box with Custom Border */}
-                            <div className="relative inline-block">
+                            <div className="relative inline-block lg:-mt-24 z-30">
                                 {/* Yellow Container Layer */}
                                 <div
                                     style={{ backgroundColor: 'rgb(247, 216, 13)', width: '352.6px', height: '160px' }}
                                     className="rounded-[15px] flex flex-col items-center justify-center text-center relative z-10"
                                 >
-                                    <span className="font-kura text-[32px] leading-tight mb-2" style={{ color: 'rgb(247, 0, 52)' }}>
-                                        Amit Shah
+                                    <span className="font-kura text-[32px] leading-tight mb-2 uppercase" style={{ color: 'rgb(247, 0, 52)' }}>
+                                        AMIT SHAH
                                     </span>
                                     <span className="font-bomstad text-[25px] font-normal leading-tight" style={{ color: 'rgb(21, 107, 54)' }}>
                                         Every evening, millions<br />of Indian
@@ -343,11 +312,11 @@ export default function OurStoryPage() {
 
                         {/* Right Content - Text */}
                         <div className="w-full lg:w-[55%] flex flex-col items-start pt-8">
-                            <h2 className="font-kura leading-[0.95] mb-12">
-                                <span className="block text-[60px]" style={{ color: 'rgb(21, 107, 54)' }}>Made with</span>
+                            <h2 className="font-kura leading-[0.95] mb-12 uppercase">
+                                <span className="block text-[60px]" style={{ color: 'rgb(21, 107, 54)' }}>MADE WITH</span>
                                 <span className="block text-[60px]">
-                                    <span style={{ color: 'rgb(21, 107, 54)' }}>love & </span>
-                                    <span style={{ color: 'rgb(247, 0, 52)' }}>slow heat</span>
+                                    <span style={{ color: 'rgb(21, 107, 54)' }}>LOVE & </span>
+                                    <span style={{ color: 'rgb(247, 0, 52)' }}>SLOW HEAT</span>
                                 </span>
                             </h2>
 
@@ -358,7 +327,7 @@ export default function OurStoryPage() {
 
                                 {/* Paragraph with red left border */}
                                 <div className="pl-10 border-l-[4px]" style={{ borderColor: 'rgb(247, 0, 52)' }}>
-                                    <p className="font-bomstad font-normal text-[25px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
+                                    <p className="font-bomstad font-medium text-[25px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
                                         Our founder Priya was one of them. A working mother in Bengaluru, she found herself choosing between quick but unhealthy, or homemade but exhausting. There had to be a better way.Our founder Priya was one of them. A working mother in Bengaluru, she found herself choosing between quick but unhealthy, or homemade but exhausting. There had to be a better way.
                                     </p>
                                 </div>
@@ -369,36 +338,36 @@ export default function OurStoryPage() {
 
             </main>
 
-            {/* Footer */}
+            {/* Grid Footer Section */}
             <footer className="w-full py-16 px-8" style={{ backgroundColor: 'rgb(21, 107, 54)' }}>
                 <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
                     {/* Column 1: Brand Box */}
-                    <div className="rounded-[30px] p-10 flex flex-col h-full" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
-                        <div className="w-[124px] h-[64px] relative mb-6">
+                    <div className="rounded-[30px] p-6 flex flex-col w-[299px] h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
+                        <div className="w-[80px] h-[40px] relative mb-3">
                             <Image src="/images/logo.svg" alt="GrabV Logo" fill className="object-contain" />
                         </div>
-                        <div className="flex flex-col gap-4 text-[18px] font-medium leading-relaxed font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
+                        <div className="flex flex-col gap-1 text-[16px] font-medium leading-[1.2] font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
                             <p>© 2026 GrabV. All rights reserved.</p>
-                            <p>88gb Digital Marketing &amp; Technology Company</p>
+                            <p className="opacity-90">88gb Digital Marketing & Technology Company</p>
                         </div>
                     </div>
 
                     {/* Column 2: Company Box */}
-                    <div className="rounded-[30px] p-10 flex flex-col h-full" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
-                        <h4 className="text-[28px] font-bold mb-8" style={{ color: 'rgb(247, 216, 13)' }}>Company</h4>
-                        <div className="flex flex-col gap-4 text-[20px] font-medium font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
+                    <div className="rounded-[30px] p-6 flex flex-col w-[299px] h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
+                        <h4 className="text-[22px] font-bold mb-2" style={{ color: 'rgb(247, 216, 13)' }}>Company</h4>
+                        <div className="flex flex-col gap-1 text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
                             <Link href="/ourstory" className="hover:opacity-80 transition-opacity">Our Story</Link>
                             <Link href="#" className="hover:opacity-80 transition-opacity">Process</Link>
-                            <Link href="#" className="hover:opacity-80 transition-opacity">Quality Promise</Link>
+                            <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors">Quality Promise</Link>
                             <Link href="#" className="hover:opacity-80 transition-opacity">Contact Us</Link>
                         </div>
                     </div>
 
                     {/* Column 3: Product Box */}
-                    <div className="rounded-[30px] p-10 flex flex-col h-full" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
-                        <h4 className="text-[28px] font-bold mb-8" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
-                        <div className="flex flex-col gap-4 text-[20px] font-medium font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
+                    <div className="rounded-[30px] p-6 flex flex-col w-[299px] h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
+                        <h4 className="text-[22px] font-bold mb-2" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
+                        <div className="flex flex-col gap-1 text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
                             <Link href="/products" className="hover:opacity-80 transition-opacity">All Purpose Gravy</Link>
                             <Link href="#" className="hover:opacity-80 transition-opacity">Ingredients</Link>
                             <Link href="#" className="hover:opacity-80 transition-opacity">How to Use</Link>
@@ -407,27 +376,27 @@ export default function OurStoryPage() {
                     </div>
 
                     {/* Column 4: Orders & Policies Box */}
-                    <div className="rounded-[30px] p-10 flex flex-col h-full justify-between" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
+                    <div className="rounded-[30px] p-6 flex flex-col w-[299px] h-[234px] justify-between" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
                         <div>
-                            <h4 className="text-[28px] font-bold mb-8" style={{ color: 'rgb(247, 216, 13)' }}>Order &amp; Policies</h4>
-                            <div className="flex flex-col gap-4 text-[20px] font-medium font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
+                            <h4 className="text-[22px] font-bold mb-2" style={{ color: 'rgb(247, 216, 13)' }}>Order & Policies</h4>
+                            <div className="flex flex-col gap-1 text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
                                 <Link href="#" className="hover:opacity-80 transition-opacity">WhatsApp Order</Link>
                                 <Link href="#" className="hover:opacity-80 transition-opacity">Exchange Order</Link>
                                 <Link href="#" className="hover:opacity-80 transition-opacity">Privacy Policy</Link>
                             </div>
                         </div>
 
-                        {/* Social Links */}
-                        <div className="flex flex-col items-end gap-3 self-end mt-8">
-                            <span className="text-[16px] font-bold font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>Follow Us</span>
-                            <div className="flex items-center gap-4">
-                                <Link href="#" className="w-8 h-8 relative hover:scale-110 transition-transform invert brightness-0">
+                        {/* Social Links at Bottom Right of this box */}
+                        <div className="flex flex-col items-end gap-1.5 self-end mt-auto">
+                            <span className="text-[14px] font-bold font-bomstad text-white">Follow Us</span>
+                            <div className="flex items-center gap-3">
+                                <Link href="#" className="w-6 h-6 relative hover:scale-110 transition-transform brightness-0 invert">
                                     <Image src="/images/facebook.svg" alt="Facebook" fill className="object-contain" />
                                 </Link>
-                                <Link href="#" className="w-8 h-8 relative hover:scale-110 transition-transform invert brightness-0">
+                                <Link href="#" className="w-6 h-6 relative hover:scale-110 transition-transform brightness-0 invert">
                                     <Image src="/images/whatsapp1.svg" alt="WhatsApp" fill className="object-contain" />
                                 </Link>
-                                <Link href="#" className="w-8 h-8 relative hover:scale-110 transition-transform invert brightness-0">
+                                <Link href="#" className="w-6 h-6 relative hover:scale-110 transition-transform brightness-0 invert">
                                     <Image src="/images/insta.svg" alt="Instagram" fill className="object-contain" />
                                 </Link>
                             </div>
