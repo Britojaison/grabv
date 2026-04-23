@@ -495,14 +495,13 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="w-full mt-16 h-[19px]" />
 
           </div>
         </section>
 
         {/* Our Quality Promise Section */}
-        <section className="w-full relative pt-20 pb-20 flex flex-col items-center" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
-          <div className="w-full max-w-[1440px] mx-auto px-8 flex flex-col items-center relative z-10 pt-0 pb-16">
+        <section className="w-full relative pt-12 pb-12 flex flex-col items-center" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
+          <div className="w-full max-w-[1440px] mx-auto px-8 flex flex-col items-center relative z-10 pt-0 pb-12">
 
             {/* Title */}
             <h2 className="font-kura font-normal text-[85px] m-0 p-0 leading-[1.1] text-center tracking-wide uppercase mb-20">
