@@ -873,7 +873,15 @@ export default function Home() {
           <div className="w-full max-w-[1440px] mx-auto px-8 py-20 grid grid-cols-1 md:grid-cols-3 gap-8 pb-32">
             {[1, 2, 3].map((item) => (
               <div key={item} className="relative p-8 rounded-[20px] bg-white flex flex-col gap-6">
-                <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute inset-x-0 inset-y-0 pointer-events-none">
+                  <Image
+                    src="/images/border6.svg"
+                    alt=""
+                    fill
+                    className="object-fill"
+                  />
+                </div>
+                <div className="absolute -inset-1 pointer-events-none rotate-[1.5deg]">
                   <Image
                     src="/images/border6.svg"
                     alt=""
