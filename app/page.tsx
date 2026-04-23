@@ -54,7 +54,7 @@ export default function Home() {
         {/* Full-width Background Panel */}
         <div className="absolute left-0 top-0 w-full h-[800px] z-0 flex-shrink-0">
           <Image
-            src="/images/background.svg"
+            src="/images/bg green.svg"
             alt="Hero Background"
             fill
             className="object-cover object-bottom"
@@ -67,61 +67,62 @@ export default function Home() {
 
           {/* Left Text Content - In normal flow so alignment strictly matches navbar */}
           <div className="w-full lg:w-[60%] pt-[70px] z-20 flex flex-col">
-            {/* Fresh & Flavorful Pill */}
-            <div
-              style={{ height: '60px', backgroundColor: 'rgb(247, 216, 13)' }}
-              className="w-fit px-8 rounded-full flex items-center justify-center gap-3 mb-8 shadow-md"
-            >
-              <div className="relative w-[27px] h-[27px] shrink-0" style={{ filter: 'brightness(0) invert(34%) sepia(35%) saturate(1048%) hue-rotate(97deg) brightness(93%) contrast(92%)' }}>
+            {/* Fresh & Flavorful Pill with Custom Border */}
+            <div className="relative mb-8 inline-block w-fit">
+              {/* Yellow Pill Background */}
+              <div
+                style={{ height: '60px', backgroundColor: 'rgb(247, 216, 13)' }}
+                className="w-fit px-8 rounded-full flex items-center justify-center gap-3 relative z-10 shadow-md"
+              >
+                <div className="relative w-[27px] h-[27px] shrink-0" style={{ filter: 'brightness(0) invert(34%) sepia(35%) saturate(1048%) hue-rotate(97deg) brightness(93%) contrast(92%)' }}>
+                  <Image
+                    src="/images/leaf.svg"
+                    alt="Leaf"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <span className="font-bomstad font-medium tracking-wide whitespace-nowrap" style={{ fontSize: '27px', color: 'rgb(21, 107, 54)' }}>
+                  Fresh & Flavorful
+                </span>
+              </div>
+
+              {/* Border SVG on Top - forced to stretch via object-fill */}
+              <div className="absolute -inset-x-6 -inset-y-2 z-20 pointer-events-none">
                 <Image
-                  src="/images/leaf.svg"
-                  alt="Leaf"
+                  src="/images/border2.svg"
+                  alt="Pill Border"
                   fill
-                  className="object-contain"
+                  className="object-fill"
                 />
               </div>
-              <span className="font-bomstad font-medium tracking-wide whitespace-nowrap" style={{ fontSize: '27px', color: 'rgb(21, 107, 54)' }}>
-                Fresh & Flavorful
-              </span>
             </div>
 
             {/* Main Heading */}
             <div className="mb-6">
-              <h1 className="font-kura leading-[0.9] text-brand-yellow m-0 p-0" style={{ fontSize: '80px', textTransform: 'none' }}>
-                One Gravy
+              <h1 className="font-kura leading-[0.9] text-brand-yellow m-0 p-0 uppercase" style={{ fontSize: '80px' }}>
+                ONE GRAVY
               </h1>
-              <h1 className="font-kura leading-[0.9] text-white m-0 p-0" style={{ fontSize: '80px', textTransform: 'none' }}>
-                Endless
-              </h1>
-              <h1 className="font-kura leading-[0.9] text-white m-0 p-0" style={{ fontSize: '80px', textTransform: 'none' }}>
-                Possibilities
+              <h1 className="font-kura leading-[0.9] text-white m-0 p-0" style={{ fontSize: '80px' }}>
+                Endless Possibilities
               </h1>
             </div>
 
             {/* Description */}
-            <p className="text-white max-w-xl leading-[1.2] mb-10 font-bomstad font-normal" style={{ fontSize: '25px' }}>
+            <p className="text-white max-w-2xl leading-[1.2] mb-10 font-bomstad font-normal" style={{ fontSize: '25px' }}>
               A slow-cooked, preservative-free<br />
-              onion-tomato base made with love – dinner<br />
+              onion-tomato base made with love — dinner<br />
               is ready in 5 minutes.
             </p>
 
-            {/* CTA Buttons - Force single row on desktop to match Figma */}
+            {/* CTA Buttons - Single button as per request */}
             <div className="flex flex-wrap lg:flex-nowrap items-center gap-4">
-              <button
-                className="bg-[rgb(17,82,40)] border border-transparent text-white rounded-[32px] px-8 py-3.5 text-[22px] font-medium hover:bg-brand-yellow hover:text-[rgb(17,82,40)] transition-all shadow-sm whitespace-nowrap"
+              <Link
+                href="/products"
+                className="bg-[rgb(17,82,40)] border border-transparent text-white rounded-full px-10 py-3.5 text-[25px] font-bomstad font-normal hover:bg-brand-yellow hover:text-[rgb(17,82,40)] transition-all shadow-sm whitespace-nowrap"
               >
-                Order 750g Pouch
-              </button>
-              <button
-                className="bg-[rgb(17,82,40)] border border-transparent text-white rounded-[32px] px-8 py-3.5 text-[22px] font-medium hover:bg-brand-yellow hover:text-[rgb(17,82,40)] transition-all shadow-sm whitespace-nowrap"
-              >
-                Order 250g Pouch
-              </button>
-              <button
-                className="bg-[rgb(17,82,40)] border border-transparent text-white rounded-[32px] px-8 py-3.5 text-[22px] font-medium hover:bg-brand-yellow hover:text-[rgb(17,82,40)] transition-all shadow-sm whitespace-nowrap"
-              >
-                See Recipes
-              </button>
+                Explore our products
+              </Link>
             </div>
           </div>
         </div>
@@ -129,7 +130,7 @@ export default function Home() {
         {/* Spices Overlay behind the gravy pot - scaled down and kept within green area */}
         <div
           className="absolute pointer-events-none hidden lg:block z-20 overflow-hidden"
-          style={{ width: '784px', height: '603px', top: '50px', right: '50px' }}
+          style={{ width: '784px', height: '603px', top: '50px', right: '-10px' }}
         >
           <Image
             src="/images/spices.svg"
@@ -154,8 +155,8 @@ export default function Home() {
           />
         </div>
 
-        {/* Features Bottom Bar - Content elevated to stay above yellow ragged edge */}
-        <div className="w-full relative pt-16 pb-32 z-[10]">
+        {/* Features Bottom Bar - positioned in the beige section below the green hero */}
+        <div className="w-full relative pt-4 pb-32 z-10">
           <div className="w-full max-w-[1440px] mx-auto px-8 relative z-[30]">
 
             {/* Features Rows of Pills - Staggered layout as per Figma */}
@@ -165,23 +166,23 @@ export default function Home() {
               <div className="flex flex-wrap items-center gap-5">
                 {/* Ready in 10 min */}
                 <div className="bg-white rounded-full px-7 py-3 flex items-center gap-3 shadow-sm border border-neutral-100">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgb(21,107,54)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
-                  </svg>
+                  <div className="w-[30px] h-[30px] relative">
+                    <Image src="/images/timer2.svg" alt="Ready in 10 min" fill className="object-contain" />
+                  </div>
                   <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad whitespace-nowrap">Ready in 10 min</span>
                 </div>
                 {/* Slow cooked */}
                 <div className="bg-white rounded-full px-7 py-3 flex items-center gap-3 shadow-sm border border-neutral-100">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgb(21,107,54)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M2 7c1.5 0 2.5 1 4 1s2.5-1 4-1 2.5 1 4 1 2.5-1 4-1" /><path d="M2 12c1.5 0 2.5 1 4 1s2.5-1 4-1 2.5 1 4 1 2.5-1 4-1" /><path d="M2 17c1.5 0 2.5 1 4 1s2.5-1 4-1 2.5 1 4 1 2.5-1 4-1" />
-                  </svg>
+                  <div className="w-[30px] h-[30px] relative">
+                    <Image src="/images/slow.svg" alt="Slow cooked" fill className="object-contain" />
+                  </div>
                   <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad whitespace-nowrap">Slow cooked</span>
                 </div>
                 {/* FSSAI Certified */}
                 <div className="bg-white rounded-full px-7 py-3 flex items-center gap-3 shadow-sm border border-neutral-100">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgb(21,107,54)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><polyline points="9 11 11 13 15 9" />
-                  </svg>
+                  <div className="w-[30px] h-[30px] relative">
+                    <Image src="/images/fssai icon.svg" alt="FSSAI Certified" fill className="object-contain" />
+                  </div>
                   <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad whitespace-nowrap">FSSAI Certified</span>
                 </div>
               </div>
@@ -190,16 +191,16 @@ export default function Home() {
               <div className="flex flex-wrap items-center gap-5 ml-0 lg:ml-20">
                 {/* Zero Preservatives */}
                 <div className="bg-white rounded-full px-7 py-3 flex items-center gap-3 shadow-sm border border-neutral-100">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgb(21,107,54)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" /><polyline points="8 12 11 15 16 9" />
-                  </svg>
+                  <div className="w-[30px] h-[30px] relative">
+                    <Image src="/images/tick3.svg" alt="Zero Preservatives" fill className="object-contain" />
+                  </div>
                   <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad whitespace-nowrap">Zero Preservatives</span>
                 </div>
                 {/* Cold Chain Packed */}
                 <div className="bg-white rounded-full px-7 py-3 flex items-center gap-3 shadow-sm border border-neutral-100">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgb(21,107,54)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0z" /><path d="M11.5 15.5 L12.5 16.5 M13.5 15.5 L14.5 16.5" /><circle cx="13" cy="16" r="2" fill="rgb(21,107,54)" /><text x="16" y="12" fill="rgb(21,107,54)" fontSize="18" fontWeight="bold">*</text>
-                  </svg>
+                  <div className="w-[30px] h-[30px] relative">
+                    <Image src="/images/cold.svg" alt="Cold Chain Packed" fill className="object-contain" />
+                  </div>
                   <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad whitespace-nowrap">Cold Chain Packed</span>
                 </div>
               </div>
@@ -210,10 +211,10 @@ export default function Home() {
         </div>
 
         {/* What is GrabV Section */}
-        <section className="w-full relative pt-0 pb-5 flex flex-col items-center">
-          {/* Full-width Yellow Torn Background - Refined overlap to hit only the bottom of the pot */}
-          <div className="absolute inset-x-0 -top-[140px] bottom-0 z-20 pointer-events-none">
-            <div className="relative w-full h-[calc(100%+140px)]">
+        <section className="w-full relative pt-0 pb-0 flex flex-col items-center overflow-visible">
+          {/* Full-width Yellow Background - Reduced overlap from top */}
+          <div className="absolute inset-x-0 -top-[80px] bottom-0 z-0 pointer-events-none overflow-hidden">
+            <div className="relative w-full h-full">
               <Image
                 src="/images/bg yellow.svg"
                 alt="Yellow Background"
@@ -224,34 +225,47 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Content Wrapper - Elevated z-index to stay above background */}
-          <div className="relative w-full max-w-[1440px] mx-auto px-8 z-[40] flex flex-col lg:flex-row items-center gap-12">
+          {/* Content Wrapper */}
+          <div className="relative w-full max-w-[1440px] mx-auto px-8 z-[40] flex flex-col lg:flex-row items-center pt-0 -mt-10">
 
             {/* Left Content */}
-            <div className="w-full lg:w-[50%] flex flex-col items-start pt-0">
-              {/* Question Pill */}
-              <div
-                style={{ backgroundColor: 'rgb(247, 0, 52)' }}
-                className="px-10 py-3.5 rounded-full mb-10 shadow-md"
-              >
-                <span className="text-white font-semibold text-[28px] whitespace-nowrap font-bomstad tracking-wider">
-                  What is GrabV ?
-                </span>
+            <div className="w-full lg:w-[40%] flex flex-col items-start pt-0">
+              {/* Question Pill with Border Settings */}
+              <div className="relative mb-4 inline-block w-fit">
+                {/* Red Pill Background */}
+                <div
+                  style={{ backgroundColor: 'rgb(247, 0, 52)' }}
+                  className="px-10 py-3.5 rounded-full relative z-10 shadow-md"
+                >
+                  <span className="text-white font-normal text-[28px] whitespace-nowrap font-bomstad tracking-wider">
+                    What is GrabV ?
+                  </span>
+                </div>
+
+                {/* Border Setting - Tight fit to tag */}
+                <div className="absolute -inset-x-1 -inset-y-0.5 z-20 pointer-events-none">
+                  <Image
+                    src="/images/border3.svg"
+                    alt="Pill Border"
+                    fill
+                    className="object-fill"
+                  />
+                </div>
               </div>
 
               {/* Secret Heading */}
               <div className="mb-6 w-full">
-                <h2 className="font-kura leading-[0.9] text-[75px] m-0 p-0" style={{ color: 'rgb(247, 0, 52)' }}>
+                <h2 className="font-kura leading-[0.9] text-[75px] m-0 p-0 uppercase" style={{ color: 'rgb(247, 0, 52)' }}>
                   Your Secret to
                 </h2>
-                <h2 className="font-kura leading-[0.9] text-[75px] m-0 p-0">
-                  <span style={{ color: 'rgb(21, 107, 54)' }}>Effortless </span>
-                  <span style={{ color: 'rgb(247, 0, 52)' }}>Cooking</span>
+                <h2 className="font-kura leading-[1] text-[75px] m-0 p-0 uppercase whitespace-nowrap">
+                  <span style={{ color: 'rgb(21, 107, 13)'/* Green */ }}>Effortless </span>
+                  <span style={{ color: 'rgb(247, 0, 52)'/* Red */ }}>Cooking</span>
                 </h2>
               </div>
 
               {/* Description text */}
-              <p className="max-w-xl leading-[1.3] mb-12 font-semibold font-bomstad" style={{ fontSize: '25px', color: 'rgb(21, 107, 54)' }}>
+              <p className="max-w-xl leading-[1.3] mb-12 font-normal font-bomstad" style={{ fontSize: '25px', color: 'rgb(21, 107, 54)' }}>
                 A slow-cooked, preservative-free<br />
                 onion-tomato base made with love – dinner<br />
                 is ready in 5 minutes.
@@ -260,21 +274,21 @@ export default function Home() {
               {/* Learn More Button */}
               <button
                 style={{ backgroundColor: 'rgb(21, 107, 54)' }}
-                className="group flex items-center gap-6 px-10 py-4 rounded-[20px] text-white text-[22px] font-semibold font-bomstad hover:bg-black transition-all shadow-lg"
+                className="group flex items-center gap-6 px-10 py-5 rounded-full text-white text-[25px] font-normal font-bomstad hover:bg-black transition-all shadow-lg"
               >
                 Learn More
                 <Image src="/images/arrow.svg" alt="Arrow" width={32} height={32} className="object-contain" />
               </button>
             </div>
 
-            {/* Right Content - Product Image */}
-            <div className="w-full lg:w-[50%] flex justify-center lg:justify-end relative h-[650px] lg:-mr-12">
-              <div className="relative w-full h-full max-w-[800px]">
+            {/* Right Content - Product Image moved drastically right */}
+            <div className="w-full lg:w-[60%] flex justify-center lg:justify-end relative h-[1000px] lg:-mr-[450px] lg:translate-x-64">
+              <div className="relative w-full h-full max-w-[1300px]">
                 <Image
                   src="/images/product 1.svg"
                   alt="Product Showcase"
                   fill
-                  className="object-contain"
+                  className="object-contain object-right"
                   priority
                 />
               </div>
