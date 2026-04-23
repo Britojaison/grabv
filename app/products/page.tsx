@@ -69,7 +69,7 @@ export default function ProductsListPage() {
                                     {/* Image Container */}
                                     <div className={`relative w-full aspect-[4/5] rounded-[20px] overflow-hidden mb-12 border-t-4 border-r-[10px] border-[rgb(247,0,52)] ${item.status === 'active' ? 'cursor-pointer' : ''}`}>
                                         <Image
-                                            src="/images/explore prod 1.svg"
+                                            src="/images/explore prod 1.webp"
                                             alt="Product"
                                             fill
                                             className={`object-cover transition-transform duration-500 group-hover:scale-105 ${item.status === 'coming_soon' ? 'grayscale opacity-60' : ''}`}

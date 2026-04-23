@@ -68,7 +68,7 @@ export default function ProductsPage() {
                         <div className="w-full lg:w-[50%] flex flex-col">
                             <div className="relative w-full aspect-square rounded-[30px] overflow-hidden shadow-2xl mb-6 bg-white flex items-center justify-center">
                                 <Image
-                                    src="/images/product food 1.svg"
+                                    src="/images/product food 1.webp"
                                     alt="Product Main"
                                     fill
                                     className="object-cover"
@@ -81,7 +81,7 @@ export default function ProductsPage() {
                                     "/images/product food 2.svg",
                                     "/images/product food 3.svg",
                                     "/images/product food 4.svg",
-                                    "/images/product food 5.svg",
+                                    "/images/product food 5.webp",
                                     "/images/product food 6.svg"
                                 ].map((src, i) => (
                                     <div key={i} className="aspect-square rounded-[12px] bg-white overflow-hidden shadow-md cursor-pointer hover:ring-2 hover:ring-[rgb(21,107,54)] transition-all relative">
@@ -205,7 +205,7 @@ export default function ProductsPage() {
                                     {/* Image Container - Wide Red accents on Top and Right */}
                                     <div className="relative w-full aspect-[4/5] rounded-[20px] overflow-hidden mb-12 border-t-4 border-r-[10px] border-[rgb(247,0,52)]">
                                         <Image
-                                            src="/images/explore prod 1.svg"
+                                            src="/images/explore prod 1.webp"
                                             alt="Product"
                                             fill
                                             className={`object-cover transition-transform duration-500 group-hover:scale-105 ${item.status === 'coming_soon' ? 'grayscale opacity-60' : ''}`}

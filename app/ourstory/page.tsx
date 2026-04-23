@@ -121,7 +121,7 @@ export default function OurStoryPage() {
                         <div className="w-full lg:w-[45%] flex justify-center lg:justify-end">
                             <div className="relative w-full aspect-[581/593] max-w-[580px]">
                                 <Image
-                                    src="/images/ourstory1.svg"
+                                    src="/images/ourstory1.webp"
                                     alt="How it started"
                                     fill
                                     className="object-contain"
@@ -307,7 +307,7 @@ export default function OurStoryPage() {
                             {/* Portrait Image */}
                             <div className="relative w-full aspect-[430/480] max-w-[430px] rounded-[20px] overflow-hidden shadow-xl mb-12">
                                 <Image
-                                    src="/images/ourstory4.svg"
+                                    src="/images/ourstory4.webp"
                                     alt="Amit Shah Portrait"
                                     fill
                                     className="object-cover"

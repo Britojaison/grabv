@@ -376,7 +376,7 @@ export default function Home() {
                     <div className="bg-white rounded-[5px] p-[5px] shadow-sm border border-[rgb(247,216,13)] flex flex-col items-center text-center w-full h-[290px]">
                       <div className="relative w-full h-[180px] mb-6 rounded-[5px] overflow-hidden">
                         <Image
-                          src={`/images/step ${item.step}.svg`}
+                          src={`/images/step ${item.step}.webp`}
                           alt={`Step ${item.step}`}
                           fill
                           sizes="(max-width: 640px) 230px, 20vw"
@@ -453,7 +453,7 @@ export default function Home() {
               {/* Showcase Image */}
               <div className="w-full lg:w-[563px] lg:h-[332px] relative -mt-4 shrink-0 lg:mr-12 border-2 border-red-500 rounded-[10px] overflow-hidden">
                 <Image
-                  src="/images/cook.svg"
+                  src="/images/cook.webp"
                   alt="Cooking Illustration"
                   fill
                   className="object-cover"
