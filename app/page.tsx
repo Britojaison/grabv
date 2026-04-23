@@ -103,7 +103,7 @@ export default function Home() {
               <h1 className="font-kura leading-[0.9] text-brand-yellow m-0 p-0 uppercase" style={{ fontSize: '80px' }}>
                 ONE GRAVY
               </h1>
-              <h1 className="font-kura leading-[0.9] text-white m-0 p-0" style={{ fontSize: '80px' }}>
+              <h1 className="font-kura leading-[0.9] text-white m-0 p-0 uppercase" style={{ fontSize: '80px' }}>
                 Endless Possibilities
               </h1>
             </div>
