@@ -911,42 +911,33 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Final CTA Box */}
         <div
-          className="w-full max-w-[1440px] mx-auto h-[635px] rounded-[15px] p-24 flex flex-col items-center justify-center text-center relative overflow-hidden mb-20"
-          style={{ backgroundColor: 'rgb(12, 61, 27)' }}
+          className="w-full max-w-[1440px] mx-auto h-[550px] rounded-[15px] p-24 flex flex-col items-center justify-center text-center relative overflow-hidden mb-20 shadow-2xl"
+          style={{ backgroundColor: 'rgb(21, 106, 55)' }}
         >
-          {/* Badge */}
-          <div
-            className="px-8 py-2 rounded-full mb-6"
-            style={{ backgroundColor: 'rgb(92, 113, 20)' }}
-          >
-            <span className="font-bold text-[22px] tracking-wide" style={{ color: 'rgb(247, 216, 13)' }}>
-              Get GrabV
-            </span>
-          </div>
 
           {/* Heading */}
-          <h2 className="font-kura text-[85px] leading-[0.9] mb-6">
-            <span style={{ color: 'rgb(247, 216, 13)' }}>Ready to cook </span><br />
-            <span className="text-white">smarter, Everyday?</span>
+          <h2 className="font-kura text-[70px] leading-tight mb-8">
+            <span style={{ color: 'rgb(247, 216, 13)' }}>Ready to cook smarter, </span>
+            <span className="text-white">Everyday?</span>
           </h2>
 
           {/* Subtext */}
-          <p className="text-white text-[22px] font-medium opacity-90 mb-12 max-w-3xl leading-relaxed">
-            Order 750g Or 250g pouch. A week of effortless dinners. Zero preservatives. Shipped cold, direct to your door.
+          <p className="text-white text-[20px] font-bomstad font-normal tracking-wide opacity-90 mb-12 max-w-4xl leading-[1.3]">
+            Order 750g Or 250g pouch. A week of effortless dinners. Zero preservatives.<br />
+            Shipped cold, direct to your door.
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-6 mb-10">
-            <button className="bg-[#f70034] text-white w-[260px] py-5 rounded-full text-[24px] font-bold shadow-xl hover:scale-105 transition-all">
+          <div className="flex flex-wrap items-center justify-center gap-6 mb-12">
+            <button className="bg-white text-[#f70034] w-[260px] py-5 rounded-full font-bomstad font-medium text-[24px] shadow-xl hover:bg-[#f70034] hover:text-white transition-all">
               Order 750g
             </button>
-            <button className="bg-white text-[#f70034] w-[260px] py-5 rounded-full text-[24px] font-bold shadow-xl hover:scale-105 transition-all">
+            <button className="bg-white text-[#f70034] w-[260px] py-5 rounded-full font-bomstad font-medium text-[24px] shadow-xl hover:bg-[#f70034] hover:text-white transition-all">
               Order 250g
             </button>
-            <button className="bg-white text-[#156b36] w-[260px] py-5 rounded-full text-[24px] font-bold shadow-xl flex items-center justify-center gap-4 hover:scale-105 transition-all">
-              <div className="w-8 h-8 relative">
+            <button className="bg-white text-[#f70034] w-[260px] py-5 rounded-full font-bomstad font-normal text-[24px] shadow-xl hover:bg-[#f70034] hover:text-white transition-all group flex items-center justify-center gap-4">
+              <div className="w-8 h-8 relative group-hover:brightness-0 group-hover:invert transition-all">
                 <Image src="/images/whatsapp.svg" alt="WhatsApp" fill className="object-contain" />
               </div>
               <span className="text-[24px]">WhatsApp Us</span>
@@ -954,12 +945,12 @@ export default function Home() {
           </div>
 
           {/* Footer text */}
-          <div className="text-white text-[25px] font-medium tracking-wide flex items-center gap-4 opacity-80">
+          <div className="text-white text-[18px] font-bomstad font-normal tracking-wide flex items-center gap-1.5 opacity-80">
             <span>Free delivery on orders above ₹499</span>
-            <span className="mx-2">•</span>
+            <span>•</span>
             <span>Ships within 48 hours</span>
-            <span className="mx-2">•</span>
-            <div className="h-14 w-36 relative invert brightness-0 -mx-6">
+            <span>•</span>
+            <div className="h-10 w-20 relative invert brightness-0 -mx-4">
               <Image src="/images/fssai%20text.svg" alt="FSSAI" fill className="object-contain" />
             </div>
             <span>Certified</span>
@@ -972,20 +963,20 @@ export default function Home() {
         <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
           {/* Column 1: Brand Box */}
-          <div className="rounded-[30px] p-10 flex flex-col h-full" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
-            <div className="w-[124px] h-[64px] relative mb-6">
+          <div className="rounded-[30px] p-6 flex flex-col w-[299px] h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
+            <div className="w-[80px] h-[40px] relative mb-3">
               <Image src="/images/logo.svg" alt="GrabV Logo" fill className="object-contain" />
             </div>
-            <div className="flex flex-col gap-4 text-[18px] font-medium leading-relaxed font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
+            <div className="flex flex-col gap-1 text-[16px] font-medium leading-[1.2] font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
               <p>© 2026 GrabV. All rights reserved.</p>
-              <p>88gb Digital Marketing & Technology Company</p>
+              <p className="opacity-90">88gb Digital Marketing & Technology Company</p>
             </div>
           </div>
 
           {/* Column 2: Company Box */}
-          <div className="rounded-[30px] p-10 flex flex-col h-full" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
-            <h4 className="text-[28px] font-bold mb-8" style={{ color: 'rgb(247, 216, 13)' }}>Company</h4>
-            <div className="flex flex-col gap-4 text-[20px] font-medium font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
+          <div className="rounded-[30px] p-6 flex flex-col w-[299px] h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
+            <h4 className="text-[22px] font-bold mb-2" style={{ color: 'rgb(247, 216, 13)' }}>Company</h4>
+            <div className="flex flex-col gap-1 text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
               <Link href="/ourstory" className="hover:opacity-80 transition-opacity">Our Story</Link>
               <Link href="#" className="hover:opacity-80 transition-opacity">Process</Link>
               <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors">Quality Promise</Link>
@@ -994,9 +985,9 @@ export default function Home() {
           </div>
 
           {/* Column 3: Product Box */}
-          <div className="rounded-[30px] p-10 flex flex-col h-full" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
-            <h4 className="text-[28px] font-bold mb-8" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
-            <div className="flex flex-col gap-4 text-[20px] font-medium font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
+          <div className="rounded-[30px] p-6 flex flex-col w-[299px] h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
+            <h4 className="text-[22px] font-bold mb-2" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
+            <div className="flex flex-col gap-1 text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
               <Link href="#" className="hover:opacity-80 transition-opacity">All Purpose Gravy</Link>
               <Link href="#" className="hover:opacity-80 transition-opacity">Ingredients</Link>
               <Link href="#" className="hover:opacity-80 transition-opacity">How to Use</Link>
@@ -1005,10 +996,10 @@ export default function Home() {
           </div>
 
           {/* Column 4: Orders & Policies Box */}
-          <div className="rounded-[30px] p-10 flex flex-col h-full justify-between" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
+          <div className="rounded-[30px] p-6 flex flex-col w-[299px] h-[234px] justify-between" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
             <div>
-              <h4 className="text-[28px] font-bold mb-8" style={{ color: 'rgb(247, 216, 13)' }}>Order & Policies</h4>
-              <div className="flex flex-col gap-4 text-[20px] font-medium font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
+              <h4 className="text-[22px] font-bold mb-2" style={{ color: 'rgb(247, 216, 13)' }}>Order & Policies</h4>
+              <div className="flex flex-col gap-1 text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
                 <Link href="#" className="hover:opacity-80 transition-opacity">WhatsApp Order</Link>
                 <Link href="#" className="hover:opacity-80 transition-opacity">Exchange Order</Link>
                 <Link href="#" className="hover:opacity-80 transition-opacity">Privacy Policy</Link>
@@ -1016,16 +1007,16 @@ export default function Home() {
             </div>
 
             {/* Social Links at Bottom Right of this box */}
-            <div className="flex flex-col items-end gap-3 self-end mt-8">
-              <span className="text-[16px] font-bold font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>Follow Us</span>
-              <div className="flex items-center gap-4">
-                <Link href="#" className="w-8 h-8 relative hover:scale-110 transition-transform invert brightness-0">
+            <div className="flex flex-col items-end gap-1.5 self-end mt-auto">
+              <span className="text-[14px] font-bold font-bomstad text-white">Follow Us</span>
+              <div className="flex items-center gap-3">
+                <Link href="#" className="w-6 h-6 relative hover:scale-110 transition-transform brightness-0 invert">
                   <Image src="/images/facebook.svg" alt="Facebook" fill className="object-contain" />
                 </Link>
-                <Link href="#" className="w-8 h-8 relative hover:scale-110 transition-transform invert brightness-0">
+                <Link href="#" className="w-6 h-6 relative hover:scale-110 transition-transform brightness-0 invert">
                   <Image src="/images/whatsapp1.svg" alt="WhatsApp" fill className="object-contain" />
                 </Link>
-                <Link href="#" className="w-8 h-8 relative hover:scale-110 transition-transform invert brightness-0">
+                <Link href="#" className="w-6 h-6 relative hover:scale-110 transition-transform brightness-0 invert">
                   <Image src="/images/insta.svg" alt="Instagram" fill className="object-contain" />
                 </Link>
               </div>
