@@ -100,10 +100,10 @@ export default function Home() {
 
             {/* Main Heading */}
             <div className="mb-6">
-              <h1 className="font-kura leading-[0.9] text-brand-yellow m-0 p-0 uppercase" style={{ fontSize: '80px' }}>
+              <h1 className="font-kura leading-[0.9] text-brand-yellow m-0 p-0 uppercase" style={{ fontSize: '100px' }}>
                 ONE GRAVY
               </h1>
-              <h1 className="font-kura leading-[0.9] text-white m-0 p-0 uppercase" style={{ fontSize: '80px' }}>
+              <h1 className="font-kura leading-[1.1] text-white m-0 p-0 uppercase" style={{ fontSize: '60px' }}>
                 Endless Possibilities
               </h1>
             </div>
@@ -130,13 +130,13 @@ export default function Home() {
         {/* Spices Overlay behind the gravy pot - scaled down and kept within green area */}
         <div
           className="absolute pointer-events-none hidden lg:block z-20 overflow-hidden"
-          style={{ width: '784px', height: '603px', top: '50px', right: '-10px' }}
+          style={{ width: '784px', height: '603px', top: '50px', right: '50px' }}
         >
           <Image
             src="/images/spices.svg"
             alt="Spices background"
             fill
-            className="object-contain object-right opacity-80"
+            className="object-contain object-right"
             priority
           />
         </div>
@@ -144,7 +144,7 @@ export default function Home() {
         {/* Gravy Pouring Image spans across sections, pinned to the absolute right of the entire VIEWPORT */}
         <div
           className="absolute right-0 pointer-events-none hidden lg:block z-[50]"
-          style={{ width: '644px', height: '1226px', top: '-10px' }}
+          style={{ width: '720px', height: '1368px', top: '-40px' }}
         >
           <Image
             src="/images/Gravy pouring.svg"
@@ -156,7 +156,7 @@ export default function Home() {
         </div>
 
         {/* Features Bottom Bar - positioned in the beige section below the green hero */}
-        <div className="w-full relative pt-4 pb-32 z-10">
+        <div className="w-full relative pt-12 pb-24 z-10">
           <div className="w-full max-w-[1440px] mx-auto px-8 relative z-[30]">
 
             {/* Features Rows of Pills - Staggered layout as per Figma */}
@@ -212,8 +212,8 @@ export default function Home() {
 
         {/* What is GrabV Section */}
         <section className="w-full relative pt-0 pb-0 flex flex-col items-center overflow-visible">
-          {/* Full-width Yellow Background - Reduced overlap from top */}
-          <div className="absolute inset-x-0 -top-[80px] bottom-0 z-0 pointer-events-none overflow-hidden">
+          {/* Full-width Yellow Background - Further offset to prevent overlap */}
+          <div className="absolute inset-x-0 top-0 bottom-0 z-0 pointer-events-none overflow-hidden">
             <div className="relative w-full h-full">
               <Image
                 src="/images/bg yellow.svg"
@@ -226,7 +226,7 @@ export default function Home() {
           </div>
 
           {/* Content Wrapper */}
-          <div className="relative w-full max-w-[1440px] mx-auto px-8 z-[40] flex flex-col lg:flex-row items-center pt-0 -mt-36">
+          <div className="relative w-full max-w-[1440px] mx-auto px-8 z-[40] flex flex-col lg:flex-row items-center pt-0 -mt-20">
 
             {/* Left Content */}
             <div className="w-full lg:w-[40%] flex flex-col items-start pt-0">
@@ -282,7 +282,7 @@ export default function Home() {
             </div>
 
             {/* Right Content - Product Image moved drastically right */}
-            <div className="w-full lg:w-[60%] flex justify-center lg:justify-end relative h-[1000px] lg:-mr-[450px] lg:translate-x-64">
+            <div className="w-full lg:w-[60%] flex justify-center lg:justify-end relative h-[1000px] lg:-mr-[450px] lg:translate-x-64 lg:translate-y-20">
               <div className="relative w-full h-full max-w-[1300px]">
                 <Image
                   src="/images/product 1.svg"
@@ -312,7 +312,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="flex flex-col items-center -mt-24">
+              <div className="flex flex-col items-center -mt-32">
                 <div className="relative w-[450px] h-[550px] sm:w-[600px] sm:h-[650px] z-10 shrink-0">
                   <Image
                     src="/images/cook2.svg"
@@ -356,25 +356,32 @@ export default function Home() {
             </div>
 
             {/* Steps Grid */}
-            <div className="mx-auto grid w-full max-w-[1284px] grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-20 mt-32 mb-32">
+            <div className="mx-auto grid w-full max-w-[1284px] grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-20 mt-20 mb-20">
               {[
-                { step: 1, text: "Add your tempering\n(tadka) in oil.", rotate: "-rotate-3" },
-                { step: 2, text: "Sauté veggies or\nprotein of your choice.", rotate: "rotate-3" },
-                { step: 3, text: "Pour GrabV &\nadjust consistency", rotate: "-rotate-3" },
-                { step: 4, text: "Sprinkle spices\n& salt to taste.", rotate: "rotate-3" },
-                { step: 5, text: "Cook for 10 mins\nand enjoy!", rotate: "-rotate-3" }
+                { step: 1, text: "Add your tempering\n(tadka) in oil.", rotate: "-rotate-6" },
+                { step: 2, text: "Sauté veggies or\nprotein of your choice.", rotate: "rotate-6" },
+                { step: 3, text: "Pour GrabV &\nadjust consistency", rotate: "-rotate-6" },
+                { step: 4, text: "Sprinkle spices\n& salt to taste.", rotate: "rotate-6" },
+                { step: 5, text: "Cook for 10 mins\nand enjoy!", rotate: "-rotate-6" }
               ].map((item) => (
                 <div key={item.step} className="flex flex-col items-center">
                   <div className="relative group w-full max-w-[230px]">
-                    <div
-                      className={`absolute -top-[34px] left-1/2 -translate-x-1/2 w-[124px] h-[42px] rounded-full border-2 border-[#f70034] flex items-center justify-center z-20 shadow-sm ${item.rotate}`}
-                      style={{ backgroundColor: 'rgb(247, 216, 13)' }}
-                    >
-                      <span className="font-kura text-[21px] leading-none text-[#f70034]">Step {item.step}</span>
+                    <div className="absolute -top-[34px] left-1/2 -translate-x-1/2 w-[124px] h-[42px] z-20">
+                      {/* Straight Yellow Fill */}
+                      <div
+                        className="absolute inset-0 rounded-full"
+                        style={{ backgroundColor: 'rgb(247, 216, 13)' }}
+                      />
+                      {/* Tilted Red Border and Text */}
+                      <div
+                        className={`absolute inset-0 rounded-full border-[3px] border-[#f70034] flex items-center justify-center shadow-sm ${item.rotate}`}
+                      >
+                        <span className="font-kura text-[21px] leading-none text-[#f70034]">Step {item.step}</span>
+                      </div>
                     </div>
 
-                    <div className="bg-white rounded-[5px] p-[5px] shadow-sm border border-[rgb(247,216,13)] flex flex-col items-center text-center w-full h-[290px]">
-                      <div className="relative w-full h-[180px] mb-6 rounded-[5px] overflow-hidden">
+                    <div className="bg-white rounded-[10px] p-[5px] pt-[30px] shadow-sm border-2 border-[rgb(247,216,13)] flex flex-col items-center text-center w-full h-[315px]">
+                      <div className="relative w-full h-[180px] mb-6 rounded-[10px] overflow-hidden">
                         <Image
                           src={`/images/step ${item.step}.webp`}
                           alt={`Step ${item.step}`}
