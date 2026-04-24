@@ -225,7 +225,7 @@ export default function OurStoryPage() {
                 {/* Green Features Section with Torn Edge */}
                 <section className="w-full relative flex flex-col items-center overflow-visible">
                     {/* Background Layer */}
-                    <div className="w-full relative pt-24 pb-36 flex flex-col items-center text-center overflow-hidden">
+                    <div className="w-full relative pt-24 pb-16 flex flex-col items-center text-center overflow-hidden">
                         <div className="absolute inset-0 z-0 overflow-hidden">
                             <Image
                                 src="/images/bg green2.svg"
@@ -239,7 +239,7 @@ export default function OurStoryPage() {
                         </div>
 
                         {/* Feature Pills Content */}
-                        <div className="relative z-10 flex flex-col items-center gap-6">
+                        <div className="relative z-10 flex flex-col items-center gap-6 mt-4">
                             {/* Row 1 */}
                             <div className="flex flex-wrap justify-center items-center gap-6">
                                 {[
