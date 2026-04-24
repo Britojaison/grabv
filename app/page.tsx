@@ -457,13 +457,12 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Showcase Image */}
-              <div className="w-full lg:w-[563px] lg:h-[332px] relative -mt-4 shrink-0 lg:mr-12 border-2 border-red-500 rounded-[10px] overflow-hidden">
+              <div className="w-full lg:w-[563px] lg:h-[332px] relative -mt-4 shrink-0 lg:mr-12">
                 <Image
-                  src="/images/cook.webp"
-                  alt="Cooking Illustration"
+                  src="/images/home ingredients .svg"
+                  alt="Home Ingredients"
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
             </div>
