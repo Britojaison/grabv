@@ -77,11 +77,17 @@ export default function OurStoryPage() {
 
                             {/* Description Texts */}
                             <div className="flex flex-col gap-8 max-w-[800px]">
-                                <p className="font-bomstad font-normal text-[25px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
-                                    Every evening, millions of Indian families face the same question – what's for dinner, and who has 90 minutes to cook it? The onion-tomato masala alone takes longer than most people have after a full day of work.
+                                <p className="font-bomstad font-normal text-[18px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
+                                    Every evening, millions of Indian families face the same question<br />
+                                    — what's for dinner, and who has 90 minutes to cook it? The<br />
+                                    onion-tomato masala alone takes longer than most people<br />
+                                    have after a full day of work.
                                 </p>
-                                <p className="font-bomstad font-normal text-[25px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
-                                    Our founder Priya was one of them. A working mother in Bengaluru, she found herself choosing between quick but unhealthy, or homemade but exhausting. There had to be a better way.
+                                <p className="font-bomstad font-normal text-[18px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
+                                    Our founder Priya was one of them. A working mother in<br />
+                                    Bengaluru, she found herself choosing between quick but<br />
+                                    unhealthy, or homemade but exhausting. There had to be a<br />
+                                    better way.
                                 </p>
                             </div>
                         </div>
@@ -154,7 +160,7 @@ export default function OurStoryPage() {
                             </h2>
 
                             {/* Description text */}
-                            <p className="font-bomstad font-normal text-[25px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
+                            <p className="font-bomstad font-normal text-[18px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
                                 Every evening, millions of Indian families face the same question – what’s for dinner, and who has 90 minutes to cook it? The onion-tomato masala alone takes longer than most people have after a full day of work.
                             </p>
                         </div>
@@ -209,7 +215,7 @@ export default function OurStoryPage() {
                             </h2>
 
                             {/* Description text */}
-                            <p className="font-bomstad font-normal text-[25px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
+                            <p className="font-bomstad font-normal text-[18px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
                                 Every evening, millions of Indian families face the same question – what’s for dinner, and who has 90 minutes to cook it? The onion-tomato masala alone takes longer than most people have after a full day of work.
                             </p>
                         </div>
@@ -241,7 +247,7 @@ export default function OurStoryPage() {
                                     { icon: "/images/slow.svg", text: "Slow cooked" },
                                     { icon: "/images/fssai icon.svg", text: "FSSAI Certified" },
                                 ].map((item, idx) => (
-                                    <div key={idx} className="bg-white rounded-full px-8 py-3.5 flex items-center gap-4 shadow-md text-[rgb(12,61,27)]">
+                                    <div key={idx} className="bg-white rounded-full px-8 py-3.5 flex items-center gap-4 shadow-md text-[rgb(21,106,55)]">
                                         <div className="w-8 h-8 relative flex items-center justify-center">
                                             <Image src={item.icon} alt={item.text} fill className="object-contain" />
                                         </div>
@@ -255,7 +261,7 @@ export default function OurStoryPage() {
                                     { icon: "/images/tick3.svg", text: "Zero Preservatives" },
                                     { icon: "/images/cold.svg", text: "Cold Chain Packed" },
                                 ].map((item, idx) => (
-                                    <div key={idx} className="bg-white rounded-full px-8 py-3.5 flex items-center gap-4 shadow-md text-[rgb(12,61,27)]">
+                                    <div key={idx} className="bg-white rounded-full px-8 py-3.5 flex items-center gap-4 shadow-md text-[rgb(21,106,55)]">
                                         <div className="w-8 h-8 relative flex items-center justify-center">
                                             <Image src={item.icon} alt={item.text} fill className="object-contain" />
                                         </div>
@@ -285,27 +291,32 @@ export default function OurStoryPage() {
 
                             {/* Name Box with Custom Border */}
                             <div className="relative inline-block lg:-mt-24 z-30">
-                                {/* Yellow Container Layer */}
+                                {/* Straight Yellow Fill */}
                                 <div
-                                    style={{ backgroundColor: 'rgb(247, 216, 13)', width: '352.6px', height: '160px' }}
-                                    className="rounded-[15px] flex flex-col items-center justify-center text-center relative z-10"
+                                    style={{ backgroundColor: 'rgb(247, 216, 13)', width: '306px', height: '132px' }}
+                                    className="rounded-[15px] relative z-10"
+                                />
+
+                                {/* Tilted Content Layer: Border and Text */}
+                                <div
+                                    className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center rotate-[1.5deg]"
                                 >
-                                    <span className="font-kura text-[32px] leading-tight mb-2 uppercase" style={{ color: 'rgb(247, 0, 52)' }}>
+                                    {/* Custom Border SVG */}
+                                    <div className="absolute -inset-1 pointer-events-none">
+                                        <Image
+                                            src="/images/border5.svg"
+                                            alt="Box Border"
+                                            fill
+                                            className="object-contain"
+                                        />
+                                    </div>
+
+                                    <span className="relative z-30 font-kura text-[32px] leading-tight mb-2 uppercase" style={{ color: 'rgb(247, 0, 52)' }}>
                                         AMIT SHAH
                                     </span>
-                                    <span className="font-bomstad text-[25px] font-normal leading-tight" style={{ color: 'rgb(21, 107, 54)' }}>
+                                    <span className="relative z-30 font-bomstad text-[18px] font-normal leading-tight" style={{ color: 'rgb(21, 107, 54)' }}>
                                         Every evening, millions<br />of Indian
                                     </span>
-                                </div>
-
-                                {/* Custom Border SVG on Top */}
-                                <div className="absolute -inset-1 z-20 pointer-events-none">
-                                    <Image
-                                        src="/images/border5.svg"
-                                        alt="Box Border"
-                                        fill
-                                        className="object-contain"
-                                    />
                                 </div>
                             </div>
                         </div>
@@ -321,13 +332,13 @@ export default function OurStoryPage() {
                             </h2>
 
                             <div className="flex flex-col gap-12">
-                                <p className="font-bomstad font-normal text-[25px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
+                                <p className="font-bomstad font-normal text-[18px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
                                     Our founder Priya was one of them. A working mother in Bengaluru, she found herself choosing between quick but unhealthy, or homemade but exhausting. There had to be a better way.
                                 </p>
 
                                 {/* Paragraph with red left border */}
                                 <div className="pl-10 border-l-[4px]" style={{ borderColor: 'rgb(247, 0, 52)' }}>
-                                    <p className="font-bomstad font-medium text-[25px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
+                                    <p className="font-bomstad font-medium text-[20px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
                                         Our founder Priya was one of them. A working mother in Bengaluru, she found herself choosing between quick but unhealthy, or homemade but exhausting. There had to be a better way.Our founder Priya was one of them. A working mother in Bengaluru, she found herself choosing between quick but unhealthy, or homemade but exhausting. There had to be a better way.
                                     </p>
                                 </div>

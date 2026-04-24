@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function ProductsListPage() {
     return (
-        <div className="flex flex-col min-h-screen w-full font-bomstad overflow-x-hidden" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
+        <div className="flex flex-col min-h-screen w-full font-bomstad overflow-x-hidden" style={{ backgroundColor: 'rgb(239, 239, 231)' }}>
 
             {/* Navbar */}
             <header
@@ -49,10 +49,10 @@ export default function ProductsListPage() {
             </header>
 
             {/* Main Content */}
-            <main className="w-full relative flex flex-col items-center">
+            <main className="w-full relative flex flex-col items-center" style={{ backgroundColor: 'rgb(239, 239, 231)' }}>
 
                 {/* Explore Products Section */}
-                <div className="w-full max-w-[1440px] mx-auto px-8 pt-16 pb-20">
+                <div className="w-full max-w-[1440px] mx-auto px-8 pt-16 pb-8">
                     <div className="w-full flex flex-col items-center mb-20 px-4 text-center">
                         <h2 className="font-kura leading-none mb-12 uppercase flex gap-4">
                             <span className="text-[65px]" style={{ color: 'rgb(21, 107, 54)' }}>OUR</span>
@@ -67,7 +67,7 @@ export default function ProductsListPage() {
                             ].map((item, idx) => (
                                 <div key={idx} className="flex flex-col items-center group">
                                     {/* Image Container */}
-                                    <div className={`relative w-full aspect-[4/5] rounded-[20px] overflow-hidden mb-12 ${item.status === 'active' ? 'cursor-pointer' : ''}`}>
+                                    <div className={`relative w-full aspect-[4/5] rounded-[20px] overflow-hidden mb-1 ${item.status === 'active' ? 'cursor-pointer' : ''}`}>
                                         <Image
                                             src="/images/explore prod.svg"
                                             alt="Product"
@@ -77,7 +77,7 @@ export default function ProductsListPage() {
                                         {/* Coming Soon Badge */}
                                         {item.status === 'coming_soon' && (
                                             <div className="absolute inset-0 flex items-center justify-center p-4">
-                                                <div className="bg-[rgb(247,0,52)] text-white px-8 py-3 rounded-[15px] text-[24px] font-bomstad font-bold shadow-lg">
+                                                <div className="bg-[rgb(247,0,52)] text-white px-8 py-2 rounded-[10px] text-[18px] font-bomstad font-normal shadow-lg">
                                                     Coming Soon
                                                 </div>
                                             </div>
@@ -89,8 +89,8 @@ export default function ProductsListPage() {
                                     </div>
 
                                     {/* Product Pill */}
-                                    <div className="px-6 py-2 rounded-[10px] mb-8" style={{ backgroundColor: 'rgb(228, 233, 223)' }}>
-                                        <span className="text-[18px] font-bomstad leading-snug text-center block" style={{ color: 'rgb(99, 152, 117)' }}>
+                                    <div className="px-6 py-2 rounded-[10px] mb-3" style={{ backgroundColor: 'rgb(228, 233, 223)' }}>
+                                        <span className="text-[20px] font-bomstad leading-snug text-center block" style={{ color: 'rgb(21, 106, 55)' }}>
                                             {item.title}
                                         </span>
                                     </div>

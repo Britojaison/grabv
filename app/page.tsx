@@ -403,7 +403,7 @@ export default function Home() {
         </section>
 
         {/* Ingredients & Purity Section - Tighter height to fit viewport */}
-        <section className="w-full relative py-20 flex flex-col items-center overflow-visible min-h-[850px] justify-center" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
+        <section className="w-full relative py-20 flex flex-col items-center overflow-visible min-h-[850px] justify-center" style={{ backgroundColor: 'rgb(239, 239, 231)' }}>
           {/* Full-width Yellow Background with torn edges */}
           <div className="absolute inset-x-0 -top-24 bottom-0 z-0 overflow-hidden">
             <Image
