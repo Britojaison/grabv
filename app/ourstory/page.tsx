@@ -1,7 +1,11 @@
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function OurStoryPage() {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     return (
         <div className="flex flex-col min-h-screen w-full font-bomstad overflow-x-hidden" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
 
@@ -10,8 +14,23 @@ export default function OurStoryPage() {
                 style={{ backgroundColor: 'rgb(12, 61, 27)' }}
                 className="relative z-[100] w-full flex-shrink-0 shadow-md"
             >
-                <div className="max-w-[1440px] mx-auto px-8 h-[80px] flex items-center justify-between">
-                    <Link href="/" className="flex items-center">
+                <div className="max-w-[1440px] mx-auto px-4 md:px-8 h-[70px] md:h-[80px] flex items-center justify-between">
+                    <div className="flex items-center gap-4">
+                        {/* Hamburger Menu - Mobile Only */}
+                        <div className="md:hidden flex items-center">
+                            <button 
+                                className="text-white focus:outline-none p-2"
+                                onClick={() => setIsMenuOpen(true)}
+                            >
+                                <svg width="30" height="20" viewBox="0 0 30 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <line x1="0" y1="2" x2="30" y2="2" stroke="white" strokeWidth="3" />
+                                    <line x1="0" y1="10" x2="30" y2="10" stroke="white" strokeWidth="3" />
+                                    <line x1="0" y1="18" x2="30" y2="18" stroke="white" strokeWidth="3" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <Link href="/" className="flex items-center">
                         <Image
                             src="/images/logo.svg"
                             alt="GrabV Logo"
@@ -20,9 +39,10 @@ export default function OurStoryPage() {
                             className="w-auto h-12"
                             priority
                         />
-                    </Link>
+                        </Link>
+                    </div>
 
-                    <nav className="flex items-center gap-12 text-white font-medium">
+                    <nav className="hidden md:flex items-center gap-12 text-white font-medium">
                         <Link href="/" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Home</Link>
                         <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Recipes</Link>
                         <Link href="/products" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Products</Link>
@@ -41,11 +61,40 @@ export default function OurStoryPage() {
                             color: 'rgb(12, 61, 27)',
                             letterSpacing: '0.05em'
                         }}
-                        className="font-bomstad font-medium flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0"
+                        className="font-bomstad font-medium flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0 text-[14px] md:text-[18px] w-[100px] md:w-[142px]"
                     >
                         Order Now
                     </button>
                 </div>
+
+                {/* Mobile Menu Overlay */}
+                {isMenuOpen && (
+                    <div className="fixed inset-0 z-[200] bg-[rgb(12,61,27)] flex flex-col items-center justify-center animate-in fade-in duration-300">
+                        <button 
+                            className="absolute top-6 right-8 text-white p-2 hover:scale-110 transition-transform"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 5L25 25M25 5L5 25" stroke="white" strokeWidth="3" />
+                            </svg>
+                        </button>
+                        <nav className="flex flex-col items-center gap-8 text-white font-bomstad font-medium text-[24px]">
+                            <Link href="/" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Home</Link>
+                            <Link href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Recipes</Link>
+                            <Link href="/products" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Products</Link>
+                            <Link href="/ourstory" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors text-[rgb(247,216,13)]">Our Story</Link>
+                            <Link href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Contact Us</Link>
+                            <Link href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">FAQ</Link>
+                            <button 
+                                style={{ backgroundColor: 'rgb(247, 216, 13)', color: 'rgb(12, 61, 27)' }}
+                                className="mt-4 px-10 py-3 rounded-full font-bold text-[18px] hover:bg-yellow-400 transition-colors"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                Order Now
+                            </button>
+                        </nav>
+                    </div>
+                )}
             </header>
 
             {/* Main Content */}
@@ -247,7 +296,7 @@ export default function OurStoryPage() {
                                     { icon: "/images/slow.svg", text: "Slow cooked" },
                                     { icon: "/images/fssai icon.svg", text: "FSSAI Certified" },
                                 ].map((item, idx) => (
-                                    <div key={idx} className="bg-white rounded-full px-8 py-3.5 flex items-center gap-4 shadow-md text-[rgb(21,106,55)]">
+                                    <div key={idx} className="bg-white md:bg-[rgb(247,216,13)] rounded-full px-8 py-3.5 flex items-center gap-4 shadow-md text-[rgb(21,106,55)]">
                                         <div className="w-8 h-8 relative flex items-center justify-center">
                                             <Image src={item.icon} alt={item.text} fill className="object-contain" />
                                         </div>
@@ -258,10 +307,10 @@ export default function OurStoryPage() {
                             {/* Row 2 */}
                             <div className="flex flex-wrap justify-center items-center gap-6">
                                 {[
-                                    { icon: "/images/tick3.svg", text: "Zero Preservatives" },
+                                    { icon: "/images/tick2.svg", text: "Zero Preservatives" },
                                     { icon: "/images/cold.svg", text: "Cold Chain Packed" },
                                 ].map((item, idx) => (
-                                    <div key={idx} className="bg-white rounded-full px-8 py-3.5 flex items-center gap-4 shadow-md text-[rgb(21,106,55)]">
+                                    <div key={idx} className="bg-white md:bg-[rgb(247,216,13)] rounded-full px-8 py-3.5 flex items-center gap-4 shadow-md text-[rgb(21,106,55)]">
                                         <div className="w-8 h-8 relative flex items-center justify-center">
                                             <Image src={item.icon} alt={item.text} fill className="object-contain" />
                                         </div>

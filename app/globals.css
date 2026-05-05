@@ -98,6 +98,12 @@
   --color-brand-dark-green: rgb(12, 61, 27);
   --font-kura: "Kura Display", serif;
   --font-bomstad: "Bomstad Display", sans-serif;
+  --animate-marquee: marquee 40s linear infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
 }
 
 :root {
@@ -109,4 +115,14 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: "Bomstad Display", sans-serif;
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
