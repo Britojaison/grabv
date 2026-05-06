@@ -18,7 +18,7 @@ export default function Home() {
           <div className="flex items-center gap-4">
             {/* Hamburger Menu - Mobile Only */}
             <div className="md:hidden flex items-center">
-              <button 
+              <button
                 className="text-white focus:outline-none p-2"
                 onClick={() => setIsMenuOpen(true)}
               >
@@ -71,7 +71,7 @@ export default function Home() {
         {/* Mobile Menu Overlay */}
         {isMenuOpen && (
           <div className="fixed inset-0 z-[200] bg-[rgb(12,61,27)] flex flex-col items-center justify-center animate-in fade-in duration-300">
-            <button 
+            <button
               className="absolute top-6 right-8 text-white p-2 hover:scale-110 transition-transform"
               onClick={() => setIsMenuOpen(false)}
             >
@@ -86,7 +86,7 @@ export default function Home() {
               <Link href="/ourstory" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Our Story</Link>
               <Link href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Contact Us</Link>
               <Link href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">FAQ</Link>
-              <button 
+              <button
                 style={{ backgroundColor: 'rgb(247, 216, 13)', color: 'rgb(12, 61, 27)' }}
                 className="mt-4 px-10 py-3 rounded-full font-bold text-[18px] hover:bg-yellow-400 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
@@ -263,7 +263,7 @@ export default function Home() {
             <div className="hidden md:flex flex-col gap-5 items-start lg:w-[75%]">
               {/* Row 1 */}
               <div className="flex flex-wrap items-center gap-5">
-                <div 
+                <div
                   style={{ backgroundColor: 'rgb(247, 216, 13)' }}
                   className="rounded-full px-7 py-3 flex items-center gap-3 shadow-sm"
                 >
@@ -272,7 +272,7 @@ export default function Home() {
                   </div>
                   <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad whitespace-nowrap">Ready in 10 min</span>
                 </div>
-                <div 
+                <div
                   style={{ backgroundColor: 'rgb(247, 216, 13)' }}
                   className="rounded-full px-7 py-3 flex items-center gap-3 shadow-sm"
                 >
@@ -281,7 +281,7 @@ export default function Home() {
                   </div>
                   <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad whitespace-nowrap">Slow cooked</span>
                 </div>
-                <div 
+                <div
                   style={{ backgroundColor: 'rgb(247, 216, 13)' }}
                   className="rounded-full px-7 py-3 flex items-center gap-3 shadow-sm"
                 >
@@ -293,7 +293,7 @@ export default function Home() {
               </div>
               {/* Row 2 */}
               <div className="flex flex-wrap items-center gap-5 ml-20">
-                <div 
+                <div
                   style={{ backgroundColor: 'rgb(247, 216, 13)' }}
                   className="rounded-full px-7 py-3 flex items-center gap-3 shadow-sm"
                 >
@@ -302,7 +302,7 @@ export default function Home() {
                   </div>
                   <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad whitespace-nowrap">Zero Preservatives</span>
                 </div>
-                <div 
+                <div
                   style={{ backgroundColor: 'rgb(247, 216, 13)' }}
                   className="rounded-full px-7 py-3 flex items-center gap-3 shadow-sm"
                 >
@@ -318,7 +318,7 @@ export default function Home() {
         </div>
 
         {/* What is GrabV Section */}
-        <section 
+        <section
           className="w-screen relative left-1/2 -translate-x-1/2 pt-0 pb-0 flex flex-col items-center overflow-visible -mt-20 md:mt-0 min-h-[400px] md:min-h-[600px]"
         >
           {/* Mobile Background */}
@@ -448,7 +448,7 @@ export default function Home() {
                       No Chopping. No Prep.<br />No Recipe Needed
                     </p>
                   </div>
-                  
+
                   <div className="flex-[1.2] flex flex-col gap-1.5">
                     <div className="relative w-full h-[150px]">
                       <Image
@@ -553,7 +553,7 @@ export default function Home() {
                       <div className={`absolute inset-0 rounded-full bg-[rgb(247,216,13)] border-[1.5px] md:border-[3px] border-[rgb(247,0,52)] flex items-center justify-center shadow-sm md:hidden ${item.rotate}`}>
                         <span className="font-kura text-[14px] text-[rgb(247,0,52)]">Step {item.step}</span>
                       </div>
-                      
+
                       {/* Desktop Tag (Tilted) */}
                       <div className="hidden md:block absolute inset-0 w-full h-full">
                         <div className="absolute inset-0 rounded-full" style={{ backgroundColor: 'rgb(247, 216, 13)' }} />
@@ -613,12 +613,12 @@ export default function Home() {
 
           {/* Content Wrapper */}
           <div className="relative w-full max-w-[1440px] mx-auto px-4 md:px-8 lg:px-[80px] z-10 flex flex-col items-start pb-0">
-            
+
             {/* Mobile Layout (Hidden on Desktop) */}
             <div className="md:hidden flex flex-col items-center w-full text-center -mt-8">
               {/* Ingredients Pill */}
               <div className="relative w-[210px] h-[42px] mb-6">
-                <div 
+                <div
                   className="absolute inset-0 rounded-full flex items-center justify-center"
                   style={{ backgroundColor: 'rgb(247, 0, 52)' }}
                 >
@@ -1278,31 +1278,40 @@ export default function Home() {
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-col items-center gap-4 md:gap-6 mb-8 md:mb-10 w-full max-w-[550px]">
-            <div className="flex flex-row items-center justify-center gap-3 md:gap-6 w-full">
-              <button className="bg-[#f70034] text-white flex-1 py-3 md:py-5 rounded-full font-bomstad font-bold text-[14px] md:text-[24px] shadow-lg transition-all">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-8 md:mb-12 w-full max-w-[1000px]">
+            <div className="flex flex-row items-center justify-center gap-3 md:gap-8 w-full md:w-auto">
+              {/* Order 750g */}
+              <button className="bg-white text-[#f70034] flex-1 md:w-[260px] py-3 md:py-5 rounded-full font-bomstad font-medium text-[14px] md:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all shrink-0">
                 Order 750g
               </button>
-              <button className="bg-white text-[#f70034] flex-1 py-3 md:py-5 rounded-full font-bomstad font-bold text-[14px] md:text-[24px] shadow-lg transition-all">
+
+              {/* Order 250g */}
+              <button className="bg-white text-[#f70034] flex-1 md:w-[260px] py-3 md:py-5 rounded-full font-bomstad font-medium text-[14px] md:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all shrink-0">
                 Order 250g
               </button>
             </div>
-            <button className="bg-white text-[#f70034] w-[180px] md:w-full py-2.5 md:py-5 rounded-full font-bomstad font-bold text-[14px] md:text-[24px] shadow-lg transition-all flex items-center justify-center gap-2 md:gap-3">
-              <div className="w-5 h-5 md:w-8 md:h-8 relative">
+
+            {/* WhatsApp - Tertiary */}
+            <button className="bg-white text-[#f70034] w-[180px] md:w-[260px] py-2.5 md:py-5 rounded-full font-bomstad font-normal text-[14px] md:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all group flex items-center justify-center gap-2 md:gap-4 shrink-0">
+              <div className="w-5 h-5 md:w-8 md:h-8 relative group-hover:brightness-0 group-hover:invert transition-all">
                 <Image src="/images/whatsapp.svg" alt="WhatsApp" fill className="object-contain" />
               </div>
-              <span>Whatsapp us</span>
+              <span>WhatsApp us</span>
             </button>
           </div>
 
           {/* Footer text */}
-          {/* Footer text - Increased font size */}
-          <div className="text-white text-[11px] md:text-[22px] font-bomstad font-normal tracking-tight md:tracking-wide flex items-center justify-center gap-1.5 md:gap-4 opacity-90">
+          <div className="text-white text-[10px] min-[375px]:text-[11px] md:text-[24px] font-bomstad font-medium tracking-tight md:tracking-wide flex flex-row flex-nowrap items-center justify-center gap-1 md:gap-2 opacity-100 whitespace-nowrap px-4 md:px-2">
             <span>Free delivery on orders above ₹499</span>
             <span className="opacity-60">·</span>
             <span>Ships within 48 hours</span>
             <span className="opacity-60">·</span>
-            <span>Certified</span>
+            <div className="flex items-center gap-0">
+              <div className="h-5 w-10 md:h-16 md:w-32 relative invert brightness-0">
+                <Image src="/images/fssai%20text.svg" alt="FSSAI" fill className="object-contain" />
+              </div>
+              <span>Certified</span>
+            </div>
           </div>
         </div>
       </main>
@@ -1349,7 +1358,7 @@ export default function Home() {
               <div className="flex flex-col gap-1">
                 <h4 className="text-[16px] font-bold" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
                 <div className="flex flex-col gap-0 text-[14px] font-medium font-bomstad leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
-                  <Link href="#">All Purpose Gravy</Link>
+                  <Link href="/all-purposegravy">All Purpose Gravy</Link>
                   <Link href="#">Ingredients</Link>
                   <Link href="#">How to Use</Link>
                   <Link href="#">Recipes</Link>
@@ -1401,7 +1410,7 @@ export default function Home() {
             <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
               <h4 className="text-[18px] md:text-[22px] font-bold mb-3 md:mb-4" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
               <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
-                <Link href="#" className="hover:opacity-80 transition-opacity">All Purpose Gravy</Link>
+                <Link href="/all-purposegravy" className="hover:opacity-80 transition-opacity">All Purpose Gravy</Link>
                 <Link href="#" className="hover:opacity-80 transition-opacity">Ingredients</Link>
                 <Link href="#" className="hover:opacity-80 transition-opacity">How to Use</Link>
                 <Link href="#" className="hover:opacity-80 transition-opacity">Recipes</Link>

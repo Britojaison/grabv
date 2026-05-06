@@ -18,7 +18,7 @@ export default function ProductsListPage() {
                     <div className="flex items-center gap-4">
                         {/* Hamburger Menu - Mobile Only */}
                         <div className="md:hidden flex items-center">
-                            <button 
+                            <button
                                 className="text-white focus:outline-none p-2"
                                 onClick={() => setIsMenuOpen(true)}
                             >
@@ -31,14 +31,14 @@ export default function ProductsListPage() {
                         </div>
 
                         <Link href="/" className="flex items-center">
-                        <Image
-                            src="/images/logo.svg"
-                            alt="GrabV Logo"
-                            width={110}
-                            height={40}
-                            className="w-auto h-12"
-                            priority
-                        />
+                            <Image
+                                src="/images/logo.svg"
+                                alt="GrabV Logo"
+                                width={110}
+                                height={40}
+                                className="w-auto h-12"
+                                priority
+                            />
                         </Link>
                     </div>
 
@@ -70,7 +70,7 @@ export default function ProductsListPage() {
                 {/* Mobile Menu Overlay */}
                 {isMenuOpen && (
                     <div className="fixed inset-0 z-[200] bg-[rgb(12,61,27)] flex flex-col items-center justify-center animate-in fade-in duration-300">
-                        <button 
+                        <button
                             className="absolute top-6 right-8 text-white p-2 hover:scale-110 transition-transform"
                             onClick={() => setIsMenuOpen(false)}
                         >
@@ -85,7 +85,7 @@ export default function ProductsListPage() {
                             <Link href="/ourstory" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Our Story</Link>
                             <Link href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Contact Us</Link>
                             <Link href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">FAQ</Link>
-                            <button 
+                            <button
                                 style={{ backgroundColor: 'rgb(247, 216, 13)', color: 'rgb(12, 61, 27)' }}
                                 className="mt-4 px-10 py-3 rounded-full font-bold text-[18px] hover:bg-yellow-400 transition-colors"
                                 onClick={() => setIsMenuOpen(false)}
@@ -118,7 +118,7 @@ export default function ProductsListPage() {
                                     {/* Image Container */}
                                     <div className={`relative w-full aspect-[4/5] rounded-[20px] overflow-hidden mb-1 ${item.status === 'active' ? 'cursor-pointer' : ''}`}>
                                         <Image
-                                            src="/images/explore prod.svg"
+                                            src="/images/all-p-gravy.svg"
                                             alt="Product"
                                             fill
                                             className={`object-contain transition-transform duration-500 group-hover:scale-[1.02] ${item.status === 'coming_soon' ? 'grayscale opacity-60' : ''}`}
@@ -133,7 +133,7 @@ export default function ProductsListPage() {
                                         )}
                                         {/* Clickable overlay for active products */}
                                         {item.status === 'active' && (
-                                            <Link href="/product1" className="absolute inset-0 z-10" aria-label="View product details" />
+                                            <Link href="/all-purposegravy" className="absolute inset-0 z-10" aria-label="View product details" />
                                         )}
                                     </div>
 
@@ -146,7 +146,7 @@ export default function ProductsListPage() {
 
                                     {/* View Product Button */}
                                     <Link
-                                        href="/product1"
+                                        href="/all-purposegravy"
                                         className="w-[353px] relative h-[72px] flex items-center justify-center hover:scale-[1.02] transition-all group/btn"
                                     >
                                         <div
@@ -202,7 +202,7 @@ export default function ProductsListPage() {
                     <div className="rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
                         <h4 className="text-[22px] font-bold mb-2" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
                         <div className="flex flex-col gap-1 text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
-                            <Link href="#" className="hover:opacity-80 transition-opacity">All Purpose Gravy</Link>
+                            <Link href="/all-purposegravy" className="hover:opacity-80 transition-opacity">All Purpose Gravy</Link>
                             <Link href="#" className="hover:opacity-80 transition-opacity">Ingredients</Link>
                             <Link href="#" className="hover:opacity-80 transition-opacity">How to Use</Link>
                             <Link href="#" className="hover:opacity-80 transition-opacity">Recipes</Link>
