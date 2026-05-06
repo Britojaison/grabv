@@ -22,10 +22,10 @@ export default function ProductsListPage() {
                                 className="text-white focus:outline-none p-2"
                                 onClick={() => setIsMenuOpen(true)}
                             >
-                                <svg width="30" height="20" viewBox="0 0 30 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <line x1="0" y1="2" x2="30" y2="2" stroke="white" strokeWidth="3" />
-                                    <line x1="0" y1="10" x2="30" y2="10" stroke="white" strokeWidth="3" />
-                                    <line x1="0" y1="18" x2="30" y2="18" stroke="white" strokeWidth="3" />
+                                <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <line x1="0" y1="2" x2="24" y2="2" stroke="white" strokeWidth="2.5" />
+                                    <line x1="0" y1="8" x2="24" y2="8" stroke="white" strokeWidth="2.5" />
+                                    <line x1="0" y1="14" x2="24" y2="14" stroke="white" strokeWidth="2.5" />
                                 </svg>
                             </button>
                         </div>
@@ -36,7 +36,7 @@ export default function ProductsListPage() {
                                 alt="GrabV Logo"
                                 width={110}
                                 height={40}
-                                className="w-auto h-12"
+                                className="w-auto h-8 md:h-12"
                                 priority
                             />
                         </Link>
@@ -53,15 +53,12 @@ export default function ProductsListPage() {
 
                     <button
                         style={{
-                            width: '142px',
-                            height: '37px',
                             borderRadius: '5px',
-                            fontSize: '18px',
                             backgroundColor: 'rgb(247, 216, 13)',
                             color: 'rgb(12, 61, 27)',
                             letterSpacing: '0.05em'
                         }}
-                        className="font-bomstad font-medium flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0 text-[14px] md:text-[18px] w-[100px] md:w-[142px]"
+                        className="font-bomstad font-medium flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0 text-[12px] md:text-[18px] w-[85px] md:w-[142px] h-[30px] md:h-[37px]"
                     >
                         Order Now
                     </button>
@@ -110,13 +107,13 @@ export default function ProductsListPage() {
                             <span className="text-[42px] md:text-[65px]" style={{ color: 'rgb(247, 0, 52)' }}>PRODUCTS</span>
                         </h2>
 
-                        <div className="w-full flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible gap-6 md:gap-10 pb-4 md:pb-0 no-scrollbar px-4 md:px-0">
+                        <div className="w-full flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible gap-4 md:gap-10 pb-4 md:pb-0 no-scrollbar px-4 md:px-0">
                             {[
                                 { status: 'active', title: 'All Purpose Gravy ...' },
                                 { status: 'coming_soon', title: 'All Purpose Gravy ....' },
                                 { status: 'coming_soon', title: 'All Purpose Gravy ....' }
                             ].map((item, idx) => (
-                                <div key={idx} className="flex flex-col items-center group shrink-0 w-[280px] md:w-auto">
+                                <div key={idx} className="flex flex-col items-center group shrink-0 w-[170px] md:w-auto">
                                     {/* Image Container */}
                                     <div className={`relative w-full aspect-[4/5] rounded-[20px] overflow-hidden mb-1 ${item.status === 'active' ? 'cursor-pointer' : 'md:bg-transparent'}`}>
                                         <Image
@@ -128,7 +125,7 @@ export default function ProductsListPage() {
                                         {/* Coming Soon Badge */}
                                         {item.status === 'coming_soon' && (
                                             <div className="absolute inset-0 flex items-center justify-center p-4">
-                                                <div className="bg-[rgb(247,0,52)] text-white px-6 py-2 rounded-[10px] text-[16px] md:text-[18px] font-bomstad font-normal shadow-lg">
+                                                <div className="bg-[rgb(247,0,52)] text-white px-3 md:px-6 py-1 md:py-2 rounded-[8px] md:rounded-[10px] text-[14px] md:text-[18px] font-bomstad font-normal shadow-lg">
                                                     Coming Soon
                                                 </div>
                                             </div>
@@ -140,8 +137,8 @@ export default function ProductsListPage() {
                                     </div>
 
                                     {/* Product Pill */}
-                                    <div className="px-6 py-2 rounded-[10px] mb-3 w-full md:w-auto" style={{ backgroundColor: 'rgb(228, 233, 223)' }}>
-                                        <span className="text-[18px] md:text-[20px] font-bomstad leading-snug text-center block" style={{ color: 'rgb(21, 106, 55)' }}>
+                                    <div className="px-4 md:px-6 py-1.5 md:py-2 rounded-[8px] md:rounded-[10px] mb-3 w-full md:w-auto" style={{ backgroundColor: 'rgb(228, 233, 223)' }}>
+                                        <span className="text-[14px] md:text-[20px] font-bomstad leading-snug text-center block" style={{ color: 'rgb(21, 106, 55)' }}>
                                             {item.title}
                                         </span>
                                     </div>
@@ -152,8 +149,8 @@ export default function ProductsListPage() {
                                         className="w-full md:w-[353px] relative h-[60px] md:h-[72px] flex items-center justify-center hover:scale-[1.02] transition-all group/btn"
                                     >
                                         <div
-                                            className="absolute w-[calc(100%-10px)] md:w-[349px] h-[50px] md:h-[60px] top-[10px] left-[5px] md:left-[0.75px] z-0 bg-[rgb(247,216,13)] rounded-[9px]"
-                                            style={{ transform: 'rotate(-1.6deg)' }}
+                                            className="absolute w-[calc(100%-10px)] md:w-[349px] h-[calc(100%-28px)] md:h-[60px] top-[14px] left-[5px] md:left-[0.75px] z-0 bg-[rgb(247,216,13)] rounded-[9px]"
+                                            style={{ transform: 'rotate(-0.8deg)' }}
                                         />
                                         <div className="absolute inset-0 z-10 w-full h-full">
                                             <Image
@@ -163,7 +160,7 @@ export default function ProductsListPage() {
                                                 className="object-fill"
                                             />
                                         </div>
-                                        <span className="relative z-20 text-[24px] md:text-[32px] font-kura font-normal text-[rgb(247,0,52)] uppercase">
+                                        <span className="relative z-20 text-[20px] md:text-[32px] font-kura font-medium text-[rgb(247,0,52)] uppercase">
                                             View Product
                                         </span>
                                     </Link>

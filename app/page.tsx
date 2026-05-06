@@ -22,10 +22,10 @@ export default function Home() {
                 className="text-white focus:outline-none p-2"
                 onClick={() => setIsMenuOpen(true)}
               >
-                <svg width="30" height="20" viewBox="0 0 30 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <line x1="0" y1="2" x2="30" y2="2" stroke="white" strokeWidth="3" />
-                  <line x1="0" y1="10" x2="30" y2="10" stroke="white" strokeWidth="3" />
-                  <line x1="0" y1="18" x2="30" y2="18" stroke="white" strokeWidth="3" />
+                <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="0" y1="2" x2="24" y2="2" stroke="white" strokeWidth="2.5" />
+                  <line x1="0" y1="8" x2="24" y2="8" stroke="white" strokeWidth="2.5" />
+                  <line x1="0" y1="14" x2="24" y2="14" stroke="white" strokeWidth="2.5" />
                 </svg>
               </button>
             </div>
@@ -37,7 +37,7 @@ export default function Home() {
                 alt="GrabV Logo"
                 width={110}
                 height={40}
-                className="w-auto h-10 md:h-12"
+                className="w-auto h-8 md:h-12"
                 priority
               />
             </div>
@@ -55,14 +55,12 @@ export default function Home() {
 
           <button
             style={{
-              width: '142px',
-              height: '37px',
               borderRadius: '5px',
               backgroundColor: 'rgb(247, 216, 13)',
               color: 'rgb(12, 61, 27)',
               letterSpacing: '0.05em'
             }}
-            className="font-bomstad font-medium flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0 text-[14px] md:text-[18px] w-[100px] md:w-[142px]"
+            className="font-bomstad font-medium flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0 text-[12px] md:text-[18px] w-[85px] md:w-[142px] h-[30px] md:h-[37px]"
           >
             Order Now
           </button>
