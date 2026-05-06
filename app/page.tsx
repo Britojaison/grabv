@@ -792,7 +792,7 @@ export default function Home() {
 
             {/* Mobile Continuous Auto-Scroll (Marquee) */}
             <div className="md:hidden w-full overflow-hidden py-4">
-              <div className="flex gap-12 whitespace-nowrap animate-marquee">
+              <div className="flex gap-12 whitespace-nowrap animate-marquee w-max">
                 {[
                   "No artificial colours", "FSSAI certified", "100% vegetarian",
                   "No added sugar", "No MSG", "Batch tested",

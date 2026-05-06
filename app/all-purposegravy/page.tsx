@@ -130,7 +130,7 @@ export default function ProductsPage() {
                             <div className="w-[55%] md:w-[50%] flex flex-col items-start pt-0 md:pt-4">
 
                                 {/* Fresh & Flavorful Pill */}
-                                <div className="relative w-[150px] md:w-[240px] h-[35px] md:h-[65px] mb-4 md:mb-8">
+                                <div className="relative w-[130px] md:w-[240px] h-[35px] md:h-[65px] mb-4 md:mb-8">
                                     <div className="absolute left-[0.46px] top-[4.46px] w-[calc(100%-4px)] h-[calc(100%-8px)] rounded-[100px] bg-[rgb(247,216,13)]" />
                                     <Image
                                         src="/images/green border.svg"
@@ -147,7 +147,7 @@ export default function ProductsPage() {
                                                 className="object-contain"
                                             />
                                         </div>
-                                        <span className="font-bomstad font-medium tracking-tight text-[11px] md:text-[18px]" style={{ color: 'rgb(21, 107, 54)' }}>
+                                        <span className="font-bomstad font-medium tracking-tight text-[11px] md:text-[18px] whitespace-nowrap" style={{ color: 'rgb(21, 107, 54)' }}>
                                             Fresh & Flavorful
                                         </span>
                                     </div>
@@ -182,17 +182,17 @@ export default function ProductsPage() {
                                 {/* Pack Size Section */}
                                 <div className="w-full mb-4 md:mb-6 flex flex-col gap-2 md:gap-4">
                                     <span className="uppercase tracking-widest font-normal font-bomstad text-[14px] md:text-[18px]" style={{ color: 'rgb(21, 107, 54)' }}>PACK SIZE</span>
-                                    <div className="flex flex-row flex-nowrap gap-2 md:gap-3 items-center mb-0 overflow-x-auto no-scrollbar">
-                                        <button className="px-3 md:px-6 py-1.5 md:py-2.5 rounded-[6px] md:rounded-[8px] font-normal transition-all shadow-sm flex items-center justify-center bg-[rgb(206,219,205)] font-bomstad whitespace-nowrap text-[12px] md:text-[18px] flex-shrink-0" style={{ color: 'rgb(21, 107, 54)' }}>
+                                    <div className="grid grid-cols-2 md:flex md:flex-row gap-2 md:gap-3 items-stretch md:items-center mb-0">
+                                        <button className="px-3 md:px-6 py-1.5 md:py-2.5 rounded-[6px] md:rounded-[8px] font-normal transition-all shadow-sm flex items-center justify-center bg-[rgb(206,219,205)] font-bomstad whitespace-nowrap text-[12px] md:text-[18px]" style={{ color: 'rgb(21, 107, 54)' }}>
                                             750g
                                         </button>
-                                        <button className="px-3 md:px-6 py-1.5 md:py-2.5 rounded-[6px] md:rounded-[8px] font-normal transition-all shadow-sm flex items-center justify-center bg-[rgb(206,219,205)] font-bomstad whitespace-nowrap text-[12px] md:text-[18px] flex-shrink-0" style={{ color: 'rgb(21, 107, 54)' }}>
+                                        <button className="px-3 md:px-6 py-1.5 md:py-2.5 rounded-[6px] md:rounded-[8px] font-normal transition-all shadow-sm flex items-center justify-center bg-[rgb(206,219,205)] font-bomstad whitespace-nowrap text-[12px] md:text-[18px]" style={{ color: 'rgb(21, 107, 54)' }}>
                                             1.5 kg (2-pack)
                                         </button>
-                                        <button className="px-3 md:px-6 py-1.5 md:py-2.5 rounded-[6px] md:rounded-[8px] font-normal transition-all shadow-sm flex items-center justify-center bg-[rgb(206,219,205)] font-bomstad whitespace-nowrap text-[12px] md:text-[18px] flex-shrink-0" style={{ color: 'rgb(21, 107, 54)' }}>
+                                        <button className="px-3 md:px-6 py-1.5 md:py-2.5 rounded-[6px] md:rounded-[8px] font-normal transition-all shadow-sm flex items-center justify-center bg-[rgb(206,219,205)] font-bomstad whitespace-nowrap text-[12px] md:text-[18px]" style={{ color: 'rgb(21, 107, 54)' }}>
                                             3 kg (4-pack)
                                         </button>
-                                        <button className="px-3 md:px-6 py-1.5 md:py-2.5 rounded-[6px] md:rounded-[8px] font-normal transition-all shadow-sm flex items-center justify-center bg-[rgb(206,219,205)] font-bomstad whitespace-nowrap text-[12px] md:text-[18px] flex-shrink-0" style={{ color: 'rgb(21, 107, 54)' }}>
+                                        <button className="px-3 md:px-6 py-1.5 md:py-2.5 rounded-[6px] md:rounded-[8px] font-normal transition-all shadow-sm flex items-center justify-center bg-[rgb(206,219,205)] font-bomstad whitespace-nowrap text-[12px] md:text-[18px]" style={{ color: 'rgb(21, 107, 54)' }}>
                                             Bulk Order
                                         </button>
                                     </div>
