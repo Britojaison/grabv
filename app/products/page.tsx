@@ -100,23 +100,25 @@ export default function ProductsListPage() {
             {/* Main Content */}
             <main className="w-full relative flex flex-col items-center" style={{ backgroundColor: 'rgb(239, 239, 231)' }}>
 
+
+
                 {/* Explore Products Section */}
-                <div className="w-full max-w-[1440px] mx-auto px-8 pt-16 pb-8">
-                    <div className="w-full flex flex-col items-center mb-20 px-4 text-center">
-                        <h2 className="font-kura leading-none mb-12 uppercase flex gap-4">
-                            <span className="text-[65px]" style={{ color: 'rgb(21, 107, 54)' }}>OUR</span>
-                            <span className="text-[65px]" style={{ color: 'rgb(247, 0, 52)' }}>PRODUCTS</span>
+                <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 pt-8 md:pt-16 pb-8">
+                    <div className="w-full flex flex-col items-center mb-8 md:mb-20 px-4 text-center">
+                        <h2 className="font-kura leading-none mb-8 md:mb-12 uppercase flex gap-2 md:gap-4 justify-center">
+                            <span className="text-[42px] md:text-[65px]" style={{ color: 'rgb(21, 107, 54)' }}>OUR</span>
+                            <span className="text-[42px] md:text-[65px]" style={{ color: 'rgb(247, 0, 52)' }}>PRODUCTS</span>
                         </h2>
 
-                        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-10">
+                        <div className="w-full flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible gap-6 md:gap-10 pb-4 md:pb-0 no-scrollbar px-4 md:px-0">
                             {[
-                                { status: 'active', title: 'All Purpose Gravy (Onion & Tomato)' },
-                                { status: 'coming_soon', title: 'All Purpose Gravy (Onion & Tomato)' },
-                                { status: 'coming_soon', title: 'All Purpose Gravy (Onion & Tomato)' }
+                                { status: 'active', title: 'All Purpose Gravy ...' },
+                                { status: 'coming_soon', title: 'All Purpose Gravy ....' },
+                                { status: 'coming_soon', title: 'All Purpose Gravy ....' }
                             ].map((item, idx) => (
-                                <div key={idx} className="flex flex-col items-center group">
+                                <div key={idx} className="flex flex-col items-center group shrink-0 w-[280px] md:w-auto">
                                     {/* Image Container */}
-                                    <div className={`relative w-full aspect-[4/5] rounded-[20px] overflow-hidden mb-1 ${item.status === 'active' ? 'cursor-pointer' : ''}`}>
+                                    <div className={`relative w-full aspect-[4/5] rounded-[20px] overflow-hidden mb-1 ${item.status === 'active' ? 'cursor-pointer' : 'md:bg-transparent'}`}>
                                         <Image
                                             src="/images/all-p-gravy.svg"
                                             alt="Product"
@@ -126,7 +128,7 @@ export default function ProductsListPage() {
                                         {/* Coming Soon Badge */}
                                         {item.status === 'coming_soon' && (
                                             <div className="absolute inset-0 flex items-center justify-center p-4">
-                                                <div className="bg-[rgb(247,0,52)] text-white px-8 py-2 rounded-[10px] text-[18px] font-bomstad font-normal shadow-lg">
+                                                <div className="bg-[rgb(247,0,52)] text-white px-6 py-2 rounded-[10px] text-[16px] md:text-[18px] font-bomstad font-normal shadow-lg">
                                                     Coming Soon
                                                 </div>
                                             </div>
@@ -138,8 +140,8 @@ export default function ProductsListPage() {
                                     </div>
 
                                     {/* Product Pill */}
-                                    <div className="px-6 py-2 rounded-[10px] mb-3" style={{ backgroundColor: 'rgb(228, 233, 223)' }}>
-                                        <span className="text-[20px] font-bomstad leading-snug text-center block" style={{ color: 'rgb(21, 106, 55)' }}>
+                                    <div className="px-6 py-2 rounded-[10px] mb-3 w-full md:w-auto" style={{ backgroundColor: 'rgb(228, 233, 223)' }}>
+                                        <span className="text-[18px] md:text-[20px] font-bomstad leading-snug text-center block" style={{ color: 'rgb(21, 106, 55)' }}>
                                             {item.title}
                                         </span>
                                     </div>
@@ -147,10 +149,10 @@ export default function ProductsListPage() {
                                     {/* View Product Button */}
                                     <Link
                                         href="/all-purposegravy"
-                                        className="w-[353px] relative h-[72px] flex items-center justify-center hover:scale-[1.02] transition-all group/btn"
+                                        className="w-full md:w-[353px] relative h-[60px] md:h-[72px] flex items-center justify-center hover:scale-[1.02] transition-all group/btn"
                                     >
                                         <div
-                                            className="absolute w-[349px] h-[60px] top-[10px] left-[0.75px] z-0 bg-[rgb(247,216,13)] rounded-[9px]"
+                                            className="absolute w-[calc(100%-10px)] md:w-[349px] h-[50px] md:h-[60px] top-[10px] left-[5px] md:left-[0.75px] z-0 bg-[rgb(247,216,13)] rounded-[9px]"
                                             style={{ transform: 'rotate(-1.6deg)' }}
                                         />
                                         <div className="absolute inset-0 z-10 w-full h-full">
@@ -161,82 +163,136 @@ export default function ProductsListPage() {
                                                 className="object-fill"
                                             />
                                         </div>
-                                        <span className="relative z-20 text-[32px] font-kura font-normal text-[rgb(247,0,52)] uppercase">
+                                        <span className="relative z-20 text-[24px] md:text-[32px] font-kura font-normal text-[rgb(247,0,52)] uppercase">
                                             View Product
                                         </span>
                                     </Link>
                                 </div>
                             ))}
                         </div>
+
                     </div>
                 </div>
+
+
             </main>
 
-            {/* New Grid Footer Section */}
-            <footer className="w-full py-16 px-8" style={{ backgroundColor: 'rgb(21, 107, 54)' }}>
-                <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-                    {/* Column 1: Brand Box */}
-                    <div className="rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
-                        <div className="w-[80px] h-[40px] relative mb-3">
-                            <Image src="/images/logo.svg" alt="GrabV Logo" fill className="object-contain" />
+            {/* Footer Section */}
+            <footer className="w-full py-12 md:py-16 px-6 md:px-8" style={{ backgroundColor: 'rgb(21, 107, 54)' }}>
+                <div className="max-w-[1440px] mx-auto">
+                    {/* Mobile Footer (Matching Figma) */}
+                    <div className="md:hidden grid grid-cols-2 gap-x-8 gap-y-10">
+                        <div className="flex flex-col gap-10">
+                            <div className="flex flex-col gap-4">
+                                <div className="w-[70px] h-[35px] relative">
+                                    <Image src="/images/logo.svg" alt="GrabV Logo" fill className="object-contain" />
+                                </div>
+                                <div className="flex flex-col gap-0 text-[11px] font-medium leading-tight font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
+                                    <p>© 2026 GrabV. All rights reserved.</p>
+                                    <p className="opacity-80">88gb Digital Marketing & Technology Company</p>
+                                </div>
+                            </div>
+                            <div className="flex flex-col gap-1">
+                                <h4 className="text-[16px] font-bold" style={{ color: 'rgb(247, 216, 13)' }}>Company</h4>
+                                <div className="flex flex-col gap-0 text-[14px] font-medium font-bomstad leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
+                                    <Link href="/ourstory">Our Story</Link>
+                                    <Link href="#">Process</Link>
+                                    <Link href="#">Quality Promise</Link>
+                                    <Link href="#">Contact Us</Link>
+                                </div>
+                            </div>
                         </div>
-                        <div className="flex flex-col gap-1 text-[16px] font-medium leading-[1.2] font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
-                            <p>© 2026 GrabV. All rights reserved.</p>
-                            <p className="opacity-90">88gb Digital Marketing & Technology Company</p>
+
+                        <div className="flex flex-col gap-10">
+                            <div className="flex flex-col gap-1">
+                                <h4 className="text-[16px] font-bold" style={{ color: 'rgb(247, 216, 13)' }}>Order & Policies</h4>
+                                <div className="flex flex-col gap-0 text-[14px] font-medium font-bomstad leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
+                                    <Link href="#">WhatsApp Order</Link>
+                                    <Link href="#">Exchange Order</Link>
+                                    <Link href="#">Privacy Policy</Link>
+                                </div>
+                            </div>
+                            <div className="flex flex-col gap-1">
+                                <h4 className="text-[16px] font-bold" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
+                                <div className="flex flex-col gap-0 text-[14px] font-medium font-bomstad leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
+                                    <Link href="/all-purposegravy">All Purpose Gravy</Link>
+                                    <Link href="#">Ingredients</Link>
+                                    <Link href="#">How to Use</Link>
+                                    <Link href="#">Recipes</Link>
+                                </div>
+                                <div className="flex flex-col gap-1 mt-2">
+                                    <span className="text-[11px] font-bold font-bomstad text-white">Follow Us</span>
+                                    <div className="flex items-center gap-3">
+                                        <Link href="#" className="w-4 h-4 relative brightness-0 invert">
+                                            <Image src="/images/facebook.svg" alt="Facebook" fill className="object-contain" />
+                                        </Link>
+                                        <Link href="#" className="w-4 h-4 relative brightness-0 invert">
+                                            <Image src="/images/whatsapp1.svg" alt="WhatsApp" fill className="object-contain" />
+                                        </Link>
+                                        <Link href="#" className="w-4 h-4 relative brightness-0 invert">
+                                            <Image src="/images/insta.svg" alt="Instagram" fill className="object-contain" />
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Column 2: Company Box */}
-                    <div className="rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
-                        <h4 className="text-[22px] font-bold mb-2" style={{ color: 'rgb(247, 216, 13)' }}>Company</h4>
-                        <div className="flex flex-col gap-1 text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
-                            <Link href="/ourstory" className="hover:opacity-80 transition-opacity">Our Story</Link>
-                            <Link href="#" className="hover:opacity-80 transition-opacity">Process</Link>
-                            <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors">Quality Promise</Link>
-                            <Link href="#" className="hover:opacity-80 transition-opacity">Contact Us</Link>
+                    {/* Desktop Footer (Unchanged) */}
+                    <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div className="rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
+                            <div className="w-[80px] h-[40px] relative mb-3">
+                                <Image src="/images/logo.svg" alt="GrabV Logo" fill className="object-contain" />
+                            </div>
+                            <div className="flex flex-col gap-1 text-[16px] font-medium leading-[1.2] font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
+                                <p>© 2026 GrabV. All rights reserved.</p>
+                                <p className="opacity-90">88gb Digital Marketing & Technology Company</p>
+                            </div>
                         </div>
-                    </div>
-
-                    {/* Column 3: Product Box */}
-                    <div className="rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
-                        <h4 className="text-[22px] font-bold mb-2" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
-                        <div className="flex flex-col gap-1 text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
-                            <Link href="/all-purposegravy" className="hover:opacity-80 transition-opacity">All Purpose Gravy</Link>
-                            <Link href="#" className="hover:opacity-80 transition-opacity">Ingredients</Link>
-                            <Link href="#" className="hover:opacity-80 transition-opacity">How to Use</Link>
-                            <Link href="#" className="hover:opacity-80 transition-opacity">Recipes</Link>
-                        </div>
-                    </div>
-
-                    {/* Column 4: Orders & Policies Box */}
-                    <div className="rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px] justify-between" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
-                        <div>
-                            <h4 className="text-[22px] font-bold mb-2" style={{ color: 'rgb(247, 216, 13)' }}>Order & Policies</h4>
+                        <div className="rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
+                            <h4 className="text-[22px] font-bold mb-2" style={{ color: 'rgb(247, 216, 13)' }}>Company</h4>
                             <div className="flex flex-col gap-1 text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
-                                <Link href="#" className="hover:opacity-80 transition-opacity">WhatsApp Order</Link>
-                                <Link href="#" className="hover:opacity-80 transition-opacity">Exchange Order</Link>
-                                <Link href="#" className="hover:opacity-80 transition-opacity">Privacy Policy</Link>
+                                <Link href="/ourstory" className="hover:opacity-80 transition-opacity">Our Story</Link>
+                                <Link href="#" className="hover:opacity-80 transition-opacity">Process</Link>
+                                <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors">Quality Promise</Link>
+                                <Link href="#" className="hover:opacity-80 transition-opacity">Contact Us</Link>
                             </div>
                         </div>
-
-                        {/* Social Links at Bottom Right of this box */}
-                        <div className="flex flex-col items-end gap-1.5 self-end mt-4">
-                            <span className="text-[14px] font-bold font-bomstad text-white">Follow Us</span>
-                            <div className="flex items-center gap-3">
-                                <Link href="#" className="w-6 h-6 relative hover:scale-110 transition-transform brightness-0 invert">
-                                    <Image src="/images/facebook.svg" alt="Facebook" fill className="object-contain" />
-                                </Link>
-                                <Link href="#" className="w-6 h-6 relative hover:scale-110 transition-transform brightness-0 invert">
-                                    <Image src="/images/whatsapp1.svg" alt="WhatsApp" fill className="object-contain" />
-                                </Link>
-                                <Link href="#" className="w-6 h-6 relative hover:scale-110 transition-transform brightness-0 invert">
-                                    <Image src="/images/insta.svg" alt="Instagram" fill className="object-contain" />
-                                </Link>
+                        <div className="rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
+                            <h4 className="text-[22px] font-bold mb-2" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
+                            <div className="flex flex-col gap-1 text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
+                                <Link href="/all-purposegravy" className="hover:opacity-80 transition-opacity">All Purpose Gravy</Link>
+                                <Link href="#" className="hover:opacity-80 transition-opacity">Ingredients</Link>
+                                <Link href="#" className="hover:opacity-80 transition-opacity">How to Use</Link>
+                                <Link href="#" className="hover:opacity-80 transition-opacity">Recipes</Link>
+                            </div>
+                        </div>
+                        <div className="rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px] justify-between" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
+                            <div>
+                                <h4 className="text-[22px] font-bold mb-2" style={{ color: 'rgb(247, 216, 13)' }}>Order & Policies</h4>
+                                <div className="flex flex-col gap-1 text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
+                                    <Link href="#" className="hover:opacity-80 transition-opacity">WhatsApp Order</Link>
+                                    <Link href="#" className="hover:opacity-80 transition-opacity">Exchange Order</Link>
+                                    <Link href="#" className="hover:opacity-80 transition-opacity">Privacy Policy</Link>
+                                </div>
+                            </div>
+                            <div className="flex flex-col items-end gap-1.5 self-end mt-4">
+                                <span className="text-[14px] font-bold font-bomstad text-white">Follow Us</span>
+                                <div className="flex items-center gap-3">
+                                    <Link href="#" className="w-6 h-6 relative hover:scale-110 transition-transform brightness-0 invert">
+                                        <Image src="/images/facebook.svg" alt="Facebook" fill className="object-contain" />
+                                    </Link>
+                                    <Link href="#" className="w-6 h-6 relative hover:scale-110 transition-transform brightness-0 invert">
+                                        <Image src="/images/whatsapp1.svg" alt="WhatsApp" fill className="object-contain" />
+                                    </Link>
+                                    <Link href="#" className="w-6 h-6 relative hover:scale-110 transition-transform brightness-0 invert">
+                                        <Image src="/images/insta.svg" alt="Instagram" fill className="object-contain" />
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </footer>
         </div>
