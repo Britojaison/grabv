@@ -233,7 +233,7 @@ export default function Home() {
                 {[...Array(4)].map((_, i) => (
                   <React.Fragment key={i}>
                     {[
-                      { img: 'timer2.svg', text: 'Ready in 10 min' },
+                      { img: 'timer2.svg', text: 'Ready in 7 mins' },
                       { img: 'slow.svg', text: 'Slow cooked' },
                       { img: 'fssai icon.svg', text: 'FSSAI Certified' },
                       { img: 'tick2.svg', text: 'Zero Preservatives' },
@@ -260,9 +260,9 @@ export default function Home() {
                   className="rounded-full px-7 py-3 flex items-center gap-3 shadow-sm"
                 >
                   <div className="w-[30px] h-[30px] relative">
-                    <Image src="/images/timer2.svg" alt="Ready in 10 min" fill className="object-contain" />
+                    <Image src="/images/timer2.svg" alt="Ready in 7 mins" fill className="object-contain" />
                   </div>
-                  <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad whitespace-nowrap">Ready in 10 min</span>
+                  <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad whitespace-nowrap">Ready in 7 mins</span>
                 </div>
                 <div
                   style={{ backgroundColor: 'rgb(247, 216, 13)' }}
@@ -465,7 +465,7 @@ export default function Home() {
                         <span className="text-[10px] font-bold" style={{ color: 'rgb(16, 107, 54)' }}>delicious dishes</span>
                       </div>
                       <div className="flex flex-col border-t border-[rgb(21,107,54)]/20 pt-1.5 pl-1">
-                        <span className="font-bold text-[16px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>250/750 G</span>
+                        <span className="font-bold text-[14px] leading-tight whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)' }}>250/750 G</span>
                         <span className="text-[10px] font-bold" style={{ color: 'rgb(16, 107, 54)' }}>per pouch</span>
                       </div>
                     </div>
@@ -771,7 +771,7 @@ export default function Home() {
         </section>
 
         {/* Our Quality Promise Section */}
-        <section className="w-full relative pt-4 md:pt-12 pb-8 md:pb-12 flex flex-col items-center overflow-hidden" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
+        <section id="quality" className="w-full relative pt-4 md:pt-12 pb-8 md:pb-12 flex flex-col items-center overflow-hidden" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
           <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex flex-col items-center relative z-10 pt-0 pb-12">
 
             {/* Title - Hidden on Mobile */}
@@ -784,15 +784,17 @@ export default function Home() {
             <div className="md:hidden w-full overflow-hidden py-4">
               <div className="flex gap-12 whitespace-nowrap animate-marquee w-max">
                 {[
-                  { text: "Ready in 10 min", icon: "timer2.svg" },
-                  { text: "Slow cooked", icon: "slow.svg" },
-                  { text: "FSSAI Certified", icon: "fssai icon.svg" },
-                  { text: "Zero Preservatives", icon: "tick2.svg" },
-                  { text: "Cold Chain Packed", icon: "cold.svg" }
+                  { text: "Batch tested", icon: "tick3.svg" },
+                  { text: "FSSAI certified", icon: "fssai icon.svg" },
+                  { text: "Zero Preservative", icon: "tick2.svg" },
+                  { text: "100% Veg", icon: "leaf.svg" }
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-4 py-1">
                     <div className="w-[45px] h-[45px] bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm relative overflow-hidden">
-                      <div className="relative w-[28px] h-[28px]">
+                      <div 
+                        className="relative w-[28px] h-[28px]"
+                        style={item.icon === 'leaf.svg' ? { filter: 'brightness(0) invert(34%) sepia(35%) saturate(1048%) hue-rotate(97deg) brightness(93%) contrast(92%)' } : {}}
+                      >
                         <Image
                           src={`/images/${item.icon}`}
                           alt={item.text}
@@ -810,17 +812,19 @@ export default function Home() {
             </div>
 
             {/* Desktop Grid */}
-            <div className="hidden md:grid w-full justify-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-6 pl-2 lg:pl-6">
+            <div className="hidden md:grid w-full justify-center grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-6 pl-2 lg:pl-6">
               {[
-                { text: "Ready in 10 min", icon: "timer2.svg" },
-                { text: "Slow cooked", icon: "slow.svg" },
-                { text: "FSSAI Certified", icon: "fssai icon.svg" },
-                { text: "Zero Preservatives", icon: "tick2.svg" },
-                { text: "Cold Chain Packed", icon: "cold.svg" }
+                { text: "Batch tested", icon: "tick3.svg" },
+                { text: "FSSAI certified", icon: "fssai icon.svg" },
+                { text: "Zero Preservative", icon: "tick2.svg" },
+                { text: "100% Veg", icon: "leaf.svg" }
               ].map((item, idx) => (
                 <div key={idx} className="flex items-center gap-6 py-2">
                   <div className="w-[55px] h-[55px] bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm relative overflow-hidden">
-                    <div className="relative w-[34px] h-[34px]">
+                    <div 
+                      className="relative w-[34px] h-[34px]"
+                      style={item.icon === 'leaf.svg' ? { filter: 'brightness(0) invert(34%) sepia(35%) saturate(1048%) hue-rotate(97deg) brightness(93%) contrast(92%)' } : {}}
+                    >
                       <Image
                         src={`/images/${item.icon}`}
                         alt={item.text}
@@ -1062,7 +1066,7 @@ export default function Home() {
         </section>
 
         {/* Manufacturing Process Section */}
-        <section className="w-full pt-0 md:pt-0 pb-20 md:pb-32 flex flex-col items-center" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
+        <section id="process" className="w-full pt-0 md:pt-0 pb-20 md:pb-32 flex flex-col items-center" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
           <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex flex-col items-center">
 
             {/* Mobile Header (md:hidden) */}
@@ -1110,56 +1114,60 @@ export default function Home() {
             </div>
 
             {/* Mobile Vertical Timeline (md:hidden) */}
-            <div className="md:hidden w-full relative flex flex-col gap-6 pl-2">
-              {[
-                { step: 1, title: "Cooked in small batches", desc: "" },
-                { step: 2, title: "Clean and hygienic preparation", desc: "" },
-                { step: 3, title: "Stored and delivered through cold chain", desc: "" },
-                { step: 4, title: "Quality checked at every stage", desc: "" },
-                { step: 5, title: "No preservatives added", desc: "" },
-                { step: 6, title: "100% veg base gravy", desc: "" }
-              ].map((item) => (
-                <div key={item.step} className="flex items-start gap-6 relative">
-                  {/* Connecting Line - Correctly scoped to bridge the gap */}
-                  {item.step !== 6 && (
-                    <div className="absolute top-[22px] left-[47px] w-[2px] h-[calc(100%+24px)] bg-[rgb(247,216,13)] z-0" />
-                  )}
+            <div className="md:hidden w-full relative flex flex-col items-center gap-6 px-4">
+              <div className="relative flex flex-col gap-6 items-start w-fit -ml-6">
+                {[
+                  { step: 1, title: "Cooked in small batches", desc: "" },
+                  { step: 2, title: "Clean and hygienic preparation", desc: "" },
+                  { step: 3, title: "Stored and delivered through cold chain", desc: "" },
+                  { step: 4, title: "Quality checked at every stage", desc: "" },
+                  { step: 5, title: "No preservatives added", desc: "" },
+                  { step: 6, title: "100% veg base gravy", desc: "" }
+                ].map((item) => (
+                  <div key={item.step} className="flex items-start gap-6 relative">
+                    {/* Connecting Line - Correctly scoped to bridge the gap */}
+                    {item.step !== 6 && (
+                      <div className="absolute top-[22px] left-[47px] w-[2px] h-[calc(100%+24px)] bg-[rgb(247,216,13)] z-0" />
+                    )}
 
-                  <div className="flex flex-col items-center shrink-0 w-[94px] relative">
-                    {/* Moon Icon */}
-                    <div className="relative w-full h-[44px] flex items-center justify-center mt-0.5 z-10">
-                      <Image src="/images/moon.svg" alt="Step" fill className="object-contain" />
-                      <span className="font-kura text-[24px] relative z-10 pt-[2px]" style={{ color: 'rgb(247, 0, 52)' }}>{item.step}</span>
+                    <div className="flex flex-col items-center shrink-0 w-[94px] relative">
+                      {/* Moon Icon */}
+                      <div className="relative w-full h-[44px] flex items-center justify-center mt-0.5 z-10">
+                        <Image src="/images/moon.svg" alt="Step" fill className="object-contain" />
+                        <span className="font-kura text-[24px] relative z-10 pt-[2px]" style={{ color: 'rgb(247, 0, 52)' }}>{item.step}</span>
+                      </div>
+                    </div>
+                    <div className="flex flex-col text-left pr-4 justify-center h-[44px]">
+                      <h4 className="font-bomstad text-[17px] font-bold mb-0" style={{ color: 'rgb(247, 0, 52)' }}>{item.title}</h4>
                     </div>
                   </div>
-                  <div className="flex flex-col text-left pr-4 justify-center h-[44px]">
-                    <h4 className="font-bomstad text-[16px] font-bold mb-0" style={{ color: 'rgb(247, 0, 52)' }}>{item.title}</h4>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
 
             {/* Desktop Timeline (hidden md:flex) */}
-            <div className="hidden md:flex w-full relative flex flex-col items-start gap-12 pt-4">
-              <div className="absolute left-[89px] top-[41px] bottom-[41px] w-[4px] z-0" style={{ backgroundColor: 'rgb(247, 216, 13)' }} />
-              {[
-                { step: 1, title: "Cooked in small batches", desc: "" },
-                { step: 2, title: "Clean and hygienic preparation", desc: "" },
-                { step: 3, title: "Stored and delivered through cold chain", desc: "" },
-                { step: 4, title: "Quality checked at every stage", desc: "" },
-                { step: 5, title: "No preservatives added", desc: "" },
-                { step: 6, title: "100% veg base gravy", desc: "" }
-              ].map((item) => (
-                <div key={item.step} className="flex items-center gap-16 relative z-10 w-full group">
-                  <div className="relative shrink-0 w-[178px] h-[82px] flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                    <Image src="/images/moon.svg" alt="Step" fill className="object-contain" />
-                    <span className="font-kura text-[50px] relative z-10 pt-[4px]" style={{ color: 'rgb(247, 0, 52)' }}>{item.step}</span>
+            <div className="hidden md:flex w-full relative flex flex-col items-center gap-12 pt-4">
+              <div className="relative flex flex-col items-start gap-12 w-fit md:-ml-40">
+                <div className="absolute left-[89px] top-[41px] bottom-[41px] w-[4px] z-0" style={{ backgroundColor: 'rgb(247, 216, 13)' }} />
+                {[
+                  { step: 1, title: "Cooked in small batches", desc: "" },
+                  { step: 2, title: "Clean and hygienic preparation", desc: "" },
+                  { step: 3, title: "Stored and delivered through cold chain", desc: "" },
+                  { step: 4, title: "Quality checked at every stage", desc: "" },
+                  { step: 5, title: "No preservatives added", desc: "" },
+                  { step: 6, title: "100% veg base gravy", desc: "" }
+                ].map((item) => (
+                  <div key={item.step} className="flex items-center gap-16 relative z-10 w-full group">
+                    <div className="relative shrink-0 w-[178px] h-[82px] flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                      <Image src="/images/moon.svg" alt="Step" fill className="object-contain" />
+                      <span className="font-kura text-[50px] relative z-10 pt-[4px]" style={{ color: 'rgb(247, 0, 52)' }}>{item.step}</span>
+                    </div>
+                    <div className="flex flex-col items-start text-left">
+                      <h4 className="font-bomstad text-[32px] font-semibold mb-0" style={{ color: 'rgb(21, 107, 54)' }}>{item.title}</h4>
+                    </div>
                   </div>
-                  <div className="flex flex-col items-start text-left">
-                    <h4 className="font-bomstad text-[30px] font-semibold mb-0" style={{ color: 'rgb(21, 107, 54)' }}>{item.title}</h4>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -1214,20 +1222,23 @@ export default function Home() {
               {
                 name: "Sneha Mehta",
                 location: "Bengaluru",
-                text: "I recently shifted to Bengaluru, and I was craving for the home cooked flavour and that's when GrabV’s onion tomato gravy saved me!!! It was absolutely delicious."
+                text: "I recently shifted to Bengaluru, and I was craving for the home cooked flavour and that's when GrabV’s onion tomato gravy saved me!!! It was absolutely delicious.",
+                rating: 5
               },
               {
                 name: "Harshitha",
                 location: "Bengaluru",
-                text: "Oh mahn!! What a flavourrr… made me feel like a real chef!!"
+                text: "Oh mahn!! What a flavourrr… made me feel like a real chef!!",
+                rating: 4.5
               },
               {
                 name: "Chetana Gowda",
                 location: "Bengaluru",
-                text: "It is an absolute saviour to my busy days, so quick and so easy. Am stocking this up again for sure!!"
+                text: "It is an absolute saviour to my busy days, so quick and so easy. Am stocking this up again for sure!!",
+                rating: 4
               }
             ].map((item, idx) => (
-              <div key={idx} className="relative p-4 md:p-8 rounded-[20px] bg-white flex flex-col gap-2 md:gap-6 shrink-0 w-[211px] h-[187px] md:w-auto md:h-auto shadow-sm">
+              <div key={idx} className="relative p-4 md:p-6 rounded-[20px] bg-white flex flex-col gap-2 md:gap-4 shrink-0 w-[211px] min-h-[150px] h-auto pb-4 md:w-auto md:h-auto shadow-sm">
                 {/* Mobile Card Borders (Double yellow border effect per request) */}
                 <div className="absolute -inset-1 md:hidden pointer-events-none">
                   <Image src="/images/card border phone.svg" alt="" fill className="object-fill" />
@@ -1254,11 +1265,23 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex gap-0.5 relative z-10">
-                  {[1, 2, 3, 4, 5].map((s) => (
-                    <span key={s} className="text-[15px] md:text-[24px]" style={{ color: 'rgb(247, 216, 13)' }}>★</span>
-                  ))}
+                  {[1, 2, 3, 4, 5].map((s) => {
+                    const isFull = s <= Math.floor(item.rating);
+                    const isHalf = s === Math.ceil(item.rating) && item.rating % 1 !== 0;
+                    return (
+                      <div key={s} className="relative text-[15px] md:text-[24px] leading-none">
+                        <span style={{ color: 'rgb(210, 210, 210)' }}>★</span>
+                        {isFull && (
+                          <span className="absolute inset-0" style={{ color: 'rgb(247, 216, 13)' }}>★</span>
+                        )}
+                        {isHalf && (
+                          <span className="absolute inset-0 overflow-hidden w-[50%]" style={{ color: 'rgb(247, 216, 13)' }}>★</span>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
-                <p className="text-[11px] md:text-[18px] leading-relaxed font-medium relative z-10 line-clamp-4 md:line-clamp-none" style={{ color: 'rgb(21, 107, 54)' }}>
+                <p className="text-[12px] md:text-[22px] leading-relaxed font-medium relative z-10 md:line-clamp-none" style={{ color: 'rgb(21, 107, 54)' }}>
                   &quot;{item.text}&quot;
                 </p>
               </div>
@@ -1280,8 +1303,8 @@ export default function Home() {
             </h2>
 
             {/* Subtext */}
-            <p className="text-white text-[13px] md:text-[20px] font-bomstad font-normal tracking-wide opacity-90 mb-8 md:mb-12 max-w-4xl px-2 md:px-0 leading-relaxed md:leading-[1.3]">
-              Reclaim your time with our preservative free gravy pouches. Freshly chilled, FSSAI certified, and delivered to your door.
+            <p className="text-white text-[16px] md:text-[28px] font-bomstad font-normal tracking-wide opacity-90 mb-8 md:mb-12 max-w-4xl px-2 md:px-0 leading-relaxed md:leading-[1.3]">
+              Reclaim your time with our preservative free gravy pouches.<br className="hidden md:block" /> Freshly chilled, FSSAI certified, and delivered to your door.
             </p>
 
             {/* Buttons */}
@@ -1308,18 +1331,7 @@ export default function Home() {
             </div>
 
             {/* Footer text */}
-            <div className="text-white text-[10px] min-[375px]:text-[11px] md:text-[24px] font-bomstad font-medium tracking-tight md:tracking-wide flex flex-row flex-nowrap items-center justify-center gap-1 md:gap-2 opacity-100 whitespace-nowrap px-4 md:px-2">
-              <span>Free delivery on orders above ₹499</span>
-              <span className="opacity-60">·</span>
-              <span>Ships within 48 hours</span>
-              <span className="opacity-60">·</span>
-              <div className="flex items-center gap-0">
-                <div className="h-5 w-10 md:h-16 md:w-32 relative invert brightness-0">
-                  <Image src="/images/fssai%20text.svg" alt="FSSAI" fill className="object-contain" />
-                </div>
-                <span>Certified</span>
-              </div>
-            </div>
+
           </div>
         </div>
       </main>
@@ -1337,7 +1349,6 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col gap-0 text-[11px] font-medium leading-tight font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
                   <p>© 2026 GrabV. All rights reserved.</p>
-                  <p className="opacity-80">88gb Digital Marketing & Technology Company</p>
                 </div>
               </div>
 
@@ -1345,8 +1356,8 @@ export default function Home() {
                 <h4 className="text-[16px] font-bold" style={{ color: 'rgb(247, 216, 13)' }}>Company</h4>
                 <div className="flex flex-col gap-0 text-[14px] font-medium font-bomstad leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
                   <Link href="/ourstory">Our Story</Link>
-                  <Link href="#">Process</Link>
-                  <Link href="#">Quality Promise</Link>
+                  <Link href="/#process">Process</Link>
+                  <Link href="/#quality">Quality Promise</Link>
                   <Link href="#">Contact Us</Link>
                 </div>
               </div>
@@ -1367,8 +1378,8 @@ export default function Home() {
                 <h4 className="text-[16px] font-bold" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
                 <div className="flex flex-col gap-0 text-[14px] font-medium font-bomstad leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
                   <Link href="/all-purposegravy">All Purpose Gravy</Link>
-                  <Link href="#">Ingredients</Link>
-                  <Link href="#">How to Use</Link>
+                  <Link href="/all-purposegravy">Ingredients</Link>
+                  <Link href="/all-purposegravy">How to Use</Link>
                   <Link href="#">Recipes</Link>
                 </div>
 
@@ -1390,56 +1401,22 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Desktop Footer Section (Unchanged) */}
+          {/* Desktop Footer Section */}
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            {/* Column 1: Brand Box */}
-            <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
-              <div className="w-[80px] h-[40px] relative mb-4">
-                <Image src="/images/logo.svg" alt="GrabV Logo" fill className="object-contain" />
-              </div>
-              <div className="flex flex-col gap-1 text-[14px] md:text-[16px] font-medium leading-tight font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
-                <p>© 2026 GrabV. All rights reserved.</p>
-                <p className="opacity-90">88gb Digital Marketing & Technology Company</p>
-              </div>
-            </div>
-
-            {/* Column 2: Company Box */}
-            <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
-              <h4 className="text-[18px] md:text-[22px] font-bold mb-3 md:mb-4" style={{ color: 'rgb(247, 216, 13)' }}>Company</h4>
-              <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
-                <Link href="/ourstory" className="hover:opacity-80 transition-opacity">Our Story</Link>
-                <Link href="#" className="hover:opacity-80 transition-opacity">Process</Link>
-                <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors">Quality Promise</Link>
-                <Link href="#" className="hover:opacity-80 transition-opacity">Contact Us</Link>
-              </div>
-            </div>
-
-            {/* Column 3: Product Box */}
-            <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
-              <h4 className="text-[18px] md:text-[22px] font-bold mb-3 md:mb-4" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
-              <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
-                <Link href="/all-purposegravy" className="hover:opacity-80 transition-opacity">All Purpose Gravy</Link>
-                <Link href="#" className="hover:opacity-80 transition-opacity">Ingredients</Link>
-                <Link href="#" className="hover:opacity-80 transition-opacity">How to Use</Link>
-                <Link href="#" className="hover:opacity-80 transition-opacity">Recipes</Link>
-              </div>
-            </div>
-
-            {/* Column 4: Orders & Policies Box */}
-            <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px] justify-between" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
-              <div className="mb-6 md:mb-0">
-                <h4 className="text-[18px] md:text-[22px] font-bold mb-3 md:mb-4" style={{ color: 'rgb(247, 216, 13)' }}>Order & Policies</h4>
-                <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
-                  <Link href="#" className="hover:opacity-80 transition-opacity">WhatsApp Order</Link>
-                  <Link href="#" className="hover:opacity-80 transition-opacity">Exchange Order</Link>
-                  <Link href="#" className="hover:opacity-80 transition-opacity">Privacy Policy</Link>
+            {/* Column 1: Brand & Socials (No Box) */}
+            <div className="p-0 flex flex-col w-full md:w-[299px] h-auto md:h-[234px] justify-between">
+              <div className="flex flex-col">
+                <div className="w-[110px] h-[55px] relative mb-4">
+                  <Image src="/images/logo.svg" alt="GrabV Logo" fill className="object-contain object-left" />
+                </div>
+                <div className="flex flex-col gap-1 text-[14px] md:text-[16px] font-medium leading-tight font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
+                  <p>© 2026 GrabV. All rights reserved.</p>
                 </div>
               </div>
 
-              {/* Social Links at Bottom Right of this box */}
-              <div className="flex flex-col items-start md:items-end gap-2 self-start md:self-end mt-4 md:mt-auto">
-                <span className="text-[12px] md:text-[14px] font-bold font-bomstad text-white">Follow Us</span>
-                <div className="flex items-center gap-4">
+              <div className="flex flex-col items-start gap-3 mt-auto">
+                <span className="text-[14px] md:text-[16px] font-bold font-bomstad text-white">Follow Us</span>
+                <div className="flex items-center gap-5">
                   <Link href="#" className="w-5 h-5 md:w-6 md:h-6 relative hover:scale-110 transition-transform brightness-0 invert">
                     <Image src="/images/facebook.svg" alt="Facebook" fill className="object-contain" />
                   </Link>
@@ -1450,6 +1427,38 @@ export default function Home() {
                     <Image src="/images/insta.svg" alt="Instagram" fill className="object-contain" />
                   </Link>
                 </div>
+              </div>
+            </div>
+
+            {/* Column 2: Company Box */}
+            <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
+              <h4 className="text-[18px] md:text-[22px] font-bold mb-3 md:mb-4" style={{ color: 'rgb(247, 216, 13)' }}>Company</h4>
+              <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
+                <Link href="/ourstory" className="hover:opacity-80 transition-opacity">Our Story</Link>
+                <Link href="/#process" className="hover:opacity-80 transition-opacity">Process</Link>
+                <Link href="/#quality" className="hover:text-[rgb(247,216,13)] transition-colors">Quality Promise</Link>
+                <Link href="#" className="hover:opacity-80 transition-opacity">Contact Us</Link>
+              </div>
+            </div>
+
+            {/* Column 3: Product Box */}
+            <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
+              <h4 className="text-[18px] md:text-[22px] font-bold mb-3 md:mb-4" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
+              <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
+                <Link href="/all-purposegravy" className="hover:opacity-80 transition-opacity">All Purpose Gravy</Link>
+                <Link href="/all-purposegravy" className="hover:opacity-80 transition-opacity">Ingredients</Link>
+                <Link href="/all-purposegravy" className="hover:opacity-80 transition-opacity">How to Use</Link>
+                <Link href="#" className="hover:opacity-80 transition-opacity">Recipes</Link>
+              </div>
+            </div>
+
+            {/* Column 4: Orders & Policies Box */}
+            <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
+              <h4 className="text-[18px] md:text-[22px] font-bold mb-3 md:mb-4" style={{ color: 'rgb(247, 216, 13)' }}>Order & Policies</h4>
+              <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
+                <Link href="#" className="hover:opacity-80 transition-opacity">WhatsApp Order</Link>
+                <Link href="#" className="hover:opacity-80 transition-opacity">Exchange Order</Link>
+                <Link href="#" className="hover:opacity-80 transition-opacity">Privacy Policy</Link>
               </div>
             </div>
           </div>

@@ -176,8 +176,8 @@ export default function ProductsPage() {
                                 </div>
 
                                 {/* Features Bar */}
-                                <div className="mb-4 md:mb-8 flex items-center gap-3 text-[12px] md:text-[18px] font-normal font-bomstad" style={{ color: 'rgb(21, 107, 54)' }}>
-                                    <span className="opacity-80">Zero Added Preservatives | All Purpose Gravy | Slowly Cooked</span>
+                                <div className="mb-4 md:mb-8 flex items-center gap-3 text-[14px] md:text-[22px] font-normal font-bomstad" style={{ color: 'rgb(21, 107, 54)' }}>
+                                    <span>Zero Added Preservatives | All Purpose Gravy | Slowly Cooked</span>
                                 </div>
 
                                 {/* Pack Size Section */}
@@ -230,6 +230,7 @@ export default function ProductsPage() {
                         <div className="w-full flex flex-col pt-4 mb-16 md:mb-10">
                             {[
                                 {
+                                    id: "product-details",
                                     title: "Product Details",
                                     content: (
                                         <div className="flex flex-col gap-2">
@@ -239,6 +240,7 @@ export default function ProductsPage() {
                                     )
                                 },
                                 {
+                                    id: "how-to-use",
                                     title: "How to Use",
                                     content: (
                                         <ul className="list-disc pl-5 flex flex-col gap-1">
@@ -251,6 +253,7 @@ export default function ProductsPage() {
                                     )
                                 },
                                 {
+                                    id: "ingredients",
                                     title: "Ingredients",
                                     content: (
                                         <p className="leading-relaxed">
@@ -270,14 +273,14 @@ export default function ProductsPage() {
                                     )
                                 }
                             ].map((section, idx) => (
-                                <div key={idx} className="w-full border-t flex flex-col" style={{ borderColor: 'rgb(207, 219, 204)' }}>
+                                <div key={idx} id={section.id} className="w-full border-t flex flex-col" style={{ borderColor: 'rgb(207, 219, 204)' }}>
                                     <div
                                         className="w-full py-5 md:py-6 flex items-center justify-between cursor-pointer group"
                                         onClick={() => setOpenSection(openSection === idx ? null : idx)}
                                     >
-                                        <span className="font-medium md:font-normal font-bomstad text-[20px] md:text-[25px]" style={{ color: 'rgb(21, 107, 54)' }}>{section.title}</span>
+                                        <span className="font-medium md:font-normal font-bomstad text-[20px] md:text-[25px]" style={{ color: openSection === idx ? 'rgb(247, 0, 52)' : 'rgb(21, 107, 54)' }}>{section.title}</span>
                                         <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300 ${openSection === idx ? 'rotate-180' : ''}`}>
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="rgb(21, 107, 54)" xmlns="http://www.w3.org/2000/svg">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill={openSection === idx ? 'rgb(247, 0, 52)' : 'rgb(21, 107, 54)'} xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M7 10L12 15L17 10H7Z" />
                                             </svg>
                                         </div>
@@ -402,28 +405,31 @@ export default function ProductsPage() {
                             </div>
                         </div>
 
-                        {/* Review Cards - Horizontal Scroll on Mobile */}
+                        {/* Review Cards - Horizontal scroll on mobile */}
                         <div className="w-full flex flex-col items-center">
                             <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 pt-4 md:py-20 flex overflow-x-auto no-scrollbar md:grid md:grid-cols-3 gap-6 md:gap-8 pb-8 md:pb-16">
                             {[
                                 {
                                     name: "Sneha Mehta",
                                     location: "Bengaluru",
-                                    text: "I recently shifted to Bengaluru, and I was craving for the home cooked flavour and that's when GrabV’s onion tomato gravy saved me!!! It was absolutely delicious."
+                                    text: "I recently shifted to Bengaluru, and I was craving for the home cooked flavour and that's when GrabV’s onion tomato gravy saved me!!! It was absolutely delicious.",
+                                    rating: 5
                                 },
                                 {
                                     name: "Harshitha",
                                     location: "Bengaluru",
-                                    text: "Oh mahn!! What a flavourrr… made me feel like a real chef!!"
+                                    text: "Oh mahn!! What a flavourrr… made me feel like a real chef!!",
+                                    rating: 4.5
                                 },
                                 {
                                     name: "Chetana Gowda",
                                     location: "Bengaluru",
-                                    text: "It is an absolute saviour to my busy days, so quick and so easy. Am stocking this up again for sure!!"
+                                    text: "It is an absolute saviour to my busy days, so quick and so easy. Am stocking this up again for sure!!",
+                                    rating: 4
                                 }
                             ].map((item, idx) => (
-                                <div key={idx} className="relative p-4 md:p-8 rounded-[20px] bg-white flex flex-col gap-2 md:gap-6 shrink-0 w-[211px] h-[187px] md:w-auto md:h-auto shadow-sm">
-                                    {/* Mobile Card Borders */}
+                                <div key={idx} className="relative p-4 md:p-6 rounded-[20px] bg-white flex flex-col gap-2 md:gap-4 shrink-0 w-[211px] min-h-[150px] h-auto pb-4 md:w-auto md:h-auto shadow-sm">
+                                    {/* Mobile Card Borders (Double yellow border effect per request) */}
                                     <div className="absolute -inset-1 md:hidden pointer-events-none">
                                         <Image src="/images/card border phone.svg" alt="" fill className="object-fill" />
                                     </div>
@@ -431,7 +437,7 @@ export default function ProductsPage() {
                                         <Image src="/images/card border phone.svg" alt="" fill className="object-fill" />
                                     </div>
 
-                                    {/* Desktop Card Borders */}
+                                    {/* Desktop Card Borders (Double yellow border effect per request) */}
                                     <div className="absolute -inset-2.5 hidden md:block pointer-events-none">
                                         <Image src="/images/card border web.svg" alt="" fill className="object-fill" />
                                     </div>
@@ -449,46 +455,63 @@ export default function ProductsPage() {
                                         </div>
                                     </div>
                                     <div className="flex gap-0.5 relative z-10">
-                                        {[1, 2, 3, 4, 5].map((s) => (
-                                            <span key={s} className="text-[15px] md:text-[24px]" style={{ color: 'rgb(247, 216, 13)' }}>★</span>
-                                        ))}
+                                        {[1, 2, 3, 4, 5].map((s) => {
+                                            const isFull = s <= Math.floor(item.rating);
+                                            const isHalf = s === Math.ceil(item.rating) && item.rating % 1 !== 0;
+                                            return (
+                                                <div key={s} className="relative text-[15px] md:text-[24px] leading-none">
+                                                    <span style={{ color: 'rgb(210, 210, 210)' }}>★</span>
+                                                    {isFull && (
+                                                        <span className="absolute inset-0" style={{ color: 'rgb(247, 216, 13)' }}>★</span>
+                                                    )}
+                                                    {isHalf && (
+                                                        <span className="absolute inset-0 overflow-hidden w-[50%]" style={{ color: 'rgb(247, 216, 13)' }}>★</span>
+                                                    )}
+                                                </div>
+                                            );
+                                        })}
                                     </div>
-                                    <p className="text-[11px] md:text-[18px] leading-relaxed font-medium relative z-10 line-clamp-4 md:line-clamp-none" style={{ color: 'rgb(21, 107, 54)' }}>
+                                    <p className="text-[12px] md:text-[22px] leading-relaxed font-medium relative z-10 md:line-clamp-none" style={{ color: 'rgb(21, 107, 54)' }}>
                                         &quot;{item.text}&quot;
                                     </p>
                                 </div>
                             ))}
+                            </div>
                         </div>
-                    </div>
 
                     {/* Ready to Cook Section */}
-                    <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 mb-10 md:mb-20">
+                    <div className="w-full flex flex-col items-center">
                         <div
-                            className="w-full max-w-[1600px] mx-auto min-h-[280px] md:h-[550px] rounded-[8px] px-4 py-8 md:p-24 flex flex-col items-center justify-center text-center relative overflow-hidden shadow-xl"
+                            className="w-[calc(100%-16px)] md:w-full max-w-[1600px] mx-auto min-h-[280px] md:h-[550px] rounded-[8px] pl-2 pr-4 md:pl-4 md:pr-8 py-8 md:p-24 flex flex-col items-center justify-center text-center relative overflow-hidden mb-10 shadow-xl"
                             style={{ backgroundColor: 'rgb(21, 106, 55)' }}
                         >
 
-                            {/* Heading */}
-                            <h2 className="font-kura text-[19px] md:text-[70px] leading-tight mb-4 md:mb-8 whitespace-nowrap uppercase">
+                            {/* Heading - Single line for mobile */}
+                            <h2 className="font-kura text-[19px] md:text-[70px] leading-tight mb-4 md:mb-8 whitespace-nowrap">
                                 <span style={{ color: 'rgb(247, 216, 13)' }}>Ready to cook smarter </span>
                                 <span className="text-white">every day?</span>
                             </h2>
 
                             {/* Subtext */}
-                            <p className="text-white text-[13px] md:text-[20px] font-bomstad font-normal tracking-wide opacity-90 mb-8 md:mb-12 max-w-4xl px-2 md:px-0 leading-relaxed md:leading-[1.3]">
-                                Reclaim your time with our preservative free gravy pouches. Freshly chilled, FSSAI certified, and delivered to your door.
+                            <p className="text-white text-[16px] md:text-[28px] font-bomstad font-normal tracking-wide opacity-90 mb-8 md:mb-12 max-w-4xl px-2 md:px-0 leading-relaxed md:leading-[1.3]">
+                                Reclaim your time with our preservative free gravy pouches.<br className="hidden md:block" /> Freshly chilled, FSSAI certified, and delivered to your door.
                             </p>
 
                             {/* Buttons */}
                             <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-8 md:mb-12 w-full max-w-[1000px]">
                                 <div className="flex flex-row items-center justify-center gap-3 md:gap-8 w-full md:w-auto">
+                                    {/* Order 750g */}
                                     <button className="bg-white text-[#f70034] flex-1 md:w-[260px] py-3 md:py-5 rounded-full font-bomstad font-medium text-[14px] md:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all shrink-0">
                                         Order 750g
                                     </button>
+
+                                    {/* Order 250g */}
                                     <button className="bg-white text-[#f70034] flex-1 md:w-[260px] py-3 md:py-5 rounded-full font-bomstad font-medium text-[14px] md:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all shrink-0">
                                         Order 250g
                                     </button>
                                 </div>
+
+                                {/* WhatsApp - Tertiary */}
                                 <button className="bg-white text-[#f70034] w-[180px] md:w-[260px] py-2.5 md:py-5 rounded-full font-bomstad font-normal text-[14px] md:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all group flex items-center justify-center gap-2 md:gap-4 shrink-0">
                                     <div className="w-5 h-5 md:w-8 md:h-8 relative group-hover:brightness-0 group-hover:invert transition-all">
                                         <Image src="/images/whatsapp.svg" alt="WhatsApp" fill className="object-contain" />
@@ -498,18 +521,7 @@ export default function ProductsPage() {
                             </div>
 
                             {/* Footer text */}
-                            <div className="text-white text-[8px] min-[375px]:text-[9px] md:text-[24px] font-bomstad font-medium tracking-tight md:tracking-wide flex flex-row flex-nowrap items-center justify-center gap-1 md:gap-2 opacity-100 whitespace-nowrap px-2 md:px-2">
-                                <span>Free delivery on orders above ₹499</span>
-                                <span className="opacity-60">·</span>
-                                <span>Ships within 48 hours</span>
-                                <span className="opacity-60">·</span>
-                                <div className="flex items-center gap-0.5">
-                                    <div className="h-3 w-7 md:h-16 md:w-32 relative invert brightness-0">
-                                        <Image src="/images/fssai%20text.svg" alt="FSSAI" fill className="object-contain" />
-                                    </div>
-                                    <span>Certified</span>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -527,15 +539,14 @@ export default function ProductsPage() {
                                 </div>
                                 <div className="flex flex-col gap-0 text-[11px] font-medium leading-tight font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
                                     <p>© 2026 GrabV. All rights reserved.</p>
-                                    <p className="opacity-80">88gb Digital Marketing & Technology Company</p>
                                 </div>
                             </div>
                             <div className="flex flex-col gap-1">
                                 <h4 className="text-[16px] font-bold" style={{ color: 'rgb(247, 216, 13)' }}>Company</h4>
                                 <div className="flex flex-col gap-0 text-[14px] font-medium font-bomstad leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
                                     <Link href="/ourstory">Our Story</Link>
-                                    <Link href="#">Process</Link>
-                                    <Link href="#">Quality Promise</Link>
+                                    <Link href="/#process">Process</Link>
+                                    <Link href="/#quality">Quality Promise</Link>
                                     <Link href="#">Contact Us</Link>
                                 </div>
                             </div>
@@ -554,8 +565,8 @@ export default function ProductsPage() {
                                 <h4 className="text-[16px] font-bold" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
                                 <div className="flex flex-col gap-0 text-[14px] font-medium font-bomstad leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
                                     <Link href="/all-purposegravy">All Purpose Gravy</Link>
-                                    <Link href="#">Ingredients</Link>
-                                    <Link href="#">How to Use</Link>
+                                    <Link href="/all-purposegravy#ingredients">Ingredients</Link>
+                                    <Link href="/all-purposegravy#how-to-use">How to Use</Link>
                                     <Link href="#">Recipes</Link>
                                 </div>
                                 <div className="flex flex-col gap-1 mt-2">
@@ -578,45 +589,20 @@ export default function ProductsPage() {
 
                     {/* Desktop Footer Section (Unchanged) */}
                     <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                        <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
-                            <div className="w-[80px] h-[40px] relative mb-4">
-                                <Image src="/images/logo.svg" alt="GrabV Logo" fill className="object-contain" />
-                            </div>
-                            <div className="flex flex-col gap-1 text-[14px] md:text-[16px] font-medium leading-tight font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
-                                <p>© 2026 GrabV. All rights reserved.</p>
-                                <p className="opacity-90">88gb Digital Marketing & Technology Company</p>
-                            </div>
-                        </div>
-                        <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
-                            <h4 className="text-[18px] md:text-[22px] font-bold mb-3 md:mb-4" style={{ color: 'rgb(247, 216, 13)' }}>Company</h4>
-                            <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
-                                <Link href="/ourstory" className="hover:opacity-80 transition-opacity">Our Story</Link>
-                                <Link href="#" className="hover:opacity-80 transition-opacity">Process</Link>
-                                <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors">Quality Promise</Link>
-                                <Link href="#" className="hover:opacity-80 transition-opacity">Contact Us</Link>
-                            </div>
-                        </div>
-                        <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
-                            <h4 className="text-[18px] md:text-[22px] font-bold mb-3 md:mb-4" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
-                            <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
-                                <Link href="/all-purposegravy" className="hover:opacity-80 transition-opacity">All Purpose Gravy</Link>
-                                <Link href="#" className="hover:opacity-80 transition-opacity">Ingredients</Link>
-                                <Link href="#" className="hover:opacity-80 transition-opacity">How to Use</Link>
-                                <Link href="#" className="hover:opacity-80 transition-opacity">Recipes</Link>
-                            </div>
-                        </div>
-                        <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px] justify-between" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
-                            <div className="mb-6 md:mb-0">
-                                <h4 className="text-[18px] md:text-[22px] font-bold mb-3 md:mb-4" style={{ color: 'rgb(247, 216, 13)' }}>Order & Policies</h4>
-                                <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
-                                    <Link href="#" className="hover:opacity-80 transition-opacity">WhatsApp Order</Link>
-                                    <Link href="#" className="hover:opacity-80 transition-opacity">Exchange Order</Link>
-                                    <Link href="#" className="hover:opacity-80 transition-opacity">Privacy Policy</Link>
+                        {/* Column 1: Brand & Socials (No Box) */}
+                        <div className="p-0 flex flex-col w-full md:w-[299px] h-auto md:h-[234px] justify-between">
+                            <div className="flex flex-col">
+                                <div className="w-[110px] h-[55px] relative mb-4">
+                                    <Image src="/images/logo.svg" alt="GrabV Logo" fill className="object-contain object-left" />
+                                </div>
+                                <div className="flex flex-col gap-1 text-[14px] md:text-[16px] font-medium leading-tight font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
+                                    <p>© 2026 GrabV. All rights reserved.</p>
                                 </div>
                             </div>
-                            <div className="flex flex-col items-start md:items-end gap-2 self-start md:self-end mt-4 md:mt-auto">
-                                <span className="text-[12px] md:text-[14px] font-bold font-bomstad text-white">Follow Us</span>
-                                <div className="flex items-center gap-4">
+
+                            <div className="flex flex-col items-start gap-3 mt-auto">
+                                <span className="text-[14px] md:text-[16px] font-bold font-bomstad text-white">Follow Us</span>
+                                <div className="flex items-center gap-5">
                                     <Link href="#" className="w-5 h-5 md:w-6 md:h-6 relative hover:scale-110 transition-transform brightness-0 invert">
                                         <Image src="/images/facebook.svg" alt="Facebook" fill className="object-contain" />
                                     </Link>
@@ -627,6 +613,32 @@ export default function ProductsPage() {
                                         <Image src="/images/insta.svg" alt="Instagram" fill className="object-contain" />
                                     </Link>
                                 </div>
+                            </div>
+                        </div>
+                        <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
+                            <h4 className="text-[18px] md:text-[22px] font-bold mb-3 md:mb-4" style={{ color: 'rgb(247, 216, 13)' }}>Company</h4>
+                            <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
+                                <Link href="/ourstory" className="hover:opacity-80 transition-opacity">Our Story</Link>
+                                <Link href="/#process" className="hover:opacity-80 transition-opacity">Process</Link>
+                                <Link href="/#quality" className="hover:text-[rgb(247,216,13)] transition-colors">Quality Promise</Link>
+                                <Link href="#" className="hover:opacity-80 transition-opacity">Contact Us</Link>
+                            </div>
+                        </div>
+                        <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
+                            <h4 className="text-[18px] md:text-[22px] font-bold mb-3 md:mb-4" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
+                            <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
+                                <Link href="/all-purposegravy" className="hover:opacity-80 transition-opacity">All Purpose Gravy</Link>
+                                <Link href="/all-purposegravy#ingredients" className="hover:opacity-80 transition-opacity">Ingredients</Link>
+                                <Link href="/all-purposegravy#how-to-use" className="hover:opacity-80 transition-opacity">How to Use</Link>
+                                <Link href="#" className="hover:opacity-80 transition-opacity">Recipes</Link>
+                            </div>
+                        </div>
+                        <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
+                            <h4 className="text-[18px] md:text-[22px] font-bold mb-3 md:mb-4" style={{ color: 'rgb(247, 216, 13)' }}>Order & Policies</h4>
+                            <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
+                                <Link href="#" className="hover:opacity-80 transition-opacity">WhatsApp Order</Link>
+                                <Link href="#" className="hover:opacity-80 transition-opacity">Exchange Order</Link>
+                                <Link href="#" className="hover:opacity-80 transition-opacity">Privacy Policy</Link>
                             </div>
                         </div>
                     </div>
