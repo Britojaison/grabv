@@ -5,6 +5,8 @@ import Link from "next/link";
 
 export default function ProductsPage() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [openSection, setOpenSection] = useState<number | null>(null);
+    const [selectedSize, setSelectedSize] = useState("250g");
     return (
         <div className="flex flex-col min-h-screen w-full font-bomstad overflow-x-hidden" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
 
@@ -13,7 +15,7 @@ export default function ProductsPage() {
                 style={{ backgroundColor: 'rgb(12, 61, 27)' }}
                 className="relative z-[100] w-full flex-shrink-0 shadow-md"
             >
-                <div className="max-w-[1440px] mx-auto px-4 md:px-8 h-[70px] md:h-[80px] flex items-center justify-between">
+                <div className="max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 h-[70px] md:h-[80px] flex items-center justify-between">
                     <div className="flex items-center gap-4">
                         {/* Hamburger Menu - Mobile Only */}
                         <div className="md:hidden flex items-center">
@@ -97,7 +99,7 @@ export default function ProductsPage() {
             <main className="w-full relative flex flex-col items-center">
 
                 {/* Content Wrapper for Product Info */}
-                <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 pt-8 md:pt-16 pb-12 md:pb-20">
+                <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 pt-8 md:pt-16 pb-12 md:pb-20">
 
 
                     {/* Main Product Info Section */}
@@ -148,7 +150,7 @@ export default function ProductsPage() {
                                             />
                                         </div>
                                         <span className="font-bomstad font-medium tracking-tight text-[11px] md:text-[18px] whitespace-nowrap" style={{ color: 'rgb(21, 107, 54)' }}>
-                                            Fresh & Flavorful
+                                            Freshly made
                                         </span>
                                     </div>
                                 </div>
@@ -157,44 +159,43 @@ export default function ProductsPage() {
                                 <div className="mb-3 md:mb-4 uppercase">
                                     <div className="md:hidden">
                                         <h1 className="font-kura leading-[0.95] text-[20px] uppercase whitespace-nowrap" style={{ color: 'rgb(21, 107, 54)' }}>
-                                            ONE GRAVY
+                                            Onion Tomato
                                         </h1>
                                         <h1 className="font-kura leading-[0.95] text-[20px] uppercase whitespace-nowrap" style={{ color: 'rgb(247, 0, 52)' }}>
-                                            ENDLESS POSSIBILITIES
+                                            Gravy
                                         </h1>
                                     </div>
                                     <div className="hidden md:block">
                                         <h1 className="font-kura leading-[0.95] text-[65px] uppercase" style={{ color: 'rgb(21, 107, 54)' }}>
-                                            ALL
+                                            Onion Tomato
                                         </h1>
                                         <h1 className="font-kura leading-[0.95] text-[65px] uppercase" style={{ color: 'rgb(247, 0, 52)' }}>
-                                            PURPOSE GRAVY
+                                            Gravy
                                         </h1>
                                     </div>
                                 </div>
 
                                 {/* Features Bar */}
                                 <div className="mb-4 md:mb-8 flex items-center gap-3 text-[12px] md:text-[18px] font-normal font-bomstad" style={{ color: 'rgb(21, 107, 54)' }}>
-                                    <span className="opacity-80 md:hidden">Onion & Tomato · Slow Cooked</span>
-                                    <span className="opacity-80 hidden md:block">Onion & Tomato · Slow Cooked · Zero Preservatives</span>
+                                    <span className="opacity-80">Zero Added Preservatives | All Purpose Gravy | Slowly Cooked</span>
                                 </div>
 
                                 {/* Pack Size Section */}
                                 <div className="w-full mb-4 md:mb-6 flex flex-col gap-2 md:gap-4">
                                     <span className="uppercase tracking-widest font-normal font-bomstad text-[14px] md:text-[18px]" style={{ color: 'rgb(21, 107, 54)' }}>PACK SIZE</span>
                                     <div className="grid grid-cols-2 md:flex md:flex-row gap-2 md:gap-3 items-stretch md:items-center mb-0">
-                                        <button className="px-3 md:px-6 py-1.5 md:py-2.5 rounded-[6px] md:rounded-[8px] font-normal transition-all shadow-sm flex items-center justify-center bg-[rgb(206,219,205)] font-bomstad whitespace-nowrap text-[12px] md:text-[18px]" style={{ color: 'rgb(21, 107, 54)' }}>
-                                            750g
-                                        </button>
-                                        <button className="px-3 md:px-6 py-1.5 md:py-2.5 rounded-[6px] md:rounded-[8px] font-normal transition-all shadow-sm flex items-center justify-center bg-[rgb(206,219,205)] font-bomstad whitespace-nowrap text-[12px] md:text-[18px]" style={{ color: 'rgb(21, 107, 54)' }}>
-                                            1.5 kg (2-pack)
-                                        </button>
-                                        <button className="px-3 md:px-6 py-1.5 md:py-2.5 rounded-[6px] md:rounded-[8px] font-normal transition-all shadow-sm flex items-center justify-center bg-[rgb(206,219,205)] font-bomstad whitespace-nowrap text-[12px] md:text-[18px]" style={{ color: 'rgb(21, 107, 54)' }}>
-                                            3 kg (4-pack)
-                                        </button>
-                                        <button className="px-3 md:px-6 py-1.5 md:py-2.5 rounded-[6px] md:rounded-[8px] font-normal transition-all shadow-sm flex items-center justify-center bg-[rgb(206,219,205)] font-bomstad whitespace-nowrap text-[12px] md:text-[18px]" style={{ color: 'rgb(21, 107, 54)' }}>
-                                            Bulk Order
-                                        </button>
+                                        {["250g", "750g"].map((size) => (
+                                            <button
+                                                key={size}
+                                                onClick={() => setSelectedSize(size)}
+                                                className={`px-3 md:px-6 py-1.5 md:py-2.5 rounded-[6px] md:rounded-[8px] font-normal transition-all shadow-sm flex items-center justify-center font-bomstad whitespace-nowrap text-[12px] md:text-[18px] ${selectedSize === size
+                                                        ? 'bg-[rgb(21,107,54)] text-white'
+                                                        : 'bg-[rgb(206,219,205)] text-[rgb(21,107,54)] hover:bg-[rgb(21,107,54)] hover:text-white'
+                                                    }`}
+                                            >
+                                                {size}
+                                            </button>
+                                        ))}
                                     </div>
                                 </div>
 
@@ -228,26 +229,72 @@ export default function ProductsPage() {
                         {/* Collapsible Sections */}
                         <div className="w-full flex flex-col pt-4 mb-16 md:mb-10">
                             {[
-                                { title: "Product Details" },
-                                { title: "How to Use" },
-                                { title: "Ingredients" },
-                                { title: "Delivery & Storage" }
+                                {
+                                    title: "Product Details",
+                                    content: (
+                                        <div className="flex flex-col gap-2">
+                                            <p>A rich onion tomato gravy, slow cooked to bring out deep, comforting flavours.</p>
+                                            <p>Your everyday curry base is ready in minutes, without added preservatives.</p>
+                                        </div>
+                                    )
+                                },
+                                {
+                                    title: "How to Use",
+                                    content: (
+                                        <ul className="list-disc pl-5 flex flex-col gap-1">
+                                            <li>Add your tempering (tadka) in oil</li>
+                                            <li>Sauté veggies or paneer of your choice</li>
+                                            <li>Pour gravy & adjust consistency</li>
+                                            <li>Sprinkle spices & salt to taste</li>
+                                            <li>Cook for 7 mins and enjoy!</li>
+                                        </ul>
+                                    )
+                                },
+                                {
+                                    title: "Ingredients",
+                                    content: (
+                                        <p className="leading-relaxed">
+                                            Onion, Tomato, Refined Sunflower Oil, Ginger Paste, Garlic Paste, Green Chilli Paste, Whole Spice Blend (Cumin, Cinnamon, Clove, Bay Leaf), Powdered Spice Blend (Red Chilli Powder, Turmeric Powder, Coriander Powder, Cumin Powder, Black Pepper), Salt, Cashew, RO Water
+                                        </p>
+                                    )
+                                },
+                                {
+                                    title: "Storage Instruction",
+                                    content: (
+                                        <ul className="list-disc pl-5 flex flex-col gap-1">
+                                            <li>Refrigerate after opening (do not freeze)</li>
+                                            <li>Consume within 7 days of opening</li>
+                                            <li>Always seal the pack tightly after use</li>
+                                            <li>Use a clean, dry spatula every time</li>
+                                        </ul>
+                                    )
+                                }
                             ].map((section, idx) => (
-                                <div key={idx} className="w-full border-t py-5 md:py-6 flex items-center justify-between cursor-pointer group" style={{ borderColor: 'rgb(207, 219, 204)' }}>
-                                    <span className="font-medium md:font-normal font-bomstad text-[20px] md:text-[25px]" style={{ color: 'rgb(21, 107, 54)' }}>{section.title}</span>
-                                    <div className="w-10 h-10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="rgb(21, 107, 54)" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M7 10L12 15L17 10H7Z" />
-                                        </svg>
+                                <div key={idx} className="w-full border-t flex flex-col" style={{ borderColor: 'rgb(207, 219, 204)' }}>
+                                    <div
+                                        className="w-full py-5 md:py-6 flex items-center justify-between cursor-pointer group"
+                                        onClick={() => setOpenSection(openSection === idx ? null : idx)}
+                                    >
+                                        <span className="font-medium md:font-normal font-bomstad text-[20px] md:text-[25px]" style={{ color: 'rgb(21, 107, 54)' }}>{section.title}</span>
+                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300 ${openSection === idx ? 'rotate-180' : ''}`}>
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="rgb(21, 107, 54)" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7 10L12 15L17 10H7Z" />
+                                            </svg>
+                                        </div>
                                     </div>
+                                    {openSection === idx && (
+                                        <div className="pb-6 text-[14px] md:text-[18px] font-bomstad animate-fadeIn" style={{ color: 'rgb(21, 107, 54)' }}>
+                                            {section.content}
+                                        </div>
+                                    )}
                                 </div>
                             ))}
                             <div className="w-full border-t" style={{ borderColor: 'rgb(207, 219, 204)' }} />
                         </div>
 
                         {/* Explore More Products Section */}
-                        <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] px-4 md:px-8 pt-10 pb-8 md:pb-4 mb-4" style={{ backgroundColor: 'rgb(239, 239, 231)' }}>
-                            <div className="max-w-[1440px] mx-auto flex flex-col items-center md:items-start">
+                        <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] pl-2 pr-4 md:pl-4 md:pr-8 pt-10 pb-8 md:pb-4 mb-4" style={{ backgroundColor: 'rgb(239, 239, 231)' }}>
+                            <div className="max-w-[1600px] mx-auto flex flex-col items-center md:items-start">
                                 <h2 className="font-kura leading-none mb-10 md:mb-12 uppercase text-[32px] md:text-[65px] text-center md:text-left whitespace-nowrap">
                                     <span style={{ color: 'rgb(21, 107, 54)' }}>Explore </span>
                                     <span style={{ color: 'rgb(247, 0, 52)' }}>More Products</span>
@@ -255,9 +302,9 @@ export default function ProductsPage() {
 
                                 <div className="w-full flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible gap-4 md:gap-10 pb-8 md:pb-0 no-scrollbar px-4 md:px-0">
                                     {[
-                                        { status: 'active', title: 'All Purpose Gravy ...' },
-                                        { status: 'coming_soon', title: 'All Purpose Gravy ....' },
-                                        { status: 'coming_soon', title: 'All Purpose Gravy ....' }
+                                        { status: 'active', title: '1. Onion Tomato Gravy' },
+                                        { status: 'coming_soon', title: '2. Smoked Makhani Gravy' },
+                                        { status: 'coming_soon', title: '3. Smoked Makhani Gravy' }
                                     ].map((item, idx) => (
                                         <div key={idx} className="flex flex-col items-center group shrink-0 w-[165px] md:w-auto">
                                             <div className={`relative w-full aspect-[4/5] rounded-[20px] overflow-hidden mb-3 flex items-center justify-center ${item.status === 'active' ? 'cursor-pointer' : 'bg-[#e5e5e5]/50 md:bg-transparent'}`}>
@@ -311,9 +358,10 @@ export default function ProductsPage() {
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    {/* Reviews Section */}
-                    <div className="w-full relative flex flex-col items-center">
+                {/* Reviews Section */}
+                <div className="w-full relative flex flex-col items-center">
                         {/* Green Header with Jagged Edge */}
                         <div className="w-full relative pt-12 md:pt-20 pb-16 md:pb-32 flex flex-col items-center text-center">
                             <div className="absolute inset-0 z-0 overflow-hidden">
@@ -348,16 +396,33 @@ export default function ProductsPage() {
 
                                 {/* Heading */}
                                 <h2 className="font-kura text-[32px] md:text-[85px] leading-tight mb-0 md:mb-4 text-center uppercase">
-                                    <span className="text-white">Our GrabV </span>
-                                    <span style={{ color: 'rgb(247, 216, 13)' }}>Your Review</span>
+                                    <span className="text-white">The GrabV </span>
+                                    <span style={{ color: 'rgb(247, 216, 13)' }}>Experience</span>
                                 </h2>
                             </div>
                         </div>
 
                         {/* Review Cards - Horizontal Scroll on Mobile */}
-                        <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 pt-4 md:py-20 flex overflow-x-auto no-scrollbar md:grid md:grid-cols-3 gap-6 md:gap-8 pb-8 md:pb-16">
-                            {[1, 2, 3].map((item) => (
-                                <div key={item} className="relative p-4 md:p-8 rounded-[20px] bg-white flex flex-col gap-2 md:gap-6 shrink-0 w-[211px] h-[187px] md:w-auto md:h-auto shadow-sm">
+                        <div className="w-full flex flex-col items-center">
+                            <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 pt-4 md:py-20 flex overflow-x-auto no-scrollbar md:grid md:grid-cols-3 gap-6 md:gap-8 pb-8 md:pb-16">
+                            {[
+                                {
+                                    name: "Sneha Mehta",
+                                    location: "Bengaluru",
+                                    text: "I recently shifted to Bengaluru, and I was craving for the home cooked flavour and that's when GrabV’s onion tomato gravy saved me!!! It was absolutely delicious."
+                                },
+                                {
+                                    name: "Harshitha",
+                                    location: "Bengaluru",
+                                    text: "Oh mahn!! What a flavourrr… made me feel like a real chef!!"
+                                },
+                                {
+                                    name: "Chetana Gowda",
+                                    location: "Bengaluru",
+                                    text: "It is an absolute saviour to my busy days, so quick and so easy. Am stocking this up again for sure!!"
+                                }
+                            ].map((item, idx) => (
+                                <div key={idx} className="relative p-4 md:p-8 rounded-[20px] bg-white flex flex-col gap-2 md:gap-6 shrink-0 w-[211px] h-[187px] md:w-auto md:h-auto shadow-sm">
                                     {/* Mobile Card Borders */}
                                     <div className="absolute -inset-1 md:hidden pointer-events-none">
                                         <Image src="/images/card border phone.svg" alt="" fill className="object-fill" />
@@ -379,8 +444,8 @@ export default function ProductsPage() {
                                             <Image src="/images/review.svg" alt="User" fill className="object-cover" />
                                         </div>
                                         <div className="flex flex-col">
-                                            <span className="text-[14px] md:text-[20px] font-bold" style={{ color: 'rgb(21, 107, 54)' }}>Shneha Mehta</span>
-                                            <span className="text-[11px] md:text-[16px] text-neutral-400">Delhi</span>
+                                            <span className="text-[14px] md:text-[20px] font-bold" style={{ color: 'rgb(21, 107, 54)' }}>{item.name}</span>
+                                            <span className="text-[11px] md:text-[16px] text-neutral-400">{item.location}</span>
                                         </div>
                                     </div>
                                     <div className="flex gap-0.5 relative z-10">
@@ -389,7 +454,7 @@ export default function ProductsPage() {
                                         ))}
                                     </div>
                                     <p className="text-[11px] md:text-[18px] leading-relaxed font-medium relative z-10 line-clamp-4 md:line-clamp-none" style={{ color: 'rgb(21, 107, 54)' }}>
-                                        &quot;I was sceptical — how can a ready base taste this good? The onions are actually caramelised properly. My husband thought I&apos;d been cooking all afternoon.&quot;
+                                        &quot;{item.text}&quot;
                                     </p>
                                 </div>
                             ))}
@@ -397,21 +462,21 @@ export default function ProductsPage() {
                     </div>
 
                     {/* Ready to Cook Section */}
-                    <div className="w-full px-2 md:px-8 mb-10 md:mb-20">
+                    <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 mb-10 md:mb-20">
                         <div
-                            className="w-full max-w-[1440px] mx-auto min-h-[280px] md:h-[550px] rounded-[8px] px-4 py-8 md:p-24 flex flex-col items-center justify-center text-center relative overflow-hidden shadow-xl"
+                            className="w-full max-w-[1600px] mx-auto min-h-[280px] md:h-[550px] rounded-[8px] px-4 py-8 md:p-24 flex flex-col items-center justify-center text-center relative overflow-hidden shadow-xl"
                             style={{ backgroundColor: 'rgb(21, 106, 55)' }}
                         >
 
                             {/* Heading */}
                             <h2 className="font-kura text-[19px] md:text-[70px] leading-tight mb-4 md:mb-8 whitespace-nowrap uppercase">
                                 <span style={{ color: 'rgb(247, 216, 13)' }}>Ready to cook smarter </span>
-                                <span className="text-white">Everyday?</span>
+                                <span className="text-white">every day?</span>
                             </h2>
 
                             {/* Subtext */}
                             <p className="text-white text-[13px] md:text-[20px] font-bomstad font-normal tracking-wide opacity-90 mb-8 md:mb-12 max-w-4xl px-2 md:px-0 leading-relaxed md:leading-[1.3]">
-                                Order 750g Or 250g pouch. A week of effortless dinners. Zero preservatives. Shipped cold, direct to your door.
+                                Reclaim your time with our preservative free gravy pouches. Freshly chilled, FSSAI certified, and delivered to your door.
                             </p>
 
                             {/* Buttons */}
@@ -451,8 +516,8 @@ export default function ProductsPage() {
             </main>
 
             {/* Footer Section */}
-            <footer className="w-full py-12 md:py-16 px-6 md:px-8" style={{ backgroundColor: 'rgb(21, 107, 54)' }}>
-                <div className="max-w-[1440px] mx-auto">
+            <footer className="w-full py-12 md:py-16 pl-3 pr-6 md:pl-4 md:pr-8" style={{ backgroundColor: 'rgb(21, 107, 54)' }}>
+                <div className="max-w-[1600px] mx-auto">
                     {/* Mobile Footer (Matching Figma) */}
                     <div className="md:hidden grid grid-cols-2 gap-x-8 gap-y-10">
                         <div className="flex flex-col gap-10">

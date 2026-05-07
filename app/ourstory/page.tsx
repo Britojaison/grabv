@@ -14,7 +14,7 @@ export default function OurStoryPage() {
                 style={{ backgroundColor: 'rgb(12, 61, 27)' }}
                 className="relative z-[100] w-full flex-shrink-0 shadow-md"
             >
-                <div className="max-w-[1440px] mx-auto px-4 md:px-8 h-[70px] md:h-[80px] flex items-center justify-between">
+                <div className="max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 h-[70px] md:h-[80px] flex items-center justify-between">
                     <div className="flex items-center gap-4">
                         {/* Hamburger Menu - Mobile Only */}
                         <div className="md:hidden flex items-center">
@@ -110,7 +110,7 @@ export default function OurStoryPage() {
                         />
                     </div>
 
-                    <div className="relative w-full max-w-[1440px] mx-auto px-4 md:px-8 z-10 flex flex-row md:flex-row items-center gap-4 md:gap-12">
+                    <div className="relative w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 z-10 flex flex-row md:flex-row items-center gap-4 md:gap-12">
                         
                         {/* Left Content */}
                         <div className="w-[50%] md:w-[60%] flex flex-col items-start">
@@ -153,7 +153,7 @@ export default function OurStoryPage() {
                 <section className="w-full py-8 md:py-4 flex flex-col items-center gap-8 md:gap-0">
 
                     {/* Top Sub-section: Side-by-side on Mobile too */}
-                    <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 flex flex-row md:flex-row items-start md:items-center gap-4 md:gap-16">
+                    <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex flex-row md:flex-row items-start md:items-center gap-4 md:gap-16">
                         {/* Image */}
                         <div className="w-[45%] md:w-[50%] flex justify-center md:justify-start">
                             <div className="relative w-full aspect-square md:aspect-[581/593] max-w-[650px]">
@@ -192,7 +192,7 @@ export default function OurStoryPage() {
                     </div>
 
                     {/* Bottom Sub-section */}
-                    <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 flex flex-row-reverse md:flex-row-reverse items-start md:items-center gap-4 md:gap-16">
+                    <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex flex-row-reverse md:flex-row-reverse items-start md:items-center gap-4 md:gap-16">
                         {/* Image */}
                         <div className="w-[45%] md:w-[50%] flex justify-center md:justify-end">
                             <div className="relative w-full aspect-square md:aspect-[581/593] max-w-[700px]">
@@ -311,7 +311,7 @@ export default function OurStoryPage() {
                 {/* Amit Shah Section */}
                 <section className="w-full py-12 md:py-24 flex flex-col items-center overflow-hidden">
                     {/* Mobile View Section (Side-by-side) */}
-                    <div className="md:hidden w-full max-w-[1440px] mx-auto px-4 flex flex-col gap-8">
+                    <div className="md:hidden w-full max-w-[1600px] mx-auto px-4 flex flex-col gap-8">
                         <div className="w-full flex flex-row items-start gap-4">
                             {/* Portrait on Left */}
                             <div className="w-[45%] flex flex-col items-center">
@@ -360,7 +360,7 @@ export default function OurStoryPage() {
                     </div>
 
                     {/* Desktop View Section (Original Layout) */}
-                    <div className="hidden md:flex w-full max-w-[1440px] mx-auto px-8 flex-row items-start gap-24">
+                    <div className="hidden md:flex w-full max-w-[1600px] mx-auto pl-4 pr-8 flex-row items-start gap-24">
                         {/* Portrait & Tilted Box on Left */}
                         <div className="w-[45%] flex flex-col items-center">
                             <div className="relative w-full aspect-[430/480] max-w-[430px] rounded-[20px] overflow-hidden border-t-[10px] border-r-[10px] border-[rgb(247,0,52)]">
@@ -405,8 +405,8 @@ export default function OurStoryPage() {
             </main>
 
             {/* New Grid Footer Section */}
-            <footer className="w-full py-12 md:py-16 px-6 md:px-8" style={{ backgroundColor: 'rgb(21, 107, 54)' }}>
-                <div className="max-w-[1440px] mx-auto">
+            <footer className="w-full py-12 md:py-16 pl-3 pr-6 md:pl-4 md:pr-8" style={{ backgroundColor: 'rgb(21, 107, 54)' }}>
+                <div className="max-w-[1600px] mx-auto">
                     {/* Mobile Footer (Figma Style) */}
                     <div className="md:hidden grid grid-cols-2 gap-x-8 gap-y-10">
                         {/* Col 1: Brand & Company */}

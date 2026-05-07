@@ -14,7 +14,7 @@ export default function ProductsListPage() {
                 style={{ backgroundColor: 'rgb(12, 61, 27)' }}
                 className="relative z-[100] w-full flex-shrink-0 shadow-md"
             >
-                <div className="max-w-[1440px] mx-auto px-4 md:px-8 h-[70px] md:h-[80px] flex items-center justify-between">
+                <div className="max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 h-[70px] md:h-[80px] flex items-center justify-between">
                     <div className="flex items-center gap-4">
                         {/* Hamburger Menu - Mobile Only */}
                         <div className="md:hidden flex items-center">
@@ -100,7 +100,7 @@ export default function ProductsListPage() {
 
 
                 {/* Explore Products Section */}
-                <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 pt-8 md:pt-16 pb-8">
+                <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 pt-8 md:pt-16 pb-8">
                     <div className="w-full flex flex-col items-center mb-8 md:mb-20 px-4 text-center">
                         <h2 className="font-kura leading-none mb-8 md:mb-12 uppercase flex gap-2 md:gap-4 justify-center">
                             <span className="text-[42px] md:text-[65px]" style={{ color: 'rgb(21, 107, 54)' }}>OUR</span>
@@ -109,9 +109,9 @@ export default function ProductsListPage() {
 
                         <div className="w-full flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible gap-4 md:gap-10 pb-4 md:pb-0 no-scrollbar px-4 md:px-0">
                             {[
-                                { status: 'active', title: 'All Purpose Gravy ...' },
-                                { status: 'coming_soon', title: 'All Purpose Gravy ....' },
-                                { status: 'coming_soon', title: 'All Purpose Gravy ....' }
+                                { status: 'active', title: '1. Onion Tomato Gravy' },
+                                { status: 'coming_soon', title: '2. Smoked Makhani Gravy' },
+                                { status: 'coming_soon', title: '3. Smoked Makhani Gravy' }
                             ].map((item, idx) => (
                                 <div key={idx} className="flex flex-col items-center group shrink-0 w-[170px] md:w-auto">
                                     {/* Image Container */}
@@ -176,8 +176,8 @@ export default function ProductsListPage() {
 
 
             {/* Footer Section */}
-            <footer className="w-full py-12 md:py-16 px-6 md:px-8" style={{ backgroundColor: 'rgb(21, 107, 54)' }}>
-                <div className="max-w-[1440px] mx-auto">
+            <footer className="w-full py-12 md:py-16 pl-3 pr-6 md:pl-4 md:pr-8" style={{ backgroundColor: 'rgb(21, 107, 54)' }}>
+                <div className="max-w-[1600px] mx-auto">
                     {/* Mobile Footer (Matching Figma) */}
                     <div className="md:hidden grid grid-cols-2 gap-x-8 gap-y-10">
                         <div className="flex flex-col gap-10">

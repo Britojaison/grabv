@@ -14,7 +14,7 @@ export default function Home() {
         style={{ backgroundColor: 'rgb(12, 61, 27)' }}
         className="relative z-[100] w-full flex-shrink-0 shadow-md"
       >
-        <div className="max-w-[1440px] mx-auto px-4 md:px-8 h-[70px] md:h-[80px] flex items-center justify-between">
+        <div className="max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 h-[70px] md:h-[80px] flex items-center justify-between">
           <div className="flex items-center gap-4">
             {/* Hamburger Menu - Mobile Only */}
             <div className="md:hidden flex items-center">
@@ -124,7 +124,7 @@ export default function Home() {
         </div>
 
         {/* Content Wrapper constrained to 1440px with correct z-index */}
-        <div className="relative w-full max-w-[1440px] mx-auto px-4 md:px-8 h-auto min-h-[380px] md:h-[800px] shrink-0 z-30 flex">
+        <div className="relative w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 h-auto min-h-[380px] md:h-[800px] shrink-0 z-30 flex">
 
           {/* Left Text Content - In normal flow so alignment strictly matches navbar */}
           <div className="w-full lg:w-[60%] pt-10 md:pt-[70px] z-20 flex flex-col items-start">
@@ -159,30 +159,24 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Main Heading */}
-            <div className="mb-3 md:mb-6">
-              <h1 className="font-kura leading-[0.9] text-brand-yellow m-0 p-0 uppercase text-[40px] md:text-[100px]">
-                ONE GRAVY
+            <div className="mt-4 md:mt-10 mb-8 md:mb-16">
+              <h1 className="font-kura leading-[0.9] text-brand-yellow m-0 p-0 uppercase text-[38px] md:text-[90px] md:whitespace-nowrap max-w-[300px] md:max-w-none">
+                Master your Curry
               </h1>
-              <h1 className="font-kura leading-[1.1] text-white m-0 p-0 uppercase text-[24px] md:text-[60px]">
-                Endless Possibilities
+              <h1 className="font-kura leading-[1.1] text-white m-0 p-0 uppercase text-[19px] md:text-[50px] lg:text-[60px] md:whitespace-nowrap max-w-[300px] md:max-w-none mt-2">
+                with the One Stop Solution.
               </h1>
             </div>
 
-            {/* Description */}
-            <p className="text-white max-w-[220px] md:max-w-2xl leading-[1.2] mb-6 md:mb-10 font-bomstad font-normal text-[14px] md:text-[25px]">
-              A slow-cooked, preservative-free<br />
-              onion-tomato base made with love<br />
-              — dinner is ready in 10 minutes.
-            </p>
+
 
             {/* CTA Buttons - Single button as per request */}
             <div className="flex flex-wrap lg:flex-nowrap items-center gap-4">
               <Link
                 href="/products"
-                className="bg-[rgb(17,82,40)] border border-transparent text-white rounded-full px-6 md:px-10 py-2.5 md:py-3.5 text-[18px] md:text-[25px] font-bomstad font-normal hover:bg-brand-yellow hover:text-[rgb(17,82,40)] transition-all shadow-sm whitespace-nowrap"
+                className="bg-[rgb(17,82,40)] border border-transparent text-white rounded-full px-6 md:px-12 py-2.5 md:py-4 text-[18px] md:text-[30px] font-bomstad font-semibold hover:bg-brand-yellow hover:text-[rgb(17,82,40)] transition-all shadow-sm whitespace-nowrap uppercase tracking-wide"
               >
-                Explore Our Products
+                Grab Your Packs
               </Link>
             </div>
           </div>
@@ -231,7 +225,7 @@ export default function Home() {
 
         {/* Features Bottom Bar - positioned in the beige section below the green hero */}
         <div className="w-full relative pt-4 md:pt-12 pb-12 md:pb-24 z-10">
-          <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 relative z-[30]">
+          <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 relative z-[30]">
 
             {/* Features Horizontal Scroll - Mobile Only */}
             <div className="md:hidden overflow-hidden relative w-full mb-8">
@@ -341,7 +335,7 @@ export default function Home() {
           </div>
 
           {/* Content Wrapper */}
-          <div className="relative w-full max-w-[1440px] mx-auto px-4 md:px-8 z-[40] flex flex-col lg:flex-row items-center pt-12 md:pt-0">
+          <div className="relative w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 z-[40] flex flex-col lg:flex-row items-center pt-12 md:pt-0">
 
             {/* Left Content */}
             <div className="w-full lg:w-[40%] flex flex-col items-center lg:items-start pt-2 md:pt-0 text-center lg:text-left">
@@ -353,7 +347,7 @@ export default function Home() {
                   className="px-6 md:px-10 py-2 md:py-3.5 rounded-full relative z-10 shadow-md"
                 >
                   <span className="text-white font-normal text-[20px] md:text-[28px] whitespace-nowrap font-bomstad tracking-wider">
-                    What Is GrabV
+                    What is GrabV?
                   </span>
                 </div>
 
@@ -372,43 +366,41 @@ export default function Home() {
               {/* Mobile Heading (1 Line) */}
               <div className="md:hidden mb-6 w-full flex flex-col items-center text-center">
                 <h2 className="font-kura leading-[1.0] text-[20px] sm:text-[24px] m-0 p-0 uppercase whitespace-nowrap">
-                  <span style={{ color: 'rgb(247, 0, 52)' }}>Your Secret to </span>
-                  <span style={{ color: 'rgb(21, 107, 54)' }}>Effortless </span>
-                  <span style={{ color: 'rgb(247, 0, 52)' }}>Cooking</span>
+                  <span style={{ color: 'rgb(247, 0, 52)' }}>Your everyday </span>
+                  <span style={{ color: 'rgb(21, 107, 54)' }}>cooking, </span>
+                  <span style={{ color: 'rgb(247, 0, 52)' }}>made easier.</span>
                 </h2>
               </div>
               {/* Desktop Heading (2 Lines) */}
               <div className="hidden md:flex flex-col items-start mb-6 w-full text-left">
-                <h2 className="font-kura leading-[0.9] text-[75px] m-0 p-0 uppercase" style={{ color: 'rgb(247, 0, 52)' }}>
-                  Your Secret to
+                <h2 className="font-kura leading-[0.9] text-[60px] m-0 p-0 uppercase" style={{ color: 'rgb(247, 0, 52)' }}>
+                  Your everyday
                 </h2>
-                <h2 className="font-kura leading-[1.0] text-[75px] m-0 p-0 uppercase whitespace-nowrap">
-                  <span style={{ color: 'rgb(21, 107, 54)'/* Green */ }}>Effortless </span>
-                  <span style={{ color: 'rgb(247, 0, 52)'/* Red */ }}>Cooking</span>
+                <h2 className="font-kura leading-[1.0] text-[60px] m-0 p-0 uppercase whitespace-nowrap">
+                  <span style={{ color: 'rgb(21, 107, 54)'/* Green */ }}>cooking, </span>
+                  <span style={{ color: 'rgb(247, 0, 52)'/* Red */ }}>made easier.</span>
                 </h2>
               </div>
 
               {/* Description text */}
               {/* Mobile Description */}
-              <p className="md:hidden max-w-2xl leading-[1.3] mb-0 md:mb-12 font-normal font-bomstad text-[16px] text-center" style={{ color: 'rgb(21, 107, 54)' }}>
-                A slow-cooked, preservative-free onion-tomato base<br />
-                made with love – dinner is ready in 10 minutes.
+              <p className="md:hidden max-w-[280px] leading-[1.3] mb-0 md:mb-12 font-normal font-bomstad text-[16px] text-center" style={{ color: 'rgb(21, 107, 54)' }}>
+                A ready to use, chilled, fresh food processing solution that cuts the average 40-45 minute curry prep time into a quick, preservative free meal.
               </p>
               {/* Desktop Description */}
               <p className="hidden md:block max-w-xl leading-[1.3] mb-12 font-normal font-bomstad text-[25px] text-left" style={{ color: 'rgb(21, 107, 54)' }}>
-                A slow-cooked, preservative-free<br />
-                onion-tomato base made with love – dinner<br />
-                is ready in 5 minutes.
+                A ready to use, chilled, fresh food processing solution that cuts the average 40-45 minute curry prep time into a quick, preservative free meal.
               </p>
 
               {/* Desktop Learn More Button */}
-              <button
+              <Link
+                href="/ourstory"
                 style={{ backgroundColor: 'rgb(21, 107, 54)' }}
                 className="hidden md:flex group items-center gap-6 px-10 py-5 rounded-full text-white text-[25px] font-normal font-bomstad hover:bg-black transition-all shadow-lg"
               >
                 Learn More
                 <Image src="/images/arrow.svg" alt="Arrow" width={32} height={32} className="object-contain" />
-              </button>
+              </Link>
 
 
             </div>
@@ -431,7 +423,7 @@ export default function Home() {
 
         {/* Pouch To Plate Section */}
         <section className="w-full pt-16 md:pt-28 pb-20 md:pb-24 flex flex-col items-center" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
-          <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8">
+          <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8">
 
             <div className="flex flex-col mb-10 relative">
               {/* Mobile Layout (Hidden on Desktop) */}
@@ -443,7 +435,7 @@ export default function Home() {
                       <span style={{ color: 'rgb(21, 107, 54)' }}>IN 5 STEPS</span>
                     </h2>
                     <p className="font-bomstad font-normal text-[13px] leading-[1.2] mt-2" style={{ color: 'rgb(21, 107, 54)' }}>
-                      No Chopping. No Prep.<br />No Recipe Needed
+                      No Chopping. No Stress.<br />Just Real Food.
                     </p>
                   </div>
 
@@ -461,20 +453,20 @@ export default function Home() {
                       className="w-full rounded-[8px] p-1.5 px-2 grid grid-cols-2 gap-x-1 gap-y-1.5 shadow-sm border border-[rgb(21,107,54)]/10"
                     >
                       <div className="flex flex-col border-r border-[rgb(21,107,54)]/20 pr-1">
-                        <span className="font-bold text-[12px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>10 Min</span>
-                        <span className="text-[8px] font-bold" style={{ color: 'rgb(16, 107, 54)' }}>cooking time</span>
+                        <span className="font-bold text-[16px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>7 Min</span>
+                        <span className="text-[10px] font-bold" style={{ color: 'rgb(16, 107, 54)' }}>cooking time</span>
                       </div>
                       <div className="flex flex-col pl-1">
-                        <span className="font-bold text-[12px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>Zero%</span>
-                        <span className="text-[8px] font-bold" style={{ color: 'rgb(16, 107, 54)' }}>Preservatives</span>
+                        <span className="font-bold text-[16px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>Zero</span>
+                        <span className="text-[10px] font-bold" style={{ color: 'rgb(16, 107, 54)' }}>Preservatives</span>
                       </div>
                       <div className="flex flex-col border-t border-r border-[rgb(21,107,54)]/20 pt-1.5 pr-1">
-                        <span className="font-bold text-[12px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>20+ Recipes</span>
-                        <span className="text-[8px] font-bold" style={{ color: 'rgb(16, 107, 54)' }}>Dishes possible</span>
+                        <span className="font-bold text-[16px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>20+</span>
+                        <span className="text-[10px] font-bold" style={{ color: 'rgb(16, 107, 54)' }}>delicious dishes</span>
                       </div>
                       <div className="flex flex-col border-t border-[rgb(21,107,54)]/20 pt-1.5 pl-1">
-                        <span className="font-bold text-[12px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>750 G</span>
-                        <span className="text-[8px] font-bold" style={{ color: 'rgb(16, 107, 54)' }}>Per pouch</span>
+                        <span className="font-bold text-[16px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>250/750 G</span>
+                        <span className="text-[10px] font-bold" style={{ color: 'rgb(16, 107, 54)' }}>per pouch</span>
                       </div>
                     </div>
                   </div>
@@ -489,7 +481,7 @@ export default function Home() {
                     <span style={{ color: 'rgb(21, 107, 54)' }}>In 5 Steps</span>
                   </h2>
                   <p className="font-bomstad font-normal text-[17px] sm:text-[20px] lg:text-[25px] leading-[1.2] mt-4" style={{ color: 'rgb(21, 107, 54)' }}>
-                    No Chopping. No Prep. No Recipe Needed
+                    No Chopping. No Stress. Just Real Food.
                   </p>
                 </div>
 
@@ -508,29 +500,29 @@ export default function Home() {
                     className="w-full max-w-[950px] min-h-[54px] rounded-[10px] flex flex-wrap sm:flex-nowrap items-center px-6 py-4 shadow-sm -mt-1"
                   >
                     <div className="flex-1 flex items-center justify-center gap-4 px-4 shrink-0">
-                      <Image src="/images/clock.svg" alt="" width={36} height={36} className="shrink-0" />
+                      <Image src="/images/clock.svg" alt="" width={48} height={48} className="shrink-0" />
                       <div className="flex flex-col text-left shrink-0">
-                        <span className="font-bold text-[24px] leading-tight whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)' }}>10 Min</span>
-                        <span className="text-[12px] font-bold whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)', letterSpacing: '0.05em' }}>cooking time</span>
+                        <span className="font-bold text-[30px] leading-tight whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)' }}>7 Min</span>
+                        <span className="text-[15px] font-bold whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)', letterSpacing: '0.05em' }}>cooking time</span>
                       </div>
                     </div>
                     <div className="hidden sm:block w-[1px] h-10 bg-[rgb(16,107,54)]/30" />
 
                     <div className="flex-1 flex flex-col items-center justify-center text-center px-4 shrink-0">
-                      <span className="font-bold text-[24px] leading-tight whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)' }}>Zero %</span>
-                      <span className="text-[12px] font-bold whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)', letterSpacing: '0.05em' }}>Preservatives</span>
+                      <span className="font-bold text-[30px] leading-tight whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)' }}>Zero</span>
+                      <span className="text-[15px] font-bold whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)', letterSpacing: '0.05em' }}>Preservatives</span>
                     </div>
                     <div className="hidden sm:block w-[1px] h-10 bg-[rgb(16,107,54)]/30" />
 
                     <div className="flex-1 flex flex-col items-center justify-center text-center px-4 shrink-0">
-                      <span className="font-bold text-[24px] leading-tight whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)' }}>20+</span>
-                      <span className="text-[12px] font-bold whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)', letterSpacing: '0.05em' }}>Dishes possible</span>
+                      <span className="font-bold text-[30px] leading-tight whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)' }}>20+</span>
+                      <span className="text-[15px] font-bold whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)', letterSpacing: '0.05em' }}>delicious dishes</span>
                     </div>
                     <div className="hidden sm:block w-[1px] h-10 bg-[rgb(16,107,54)]/30" />
 
                     <div className="flex-1 flex flex-col items-center justify-center text-center px-4 shrink-0">
-                      <span className="font-bold text-[24px] leading-tight whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)' }}>750 G</span>
-                      <span className="text-[12px] font-bold whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)', letterSpacing: '0.05em' }}>Per pouch</span>
+                      <span className="font-bold text-[30px] leading-tight whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)' }}>250/750 G</span>
+                      <span className="text-[15px] font-bold whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)', letterSpacing: '0.05em' }}>per pouch</span>
                     </div>
                   </div>
                 </div>
@@ -539,11 +531,11 @@ export default function Home() {
 
             <div className="flex overflow-x-auto md:overflow-visible no-scrollbar md:grid w-full max-w-[1284px] mx-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 md:gap-x-8 md:gap-y-20 mt-2 md:mt-20 mb-20 px-2 md:px-0 pt-7 md:pt-0">
               {[
-                { step: 1, text: "Add your tempering\n(tadka) in oil.", rotate: "-rotate-6" },
-                { step: 2, text: "Sauté veggies or\nprotein of your choice.", rotate: "rotate-6" },
-                { step: 3, text: "Pour GrabV &\nadjust consistency", rotate: "-rotate-6" },
+                { step: 1, text: "Add your tempering\n(tadka) in oil", rotate: "-rotate-6" },
+                { step: 2, text: "Sauté veggies or\npaneer of your choice.", rotate: "rotate-6" },
+                { step: 3, text: "Pour gravy &\nadjust consistency", rotate: "-rotate-6" },
                 { step: 4, text: "Sprinkle spices\n& salt to taste.", rotate: "rotate-6" },
-                { step: 5, text: "Cook for 10 mins\nand enjoy!", rotate: "-rotate-6" }
+                { step: 5, text: "Cook for 7 mins\nand enjoy!", rotate: "-rotate-6" }
               ].map((item) => (
                 <div key={item.step} className="flex flex-col items-center shrink-0 w-[47%] md:w-full">
                   <div className="relative group w-full">
@@ -571,7 +563,7 @@ export default function Home() {
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>
-                      <p className="font-bomstad font-normal text-[15px] md:text-[18px] leading-[1.2] md:leading-[22px] whitespace-pre-line px-2 text-center" style={{ color: 'rgb(21, 107, 54)' }}>
+                      <p className="font-bomstad font-normal text-[15px] md:text-[20px] leading-[1.2] md:leading-[24px] whitespace-pre-line px-2 text-center" style={{ color: 'rgb(21, 107, 54)' }}>
                         {item.text}
                       </p>
                     </div>
@@ -610,7 +602,7 @@ export default function Home() {
           </div>
 
           {/* Content Wrapper */}
-          <div className="relative w-full max-w-[1440px] mx-auto px-4 md:px-8 lg:px-[80px] z-10 flex flex-col items-start pb-0">
+          <div className="relative w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 lg:pl-10 lg:pr-[80px] z-10 flex flex-col items-start pb-0">
 
             {/* Mobile Layout (Hidden on Desktop) */}
             <div className="md:hidden flex flex-col items-center w-full text-center -mt-8">
@@ -636,14 +628,14 @@ export default function Home() {
 
               {/* Heading */}
               <h2 className="font-kura leading-[1.0] text-[21px] uppercase mb-4 whitespace-nowrap">
-                <span style={{ color: 'rgb(247, 0, 52)' }}>FRESH FOOD </span>
-                <span style={{ color: 'rgb(21, 107, 54)' }}>NOTHING HIDDEN</span>
+                <span style={{ color: 'rgb(21, 107, 54)' }}>Our Slow-Cooked </span>
+                <span style={{ color: 'rgb(247, 0, 52)' }}>Secret</span>
               </h2>
 
               {/* Subtitle */}
-              <p className="font-bomstad font-normal text-[15px] leading-[1.4] mb-8 px-2" style={{ color: 'rgb(21, 107, 54)' }}>
-                Every Ingredient printed. Every batch tested.<br />
-                You deserve to know what you&apos;re feeding your family.
+              <p className="font-bomstad font-normal text-[18px] leading-[1.4] mb-8 px-2" style={{ color: 'rgb(21, 107, 54)' }}>
+                Every batch is tested and every ingredient is printed.<br />
+                No shortcuts, just real food.
               </p>
 
               {/* Showcase Image Container */}
@@ -659,12 +651,11 @@ export default function Home() {
               {/* Ingredients Horizontal Scroll for Mobile */}
               <div className="flex overflow-x-auto no-scrollbar gap-6 w-full pb-2 px-4">
                 {[
-                  { img: 'onion.svg', title: 'Fresh Onions', desc: 'Slow-fried to golden' },
-                  { img: 'cumin.svg', title: 'Whole Cumin', desc: 'Bloom-roasted' },
-                  { img: 'tomatoes.svg', title: 'Ripe Tomato', desc: 'Naturally cooked' },
-                  { img: 'bayleaf.svg', title: 'Bay Leaf', desc: 'Traditional tempering' },
-                  { img: 'garlic.svg', title: 'Fresh Garlic', desc: 'Paste made daily' },
-                  { img: 'oil.svg', title: 'Sunflower Oil', desc: 'Cold-Pressed' },
+                  { img: 'onion.svg', title: 'Fresh Onions & Tomatoes', desc: 'Slow-fried to golden perfection' },
+                  { img: 'cumin.svg', title: 'The Whole Spice Bloom', desc: 'Cumin, Cinnamon, Clove, and Bay Leaf' },
+                  { img: 'bayleaf.svg', title: 'The Essential Spice Blend', desc: 'Chilli, Turmeric, Coriander, and Pepper' },
+                  { img: 'garlic.svg', title: 'The Creamy Secret', desc: 'A touch of Cashews' },
+                  { img: 'oil.svg', title: 'Zero Additives', desc: '100% preservative-free and fresh-chilled' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3 text-left shrink-0">
                     <div className="w-[80px] h-[80px] flex-shrink-0 flex items-center justify-center">
@@ -677,11 +668,11 @@ export default function Home() {
                         />
                       </div>
                     </div>
-                    <div className="flex flex-col leading-tight min-w-[110px]">
+                    <div className="flex flex-col leading-tight min-w-[150px]">
                       <h4 className="font-bomstad font-bold text-[16px]" style={{ color: 'rgb(21, 107, 54)' }}>
                         {item.title}
                       </h4>
-                      <p className="font-bomstad font-normal text-[12px]" style={{ color: 'rgb(12, 61, 27)' }}>
+                      <p className="font-bomstad font-normal text-[14px]" style={{ color: 'rgb(12, 61, 27)' }}>
                         {item.desc}
                       </p>
                     </div>
@@ -716,18 +707,18 @@ export default function Home() {
                   </div>
 
                   <div className="mb-6">
-                    <h2 className="font-kura leading-[1.0] text-[55px] lg:text-[65px] m-0 p-0 uppercase" style={{ color: 'rgb(247, 0, 52)' }}>
-                      Fresh Food
+                    <h2 className="font-kura leading-[1.0] text-[55px] lg:text-[65px] m-0 p-0 uppercase" style={{ color: 'rgb(21, 107, 54)' }}>
+                      Our Slow-Cooked
                     </h2>
-                    <h2 className="font-kura leading-[1.0] text-[55px] lg:text-[65px] m-0 p-0 uppercase whitespace-nowrap" style={{ color: 'rgb(21, 107, 54)' }}>
-                      Nothing Hidden
+                    <h2 className="font-kura leading-[1.0] text-[55px] lg:text-[65px] m-0 p-0 uppercase whitespace-nowrap" style={{ color: 'rgb(247, 0, 52)' }}>
+                      Secret
                     </h2>
                   </div>
 
                   {/* Subtitle */}
-                  <p className="max-w-2xl font-bomstad font-normal leading-[1.4] text-[18px]" style={{ color: 'rgb(21, 107, 54)' }}>
-                    Every ingredient printed. Every batch tested.<br />
-                    You deserve to know what you&apos;re feeding your family.
+                  <p className="max-w-2xl font-bomstad font-normal leading-[1.4] text-[22px]" style={{ color: 'rgb(21, 107, 54)' }}>
+                    Every batch is tested and every ingredient is printed.<br />
+                    No shortcuts, just real food.
                   </p>
                 </div>
 
@@ -744,12 +735,11 @@ export default function Home() {
               {/* Ingredients Grid - Tightened spacing */}
               <div className="w-full lg:w-[1146px] lg:h-[402px] rounded-[10px] grid grid-cols-1 lg:grid-cols-2 gap-x-[120px] gap-y-8 mt-2">
                 {[
-                  { img: 'onion.svg', title: 'Fresh Onions', desc: 'Slow-fried to golden' },
-                  { img: 'cumin.svg', title: 'Whole Cumin & Coriander', desc: 'Bloom-roasted for full aroma' },
-                  { img: 'tomatoes.svg', title: 'Ripe Tomatoes', desc: 'Naturally cooked down' },
-                  { img: 'bayleaf.svg', title: 'Bay Leaf & Green Cardamom', desc: 'Traditional tempering' },
-                  { img: 'garlic.svg', title: 'Fresh Ginger & Garlic', desc: 'Paste made daily, not dried powder' },
-                  { img: 'oil.svg', title: 'Cold-Pressed Sunflower Oil', desc: 'Unrefined, no trans fats' },
+                  { img: 'onion.svg', title: 'Fresh Onions & Tomatoes', desc: 'Slow-fried to golden perfection for a rich, robust base.' },
+                  { img: 'cumin.svg', title: 'The Whole Spice Bloom', desc: 'Cumin, Cinnamon, Clove, and Bay Leaf roasted for deep aroma.' },
+                  { img: 'bayleaf.svg', title: 'The Essential Spice Blend', desc: 'Chilli, Turmeric, Coriander, and Pepper for authentic home-style depth.' },
+                  { img: 'garlic.svg', title: 'The Creamy Secret', desc: 'A touch of Cashews for a velvety, restaurant-style finish.' },
+                  { img: 'oil.svg', title: 'Zero Additives', desc: '100% preservative-free and fresh-chilled to lock in natural flavor.' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-8">
                     <div className="w-[117px] h-[119px] flex-shrink-0 flex items-center justify-center">
@@ -767,7 +757,7 @@ export default function Home() {
                       <h4 className="font-bomstad font-bold text-[26px] leading-[1.1] whitespace-nowrap" style={{ color: 'rgb(21, 107, 54)' }}>
                         {item.title}
                       </h4>
-                      <p className="font-bomstad font-normal text-[16px] leading-[1.2]" style={{ color: 'rgb(12, 61, 27)' }}>
+                      <p className="font-bomstad font-normal text-[20px] leading-[1.2]" style={{ color: 'rgb(12, 61, 27)' }}>
                         {item.desc}
                       </p>
                     </div>
@@ -782,7 +772,7 @@ export default function Home() {
 
         {/* Our Quality Promise Section */}
         <section className="w-full relative pt-4 md:pt-12 pb-8 md:pb-12 flex flex-col items-center overflow-hidden" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
-          <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 flex flex-col items-center relative z-10 pt-0 pb-12">
+          <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex flex-col items-center relative z-10 pt-0 pb-12">
 
             {/* Title - Hidden on Mobile */}
             <h2 className="hidden md:block font-kura font-normal text-[85px] m-0 p-0 leading-[1.1] text-center tracking-wide uppercase mb-20">
@@ -794,25 +784,25 @@ export default function Home() {
             <div className="md:hidden w-full overflow-hidden py-4">
               <div className="flex gap-12 whitespace-nowrap animate-marquee w-max">
                 {[
-                  "No artificial colours", "FSSAI certified", "100% vegetarian",
-                  "No added sugar", "No MSG", "Batch tested",
-                  "Gluten-free", "No trans fats", "Zero Preservatives"
-                ].concat([
-                  "No artificial colours", "FSSAI certified", "100% vegetarian",
-                  "No added sugar", "No MSG", "Batch tested",
-                  "Gluten-free", "No trans fats", "Zero Preservatives"
-                ]).map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-4">
+                  { text: "Ready in 10 min", icon: "timer2.svg" },
+                  { text: "Slow cooked", icon: "slow.svg" },
+                  { text: "FSSAI Certified", icon: "fssai icon.svg" },
+                  { text: "Zero Preservatives", icon: "tick2.svg" },
+                  { text: "Cold Chain Packed", icon: "cold.svg" }
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-4 py-1">
                     <div className="w-[45px] h-[45px] bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm relative overflow-hidden">
-                      <Image
-                        src="/images/tick2.svg"
-                        alt="Tick"
-                        width={30}
-                        height={30}
-                      />
+                      <div className="relative w-[28px] h-[28px]">
+                        <Image
+                          src={`/images/${item.icon}`}
+                          alt={item.text}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
                     </div>
-                    <span className="font-bomstad font-normal text-[18px]" style={{ color: 'rgb(21, 107, 54)' }}>
-                      {item}
+                    <span className="font-bomstad font-normal text-[18px] leading-none" style={{ color: 'rgb(21, 107, 54)' }}>
+                      {item.text}
                     </span>
                   </div>
                 ))}
@@ -820,29 +810,27 @@ export default function Home() {
             </div>
 
             {/* Desktop Grid */}
-            <div className="hidden md:grid w-full justify-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-6 pl-4 lg:pl-12">
+            <div className="hidden md:grid w-full justify-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-6 pl-2 lg:pl-6">
               {[
-                "No artificial colours",
-                "FSSAI certified",
-                "100% vegetarian",
-                "No added sugar",
-                "No MSG",
-                "Batch tested",
-                "Gluten-free",
-                "No trans fats",
-                "Zero Preservatives"
+                { text: "Ready in 10 min", icon: "timer2.svg" },
+                { text: "Slow cooked", icon: "slow.svg" },
+                { text: "FSSAI Certified", icon: "fssai icon.svg" },
+                { text: "Zero Preservatives", icon: "tick2.svg" },
+                { text: "Cold Chain Packed", icon: "cold.svg" }
               ].map((item, idx) => (
-                <div key={idx} className="flex items-center gap-5">
+                <div key={idx} className="flex items-center gap-6 py-2">
                   <div className="w-[55px] h-[55px] bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm relative overflow-hidden">
-                    <Image
-                      src="/images/tick2.svg"
-                      alt="Tick"
-                      width={38}
-                      height={38}
-                    />
+                    <div className="relative w-[34px] h-[34px]">
+                      <Image
+                        src={`/images/${item.icon}`}
+                        alt={item.text}
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
                   </div>
-                  <span className="font-bomstad font-normal text-[25px]" style={{ color: 'rgb(21, 107, 54)' }}>
-                    {item}
+                  <span className="font-bomstad font-normal text-[25px] leading-none" style={{ color: 'rgb(21, 107, 54)' }}>
+                    {item.text}
                   </span>
                 </div>
               ))}
@@ -884,18 +872,18 @@ export default function Home() {
             {/* Content Wrapper */}
             <div className="relative z-10 flex flex-col items-center w-full px-4">
               {/* Mobile Pill (md:hidden) */}
-              <div className="md:hidden relative w-[240px] h-[48px] mb-6">
+              <div className="md:hidden relative w-[280px] h-[48px] mb-6">
                 <div className="absolute inset-0 rounded-full" style={{ backgroundColor: 'rgb(247, 216, 13)' }} />
                 <div className="absolute inset-0 border-[1.5px] border-[#f70034] rounded-full flex items-center justify-center">
-                  <span className="font-bomstad font-bold text-[14px] leading-none" style={{ color: 'rgb(21, 107, 54)' }}>
-                    Make 20+ dishes with GrabV
+                  <span className="font-bomstad font-bold text-[13px] leading-none text-center" style={{ color: 'rgb(21, 107, 54)' }}>
+                    Make 20+ recipes with one gravy.
                   </span>
                 </div>
               </div>
 
               {/* Desktop Pill (hidden md:block) */}
-              <div className="hidden md:block relative w-[313px] h-[83px] mb-10">
-                <div className="absolute left-[0.76px] top-[7.36px] w-[308.483px] h-[67px] rounded-[100px]">
+              <div className="hidden md:block relative w-[420px] h-[83px] mb-10">
+                <div className="absolute left-[0.76px] top-[7.36px] w-[415px] h-[67px] rounded-[100px]">
                   <Image
                     src="/images/yellow rectangle.svg"
                     alt=""
@@ -910,24 +898,24 @@ export default function Home() {
                   className="pointer-events-none object-contain"
                 />
                 <span className="absolute inset-0 flex items-center justify-center font-bomstad font-semibold text-[18px] leading-none tracking-normal" style={{ color: 'rgb(21, 107, 54)' }}>
-                  Make 20+ dishes with GrabV
+                  Make 20+ recipes with one gravy.
                 </span>
               </div>
 
               {/* Main Heading */}
-              <div className="mb-6 md:mb-8 flex flex-row items-baseline justify-center gap-1.5 md:gap-4 whitespace-nowrap">
-                <h2 className="font-kura text-[22px] md:text-[85px] leading-[0.9]" style={{ color: 'rgb(247, 216, 13)' }}>
-                  COOK ANYTHING
+              <div className="mb-6 md:mb-10 flex flex-col md:flex-row items-center md:items-baseline justify-center gap-1.5 md:gap-4 whitespace-nowrap">
+                <h2 className="font-kura text-[25px] md:text-[85px] leading-[0.9]" style={{ color: 'rgb(247, 216, 13)' }}>
+                  Your little shortcut
                 </h2>
-                <h2 className="font-kura text-[22px] md:text-[85px] leading-[0.9] text-white">
-                  IN MINUTES
+                <h2 className="font-kura text-[25px] md:text-[85px] leading-[0.9] text-white">
+                  to cooking.
                 </h2>
               </div>
 
               {/* Subtext */}
-              <div className="text-white text-[16px] md:text-[25px] font-bomstad font-normal leading-[1.3] max-w-3xl px-4 md:px-6 opacity-90">
-                <p>From quick weeknight dals to weekend feasts.</p>
-                <p>One base, unlimited possibilities.</p>
+              <div className="text-white text-[16px] md:text-[25px] font-bomstad font-normal leading-[1.3] max-w-4xl pl-2 pr-4 md:pl-3 md:pr-6 opacity-90">
+                <p>Just switch your ingredients and create</p>
+                <p>a whole new dish each time.</p>
               </div>
             </div>
           </div>
@@ -938,7 +926,7 @@ export default function Home() {
             style={{ backgroundColor: 'rgb(239, 238, 230)' }}
           >
             {/* Vegetarian Category */}
-            <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 flex items-center gap-3 md:gap-8 mb-8 md:mb-12 opacity-80">
+            <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex items-center gap-3 md:gap-8 mb-8 md:mb-12 opacity-80">
               <div className="flex-1 h-[1px] md:h-[2px]" style={{ backgroundColor: 'rgb(21, 107, 54)' }} />
               <div className="flex items-center gap-2 md:gap-3 px-4 md:px-8 py-2 md:py-3 rounded-full shrink-0" style={{ backgroundColor: 'rgb(179, 202, 183)' }}>
                 <div className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 rounded-full" style={{ backgroundColor: 'rgb(21, 107, 54)' }} />
@@ -950,11 +938,12 @@ export default function Home() {
             </div>
 
             {/* Vegetarian Recipes - Horizontal scroll on mobile */}
-            <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 flex overflow-x-auto no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-28">
+            <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex overflow-x-auto no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12">
               {[
-                { title: "Paneer Butter Masala", desc: "Creamy, rich, restaurant-style. Just add paneer to GrabV, simmer 5 minutes, finish with butter." },
-                { title: "Paneer Butter Masala", desc: "Creamy, rich, restaurant-style. Just add paneer to GrabV, simmer 5 minutes, finish with butter." },
-                { title: "Paneer Butter Masala", desc: "Creamy, rich, restaurant-style. Just add paneer to GrabV, simmer 5 minutes, finish with butter." }
+                { title: "Paneer Butter Masala", desc: "Rich, creamy, restaurant style classic." },
+                { title: "Paneer Do Pyaza", desc: "Bold, onion forward, perfectly balanced flavours." },
+                { title: "Chole Masala", desc: "Hearty, spiced, homestyle comfort." },
+                { title: "Veg Kolhapuri", desc: "Fiery, robust, flavour packed gravy." }
               ].map((item, idx) => (
                 <div key={idx} className="flex flex-col group items-start shrink-0 w-[175px] md:w-auto">
                   <div className="relative w-full aspect-[4/5] rounded-[15px] md:rounded-[30px] overflow-hidden mb-4 md:mb-8 shadow-md md:shadow-xl">
@@ -993,7 +982,7 @@ export default function Home() {
             </div>
 
             {/* Non-Vegetarian Category */}
-            <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 flex items-center gap-3 md:gap-8 mt-16 md:mt-24 mb-8 md:mb-12 opacity-80">
+            <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex items-center gap-3 md:gap-8 mt-16 md:mt-24 mb-8 md:mb-12 opacity-80">
               <div className="flex-1 h-[1px] md:h-[2px]" style={{ backgroundColor: 'rgb(247, 0, 52)' }} />
               <div className="flex items-center gap-2 md:gap-3 px-4 md:px-8 py-2 md:py-3 rounded-full shrink-0" style={{ backgroundColor: 'rgba(247, 0, 52, 0.15)' }}>
                 <div className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 rounded-full" style={{ backgroundColor: 'rgb(247, 0, 52)' }} />
@@ -1005,11 +994,12 @@ export default function Home() {
             </div>
 
             {/* Non-Vegetarian Recipes - Horizontal scroll on mobile */}
-            <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 flex overflow-x-auto no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-28 mb-16 md:mb-32">
+            <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex overflow-x-auto no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 mb-16 md:mb-32">
               {[
-                { title: "Chicken Butter Masala", desc: "Tender chicken in our signature gravy. Restaurant quality in 6 minutes at home." },
-                { title: "Chicken Butter Masala", desc: "Tender chicken in our signature gravy. Restaurant quality in 6 minutes at home." },
-                { title: "Chicken Butter Masala", desc: "Tender chicken in our signature gravy. Restaurant quality in 6 minutes at home." }
+                { title: "Butter Chicken", desc: "Smooth, buttery, indulgent favourite." },
+                { title: "Chicken Curry", desc: "Homestyle, well spiced, everyday classic." },
+                { title: "Egg Masala (Motta Curry)", desc: "Thick, masaledar, deeply satisfying." },
+                { title: "Mutton Sukka Gravy", desc: "Rich, intense, slow cooked flavours." }
               ].map((item, idx) => (
                 <div key={idx} className="flex flex-col group items-start shrink-0 w-[175px] md:w-auto">
                   <div className="relative w-full aspect-[4/5] rounded-[15px] md:rounded-[30px] overflow-hidden mb-4 md:mb-8 shadow-md md:shadow-xl">
@@ -1049,7 +1039,7 @@ export default function Home() {
 
             {/* CTA Banner Section */}
             <div
-              className="w-[calc(100%-32px)] md:w-full max-w-[1440px] mx-auto rounded-[15px] px-4 md:px-8 py-6 md:py-10 flex flex-row items-center justify-between gap-4 mb-4 md:mb-10 overflow-hidden relative"
+              className="w-[calc(100%-32px)] md:w-full max-w-[1600px] mx-auto rounded-[15px] pl-2 pr-4 md:pl-4 md:pr-8 py-6 md:py-10 flex flex-row items-center justify-between gap-4 mb-4 md:mb-10 overflow-hidden relative"
               style={{ backgroundColor: 'rgb(21, 107, 54)' }}
             >
               <div className="flex flex-col items-start text-left z-10 max-w-[65%]">
@@ -1073,7 +1063,7 @@ export default function Home() {
 
         {/* Manufacturing Process Section */}
         <section className="w-full pt-0 md:pt-0 pb-20 md:pb-32 flex flex-col items-center" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
-          <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 flex flex-col items-center">
+          <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex flex-col items-center">
 
             {/* Mobile Header (md:hidden) */}
             <div className="md:hidden flex flex-col items-center text-center mb-10 w-full">
@@ -1087,15 +1077,15 @@ export default function Home() {
                   className="pointer-events-none object-contain"
                 />
                 <span className="absolute inset-0 flex items-center justify-center font-bomstad font-bold text-[14px] text-white uppercase tracking-wide">
-                  Manufacturing Process
+                  How we make it
                 </span>
               </div>
               <h2 className="font-kura text-[21px] leading-tight mb-1 uppercase whitespace-nowrap">
-                <span style={{ color: 'rgb(247, 0, 52)' }}>How we make </span>
-                <span style={{ color: 'rgb(21, 107, 54)' }}>every pouch</span>
+                <span style={{ color: 'rgb(247, 0, 52)' }}>Every dish starts </span>
+                <span style={{ color: 'rgb(21, 107, 54)' }}>with GrabV</span>
               </h2>
               <p className="text-[12px] font-bomstad font-normal opacity-90 max-w-[280px]" style={{ color: 'rgb(21, 107, 54)' }}>
-                No factory line. No bulk shortcuts.
+                Order yours now!
               </p>
             </div>
 
@@ -1107,31 +1097,31 @@ export default function Home() {
                 </div>
                 <Image src="/images/green border.svg" alt="" fill className="pointer-events-none object-contain" />
                 <span className="absolute inset-0 flex items-center justify-center font-bomstad font-semibold text-[18px] leading-none tracking-normal text-white">
-                  Manufacturing Process
+                  How we make it
                 </span>
               </div>
               <h2 className="font-kura text-[85px] leading-[0.9] mb-4 uppercase">
-                <span style={{ color: 'rgb(247, 0, 52)' }}>How we make </span>
-                <span style={{ color: 'rgb(21, 107, 54)' }}>every pouch</span>
+                <span style={{ color: 'rgb(247, 0, 52)' }}>Every dish starts </span>
+                <span style={{ color: 'rgb(21, 107, 54)' }}>with GrabV</span>
               </h2>
-              <div className="max-w-4xl text-[18px] font-bomstad font-normal leading-[1.4] tracking-normal text-center mb-12 px-6 opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
-                No factory line. No bulk shortcuts. Every batch is made by hand the way a good cook<br />
-                would — because that&apos;s the only way it tastes right.
+              <div className="max-w-4xl text-[18px] md:text-[25px] font-bomstad font-normal leading-[1.4] tracking-normal text-center mb-12 px-6 opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                Order yours now!
               </div>
             </div>
 
             {/* Mobile Vertical Timeline (md:hidden) */}
             <div className="md:hidden w-full relative flex flex-col gap-6 pl-2">
               {[
-                { step: 1, title: "Fresh produce sourced daily", desc: "Onions, tomatoes, ginger and garlic are sourced fresh every morning. No cold storage, no aged produce." },
-                { step: 2, title: "Fresh produce sourced daily", desc: "Onions, tomatoes, ginger and garlic are sourced fresh every morning. No cold storage, no aged produce." },
-                { step: 3, title: "Fresh produce sourced daily", desc: "Onions, tomatoes, ginger and garlic are sourced fresh every morning. No cold storage, no aged produce." },
-                { step: 4, title: "Fresh produce sourced daily", desc: "Onions, tomatoes, ginger and garlic are sourced fresh every morning. No cold storage, no aged produce." },
-                { step: 5, title: "Fresh produce sourced daily", desc: "Onions, tomatoes, ginger and garlic are sourced fresh every morning. No cold storage, no aged produce." }
+                { step: 1, title: "Cooked in small batches", desc: "" },
+                { step: 2, title: "Clean and hygienic preparation", desc: "" },
+                { step: 3, title: "Stored and delivered through cold chain", desc: "" },
+                { step: 4, title: "Quality checked at every stage", desc: "" },
+                { step: 5, title: "No preservatives added", desc: "" },
+                { step: 6, title: "100% veg base gravy", desc: "" }
               ].map((item) => (
                 <div key={item.step} className="flex items-start gap-6 relative">
                   {/* Connecting Line - Correctly scoped to bridge the gap */}
-                  {item.step !== 5 && (
+                  {item.step !== 6 && (
                     <div className="absolute top-[22px] left-[47px] w-[2px] h-[calc(100%+24px)] bg-[rgb(247,216,13)] z-0" />
                   )}
 
@@ -1142,9 +1132,8 @@ export default function Home() {
                       <span className="font-kura text-[24px] relative z-10 pt-[2px]" style={{ color: 'rgb(247, 0, 52)' }}>{item.step}</span>
                     </div>
                   </div>
-                  <div className="flex flex-col text-left pr-4">
+                  <div className="flex flex-col text-left pr-4 justify-center h-[44px]">
                     <h4 className="font-bomstad text-[16px] font-bold mb-0" style={{ color: 'rgb(247, 0, 52)' }}>{item.title}</h4>
-                    <p className="font-bomstad text-[12px] font-normal leading-relaxed max-w-[280px]" style={{ color: 'rgb(21, 107, 54)' }}>{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -1154,11 +1143,12 @@ export default function Home() {
             <div className="hidden md:flex w-full relative flex flex-col items-start gap-12 pt-4">
               <div className="absolute left-[89px] top-[41px] bottom-[41px] w-[4px] z-0" style={{ backgroundColor: 'rgb(247, 216, 13)' }} />
               {[
-                { step: 1, title: "Fresh produce sourced daily", desc: "Onions, tomatoes, ginger and garlic are sourced fresh every morning. No cold storage, no aged produce." },
-                { step: 2, title: "Fresh produce sourced daily", desc: "Onions, tomatoes, ginger and garlic are sourced fresh every morning. No cold storage, no aged produce." },
-                { step: 3, title: "Fresh produce sourced daily", desc: "Onions, tomatoes, ginger and garlic are sourced fresh every morning. No cold storage, no aged produce." },
-                { step: 4, title: "Fresh produce sourced daily", desc: "Onions, tomatoes, ginger and garlic are sourced fresh every morning. No cold storage, no aged produce." },
-                { step: 5, title: "Fresh produce sourced daily", desc: "Onions, tomatoes, ginger and garlic are sourced fresh every morning. No cold storage, no aged produce." }
+                { step: 1, title: "Cooked in small batches", desc: "" },
+                { step: 2, title: "Clean and hygienic preparation", desc: "" },
+                { step: 3, title: "Stored and delivered through cold chain", desc: "" },
+                { step: 4, title: "Quality checked at every stage", desc: "" },
+                { step: 5, title: "No preservatives added", desc: "" },
+                { step: 6, title: "100% veg base gravy", desc: "" }
               ].map((item) => (
                 <div key={item.step} className="flex items-center gap-16 relative z-10 w-full group">
                   <div className="relative shrink-0 w-[178px] h-[82px] flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
@@ -1166,14 +1156,14 @@ export default function Home() {
                     <span className="font-kura text-[50px] relative z-10 pt-[4px]" style={{ color: 'rgb(247, 0, 52)' }}>{item.step}</span>
                   </div>
                   <div className="flex flex-col items-start text-left">
-                    <h4 className="font-bomstad text-[30px] font-semibold mb-2" style={{ color: 'rgb(21, 107, 54)' }}>{item.title}</h4>
-                    <p className="font-bomstad text-[18px] font-normal opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>{item.desc}</p>
+                    <h4 className="font-bomstad text-[30px] font-semibold mb-0" style={{ color: 'rgb(21, 107, 54)' }}>{item.title}</h4>
                   </div>
                 </div>
               ))}
             </div>
           </div>
         </section>
+
         {/* Reviews Section */}
         <div className="w-full relative flex flex-col items-center">
           {/* Green Header with Jagged Edge */}
@@ -1211,16 +1201,33 @@ export default function Home() {
 
               {/* Heading */}
               <h2 className="font-kura text-[32px] md:text-[85px] leading-tight mb-0 md:mb-4 text-center uppercase">
-                <span className="text-white">Our GrabV </span>
-                <span style={{ color: 'rgb(247, 216, 13)' }}>Your Review</span>
+                <span className="text-white">The GrabV </span>
+                <span style={{ color: 'rgb(247, 216, 13)' }}>Experience</span>
               </h2>
             </div>
           </div>
 
           {/* Review Cards - Horizontal scroll on mobile */}
-          <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 pt-4 md:py-20 flex overflow-x-auto no-scrollbar md:grid md:grid-cols-3 gap-6 md:gap-8 pb-8 md:pb-16">
-            {[1, 2, 3].map((item) => (
-              <div key={item} className="relative p-4 md:p-8 rounded-[20px] bg-white flex flex-col gap-2 md:gap-6 shrink-0 w-[211px] h-[187px] md:w-auto md:h-auto shadow-sm">
+          <div className="w-full flex flex-col items-center">
+            <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 pt-4 md:py-20 flex overflow-x-auto no-scrollbar md:grid md:grid-cols-3 gap-6 md:gap-8 pb-8 md:pb-16">
+            {[
+              {
+                name: "Sneha Mehta",
+                location: "Bengaluru",
+                text: "I recently shifted to Bengaluru, and I was craving for the home cooked flavour and that's when GrabV’s onion tomato gravy saved me!!! It was absolutely delicious."
+              },
+              {
+                name: "Harshitha",
+                location: "Bengaluru",
+                text: "Oh mahn!! What a flavourrr… made me feel like a real chef!!"
+              },
+              {
+                name: "Chetana Gowda",
+                location: "Bengaluru",
+                text: "It is an absolute saviour to my busy days, so quick and so easy. Am stocking this up again for sure!!"
+              }
+            ].map((item, idx) => (
+              <div key={idx} className="relative p-4 md:p-8 rounded-[20px] bg-white flex flex-col gap-2 md:gap-6 shrink-0 w-[211px] h-[187px] md:w-auto md:h-auto shadow-sm">
                 {/* Mobile Card Borders (Double yellow border effect per request) */}
                 <div className="absolute -inset-1 md:hidden pointer-events-none">
                   <Image src="/images/card border phone.svg" alt="" fill className="object-fill" />
@@ -1242,8 +1249,8 @@ export default function Home() {
                     <Image src="/images/review.svg" alt="User" fill className="object-cover" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[14px] md:text-[20px] font-bold" style={{ color: 'rgb(21, 107, 54)' }}>Shneha Mehta</span>
-                    <span className="text-[11px] md:text-[16px] text-neutral-400">Delhi</span>
+                    <span className="text-[14px] md:text-[20px] font-bold" style={{ color: 'rgb(21, 107, 54)' }}>{item.name}</span>
+                    <span className="text-[11px] md:text-[16px] text-neutral-400">{item.location}</span>
                   </div>
                 </div>
                 <div className="flex gap-0.5 relative z-10">
@@ -1252,71 +1259,74 @@ export default function Home() {
                   ))}
                 </div>
                 <p className="text-[11px] md:text-[18px] leading-relaxed font-medium relative z-10 line-clamp-4 md:line-clamp-none" style={{ color: 'rgb(21, 107, 54)' }}>
-                  &quot;I was sceptical — how can a ready base taste this good? The onions are actually caramelised properly. My husband thought I&apos;d been cooking all afternoon.&quot;
+                  &quot;{item.text}&quot;
                 </p>
               </div>
             ))}
           </div>
         </div>
+        </div>
 
-        <div
-          className="w-[calc(100%-16px)] md:w-full max-w-[1440px] mx-auto min-h-[280px] md:h-[550px] rounded-[8px] px-4 py-8 md:p-24 flex flex-col items-center justify-center text-center relative overflow-hidden mb-10 shadow-xl"
-          style={{ backgroundColor: 'rgb(21, 106, 55)' }}
-        >
+        <div className="w-full flex flex-col items-center">
+          <div
+            className="w-[calc(100%-16px)] md:w-full max-w-[1600px] mx-auto min-h-[280px] md:h-[550px] rounded-[8px] pl-2 pr-4 md:pl-4 md:pr-8 py-8 md:p-24 flex flex-col items-center justify-center text-center relative overflow-hidden mb-10 shadow-xl"
+            style={{ backgroundColor: 'rgb(21, 106, 55)' }}
+          >
 
-          {/* Heading - Single line for mobile */}
-          <h2 className="font-kura text-[19px] md:text-[70px] leading-tight mb-4 md:mb-8 whitespace-nowrap">
-            <span style={{ color: 'rgb(247, 216, 13)' }}>Ready to cook smarter </span>
-            <span className="text-white">Everyday?</span>
-          </h2>
+            {/* Heading - Single line for mobile */}
+            <h2 className="font-kura text-[19px] md:text-[70px] leading-tight mb-4 md:mb-8 whitespace-nowrap">
+              <span style={{ color: 'rgb(247, 216, 13)' }}>Ready to cook smarter </span>
+              <span className="text-white">every day?</span>
+            </h2>
 
-          {/* Subtext */}
-          <p className="text-white text-[13px] md:text-[20px] font-bomstad font-normal tracking-wide opacity-90 mb-8 md:mb-12 max-w-4xl px-2 md:px-0 leading-relaxed md:leading-[1.3]">
-            Order 750g Or 250g pouch. A week of effortless dinners. Zero preservatives. Shipped cold, direct to your door.
-          </p>
+            {/* Subtext */}
+            <p className="text-white text-[13px] md:text-[20px] font-bomstad font-normal tracking-wide opacity-90 mb-8 md:mb-12 max-w-4xl px-2 md:px-0 leading-relaxed md:leading-[1.3]">
+              Reclaim your time with our preservative free gravy pouches. Freshly chilled, FSSAI certified, and delivered to your door.
+            </p>
 
-          {/* Buttons */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-8 md:mb-12 w-full max-w-[1000px]">
-            <div className="flex flex-row items-center justify-center gap-3 md:gap-8 w-full md:w-auto">
-              {/* Order 750g */}
-              <button className="bg-white text-[#f70034] flex-1 md:w-[260px] py-3 md:py-5 rounded-full font-bomstad font-medium text-[14px] md:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all shrink-0">
-                Order 750g
-              </button>
+            {/* Buttons */}
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-8 md:mb-12 w-full max-w-[1000px]">
+              <div className="flex flex-row items-center justify-center gap-3 md:gap-8 w-full md:w-auto">
+                {/* Order 750g */}
+                <button className="bg-white text-[#f70034] flex-1 md:w-[260px] py-3 md:py-5 rounded-full font-bomstad font-medium text-[14px] md:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all shrink-0">
+                  Order 750g
+                </button>
 
-              {/* Order 250g */}
-              <button className="bg-white text-[#f70034] flex-1 md:w-[260px] py-3 md:py-5 rounded-full font-bomstad font-medium text-[14px] md:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all shrink-0">
-                Order 250g
+                {/* Order 250g */}
+                <button className="bg-white text-[#f70034] flex-1 md:w-[260px] py-3 md:py-5 rounded-full font-bomstad font-medium text-[14px] md:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all shrink-0">
+                  Order 250g
+                </button>
+              </div>
+
+              {/* WhatsApp - Tertiary */}
+              <button className="bg-white text-[#f70034] w-[180px] md:w-[260px] py-2.5 md:py-5 rounded-full font-bomstad font-normal text-[14px] md:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all group flex items-center justify-center gap-2 md:gap-4 shrink-0">
+                <div className="w-5 h-5 md:w-8 md:h-8 relative group-hover:brightness-0 group-hover:invert transition-all">
+                  <Image src="/images/whatsapp.svg" alt="WhatsApp" fill className="object-contain" />
+                </div>
+                <span>WhatsApp us</span>
               </button>
             </div>
 
-            {/* WhatsApp - Tertiary */}
-            <button className="bg-white text-[#f70034] w-[180px] md:w-[260px] py-2.5 md:py-5 rounded-full font-bomstad font-normal text-[14px] md:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all group flex items-center justify-center gap-2 md:gap-4 shrink-0">
-              <div className="w-5 h-5 md:w-8 md:h-8 relative group-hover:brightness-0 group-hover:invert transition-all">
-                <Image src="/images/whatsapp.svg" alt="WhatsApp" fill className="object-contain" />
+            {/* Footer text */}
+            <div className="text-white text-[10px] min-[375px]:text-[11px] md:text-[24px] font-bomstad font-medium tracking-tight md:tracking-wide flex flex-row flex-nowrap items-center justify-center gap-1 md:gap-2 opacity-100 whitespace-nowrap px-4 md:px-2">
+              <span>Free delivery on orders above ₹499</span>
+              <span className="opacity-60">·</span>
+              <span>Ships within 48 hours</span>
+              <span className="opacity-60">·</span>
+              <div className="flex items-center gap-0">
+                <div className="h-5 w-10 md:h-16 md:w-32 relative invert brightness-0">
+                  <Image src="/images/fssai%20text.svg" alt="FSSAI" fill className="object-contain" />
+                </div>
+                <span>Certified</span>
               </div>
-              <span>WhatsApp us</span>
-            </button>
-          </div>
-
-          {/* Footer text */}
-          <div className="text-white text-[10px] min-[375px]:text-[11px] md:text-[24px] font-bomstad font-medium tracking-tight md:tracking-wide flex flex-row flex-nowrap items-center justify-center gap-1 md:gap-2 opacity-100 whitespace-nowrap px-4 md:px-2">
-            <span>Free delivery on orders above ₹499</span>
-            <span className="opacity-60">·</span>
-            <span>Ships within 48 hours</span>
-            <span className="opacity-60">·</span>
-            <div className="flex items-center gap-0">
-              <div className="h-5 w-10 md:h-16 md:w-32 relative invert brightness-0">
-                <Image src="/images/fssai%20text.svg" alt="FSSAI" fill className="object-contain" />
-              </div>
-              <span>Certified</span>
             </div>
           </div>
         </div>
       </main>
 
       {/* New Grid Footer Section */}
-      <footer className="w-full py-12 md:py-16 px-6 md:px-8" style={{ backgroundColor: 'rgb(21, 107, 54)' }}>
-        <div className="max-w-[1440px] mx-auto">
+      <footer className="w-full py-12 md:py-16 pl-3 pr-6 md:pl-4 md:pr-8" style={{ backgroundColor: 'rgb(21, 107, 54)' }}>
+        <div className="max-w-[1600px] mx-auto">
           {/* Mobile Footer (Figma Style) */}
           <div className="md:hidden grid grid-cols-2 gap-x-8 gap-y-10">
             {/* Col 1: Brand & Company */}
