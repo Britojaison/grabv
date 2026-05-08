@@ -5,6 +5,13 @@ import Link from "next/link";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const qualityPromises = [
+    { text: "100% Vegan", icon: "leaf.svg" },
+    { text: "Batch Tested", icon: "Batch tested.svg" },
+    { text: "FSSAI", icon: "FSSAI (1).svg" },
+    { text: "No Artificial Colours", icon: "No artificial colours.svg" },
+    { text: "Zero Preservatives", icon: "Zero Preservatives (1).svg" },
+  ];
 
   return (
     <div className="flex flex-col min-h-screen w-full font-bomstad overflow-x-hidden" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
@@ -124,7 +131,7 @@ export default function Home() {
         </div>
 
         {/* Content Wrapper constrained to 1440px with correct z-index */}
-        <div className="relative w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 h-auto min-h-[380px] md:h-[800px] shrink-0 z-30 flex">
+        <div className="relative w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-12 lg:pl-16 md:pr-8 h-auto min-h-[380px] md:h-[800px] shrink-0 z-30 flex">
 
           {/* Left Text Content - In normal flow so alignment strictly matches navbar */}
           <div className="w-full lg:w-[60%] pt-10 md:pt-[70px] z-20 flex flex-col items-start">
@@ -235,7 +242,7 @@ export default function Home() {
                     {[
                       { img: 'timer2.svg', text: 'Ready in 7 mins' },
                       { img: 'slow.svg', text: 'Slow cooked' },
-                      { img: 'fssai icon.svg', text: 'FSSAI Certified' },
+                      { img: 'FSSAI (1).svg', text: 'FSSAI Certified' },
                       { img: 'tick2.svg', text: 'Zero Preservatives' },
                       { img: 'cold.svg', text: 'Cold Chain Packed' }
                     ].map((item, idx) => (
@@ -278,7 +285,7 @@ export default function Home() {
                   className="rounded-full px-7 py-3 flex items-center gap-3 shadow-sm"
                 >
                   <div className="w-[30px] h-[30px] relative">
-                    <Image src="/images/fssai icon.svg" alt="FSSAI Certified" fill className="object-contain" />
+                    <Image src="/images/FSSAI (1).svg" alt="FSSAI Certified" fill className="object-contain" />
                   </div>
                   <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad whitespace-nowrap">FSSAI Certified</span>
                 </div>
@@ -335,7 +342,7 @@ export default function Home() {
           </div>
 
           {/* Content Wrapper */}
-          <div className="relative w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 z-[40] flex flex-col lg:flex-row items-center pt-12 md:pt-0">
+          <div className="relative w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-12 lg:pl-16 md:pr-8 z-[40] flex flex-col lg:flex-row items-center pt-12 md:pt-0">
 
             {/* Left Content */}
             <div className="w-full lg:w-[40%] flex flex-col items-center lg:items-start pt-2 md:pt-0 text-center lg:text-left">
@@ -651,20 +658,20 @@ export default function Home() {
               {/* Ingredients Horizontal Scroll for Mobile */}
               <div className="flex overflow-x-auto no-scrollbar gap-6 w-full pb-2 px-4">
                 {[
-                  { img: 'onion.svg', title: 'Fresh Onions & Tomatoes', desc: 'Slow-fried to golden perfection' },
-                  { img: 'cumin.svg', title: 'The Whole Spice Bloom', desc: 'Cumin, Cinnamon, Clove, and Bay Leaf' },
-                  { img: 'bayleaf.svg', title: 'The Essential Spice Blend', desc: 'Chilli, Turmeric, Coriander, and Pepper' },
-                  { img: 'garlic.svg', title: 'The Creamy Secret', desc: 'A touch of Cashews' },
-                  { img: 'oil.svg', title: 'Zero Additives', desc: '100% preservative-free and fresh-chilled' },
+                  { img: 'Fresh Onions & Tomatoes.jpg', title: 'Fresh Onions & Tomatoes', desc: 'Slow-fried to golden perfection' },
+                  { img: 'The Whole Spice Bloom.jpg', title: 'The Whole Spice Bloom', desc: 'Cumin, Cinnamon, Clove, and Bay Leaf' },
+                  { img: 'The Essential Spice Blend.jpg', title: 'The Essential Spice Blend', desc: 'Chilli, Turmeric, Coriander, and Pepper' },
+                  { img: 'The Creamy Secret.jpg', title: 'The Creamy Secret', desc: 'A touch of Cashews' },
+                  { img: 'Zero Additives.jpg', title: 'Zero Additives', desc: '100% preservative-free and fresh-chilled' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3 text-left shrink-0">
-                    <div className="w-[80px] h-[80px] flex-shrink-0 flex items-center justify-center">
+                    <div className="w-[80px] h-[80px] flex-shrink-0 flex items-center justify-center bg-white rounded-xl border-[2px] border-[rgb(247,0,52)] overflow-hidden shadow-sm">
                       <div className="relative w-full h-full">
                         <Image
                           src={`/images/${item.img}`}
                           alt={item.title}
                           fill
-                          className="object-contain"
+                          className="object-cover"
                         />
                       </div>
                     </div>
@@ -735,20 +742,20 @@ export default function Home() {
               {/* Ingredients Grid - Tightened spacing */}
               <div className="w-full lg:w-[1146px] lg:h-[402px] rounded-[10px] grid grid-cols-1 lg:grid-cols-2 gap-x-[120px] gap-y-8 mt-2">
                 {[
-                  { img: 'onion.svg', title: 'Fresh Onions & Tomatoes', desc: 'Slow-fried to golden perfection for a rich, robust base.' },
-                  { img: 'cumin.svg', title: 'The Whole Spice Bloom', desc: 'Cumin, Cinnamon, Clove, and Bay Leaf roasted for deep aroma.' },
-                  { img: 'bayleaf.svg', title: 'The Essential Spice Blend', desc: 'Chilli, Turmeric, Coriander, and Pepper for authentic home-style depth.' },
-                  { img: 'garlic.svg', title: 'The Creamy Secret', desc: 'A touch of Cashews for a velvety, restaurant-style finish.' },
-                  { img: 'oil.svg', title: 'Zero Additives', desc: '100% preservative-free and fresh-chilled to lock in natural flavor.' },
+                  { img: 'Fresh Onions & Tomatoes.jpg', title: 'Fresh Onions & Tomatoes', desc: 'Slow-fried to golden perfection for a rich, robust base.' },
+                  { img: 'The Whole Spice Bloom.jpg', title: 'The Whole Spice Bloom', desc: 'Cumin, Cinnamon, Clove, and Bay Leaf roasted for deep aroma.' },
+                  { img: 'The Essential Spice Blend.jpg', title: 'The Essential Spice Blend', desc: 'Chilli, Turmeric, Coriander, and Pepper for authentic home-style depth.' },
+                  { img: 'The Creamy Secret.jpg', title: 'The Creamy Secret', desc: 'A touch of Cashews for a velvety, restaurant-style finish.' },
+                  { img: 'Zero Additives.jpg', title: 'Zero Additives', desc: '100% preservative-free and fresh-chilled to lock in natural flavor.' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-8">
-                    <div className="w-[117px] h-[119px] flex-shrink-0 flex items-center justify-center">
-                      <div className="relative w-full h-full">
+                    <div className="w-[117px] h-[119px] flex-shrink-0 flex items-center justify-center bg-white rounded-2xl border-[3px] border-[rgb(247,0,52)] overflow-hidden shadow-sm">
+                      <div className="relative w-[110px] h-[110px]">
                         <Image
                           src={`/images/${item.img}`}
                           alt={item.title}
                           fill
-                          className="object-contain"
+                          className="object-cover rounded-xl"
                         />
                       </div>
                     </div>
@@ -774,27 +781,17 @@ export default function Home() {
         <section id="quality" className="w-full relative pt-4 md:pt-12 pb-8 md:pb-12 flex flex-col items-center overflow-hidden" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
           <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex flex-col items-center relative z-10 pt-0 pb-12">
 
-            {/* Title - Hidden on Mobile */}
-            <h2 className="hidden md:block font-kura font-normal text-[85px] m-0 p-0 leading-[1.1] text-center tracking-wide uppercase mb-20">
+            <h2 className="font-kura font-normal text-[34px] md:text-[60px] m-0 p-0 leading-[1.1] text-center tracking-wide uppercase mb-8 md:mb-16">
               <span style={{ color: 'rgb(247, 0, 52)' }}>Our Quality </span>
               <span style={{ color: 'rgb(21, 107, 54)' }}>Promise</span>
             </h2>
 
-            {/* Mobile Continuous Auto-Scroll (Marquee) */}
-            <div className="md:hidden w-full overflow-hidden py-4">
-              <div className="flex gap-12 whitespace-nowrap animate-marquee w-max">
-                {[
-                  { text: "Batch tested", icon: "tick3.svg" },
-                  { text: "FSSAI certified", icon: "fssai icon.svg" },
-                  { text: "Zero Preservative", icon: "tick2.svg" },
-                  { text: "100% Veg", icon: "leaf.svg" }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-4 py-1">
-                    <div className="w-[45px] h-[45px] bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm relative overflow-hidden">
-                      <div 
-                        className="relative w-[28px] h-[28px]"
-                        style={item.icon === 'leaf.svg' ? { filter: 'brightness(0) invert(34%) sepia(35%) saturate(1048%) hue-rotate(97deg) brightness(93%) contrast(92%)' } : {}}
-                      >
+            <div className="w-full overflow-hidden py-3 md:py-5">
+              <div className="flex w-max animate-marquee items-center gap-10 md:gap-16 whitespace-nowrap">
+                {[...qualityPromises, ...qualityPromises].map((item, idx) => (
+                  <div key={`${item.text}-${idx}`} className="flex items-center gap-3 md:gap-5 py-1 shrink-0">
+                    <div className="w-[46px] h-[46px] md:w-[58px] md:h-[58px] bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm relative overflow-hidden">
+                      <div className="relative w-[30px] h-[30px] md:w-[40px] md:h-[40px]">
                         <Image
                           src={`/images/${item.icon}`}
                           alt={item.text}
@@ -803,41 +800,12 @@ export default function Home() {
                         />
                       </div>
                     </div>
-                    <span className="font-bomstad font-normal text-[18px] leading-none" style={{ color: 'rgb(21, 107, 54)' }}>
+                    <span className="font-bomstad font-normal text-[18px] md:text-[25px] leading-none" style={{ color: 'rgb(21, 107, 54)' }}>
                       {item.text}
                     </span>
                   </div>
                 ))}
               </div>
-            </div>
-
-            {/* Desktop Grid */}
-            <div className="hidden md:grid w-full justify-center grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-6 pl-2 lg:pl-6">
-              {[
-                { text: "Batch tested", icon: "tick3.svg" },
-                { text: "FSSAI certified", icon: "fssai icon.svg" },
-                { text: "Zero Preservative", icon: "tick2.svg" },
-                { text: "100% Veg", icon: "leaf.svg" }
-              ].map((item, idx) => (
-                <div key={idx} className="flex items-center gap-6 py-2">
-                  <div className="w-[55px] h-[55px] bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm relative overflow-hidden">
-                    <div 
-                      className="relative w-[34px] h-[34px]"
-                      style={item.icon === 'leaf.svg' ? { filter: 'brightness(0) invert(34%) sepia(35%) saturate(1048%) hue-rotate(97deg) brightness(93%) contrast(92%)' } : {}}
-                    >
-                      <Image
-                        src={`/images/${item.icon}`}
-                        alt={item.text}
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                  </div>
-                  <span className="font-bomstad font-normal text-[25px] leading-none" style={{ color: 'rgb(21, 107, 54)' }}>
-                    {item.text}
-                  </span>
-                </div>
-              ))}
             </div>
 
           </div>
@@ -944,15 +912,15 @@ export default function Home() {
             {/* Vegetarian Recipes - Horizontal scroll on mobile */}
             <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex overflow-x-auto no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12">
               {[
-                { title: "Paneer Butter Masala", desc: "Rich, creamy, restaurant style classic." },
-                { title: "Paneer Do Pyaza", desc: "Bold, onion forward, perfectly balanced flavours." },
-                { title: "Chole Masala", desc: "Hearty, spiced, homestyle comfort." },
-                { title: "Veg Kolhapuri", desc: "Fiery, robust, flavour packed gravy." }
+                { title: "Paneer Butter Masala", desc: "Rich, creamy, restaurant style classic.", image: "/images/Panner masala.jpg" },
+                { title: "Paneer Do Pyaza", desc: "Bold, onion forward, perfectly balanced flavours.", image: "/images/paneer-pyaza-is-popular-punjabi-vegetarian-recipe-using-cubes-cottage-cheese-with-lots-onion-gravy.jpg" },
+                { title: "Chole Masala", desc: "Hearty, spiced, homestyle comfort.", image: "/images/chole.jpg" },
+                { title: "Veg Kolhapuri", desc: "Fiery, robust, flavour packed gravy.", image: "/images/Kolhapuri.jpg" }
               ].map((item, idx) => (
                 <div key={idx} className="flex flex-col group items-start shrink-0 w-[175px] md:w-auto">
                   <div className="relative w-full aspect-[4/5] rounded-[15px] md:rounded-[30px] overflow-hidden mb-4 md:mb-8 shadow-md md:shadow-xl">
                     <Image
-                      src="/images/food1.svg"
+                      src={item.image}
                       alt={item.title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -1000,15 +968,15 @@ export default function Home() {
             {/* Non-Vegetarian Recipes - Horizontal scroll on mobile */}
             <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex overflow-x-auto no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 mb-16 md:mb-32">
               {[
-                { title: "Butter Chicken", desc: "Smooth, buttery, indulgent favourite." },
-                { title: "Chicken Curry", desc: "Homestyle, well spiced, everyday classic." },
-                { title: "Egg Masala (Motta Curry)", desc: "Thick, masaledar, deeply satisfying." },
-                { title: "Mutton Sukka Gravy", desc: "Rich, intense, slow cooked flavours." }
+                { title: "Butter Chicken", desc: "Smooth, buttery, indulgent favourite.", image: "/images/Butter Chicken.jpg" },
+                { title: "Chicken Curry", desc: "Homestyle, well spiced, everyday classic.", image: "/images/chiken curry.jpg" },
+                { title: "Egg Masala (Motta Curry)", desc: "Thick, masaledar, deeply satisfying.", image: "/images/anda-curry-egg-masala-gravy-indian-spicy-food-recipe-served-with-jeera-rice-roti-naan-selective-focus-colourful-wooden-table-top.jpg" },
+                { title: "Mutton Sukka Gravy", desc: "Rich, intense, slow cooked flavours.", image: "/images/Mutton Sukka Gravy.jpg" }
               ].map((item, idx) => (
                 <div key={idx} className="flex flex-col group items-start shrink-0 w-[175px] md:w-auto">
                   <div className="relative w-full aspect-[4/5] rounded-[15px] md:rounded-[30px] overflow-hidden mb-4 md:mb-8 shadow-md md:shadow-xl">
                     <Image
-                      src="/images/food1.svg"
+                      src={item.image}
                       alt={item.title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -1147,7 +1115,7 @@ export default function Home() {
 
             {/* Desktop Timeline (hidden md:flex) */}
             <div className="hidden md:flex w-full relative flex flex-col items-center gap-12 pt-4">
-              <div className="relative flex flex-col items-start gap-12 w-fit md:-ml-40">
+              <div className="relative flex flex-col items-start gap-12 w-fit">
                 <div className="absolute left-[89px] top-[41px] bottom-[41px] w-[4px] z-0" style={{ backgroundColor: 'rgb(247, 216, 13)' }} />
                 {[
                   { step: 1, title: "Cooked in small batches", desc: "" },
@@ -1223,19 +1191,22 @@ export default function Home() {
                 name: "Sneha Mehta",
                 location: "Bengaluru",
                 text: "I recently shifted to Bengaluru, and I was craving for the home cooked flavour and that's when GrabV’s onion tomato gravy saved me!!! It was absolutely delicious.",
-                rating: 5
+                rating: 5,
+                image: "/images/stylish-indian-beard-model-man-casual-clothes-posed-outdoor-street-india.jpg"
               },
               {
                 name: "Harshitha",
                 location: "Bengaluru",
                 text: "Oh mahn!! What a flavourrr… made me feel like a real chef!!",
-                rating: 4.5
+                rating: 4.5,
+                image: "/images/indian-woman-posing-cute-stylish-outfit-camera-smiling.jpg"
               },
               {
                 name: "Chetana Gowda",
                 location: "Bengaluru",
                 text: "It is an absolute saviour to my busy days, so quick and so easy. Am stocking this up again for sure!!",
-                rating: 4
+                rating: 4,
+                image: "/images/cheerful-traditional-indian-woman-white-background-studio-shot.jpg"
               }
             ].map((item, idx) => (
               <div key={idx} className="relative p-4 md:p-6 rounded-[20px] bg-white flex flex-col gap-2 md:gap-4 shrink-0 w-[211px] min-h-[150px] h-auto pb-4 md:w-auto md:h-auto shadow-sm">
@@ -1257,7 +1228,7 @@ export default function Home() {
 
                 <div className="flex items-center gap-3 md:gap-4 relative z-10">
                   <div className="w-10 h-10 md:w-16 md:h-16 rounded-full overflow-hidden relative border border-neutral-100">
-                    <Image src="/images/review.svg" alt="User" fill className="object-cover" />
+                    <Image src={item.image} alt={item.name} fill className="object-cover" />
                   </div>
                   <div className="flex flex-col">
                     <span className="text-[14px] md:text-[20px] font-bold" style={{ color: 'rgb(21, 107, 54)' }}>{item.name}</span>

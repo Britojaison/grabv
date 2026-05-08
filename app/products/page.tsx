@@ -109,18 +109,18 @@ export default function ProductsListPage() {
 
                         <div className="w-full flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible gap-4 md:gap-10 pb-4 md:pb-0 no-scrollbar px-4 md:px-0">
                             {[
-                                { status: 'active', title: '1. Onion Tomato Gravy' },
-                                { status: 'coming_soon', title: '2. Smoked Makhani Gravy' },
-                                { status: 'coming_soon', title: '3. Smoked Makhani Gravy' }
+                                { status: 'active', title: '1. Onion Tomato Gravy', image: '/images/onion tomato.png' },
+                                { status: 'coming_soon', title: '2. Smoked Makhani Gravy', image: '/images/smoked makani.png' },
+                                { status: 'coming_soon', title: '3. Smoked Makhani Gravy', image: '/images/smoked makani.png' }
                             ].map((item, idx) => (
                                 <div key={idx} className="flex flex-col items-center group shrink-0 w-[170px] md:w-auto">
                                     {/* Image Container */}
                                     <div className={`relative w-full aspect-[4/5] rounded-[20px] overflow-hidden mb-1 ${item.status === 'active' ? 'cursor-pointer' : 'md:bg-transparent'}`}>
                                         <Image
-                                            src="/images/all-p-gravy.svg"
-                                            alt="Product"
+                                            src={item.image}
+                                            alt={item.title}
                                             fill
-                                            className={`object-contain transition-transform duration-500 group-hover:scale-[1.02] ${item.status === 'coming_soon' ? 'grayscale opacity-60' : ''}`}
+                                            className={`object-cover object-bottom scale-[1.45] transition-transform duration-500 ${item.status === 'coming_soon' ? 'grayscale opacity-60' : 'group-hover:scale-[1.48]'}`}
                                         />
                                         {/* Coming Soon Badge */}
                                         {item.status === 'coming_soon' && (

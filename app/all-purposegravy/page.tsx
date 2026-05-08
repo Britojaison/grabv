@@ -305,17 +305,17 @@ export default function ProductsPage() {
 
                                 <div className="w-full flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible gap-4 md:gap-10 pb-8 md:pb-0 no-scrollbar px-4 md:px-0">
                                     {[
-                                        { status: 'active', title: '1. Onion Tomato Gravy' },
-                                        { status: 'coming_soon', title: '2. Smoked Makhani Gravy' },
-                                        { status: 'coming_soon', title: '3. Smoked Makhani Gravy' }
+                                        { status: 'active', title: '1. Onion Tomato Gravy', image: '/images/onion tomato.png' },
+                                        { status: 'coming_soon', title: '2. Smoked Makhani Gravy', image: '/images/smoked makani.png' },
+                                        { status: 'coming_soon', title: '3. Smoked Makhani Gravy', image: '/images/smoked makani.png' }
                                     ].map((item, idx) => (
                                         <div key={idx} className="flex flex-col items-center group shrink-0 w-[165px] md:w-auto">
                                             <div className={`relative w-full aspect-[4/5] rounded-[20px] overflow-hidden mb-3 flex items-center justify-center ${item.status === 'active' ? 'cursor-pointer' : 'bg-[#e5e5e5]/50 md:bg-transparent'}`}>
                                                 <Image
-                                                    src="/images/all-p-gravy.svg"
-                                                    alt="Product"
+                                                    src={item.image}
+                                                    alt={item.title}
                                                     fill
-                                                    className={`object-contain transition-transform duration-500 group-hover:scale-[1.02] ${item.status === 'coming_soon' ? 'grayscale opacity-60' : ''}`}
+                                                    className={`object-cover object-bottom scale-[1.45] transition-transform duration-500 ${item.status === 'coming_soon' ? 'grayscale opacity-60' : 'group-hover:scale-[1.48]'}`}
                                                 />
                                                 {/* Coming Soon Badge */}
                                                 {item.status === 'coming_soon' && (
@@ -413,19 +413,22 @@ export default function ProductsPage() {
                                     name: "Sneha Mehta",
                                     location: "Bengaluru",
                                     text: "I recently shifted to Bengaluru, and I was craving for the home cooked flavour and that's when GrabV’s onion tomato gravy saved me!!! It was absolutely delicious.",
-                                    rating: 5
+                                    rating: 5,
+                                    image: "/images/stylish-indian-beard-model-man-casual-clothes-posed-outdoor-street-india.jpg"
                                 },
                                 {
                                     name: "Harshitha",
                                     location: "Bengaluru",
                                     text: "Oh mahn!! What a flavourrr… made me feel like a real chef!!",
-                                    rating: 4.5
+                                    rating: 4.5,
+                                    image: "/images/indian-woman-posing-cute-stylish-outfit-camera-smiling.jpg"
                                 },
                                 {
                                     name: "Chetana Gowda",
                                     location: "Bengaluru",
                                     text: "It is an absolute saviour to my busy days, so quick and so easy. Am stocking this up again for sure!!",
-                                    rating: 4
+                                    rating: 4,
+                                    image: "/images/cheerful-traditional-indian-woman-white-background-studio-shot.jpg"
                                 }
                             ].map((item, idx) => (
                                 <div key={idx} className="relative p-4 md:p-6 rounded-[20px] bg-white flex flex-col gap-2 md:gap-4 shrink-0 w-[211px] min-h-[150px] h-auto pb-4 md:w-auto md:h-auto shadow-sm">
@@ -447,7 +450,7 @@ export default function ProductsPage() {
 
                                     <div className="flex items-center gap-3 md:gap-4 relative z-10">
                                         <div className="w-10 h-10 md:w-16 md:h-16 rounded-full overflow-hidden relative border border-neutral-100">
-                                            <Image src="/images/review.svg" alt="User" fill className="object-cover" />
+                                            <Image src={item.image} alt={item.name} fill className="object-cover" />
                                         </div>
                                         <div className="flex flex-col">
                                             <span className="text-[14px] md:text-[20px] font-bold" style={{ color: 'rgb(21, 107, 54)' }}>{item.name}</span>
