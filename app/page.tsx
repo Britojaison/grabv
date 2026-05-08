@@ -1192,7 +1192,7 @@ export default function Home() {
                 location: "Bengaluru",
                 text: "I recently shifted to Bengaluru, and I was craving for the home cooked flavour and that's when GrabV’s onion tomato gravy saved me!!! It was absolutely delicious.",
                 rating: 5,
-                image: "/images/stylish-indian-beard-model-man-casual-clothes-posed-outdoor-street-india.jpg"
+                image: "/images/cheerful-traditional-indian-woman-white-background-studio-shot.jpg"
               },
               {
                 name: "Harshitha",
@@ -1206,7 +1206,7 @@ export default function Home() {
                 location: "Bengaluru",
                 text: "It is an absolute saviour to my busy days, so quick and so easy. Am stocking this up again for sure!!",
                 rating: 4,
-                image: "/images/cheerful-traditional-indian-woman-white-background-studio-shot.jpg"
+                image: "/images/stylish-indian-beard-model-man-casual-clothes-posed-outdoor-street-india.jpg"
               }
             ].map((item, idx) => (
               <div key={idx} className="relative p-4 md:p-6 rounded-[20px] bg-white flex flex-col gap-2 md:gap-4 shrink-0 w-[211px] min-h-[150px] h-auto pb-4 md:w-auto md:h-auto shadow-sm">

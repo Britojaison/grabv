@@ -305,7 +305,7 @@ export default function ProductsPage() {
 
                                 <div className="w-full flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible gap-4 md:gap-10 pb-8 md:pb-0 no-scrollbar px-4 md:px-0">
                                     {[
-                                        { status: 'active', title: '1. Onion Tomato Gravy', image: '/images/onion tomato.png' },
+                                        { status: 'active', title: '1. Onion Tomato Gravy', image: '/images/onion.png' },
                                         { status: 'coming_soon', title: '2. Smoked Makhani Gravy', image: '/images/smoked makani.png' },
                                         { status: 'coming_soon', title: '3. Smoked Makhani Gravy', image: '/images/smoked makani.png' }
                                     ].map((item, idx) => (
@@ -414,7 +414,7 @@ export default function ProductsPage() {
                                     location: "Bengaluru",
                                     text: "I recently shifted to Bengaluru, and I was craving for the home cooked flavour and that's when GrabV’s onion tomato gravy saved me!!! It was absolutely delicious.",
                                     rating: 5,
-                                    image: "/images/stylish-indian-beard-model-man-casual-clothes-posed-outdoor-street-india.jpg"
+                                    image: "/images/cheerful-traditional-indian-woman-white-background-studio-shot.jpg"
                                 },
                                 {
                                     name: "Harshitha",
@@ -428,7 +428,7 @@ export default function ProductsPage() {
                                     location: "Bengaluru",
                                     text: "It is an absolute saviour to my busy days, so quick and so easy. Am stocking this up again for sure!!",
                                     rating: 4,
-                                    image: "/images/cheerful-traditional-indian-woman-white-background-studio-shot.jpg"
+                                    image: "/images/stylish-indian-beard-model-man-casual-clothes-posed-outdoor-street-india.jpg"
                                 }
                             ].map((item, idx) => (
                                 <div key={idx} className="relative p-4 md:p-6 rounded-[20px] bg-white flex flex-col gap-2 md:gap-4 shrink-0 w-[211px] min-h-[150px] h-auto pb-4 md:w-auto md:h-auto shadow-sm">
