@@ -167,11 +167,11 @@ export default function Home() {
             </div>
 
             <div className="mt-4 md:mt-10 mb-8 md:mb-16">
-              <h1 className="font-kura leading-[0.9] text-brand-yellow m-0 p-0 uppercase text-[38px] md:text-[90px] md:whitespace-nowrap max-w-[300px] md:max-w-none">
-                Master your Curry
+              <h1 className="font-kura leading-[0.9] text-brand-yellow m-0 p-0 uppercase text-[38px] md:text-[90px] max-w-[300px] md:max-w-none">
+                The taste of <br className="hidden md:block" /> slow cooking
               </h1>
               <h1 className="font-kura leading-[1.1] text-white m-0 p-0 uppercase text-[19px] md:text-[50px] lg:text-[60px] md:whitespace-nowrap max-w-[300px] md:max-w-none mt-2">
-                with the One Stop Solution.
+                Without the long prep.
               </h1>
             </div>
 
