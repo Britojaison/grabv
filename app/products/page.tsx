@@ -113,7 +113,7 @@ export default function ProductsListPage() {
                                 { status: 'coming_soon', title: 'Smoked Makhani Gravy', image: '/images/smoked makani.png' },
                                 { status: 'coming_soon', title: 'Smoked Makhani Gravy', image: '/images/smoked makani.png' }
                             ].map((item, idx) => (
-                                <div key={idx} className="flex flex-col items-center group shrink-0 w-[170px] md:w-auto">
+                                <div key={idx} className="flex flex-col items-center group shrink-0 w-[190px] md:w-auto">
                                     {/* Image Container */}
                                     <div className={`relative w-full aspect-[4/5] rounded-[20px] overflow-hidden mb-5 ${item.status === 'active' ? 'cursor-pointer' : 'md:bg-transparent'}`}>
                                         <Image
@@ -137,7 +137,7 @@ export default function ProductsListPage() {
                                     </div>
 
                                     {/* Product Pill */}
-                                    <div className="px-4 md:px-6 py-1.5 md:py-2 rounded-[8px] md:rounded-[10px] mb-3 w-full md:w-auto" style={{ backgroundColor: 'rgb(228, 233, 223)' }}>
+                                    <div className="px-2 md:px-6 py-1.5 md:py-2 rounded-[8px] md:rounded-[10px] mb-3 w-full md:w-auto" style={{ backgroundColor: 'rgb(228, 233, 223)' }}>
                                         <span className="text-[14px] md:text-[20px] font-bomstad leading-snug text-center block" style={{ color: 'rgb(21, 106, 55)' }}>
                                             {item.title}
                                         </span>
