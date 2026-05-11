@@ -112,10 +112,10 @@ export default function ProductsPage() {
                                 <div className="relative w-full aspect-[1/1.1] md:aspect-square rounded-[20px] md:rounded-[12px] overflow-hidden bg-[#e5e5e5]/40 md:bg-transparent flex items-center justify-center p-2 md:p-6 md:max-w-[580px]">
                                     <div className="relative w-full h-full">
                                         <Image
-                                            src="/images/all-p-gravy.svg"
+                                            src="/images/onion2.png"
                                             alt="Product Main"
                                             fill
-                                            className="object-contain"
+                                            className="object-contain rounded-[10px]"
                                             priority
                                         />
                                         {/* Pagination dots inside image area on desktop */}
@@ -303,14 +303,15 @@ export default function ProductsPage() {
                                     <span style={{ color: 'rgb(247, 0, 52)' }}>More Products</span>
                                 </h2>
 
-                                <div className="w-full flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible gap-4 md:gap-10 pb-8 md:pb-0 no-scrollbar px-4 md:px-0">
+                                <div className="w-full flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible gap-4 md:gap-10 pb-4 md:pb-0 no-scrollbar px-4 md:px-0">
                                     {[
-                                        { status: 'active', title: '1. Onion Tomato Gravy', image: '/images/onion.png' },
-                                        { status: 'coming_soon', title: '2. Smoked Makhani Gravy', image: '/images/smoked makani.png' },
-                                        { status: 'coming_soon', title: '3. Smoked Makhani Gravy', image: '/images/smoked makani.png' }
+                                        { status: 'active', title: 'Onion Tomato Gravy', image: '/images/onion.png' },
+                                        { status: 'coming_soon', title: 'Smoked Makhani Gravy', image: '/images/smoked makani.png' },
+                                        { status: 'coming_soon', title: 'Smoked Makhani Gravy', image: '/images/smoked makani.png' }
                                     ].map((item, idx) => (
-                                        <div key={idx} className="flex flex-col items-center group shrink-0 w-[165px] md:w-auto">
-                                            <div className={`relative w-full aspect-[4/5] rounded-[20px] overflow-hidden mb-3 flex items-center justify-center ${item.status === 'active' ? 'cursor-pointer' : 'bg-[#e5e5e5]/50 md:bg-transparent'}`}>
+                                        <div key={idx} className="flex flex-col items-center group shrink-0 w-[170px] md:w-auto">
+                                            {/* Image Container */}
+                                            <div className={`relative w-full aspect-[4/5] rounded-[20px] overflow-hidden mb-5 ${item.status === 'active' ? 'cursor-pointer' : 'md:bg-transparent'}`}>
                                                 <Image
                                                     src={item.image}
                                                     alt={item.title}
@@ -319,17 +320,21 @@ export default function ProductsPage() {
                                                 />
                                                 {/* Coming Soon Badge */}
                                                 {item.status === 'coming_soon' && (
-                                                    <div className="absolute inset-0 flex items-center justify-center p-2">
-                                                        <div className="bg-[rgb(247,0,52)] text-white px-3 md:px-6 py-1 md:py-2 rounded-[6px] md:rounded-[10px] text-[12px] md:text-[18px] font-bomstad font-bold shadow-lg whitespace-nowrap">
+                                                    <div className="absolute inset-0 flex items-center justify-center p-4">
+                                                        <div className="bg-[rgb(247,0,52)] text-white px-3 md:px-6 py-1 md:py-2 rounded-[8px] md:rounded-[10px] text-[14px] md:text-[18px] font-bomstad font-normal shadow-lg">
                                                             Coming Soon
                                                         </div>
                                                     </div>
                                                 )}
+                                                {/* Clickable overlay for active products */}
+                                                {item.status === 'active' && (
+                                                    <Link href="/all-purposegravy" className="absolute inset-0 z-10" aria-label="View product details" />
+                                                )}
                                             </div>
 
                                             {/* Product Pill */}
-                                            <div className="w-full md:w-[85%] mx-auto px-2 md:px-4 py-1.5 md:py-2 rounded-[6px] md:rounded-[10px] mb-3 md:mb-4" style={{ backgroundColor: 'rgb(228, 233, 223)' }}>
-                                                <span className="text-[12px] md:text-[18px] font-normal font-bomstad leading-snug text-center block" style={{ color: 'rgb(21, 106, 55)' }}>
+                                            <div className="px-4 md:px-6 py-1.5 md:py-2 rounded-[8px] md:rounded-[10px] mb-3 w-full md:w-auto" style={{ backgroundColor: 'rgb(228, 233, 223)' }}>
+                                                <span className="text-[14px] md:text-[20px] font-bomstad font-normal leading-snug text-center block" style={{ color: 'rgb(21, 106, 55)' }}>
                                                     {item.title}
                                                 </span>
                                             </div>
@@ -337,11 +342,11 @@ export default function ProductsPage() {
                                             {/* View Product Button */}
                                             <Link
                                                 href="/all-purposegravy"
-                                                className="w-full md:w-[85%] mx-auto relative h-[45px] md:h-[72px] flex items-center justify-center hover:scale-[1.02] transition-all group/btn"
+                                                className="w-full md:w-[353px] relative h-[60px] md:h-[72px] flex items-center justify-center hover:scale-[1.02] transition-all group/btn"
                                             >
                                                 <div
-                                                    className="absolute inset-x-1 top-[6px] h-[32px] md:h-[55px] z-0 bg-[rgb(247,216,13)] rounded-[6px] md:rounded-[9px]"
-                                                    style={{ transform: 'rotate(-1.2deg)' }}
+                                                    className="absolute w-[calc(100%-10px)] md:w-[349px] h-[calc(100%-28px)] md:h-[60px] top-[14px] left-[5px] md:left-[0.75px] z-0 bg-[rgb(247,216,13)] rounded-[9px]"
+                                                    style={{ transform: 'rotate(-0.8deg)' }}
                                                 />
                                                 <div className="absolute inset-0 z-10 w-full h-full">
                                                     <Image
@@ -351,7 +356,7 @@ export default function ProductsPage() {
                                                         className="object-fill"
                                                     />
                                                 </div>
-                                                <span className="relative z-20 text-[16px] md:text-[32px] font-kura font-normal text-[rgb(247,0,52)] uppercase">
+                                                <span className="relative z-20 text-[20px] md:text-[32px] font-kura font-medium text-[rgb(247,0,52)] uppercase">
                                                     View Product
                                                 </span>
                                             </Link>

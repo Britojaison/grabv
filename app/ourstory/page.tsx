@@ -121,21 +121,7 @@ export default function OurStoryPage() {
 
             {/* Main Content */}
             <main className="w-full relative flex flex-col items-center">
-                <section
-                    className="w-full border-b border-[rgb(12,61,27)]"
-                    style={{ backgroundColor: 'rgb(247, 216, 13)' }}
-                    aria-label="Breadcrumb"
-                >
-                    <div className="max-w-[1600px] mx-auto pl-4 pr-4 md:pl-16 md:pr-8 h-[56px] md:h-[70px] flex items-center">
-                        <nav className="font-bomstad text-[18px] md:text-[20px] font-normal leading-none" style={{ color: 'rgb(21, 107, 54)' }}>
-                            <Link href="/" className="hover:text-[rgb(12,61,27)] transition-colors">
-                                Home
-                            </Link>
-                            <span className="mx-1" aria-hidden="true">/</span>
-                            <span aria-current="page">Our Story</span>
-                        </nav>
-                    </div>
-                </section>
+
 
                 {/* Hero Section - How it started */}
                 <section className="w-full relative pt-12 md:pt-20 pb-24 md:pb-48 flex flex-col items-center overflow-visible">
@@ -161,11 +147,11 @@ export default function OurStoryPage() {
                             </h1>
 
                             {/* Description Texts */}
-                            <div className="flex flex-col gap-4 md:gap-8 w-full">
-                                <p className="font-bomstad font-normal text-[13.5px] md:text-[18px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
+                            <div className="w-full">
+                                <p className="font-bomstad font-normal text-[14.5px] md:text-[20px] leading-[1.3] max-w-[660px]" style={{ color: 'rgb(21, 107, 54)' }}>
                                     Grab began with a very everyday problem, &quot;cooking takes time&quot;. A lot of it. And in the middle of busy days, work calls, traffic, and endless routines, making a simple curry started feeling like a task.
                                 </p>
-                                <p className="font-bomstad font-normal text-[13.5px] md:text-[18px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
+                                <p className="font-bomstad font-normal text-[14.5px] md:text-[20px] leading-[1.3] mt-3 max-w-[500px]" style={{ color: 'rgb(21, 107, 54)' }}>
                                     So we thought... what if the hardest part was already done for you? That question became GrabV.
                                 </p>
                             </div>
@@ -173,7 +159,7 @@ export default function OurStoryPage() {
 
                         {/* Right Content - Image */}
                         <div className="w-[50%] md:w-[40%] flex justify-center md:justify-end">
-                            <div className="story-reveal-image relative w-full aspect-[4/5] md:aspect-[581/424] max-w-[320px] md:max-w-[581px] rounded-[15px] md:rounded-[20px] overflow-hidden border-t-[6px] md:border-t-[10px] border-r-[6px] md:border-r-[10px] border-[rgb(247,0,52)] md:-mt-16 shadow-lg">
+                            <div className="story-reveal-image relative w-full aspect-[4/5] md:aspect-[581/424] max-w-[320px] md:max-w-[581px] rounded-[15px] md:rounded-[20px] overflow-hidden border-t-[6px] md:border-t-[10px] border-r-[6px] md:border-r-[10px] border-[rgb(247,0,52)] md:-mt-4 shadow-lg">
                                 <Image
                                     src="/images/ourstory1.webp"
                                     alt="How it started"
@@ -188,10 +174,34 @@ export default function OurStoryPage() {
                 </section>
 
                 {/* Made with love & slow heat sections */}
-                <section className="w-full py-8 md:py-4 flex flex-col items-center gap-8 md:gap-0">
+                <section className="w-full py-8 md:py-4 flex flex-col items-center gap-2 md:gap-0">
 
                     {/* Top Sub-section: Side-by-side on Mobile too */}
-                    <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex flex-row md:flex-row items-start md:items-center gap-4 md:gap-16">
+                    {/* Mobile Heading & Para 1 */}
+                    <div className="block md:hidden w-full px-4 mb-1">
+                        {/* Our Story Tag */}
+                        <div className="relative mb-2 inline-block scale-75 origin-left">
+                            <div style={{ backgroundColor: 'rgb(247, 216, 13)' }} className="px-6 py-1.5 rounded-full relative z-10">
+                                <span className="text-[rgb(21,107,54)] font-normal text-[18px] font-bomstad tracking-wider whitespace-nowrap uppercase">
+                                    OUR STORY
+                                </span>
+                            </div>
+                            <div className="absolute -inset-1.5 z-20 pointer-events-none">
+                                <Image src="/images/border4.svg" alt="" fill className="object-contain" />
+                            </div>
+                        </div>
+
+                        <h2 className="font-kura leading-[0.95] mb-2 uppercase">
+                            <span className="block text-[18px]" style={{ color: 'rgb(21, 107, 54)' }}>The story</span>
+                            <span className="block text-[18px]" style={{ color: 'rgb(247, 0, 52)' }}>behind</span>
+                        </h2>
+
+                        <p className="font-bomstad font-normal text-[13.5px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                            Grab was born from observing something incredibly common, people were skipping cooking not because they didn&apos;t want to, but because they simply didn&apos;t have the time anymore.
+                        </p>
+                    </div>
+
+                    <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex flex-row md:flex-row items-center gap-4 md:gap-16">
                         {/* Image */}
                         <div className="w-[45%] md:w-[50%] flex justify-center md:justify-start">
                             <div className="story-reveal-image relative w-full aspect-square md:aspect-[581/593] max-w-[650px]" style={{ "--reveal-delay": "80ms" } as React.CSSProperties}>
@@ -206,42 +216,60 @@ export default function OurStoryPage() {
 
                         {/* Text */}
                         <div className="w-[55%] md:w-[50%] flex flex-col items-start pt-0 md:pt-2">
-                            {/* Our Story Tag */}
-                            <div className="relative mb-2 md:mb-4 inline-block scale-75 md:scale-100 origin-left">
-                                <div style={{ backgroundColor: 'rgb(247, 216, 13)' }} className="px-6 md:px-8 py-1.5 md:py-2.5 rounded-full relative z-10">
-                                    <span className="text-[rgb(21,107,54)] font-normal text-[18px] md:text-[25px] font-bomstad tracking-wider whitespace-nowrap uppercase">
-                                        OUR STORY
-                                    </span>
+                            {/* Desktop Heading & Tag */}
+                            <div className="hidden md:block">
+                                {/* Our Story Tag */}
+                                <div className="relative mb-4 inline-block origin-left">
+                                    <div style={{ backgroundColor: 'rgb(247, 216, 13)' }} className="px-8 py-2.5 rounded-full relative z-10">
+                                        <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad tracking-wider whitespace-nowrap uppercase">
+                                            OUR STORY
+                                        </span>
+                                    </div>
+                                    <div className="absolute -inset-2 z-20 pointer-events-none">
+                                        <Image src="/images/border4.svg" alt="" fill className="object-contain" />
+                                    </div>
                                 </div>
-                                <div className="absolute -inset-1.5 md:-inset-2 z-20 pointer-events-none">
-                                    <Image src="/images/border4.svg" alt="" fill className="object-contain" />
-                                </div>
+
+                                <h2 className="font-kura leading-[0.95] mb-6 uppercase">
+                                    <span className="block text-[60px]" style={{ color: 'rgb(21, 107, 54)' }}>The story</span>
+                                    <span className="block text-[60px]" style={{ color: 'rgb(247, 0, 52)' }}>behind</span>
+                                </h2>
                             </div>
 
-                            <h2 className="font-kura leading-[0.95] mb-2 md:mb-6 uppercase">
-                                <span className="block text-[18px] md:text-[60px]" style={{ color: 'rgb(21, 107, 54)' }}>The story</span>
-                                <span className="block text-[18px] md:text-[60px]" style={{ color: 'rgb(247, 0, 52)' }}>behind</span>
-                            </h2>
-
                             <div className="flex flex-col gap-3 md:gap-5">
-                                <p className="font-bomstad font-normal text-[13.5px] md:text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                                {/* Desktop Para 1 */}
+                                <p className="hidden md:block font-bomstad font-normal text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
                                     Grab was born from observing something incredibly common, people were skipping cooking not because they didn&apos;t want to, but because they simply didn&apos;t have the time anymore.
                                 </p>
+                                
+                                {/* Para 2 (Visible on both) */}
                                 <p className="font-bomstad font-normal text-[13.5px] md:text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
                                     The idea was never to create another packaged food brand. The goal was to create something that genuinely helped everyday cooking feel easier while still tasting real.
                                 </p>
-                                <p className="font-bomstad font-normal text-[13.5px] md:text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                                
+                                {/* Desktop Para 3 & 4 */}
+                                <p className="hidden md:block font-bomstad font-normal text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
                                     That meant building gravies that felt fresh, rich, and dependable. Something that could save nearly an hour in the kitchen without taking away the joy of cooking itself.
                                 </p>
-                                <p className="font-bomstad font-normal text-[13.5px] md:text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                                <p className="hidden md:block font-bomstad font-normal text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
                                     After countless trials, recipes, and processes, Grab became a fresh-chilled gravy solution made for the way modern India cooks today.
                                 </p>
                             </div>
                         </div>
                     </div>
 
+                    {/* Mobile Para 3 & 4 */}
+                    <div className="block md:hidden w-full px-4 mt-1 flex flex-col gap-1">
+                        <p className="font-bomstad font-normal text-[13.5px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                            That meant building gravies that felt fresh, rich, and dependable. Something that could save nearly an hour in the kitchen without taking away the joy of cooking itself.
+                        </p>
+                        <p className="font-bomstad font-normal text-[13.5px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                            After countless trials, recipes, and processes, Grab became a fresh-chilled gravy solution made for the way modern India cooks today.
+                        </p>
+                    </div>
+
                     {/* Bottom Sub-section */}
-                    <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex flex-row-reverse md:flex-row-reverse items-start md:items-center gap-4 md:gap-16">
+                    <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex flex-row-reverse md:flex-row-reverse items-center gap-4 md:gap-16 mt-6 md:mt-0">
                         {/* Image */}
                         <div className="w-[45%] md:w-[50%] flex justify-center md:justify-end">
                             <div className="story-reveal-image relative w-full aspect-square md:aspect-[581/593] max-w-[700px]" style={{ "--reveal-delay": "120ms" } as React.CSSProperties}>
@@ -276,14 +304,24 @@ export default function OurStoryPage() {
                                 <p className="font-bomstad font-normal text-[13.5px] md:text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
                                     Our gravies are made in fresh batches using real ingredients and handled through chilled storage instead of heavy preservatives.
                                 </p>
-                                <p className="font-bomstad font-normal text-[13.5px] md:text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                                <p className="hidden md:block font-bomstad font-normal text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
                                     The idea was simple: when you cook with Grab, the meal should still feel like your own.
                                 </p>
-                                <p className="font-bomstad font-normal text-[13.5px] md:text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                                <p className="hidden md:block font-bomstad font-normal text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
                                     You cook the dish. We make the beginning easier.
                                 </p>
                             </div>
                         </div>
+                    </div>
+
+                    {/* Mobile Para 2 & 3 */}
+                    <div className="block md:hidden w-full pl-2 pr-4 mt-2 flex flex-col gap-1">
+                        <p className="font-bomstad font-normal text-[13.5px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                            The idea was simple: when you cook with Grab, the meal should still feel like your own.
+                        </p>
+                        <p className="font-bomstad font-normal text-[13.5px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                            You cook the dish. We make the beginning easier.
+                        </p>
                     </div>
                 </section>
 
@@ -335,8 +373,8 @@ export default function OurStoryPage() {
                             <div className="relative z-10 flex flex-col items-center gap-6 mt-4">
                                 <div className="flex flex-wrap justify-center items-center gap-6">
                                     {[
-                                        { icon: "/images/clock1.svg", text: "Ready in 10 min" },
-                                        { icon: "/images/slow cooked.svg", text: "Slow cooked" },
+                                        { icon: "/images/timer2.svg", text: "Ready in 7 mins" },
+                                        { icon: "/images/slow.svg", text: "Slow cooked" },
                                         { icon: "/images/FSSAI (1).svg", text: "FSSAI Certified" },
                                     ].map((item, idx) => (
                                         <div key={idx} className="bg-[rgb(239,238,230)] rounded-full px-8 py-3.5 flex items-center gap-3 text-[rgb(21,107,54)]">
@@ -349,8 +387,8 @@ export default function OurStoryPage() {
                                 </div>
                                 <div className="flex flex-wrap justify-center items-center gap-6">
                                     {[
-                                        { icon: "/images/zero preservatives.svg", text: "Zero Preservatives" },
-                                        { icon: "/images/temperature.svg", text: "Cold Chain Packed" },
+                                        { icon: "/images/tick2.svg", text: "Zero Preservatives" },
+                                        { icon: "/images/cold.svg", text: "Cold Chain Packed" },
                                     ].map((item, idx) => (
                                         <div key={idx} className="bg-[rgb(239,238,230)] rounded-full px-8 py-3.5 flex items-center gap-3 text-[rgb(21,107,54)]">
                                             <div className="relative w-8 h-8 shrink-0">

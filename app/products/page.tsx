@@ -109,13 +109,13 @@ export default function ProductsListPage() {
 
                         <div className="w-full flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible gap-4 md:gap-10 pb-4 md:pb-0 no-scrollbar px-4 md:px-0">
                             {[
-                                { status: 'active', title: '1. Onion Tomato Gravy', image: '/images/onion.png' },
-                                { status: 'coming_soon', title: '2. Smoked Makhani Gravy', image: '/images/smoked makani.png' },
-                                { status: 'coming_soon', title: '3. Smoked Makhani Gravy', image: '/images/smoked makani.png' }
+                                { status: 'active', title: 'Onion Tomato Gravy', image: '/images/onion.png' },
+                                { status: 'coming_soon', title: 'Smoked Makhani Gravy', image: '/images/smoked makani.png' },
+                                { status: 'coming_soon', title: 'Smoked Makhani Gravy', image: '/images/smoked makani.png' }
                             ].map((item, idx) => (
                                 <div key={idx} className="flex flex-col items-center group shrink-0 w-[170px] md:w-auto">
                                     {/* Image Container */}
-                                    <div className={`relative w-full aspect-[4/5] rounded-[20px] overflow-hidden mb-1 ${item.status === 'active' ? 'cursor-pointer' : 'md:bg-transparent'}`}>
+                                    <div className={`relative w-full aspect-[4/5] rounded-[20px] overflow-hidden mb-5 ${item.status === 'active' ? 'cursor-pointer' : 'md:bg-transparent'}`}>
                                         <Image
                                             src={item.image}
                                             alt={item.title}

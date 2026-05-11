@@ -436,7 +436,7 @@ export default function Home() {
               {/* Mobile Layout (Hidden on Desktop) */}
               <div className="md:hidden flex flex-col w-full mb-4 -mt-10">
                 <div className="flex justify-between items-center w-full gap-3">
-                  <div className="flex-[1.2] flex flex-col text-left">
+                  <div className="flex-[1] flex flex-col text-left">
                     <h2 className="font-kura leading-[1.0] text-[23px] uppercase whitespace-nowrap">
                       <span style={{ color: 'rgb(247, 0, 52)' }}>POUCH TO PLATE </span><br />
                       <span style={{ color: 'rgb(21, 107, 54)' }}>IN 5 STEPS</span>
@@ -446,7 +446,7 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <div className="flex-[1.2] flex flex-col gap-1.5">
+                  <div className="flex-[1.4] flex flex-col gap-1.5">
                     <div className="relative w-full h-[150px]">
                       <Image
                         src="/images/cook2.svg"
@@ -457,7 +457,7 @@ export default function Home() {
                     </div>
                     <div
                       style={{ backgroundColor: 'rgb(247, 216, 13)' }}
-                      className="w-full rounded-[8px] p-1.5 px-2 grid grid-cols-2 gap-x-1 gap-y-1.5 shadow-sm border border-[rgb(21,107,54)]/10"
+                      className="w-full rounded-[8px] p-1 px-1.5 grid grid-cols-2 gap-x-0.5 gap-y-1.5 shadow-sm border border-[rgb(21,107,54)]/10"
                     >
                       <div className="flex flex-col border-r border-[rgb(21,107,54)]/20 pr-1">
                         <span className="font-bold text-[16px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>7 Min</span>
@@ -791,7 +791,7 @@ export default function Home() {
                 {[...qualityPromises, ...qualityPromises].map((item, idx) => (
                   <div key={`${item.text}-${idx}`} className="flex items-center gap-3 md:gap-5 py-1 shrink-0">
                     <div className="w-[46px] h-[46px] md:w-[58px] md:h-[58px] bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm relative overflow-hidden">
-                      <div className="relative w-[30px] h-[30px] md:w-[40px] md:h-[40px]">
+                      <div className="relative w-[30px] h-[30px] md:w-[40px] md:h-[40px]" style={item.icon === 'leaf.svg' ? { filter: 'brightness(0) invert(34%) sepia(35%) saturate(1048%) hue-rotate(97deg) brightness(93%) contrast(92%)' } : {}}>
                         <Image
                           src={`/images/${item.icon}`}
                           alt={item.text}
@@ -994,7 +994,7 @@ export default function Home() {
 
                   <div className="flex flex-col items-start px-1 md:px-2">
                     <div className="px-2 md:px-4 py-0.5 md:py-1.5 rounded-full mb-2 md:mb-3 shadow-sm" style={{ backgroundColor: 'rgb(207, 219, 204)' }}>
-                      <span className="text-[10px] md:text-[18px] font-bold tracking-wide" style={{ color: 'rgb(21, 107, 54)' }}>
+                      <span className="text-[10px] md:text-[18px] font-bomstad font-normal tracking-wide" style={{ color: 'rgb(21, 107, 54)' }}>
                         Indian classic
                       </span>
                     </div>
