@@ -13,55 +13,30 @@ const kuraDisplay = localFont({
   variable: "--font-kura",
 });
 
-const bomstadDisplay = localFont({
+const arponaSans = localFont({
   src: [
     {
-      path: "../public/fonts/bomstad-display/BomstadDisplay-Thin.woff2",
-      weight: "100",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/bomstad-display/BomstadDisplay-ExtraLight.woff2",
-      weight: "200",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/bomstad-display/BomstadDisplay-Light.woff2",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/bomstad-display/BomstadDisplay-Regular.woff2",
+      path: "../public/fonts/arpona-sans/fonts/fonnts.com-ArponaSans_Regular.otf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../public/fonts/bomstad-display/BomstadDisplay-Medium.woff2",
+      path: "../public/fonts/arpona-sans/fonts/fonnts.com-ArponaSans_Medium.otf",
       weight: "500",
       style: "normal",
     },
     {
-      path: "../public/fonts/bomstad-display/BomstadDisplay-SemiBold.woff2",
+      path: "../public/fonts/arpona-sans/fonts/fonnts.com-ArponaSans_SemiBold.otf",
       weight: "600",
       style: "normal",
     },
     {
-      path: "../public/fonts/bomstad-display/BomstadDisplay-Bold.woff2",
+      path: "../public/fonts/arpona-sans/fonts/fonnts.com-ArponaSans_Bold.otf",
       weight: "700",
       style: "normal",
     },
-    {
-      path: "../public/fonts/bomstad-display/BomstadDisplay-ExtraBold.woff2",
-      weight: "800",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/bomstad-display/BomstadDisplay-Black.woff2",
-      weight: "900",
-      style: "normal",
-    },
   ],
-  variable: "--font-bomstad",
+  variable: "--font-arpona",
 });
 
 export const metadata: Metadata = {
@@ -75,8 +50,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning={true} className={`h-full antialiased ${kuraDisplay.variable} ${bomstadDisplay.variable}`}>
-      <body suppressHydrationWarning={true} className="min-h-full flex flex-col font-bomstad">{children}</body>
+    <html lang="en" suppressHydrationWarning={true} className={`h-full antialiased ${kuraDisplay.variable} ${arponaSans.variable}`}>
+      <body suppressHydrationWarning={true} className="min-h-full flex flex-col font-arpona">{children}</body>
     </html>
   );
 }

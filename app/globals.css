@@ -92,12 +92,46 @@
   font-display: swap;
 }
 
+/* ── Arpona Sans ── */
+@font-face {
+  font-family: "Arpona Sans";
+  src: url("/fonts/arpona-sans/fonts/fonnts.com-ArponaSans_Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Arpona Sans";
+  src: url("/fonts/arpona-sans/fonts/fonnts.com-ArponaSans_Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Arpona Sans";
+  src: url("/fonts/arpona-sans/fonts/fonnts.com-ArponaSans_SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Arpona Sans";
+  src: url("/fonts/arpona-sans/fonts/fonnts.com-ArponaSans_Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-brand-yellow: rgb(247, 216, 13);
   --color-brand-green: rgb(21, 107, 54);
   --color-brand-dark-green: rgb(12, 61, 27);
   --font-kura: "Kura Display", serif;
-  --font-bomstad: "Bomstad Display", sans-serif;
+  --font-bomstad: "Arpona Sans", sans-serif;
+  --font-arpona: "Arpona Sans", sans-serif;
   --animate-marquee: marquee 30s linear infinite;
 
   @keyframes marquee {
@@ -114,7 +148,17 @@
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: "Bomstad Display", sans-serif;
+  font-family: "Arpona Sans", sans-serif;
+}
+
+/* ── Arpona Sans – paragraph / body copy ── */
+p,
+li,
+blockquote,
+figcaption,
+label,
+legend {
+  font-family: "Arpona Sans", sans-serif;
 }
 
 @layer utilities {

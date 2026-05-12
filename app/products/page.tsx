@@ -7,7 +7,7 @@ export default function ProductsListPage() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <div className="flex flex-col min-h-screen w-full font-bomstad overflow-x-hidden" style={{ backgroundColor: 'rgb(239, 239, 231)' }}>
+        <div className="flex flex-col min-h-screen w-full font-arpona overflow-x-hidden" style={{ backgroundColor: 'rgb(239, 239, 231)' }}>
 
             {/* Navbar */}
             <header
@@ -58,7 +58,7 @@ export default function ProductsListPage() {
                             color: 'rgb(12, 61, 27)',
                             letterSpacing: '0.05em'
                         }}
-                        className="font-bomstad font-medium flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0 text-[12px] md:text-[18px] w-[85px] md:w-[142px] h-[30px] md:h-[37px]"
+                        className="font-arpona font-medium flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0 text-[12px] md:text-[18px] w-[85px] md:w-[142px] h-[30px] md:h-[37px]"
                     >
                         Order Now
                     </button>
@@ -75,7 +75,7 @@ export default function ProductsListPage() {
                                 <path d="M5 5L25 25M25 5L5 25" stroke="white" strokeWidth="3" />
                             </svg>
                         </button>
-                        <nav className="flex flex-col items-center gap-8 text-white font-bomstad font-medium text-[24px]">
+                        <nav className="flex flex-col items-center gap-8 text-white font-arpona font-medium text-[24px]">
                             <Link href="/" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Home</Link>
                             <Link href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Recipes</Link>
                             <Link href="/products" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors text-[rgb(247,216,13)]">Products</Link>
@@ -125,7 +125,7 @@ export default function ProductsListPage() {
                                         {/* Coming Soon Badge */}
                                         {item.status === 'coming_soon' && (
                                             <div className="absolute inset-0 flex items-center justify-center p-4">
-                                                <div className="bg-[rgb(247,0,52)] text-white px-3 md:px-6 py-1 md:py-2 rounded-[8px] md:rounded-[10px] text-[14px] md:text-[18px] font-bomstad font-normal shadow-lg">
+                                                <div className="bg-[rgb(247,0,52)] text-white px-3 md:px-6 py-1 md:py-2 rounded-[8px] md:rounded-[10px] text-[14px] md:text-[18px] font-arpona font-normal shadow-lg">
                                                     Coming Soon
                                                 </div>
                                             </div>
@@ -138,7 +138,7 @@ export default function ProductsListPage() {
 
                                     {/* Product Pill */}
                                     <div className="px-2 md:px-6 py-1.5 md:py-2 rounded-[8px] md:rounded-[10px] mb-3 w-full md:w-auto" style={{ backgroundColor: 'rgb(228, 233, 223)' }}>
-                                        <span className="text-[14px] md:text-[20px] font-bomstad leading-snug text-center block" style={{ color: 'rgb(21, 106, 55)' }}>
+                                        <span className="text-[14px] md:text-[20px] font-arpona leading-snug text-center block" style={{ color: 'rgb(21, 106, 55)' }}>
                                             {item.title}
                                         </span>
                                     </div>
@@ -185,13 +185,13 @@ export default function ProductsListPage() {
                                 <div className="w-[70px] h-[35px] relative">
                                     <Image src="/images/logo.svg" alt="GrabV Logo" fill className="object-contain" />
                                 </div>
-                                <div className="flex flex-col gap-0 text-[11px] font-medium leading-tight font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
+                                <div className="flex flex-col gap-0 text-[11px] font-medium leading-tight font-arpona" style={{ color: 'rgb(247, 216, 13)' }}>
                                     <p>© 2026 GrabV. All rights reserved.</p>
                                 </div>
                             </div>
                             <div className="flex flex-col gap-1">
                                 <h4 className="text-[16px] font-bold" style={{ color: 'rgb(247, 216, 13)' }}>Company</h4>
-                                <div className="flex flex-col gap-0 text-[14px] font-medium font-bomstad leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
+                                <div className="flex flex-col gap-0 text-[14px] font-medium font-arpona leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
                                     <Link href="/ourstory">Our Story</Link>
                                     <Link href="/#process">Process</Link>
                                     <Link href="/#quality">Quality Promise</Link>
@@ -203,7 +203,7 @@ export default function ProductsListPage() {
                         <div className="flex flex-col gap-10">
                             <div className="flex flex-col gap-1">
                                 <h4 className="text-[16px] font-bold" style={{ color: 'rgb(247, 216, 13)' }}>Order & Policies</h4>
-                                <div className="flex flex-col gap-0 text-[14px] font-medium font-bomstad leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
+                                <div className="flex flex-col gap-0 text-[14px] font-medium font-arpona leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
                                     <Link href="#">WhatsApp Order</Link>
                                     <Link href="#">Exchange Order</Link>
                                     <Link href="#">Privacy Policy</Link>
@@ -211,14 +211,14 @@ export default function ProductsListPage() {
                             </div>
                             <div className="flex flex-col gap-1">
                                 <h4 className="text-[16px] font-bold" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
-                                <div className="flex flex-col gap-0 text-[14px] font-medium font-bomstad leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
+                                <div className="flex flex-col gap-0 text-[14px] font-medium font-arpona leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
                                     <Link href="/all-purposegravy">All Purpose Gravy</Link>
                                     <Link href="/all-purposegravy#ingredients">Ingredients</Link>
                                     <Link href="/all-purposegravy#how-to-use">How to Use</Link>
                                     <Link href="#">Recipes</Link>
                                 </div>
                                 <div className="flex flex-col gap-1 mt-2">
-                                    <span className="text-[11px] font-bold font-bomstad text-white">Follow Us</span>
+                                    <span className="text-[11px] font-bold font-arpona text-white">Follow Us</span>
                                     <div className="flex items-center gap-3">
                                         <Link href="#" className="w-4 h-4 relative brightness-0 invert">
                                             <Image src="/images/facebook.svg" alt="Facebook" fill className="object-contain" />
@@ -243,13 +243,13 @@ export default function ProductsListPage() {
                                 <div className="w-[110px] h-[55px] relative mb-4">
                                     <Image src="/images/logo.svg" alt="GrabV Logo" fill className="object-contain object-left" />
                                 </div>
-                                <div className="flex flex-col gap-1 text-[16px] font-medium leading-[1.2] font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
+                                <div className="flex flex-col gap-1 text-[16px] font-medium leading-[1.2] font-arpona" style={{ color: 'rgb(247, 216, 13)' }}>
                                     <p>© 2026 GrabV. All rights reserved.</p>
                                 </div>
                             </div>
 
                             <div className="flex flex-col items-start gap-1.5 mt-auto">
-                                <span className="text-[14px] font-bold font-bomstad text-white">Follow Us</span>
+                                <span className="text-[14px] font-bold font-arpona text-white">Follow Us</span>
                                 <div className="flex items-center gap-3">
                                     <Link href="#" className="w-6 h-6 relative hover:scale-110 transition-transform brightness-0 invert">
                                         <Image src="/images/facebook.svg" alt="Facebook" fill className="object-contain" />
@@ -267,7 +267,7 @@ export default function ProductsListPage() {
                         {/* Column 2: Company Box */}
                         <div className="rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
                             <h4 className="text-[22px] font-bold mb-2" style={{ color: 'rgb(247, 216, 13)' }}>Company</h4>
-                            <div className="flex flex-col gap-1 text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
+                            <div className="flex flex-col gap-1 text-[18px] font-medium font-arpona leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
                                 <Link href="/ourstory" className="hover:opacity-80 transition-opacity">Our Story</Link>
                                 <Link href="/#process" className="hover:opacity-80 transition-opacity">Process</Link>
                                 <Link href="/#quality" className="hover:text-[rgb(247,216,13)] transition-colors">Quality Promise</Link>
@@ -278,7 +278,7 @@ export default function ProductsListPage() {
                         {/* Column 3: Product Box */}
                         <div className="rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
                             <h4 className="text-[22px] font-bold mb-2" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
-                            <div className="flex flex-col gap-1 text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
+                            <div className="flex flex-col gap-1 text-[18px] font-medium font-arpona leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
                                 <Link href="/all-purposegravy" className="hover:opacity-80 transition-opacity">All Purpose Gravy</Link>
                                 <Link href="/all-purposegravy#ingredients" className="hover:opacity-80 transition-opacity">Ingredients</Link>
                                 <Link href="/all-purposegravy#how-to-use" className="hover:opacity-80 transition-opacity">How to Use</Link>
@@ -289,7 +289,7 @@ export default function ProductsListPage() {
                         {/* Column 4: Order & Policies Box */}
                         <div className="rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
                             <h4 className="text-[22px] font-bold mb-2" style={{ color: 'rgb(247, 216, 13)' }}>Order & Policies</h4>
-                            <div className="flex flex-col gap-1 text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
+                            <div className="flex flex-col gap-1 text-[18px] font-medium font-arpona leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
                                 <Link href="#" className="hover:opacity-80 transition-opacity">WhatsApp Order</Link>
                                 <Link href="#" className="hover:opacity-80 transition-opacity">Exchange Order</Link>
                                 <Link href="#" className="hover:opacity-80 transition-opacity">Privacy Policy</Link>

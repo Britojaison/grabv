@@ -32,7 +32,7 @@ export default function OurStoryPage() {
     }, []);
 
     return (
-        <div className="flex flex-col min-h-screen w-full font-bomstad overflow-x-hidden" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
+        <div className="flex flex-col min-h-screen w-full font-arpona overflow-x-hidden" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
 
             {/* Navbar */}
             <header
@@ -83,7 +83,7 @@ export default function OurStoryPage() {
                             color: 'rgb(12, 61, 27)',
                             letterSpacing: '0.05em'
                         }}
-                        className="font-bomstad font-medium flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0 text-[12px] md:text-[18px] w-[85px] md:w-[142px] h-[30px] md:h-[37px]"
+                        className="font-arpona font-medium flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0 text-[12px] md:text-[18px] w-[85px] md:w-[142px] h-[30px] md:h-[37px]"
                     >
                         Order Now
                     </button>
@@ -100,7 +100,7 @@ export default function OurStoryPage() {
                                 <path d="M5 5L25 25M25 5L5 25" stroke="white" strokeWidth="3" />
                             </svg>
                         </button>
-                        <nav className="flex flex-col items-center gap-8 text-white font-bomstad font-medium text-[24px]">
+                        <nav className="flex flex-col items-center gap-8 text-white font-arpona font-medium text-[24px]">
                             <Link href="/" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Home</Link>
                             <Link href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Recipes</Link>
                             <Link href="/products" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Products</Link>
@@ -148,10 +148,10 @@ export default function OurStoryPage() {
 
                             {/* Description Texts */}
                             <div className="w-full">
-                                <p className="font-bomstad font-normal text-[14.5px] md:text-[20px] leading-[1.3] max-w-[660px]" style={{ color: 'rgb(21, 107, 54)' }}>
+                                <p className="font-arpona font-normal text-[14.5px] md:text-[20px] leading-[1.3] max-w-[660px]" style={{ color: 'rgb(21, 107, 54)' }}>
                                     Grab began with a very everyday problem, &quot;cooking takes time&quot;. A lot of it. And in the middle of busy days, work calls, traffic, and endless routines, making a simple curry started feeling like a task.
                                 </p>
-                                <p className="font-bomstad font-normal text-[14.5px] md:text-[20px] leading-[1.3] mt-3 max-w-[500px]" style={{ color: 'rgb(21, 107, 54)' }}>
+                                <p className="font-arpona font-normal text-[14.5px] md:text-[20px] leading-[1.3] mt-3 max-w-[500px]" style={{ color: 'rgb(21, 107, 54)' }}>
                                     So we thought... what if the hardest part was already done for you? That question became GrabV.
                                 </p>
                             </div>
@@ -182,7 +182,7 @@ export default function OurStoryPage() {
                         {/* Our Story Tag */}
                         <div className="relative mb-2 inline-block scale-75 origin-left">
                             <div style={{ backgroundColor: 'rgb(247, 216, 13)' }} className="px-6 py-1.5 rounded-full relative z-10">
-                                <span className="text-[rgb(21,107,54)] font-normal text-[18px] font-bomstad tracking-wider whitespace-nowrap uppercase">
+                                <span className="text-[rgb(21,107,54)] font-normal text-[18px] font-arpona tracking-wider whitespace-nowrap uppercase">
                                     OUR STORY
                                 </span>
                             </div>
@@ -196,7 +196,7 @@ export default function OurStoryPage() {
                             <span className="block text-[18px]" style={{ color: 'rgb(247, 0, 52)' }}>behind</span>
                         </h2>
 
-                        <p className="font-bomstad font-normal text-[13.5px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                        <p className="font-arpona font-normal text-[13.5px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
                             Grab was born from observing something incredibly common, people were skipping cooking not because they didn&apos;t want to, but because they simply didn&apos;t have the time anymore.
                         </p>
                     </div>
@@ -221,7 +221,7 @@ export default function OurStoryPage() {
                                 {/* Our Story Tag */}
                                 <div className="relative mb-4 inline-block origin-left">
                                     <div style={{ backgroundColor: 'rgb(247, 216, 13)' }} className="px-8 py-2.5 rounded-full relative z-10">
-                                        <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad tracking-wider whitespace-nowrap uppercase">
+                                        <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-arpona tracking-wider whitespace-nowrap uppercase">
                                             OUR STORY
                                         </span>
                                     </div>
@@ -238,20 +238,20 @@ export default function OurStoryPage() {
 
                             <div className="flex flex-col gap-3 md:gap-5">
                                 {/* Desktop Para 1 */}
-                                <p className="hidden md:block font-bomstad font-normal text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                                <p className="hidden md:block font-arpona font-normal text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
                                     Grab was born from observing something incredibly common, people were skipping cooking not because they didn&apos;t want to, but because they simply didn&apos;t have the time anymore.
                                 </p>
                                 
                                 {/* Para 2 (Visible on both) */}
-                                <p className="font-bomstad font-normal text-[13.5px] md:text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                                <p className="font-arpona font-normal text-[13.5px] md:text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
                                     The idea was never to create another packaged food brand. The goal was to create something that genuinely helped everyday cooking feel easier while still tasting real.
                                 </p>
                                 
                                 {/* Desktop Para 3 & 4 */}
-                                <p className="hidden md:block font-bomstad font-normal text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                                <p className="hidden md:block font-arpona font-normal text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
                                     That meant building gravies that felt fresh, rich, and dependable. Something that could save nearly an hour in the kitchen without taking away the joy of cooking itself.
                                 </p>
-                                <p className="hidden md:block font-bomstad font-normal text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                                <p className="hidden md:block font-arpona font-normal text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
                                     After countless trials, recipes, and processes, Grab became a fresh-chilled gravy solution made for the way modern India cooks today.
                                 </p>
                             </div>
@@ -260,10 +260,10 @@ export default function OurStoryPage() {
 
                     {/* Mobile Para 3 & 4 */}
                     <div className="block md:hidden w-full px-4 mt-1 flex flex-col gap-1">
-                        <p className="font-bomstad font-normal text-[13.5px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                        <p className="font-arpona font-normal text-[13.5px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
                             That meant building gravies that felt fresh, rich, and dependable. Something that could save nearly an hour in the kitchen without taking away the joy of cooking itself.
                         </p>
-                        <p className="font-bomstad font-normal text-[13.5px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                        <p className="font-arpona font-normal text-[13.5px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
                             After countless trials, recipes, and processes, Grab became a fresh-chilled gravy solution made for the way modern India cooks today.
                         </p>
                     </div>
@@ -286,7 +286,7 @@ export default function OurStoryPage() {
                         <div className="w-[55%] md:w-[50%] flex flex-col items-start pt-0 md:pt-2">
                             <div className="relative mb-2 md:mb-4 inline-block scale-75 md:scale-100 origin-left">
                                 <div style={{ backgroundColor: 'rgb(247, 216, 13)' }} className="px-6 md:px-8 py-1.5 md:py-2.5 rounded-full relative z-10">
-                                    <span className="text-[rgb(21,107,54)] font-normal text-[18px] md:text-[25px] font-bomstad tracking-wider whitespace-nowrap uppercase">
+                                    <span className="text-[rgb(21,107,54)] font-normal text-[18px] md:text-[25px] font-arpona tracking-wider whitespace-nowrap uppercase">
                                         OUR STORY
                                     </span>
                                 </div>
@@ -301,13 +301,13 @@ export default function OurStoryPage() {
                             </h2>
 
                             <div className="flex flex-col gap-3 md:gap-5">
-                                <p className="font-bomstad font-normal text-[13.5px] md:text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                                <p className="font-arpona font-normal text-[13.5px] md:text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
                                     Our gravies are made in fresh batches using real ingredients and handled through chilled storage instead of heavy preservatives.
                                 </p>
-                                <p className="hidden md:block font-bomstad font-normal text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                                <p className="hidden md:block font-arpona font-normal text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
                                     The idea was simple: when you cook with Grab, the meal should still feel like your own.
                                 </p>
-                                <p className="hidden md:block font-bomstad font-normal text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                                <p className="hidden md:block font-arpona font-normal text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
                                     You cook the dish. We make the beginning easier.
                                 </p>
                             </div>
@@ -316,10 +316,10 @@ export default function OurStoryPage() {
 
                     {/* Mobile Para 2 & 3 */}
                     <div className="block md:hidden w-full pl-2 pr-4 mt-2 flex flex-col gap-1">
-                        <p className="font-bomstad font-normal text-[13.5px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                        <p className="font-arpona font-normal text-[13.5px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
                             The idea was simple: when you cook with Grab, the meal should still feel like your own.
                         </p>
-                        <p className="font-bomstad font-normal text-[13.5px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                        <p className="font-arpona font-normal text-[13.5px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
                             You cook the dish. We make the beginning easier.
                         </p>
                     </div>
@@ -358,7 +358,7 @@ export default function OurStoryPage() {
                                         <div className="w-5 h-5 relative" style={{ filter: 'brightness(0) saturate(100%) invert(87%) sepia(74%) saturate(1629%) hue-rotate(345deg) brightness(102%) contrast(104%)' }}>
                                             <Image src={item.icon} alt="" fill className="object-contain" />
                                         </div>
-                                        <span className="font-bomstad font-normal text-[12px] uppercase tracking-wide" style={{ color: 'rgb(247, 216, 13)' }}>{item.text}</span>
+                                        <span className="font-arpona font-normal text-[12px] uppercase tracking-wide" style={{ color: 'rgb(247, 216, 13)' }}>{item.text}</span>
                                     </div>
                                 ))}
                             </div>
@@ -381,7 +381,7 @@ export default function OurStoryPage() {
                                             <div className="relative w-8 h-8 shrink-0">
                                                 <Image src={item.icon} alt="" fill className="object-contain" />
                                             </div>
-                                            <span className="font-bomstad font-normal text-[21px] whitespace-nowrap">{item.text}</span>
+                                            <span className="font-arpona font-normal text-[21px] whitespace-nowrap">{item.text}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -394,7 +394,7 @@ export default function OurStoryPage() {
                                             <div className="relative w-8 h-8 shrink-0">
                                                 <Image src={item.icon} alt="" fill className="object-contain" />
                                             </div>
-                                            <span className="font-bomstad font-normal text-[21px] whitespace-nowrap">{item.text}</span>
+                                            <span className="font-arpona font-normal text-[21px] whitespace-nowrap">{item.text}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -426,7 +426,7 @@ export default function OurStoryPage() {
                                             </div>
                                             <div className="relative z-20 text-center rotate-[1.5deg]">
                                                 <p className="font-kura text-[13px] leading-none text-[rgb(247,0,52)] uppercase">AMIT SHAH</p>
-                                                <p className="font-bomstad text-[8px] text-[rgb(21,107,54)] leading-none mt-1">millions of Indian</p>
+                                                <p className="font-arpona text-[8px] text-[rgb(21,107,54)] leading-none mt-1">millions of Indian</p>
                                             </div>
                                         </div>
                                     </div>
@@ -438,7 +438,7 @@ export default function OurStoryPage() {
                                     <span className="block text-[22px]" style={{ color: 'rgb(21, 107, 54)' }}>Fresh cooking</span>
                                     <span className="block text-[22px]" style={{ color: 'rgb(247, 0, 52)' }}>starts here.</span>
                                 </h2>
-                                <p className="font-bomstad font-normal text-[13.5px] leading-[1.3] opacity-95" style={{ color: 'rgb(21, 107, 54)' }}>
+                                <p className="font-arpona font-normal text-[13.5px] leading-[1.3] opacity-95" style={{ color: 'rgb(21, 107, 54)' }}>
                                     Grab is for people who want real food without spending hours in the kitchen every day.
                                 </p>
                             </div>
@@ -447,7 +447,7 @@ export default function OurStoryPage() {
                         {/* Mobile Blockquote (Below) */}
                         <div className="w-full px-2 mt-4">
                             <div className="pl-4 border-l-2 border-[rgb(247,0,52)]">
-                                <p className="font-bomstad font-medium text-[15.5px] leading-[1.4]" style={{ color: 'rgb(21, 107, 54)' }}>
+                                <p className="font-arpona font-medium text-[15.5px] leading-[1.4]" style={{ color: 'rgb(21, 107, 54)' }}>
                                     We believe convenience and freshness should finally belong together. And this is only the beginning.
                                 </p>
                             </div>
@@ -473,7 +473,7 @@ export default function OurStoryPage() {
                                         <Image src="/images/border5.svg" alt="" fill className="object-contain" />
                                     </div>
                                     <span className="relative z-30 font-kura text-[32px] leading-tight mb-2 uppercase" style={{ color: 'rgb(247, 0, 52)' }}>AMIT SHAH</span>
-                                    <span className="relative z-30 font-bomstad text-[18px] font-normal leading-tight" style={{ color: 'rgb(21, 107, 54)' }}>Every evening, millions<br />of Indian</span>
+                                    <span className="relative z-30 font-arpona text-[18px] font-normal leading-tight" style={{ color: 'rgb(21, 107, 54)' }}>Every evening, millions<br />of Indian</span>
                                 </div>
                             </div>
                         </div>
@@ -485,11 +485,11 @@ export default function OurStoryPage() {
                                 <span className="block text-[60px]" style={{ color: 'rgb(247, 0, 52)' }}>starts here.</span>
                             </h2>
                             <div className="flex flex-col gap-8">
-                                <p className="font-bomstad font-normal text-[18px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
+                                <p className="font-arpona font-normal text-[18px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
                                     Grab is for people who want real food without spending hours in the kitchen every day.
                                 </p>
                                 <div className="pl-8 border-l-[6px]" style={{ borderColor: 'rgb(247, 0, 52)' }}>
-                                    <p className="font-bomstad font-medium text-[20px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
+                                    <p className="font-arpona font-medium text-[20px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
                                         We believe convenience and freshness should finally belong together. And this is only the beginning.
                                     </p>
                                 </div>
@@ -510,14 +510,14 @@ export default function OurStoryPage() {
                                 <div className="w-[70px] h-[35px] relative">
                                     <Image src="/images/logo.svg" alt="GrabV Logo" fill className="object-contain" />
                                 </div>
-                                <div className="flex flex-col gap-0 text-[11px] font-medium leading-tight font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
+                                <div className="flex flex-col gap-0 text-[11px] font-medium leading-tight font-arpona" style={{ color: 'rgb(247, 216, 13)' }}>
                                     <p>© 2026 GrabV. All rights reserved.</p>
                                 </div>
                             </div>
 
                             <div className="flex flex-col gap-1">
                                 <h4 className="text-[16px] font-bold" style={{ color: 'rgb(247, 216, 13)' }}>Company</h4>
-                                <div className="flex flex-col gap-0 text-[14px] font-medium font-bomstad leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
+                                <div className="flex flex-col gap-0 text-[14px] font-medium font-arpona leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
                                     <Link href="/ourstory">Our Story</Link>
                                     <Link href="/#process">Process</Link>
                                     <Link href="/#quality">Quality Promise</Link>
@@ -530,7 +530,7 @@ export default function OurStoryPage() {
                         <div className="flex flex-col gap-10">
                             <div className="flex flex-col gap-1">
                                 <h4 className="text-[16px] font-bold" style={{ color: 'rgb(247, 216, 13)' }}>Order & Policies</h4>
-                                <div className="flex flex-col gap-0 text-[14px] font-medium font-bomstad leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
+                                <div className="flex flex-col gap-0 text-[14px] font-medium font-arpona leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
                                     <Link href="#">WhatsApp Order</Link>
                                     <Link href="#">Exchange Order</Link>
                                     <Link href="#">Privacy Policy</Link>
@@ -539,7 +539,7 @@ export default function OurStoryPage() {
 
                             <div className="flex flex-col gap-1">
                                 <h4 className="text-[16px] font-bold" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
-                                <div className="flex flex-col gap-0 text-[14px] font-medium font-bomstad leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
+                                <div className="flex flex-col gap-0 text-[14px] font-medium font-arpona leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
                                     <Link href="/all-purposegravy">All Purpose Gravy</Link>
                                     <Link href="/all-purposegravy#ingredients">Ingredients</Link>
                                     <Link href="/all-purposegravy#how-to-use">How to Use</Link>
@@ -547,7 +547,7 @@ export default function OurStoryPage() {
                                 </div>
 
                                 <div className="flex flex-col gap-1 mt-2">
-                                    <span className="text-[11px] font-bold font-bomstad text-white">Follow Us</span>
+                                    <span className="text-[11px] font-bold font-arpona text-white">Follow Us</span>
                                     <div className="flex items-center gap-3">
                                         <Link href="#" className="w-4 h-4 relative brightness-0 invert">
                                             <Image src="/images/facebook.svg" alt="Facebook" fill className="object-contain" />
@@ -572,13 +572,13 @@ export default function OurStoryPage() {
                                 <div className="w-[110px] h-[55px] relative mb-4">
                                     <Image src="/images/logo.svg" alt="GrabV Logo" fill className="object-contain object-left" />
                                 </div>
-                                <div className="flex flex-col gap-1 text-[14px] md:text-[16px] font-medium leading-tight font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
+                                <div className="flex flex-col gap-1 text-[14px] md:text-[16px] font-medium leading-tight font-arpona" style={{ color: 'rgb(247, 216, 13)' }}>
                                     <p>© 2026 GrabV. All rights reserved.</p>
                                 </div>
                             </div>
 
                             <div className="flex flex-col items-start gap-3 mt-auto">
-                                <span className="text-[14px] md:text-[16px] font-bold font-bomstad text-white">Follow Us</span>
+                                <span className="text-[14px] md:text-[16px] font-bold font-arpona text-white">Follow Us</span>
                                 <div className="flex items-center gap-5">
                                     <Link href="#" className="w-5 h-5 md:w-6 md:h-6 relative hover:scale-110 transition-transform brightness-0 invert">
                                         <Image src="/images/facebook.svg" alt="Facebook" fill className="object-contain" />
@@ -596,7 +596,7 @@ export default function OurStoryPage() {
                         {/* Column 2: Company Box */}
                         <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
                             <h4 className="text-[18px] md:text-[22px] font-bold mb-3 md:mb-4" style={{ color: 'rgb(247, 216, 13)' }}>Company</h4>
-                            <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
+                            <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-arpona leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
                                 <Link href="/ourstory" className="hover:opacity-80 transition-opacity">Our Story</Link>
                                 <Link href="/#process" className="hover:opacity-80 transition-opacity">Process</Link>
                                 <Link href="/#quality" className="hover:text-[rgb(247,216,13)] transition-colors">Quality Promise</Link>
@@ -607,7 +607,7 @@ export default function OurStoryPage() {
                         {/* Column 3: Product Box */}
                         <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
                             <h4 className="text-[18px] md:text-[22px] font-bold mb-3 md:mb-4" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
-                            <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
+                            <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-arpona leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
                                 <Link href="/all-purposegravy" className="hover:opacity-80 transition-opacity">All Purpose Gravy</Link>
                                 <Link href="/all-purposegravy#ingredients" className="hover:opacity-80 transition-opacity">Ingredients</Link>
                                 <Link href="/all-purposegravy#how-to-use" className="hover:opacity-80 transition-opacity">How to Use</Link>
@@ -618,7 +618,7 @@ export default function OurStoryPage() {
                         {/* Column 4: Orders & Policies Box */}
                         <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
                             <h4 className="text-[18px] md:text-[22px] font-bold mb-3 md:mb-4" style={{ color: 'rgb(247, 216, 13)' }}>Order & Policies</h4>
-                            <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
+                            <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-arpona leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
                                 <Link href="#" className="hover:opacity-80 transition-opacity">WhatsApp Order</Link>
                                 <Link href="#" className="hover:opacity-80 transition-opacity">Exchange Order</Link>
                                 <Link href="#" className="hover:opacity-80 transition-opacity">Privacy Policy</Link>

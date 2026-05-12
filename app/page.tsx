@@ -14,7 +14,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen w-full font-bomstad overflow-x-hidden" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
+    <div className="flex flex-col min-h-screen w-full font-arpona overflow-x-hidden" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
 
       {/* Navbar Section (H: 80px) */}
       <header
@@ -67,7 +67,7 @@ export default function Home() {
               color: 'rgb(12, 61, 27)',
               letterSpacing: '0.05em'
             }}
-            className="font-bomstad font-medium flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0 text-[12px] md:text-[18px] w-[85px] md:w-[142px] h-[30px] md:h-[37px]"
+            className="font-arpona font-medium flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0 text-[12px] md:text-[18px] w-[85px] md:w-[142px] h-[30px] md:h-[37px]"
           >
             Order Now
           </button>
@@ -84,7 +84,7 @@ export default function Home() {
                 <path d="M5 5L25 25M25 5L5 25" stroke="white" strokeWidth="3" />
               </svg>
             </button>
-            <nav className="flex flex-col items-center gap-8 text-white font-bomstad font-medium text-[24px]">
+            <nav className="flex flex-col items-center gap-8 text-white font-arpona font-medium text-[24px]">
               <Link href="/" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Home</Link>
               <Link href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Recipes</Link>
               <Link href="/products" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Products</Link>
@@ -150,7 +150,7 @@ export default function Home() {
                     className="object-contain"
                   />
                 </div>
-                <span className="font-bomstad font-medium tracking-wide whitespace-nowrap text-[18px] md:text-[27px]" style={{ color: 'rgb(21, 107, 54)' }}>
+                <span className="font-arpona font-medium tracking-wide whitespace-nowrap text-[18px] md:text-[27px]" style={{ color: 'rgb(21, 107, 54)' }}>
                   Fresh & Flavorful
                 </span>
               </div>
@@ -181,7 +181,7 @@ export default function Home() {
             <div className="flex flex-wrap lg:flex-nowrap items-center gap-4">
               <Link
                 href="/products"
-                className="bg-[rgb(17,82,40)] border border-transparent text-white rounded-full px-6 md:px-12 py-2.5 md:py-4 text-[18px] md:text-[30px] font-bomstad font-semibold hover:bg-brand-yellow hover:text-[rgb(17,82,40)] transition-all shadow-sm whitespace-nowrap uppercase tracking-wide"
+                className="bg-[rgb(17,82,40)] border border-transparent text-white rounded-full px-6 md:px-12 py-2.5 md:py-4 text-[18px] md:text-[30px] font-arpona font-semibold hover:bg-brand-yellow hover:text-[rgb(17,82,40)] transition-all shadow-sm whitespace-nowrap uppercase tracking-wide"
               >
                 Grab Your Packs
               </Link>
@@ -250,7 +250,7 @@ export default function Home() {
                         <div className="w-[20px] h-[20px] relative">
                           <Image src={`/images/${item.img}`} alt={item.text} fill className="object-contain" />
                         </div>
-                        <span className="text-[rgb(21,107,54)] font-normal text-[18px] font-bomstad whitespace-nowrap">{item.text}</span>
+                        <span className="text-[rgb(21,107,54)] font-normal text-[18px] font-arpona whitespace-nowrap">{item.text}</span>
                       </div>
                     ))}
                   </React.Fragment>
@@ -269,7 +269,7 @@ export default function Home() {
                   <div className="w-[30px] h-[30px] relative">
                     <Image src="/images/timer2.svg" alt="Ready in 7 mins" fill className="object-contain" />
                   </div>
-                  <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad whitespace-nowrap">Ready in 7 mins</span>
+                  <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-arpona whitespace-nowrap">Ready in 7 mins</span>
                 </div>
                 <div
                   style={{ backgroundColor: 'rgb(247, 216, 13)' }}
@@ -278,7 +278,7 @@ export default function Home() {
                   <div className="w-[30px] h-[30px] relative">
                     <Image src="/images/slow.svg" alt="Slow cooked" fill className="object-contain" />
                   </div>
-                  <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad whitespace-nowrap">Slow cooked</span>
+                  <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-arpona whitespace-nowrap">Slow cooked</span>
                 </div>
                 <div
                   style={{ backgroundColor: 'rgb(247, 216, 13)' }}
@@ -287,7 +287,7 @@ export default function Home() {
                   <div className="w-[30px] h-[30px] relative">
                     <Image src="/images/FSSAI (1).svg" alt="FSSAI Certified" fill className="object-contain" />
                   </div>
-                  <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad whitespace-nowrap">FSSAI Certified</span>
+                  <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-arpona whitespace-nowrap">FSSAI Certified</span>
                 </div>
               </div>
               {/* Row 2 */}
@@ -299,7 +299,7 @@ export default function Home() {
                   <div className="w-[30px] h-[30px] relative">
                     <Image src="/images/tick2.svg" alt="Zero Preservatives" fill className="object-contain" />
                   </div>
-                  <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad whitespace-nowrap">Zero Preservatives</span>
+                  <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-arpona whitespace-nowrap">Zero Preservatives</span>
                 </div>
                 <div
                   style={{ backgroundColor: 'rgb(247, 216, 13)' }}
@@ -308,7 +308,7 @@ export default function Home() {
                   <div className="w-[30px] h-[30px] relative">
                     <Image src="/images/cold.svg" alt="Cold Chain Packed" fill className="object-contain" />
                   </div>
-                  <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-bomstad whitespace-nowrap">Cold Chain Packed</span>
+                  <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-arpona whitespace-nowrap">Cold Chain Packed</span>
                 </div>
               </div>
             </div>
@@ -353,7 +353,7 @@ export default function Home() {
                   style={{ backgroundColor: 'rgb(247, 0, 52)' }}
                   className="px-6 md:px-10 py-2 md:py-3.5 rounded-full relative z-10 shadow-md"
                 >
-                  <span className="text-white font-normal text-[20px] md:text-[28px] whitespace-nowrap font-bomstad tracking-wider">
+                  <span className="text-white font-normal text-[20px] md:text-[28px] whitespace-nowrap font-arpona tracking-wider">
                     What is GrabV?
                   </span>
                 </div>
@@ -391,11 +391,11 @@ export default function Home() {
 
               {/* Description text */}
               {/* Mobile Description */}
-              <p className="md:hidden max-w-[280px] leading-[1.3] mb-0 md:mb-12 font-normal font-bomstad text-[16px] text-center" style={{ color: 'rgb(21, 107, 54)' }}>
+              <p className="md:hidden max-w-[320px] leading-[1.3] mb-0 md:mb-12 font-normal font-arpona text-[16px] text-center" style={{ color: 'rgb(21, 107, 54)' }}>
                 A ready to use, chilled, fresh food processing solution that cuts the average 40-45 minute curry prep time into a quick, preservative free meal.
               </p>
               {/* Desktop Description */}
-              <p className="hidden md:block max-w-xl leading-[1.3] mb-12 font-normal font-bomstad text-[25px] text-left" style={{ color: 'rgb(21, 107, 54)' }}>
+              <p className="hidden md:block max-w-xl leading-[1.3] mb-12 font-normal font-arpona text-[25px] text-left" style={{ color: 'rgb(21, 107, 54)' }}>
                 A ready to use, chilled, fresh food processing solution that cuts the average 40-45 minute curry prep time into a quick, preservative free meal.
               </p>
 
@@ -403,7 +403,7 @@ export default function Home() {
               <Link
                 href="/ourstory"
                 style={{ backgroundColor: 'rgb(21, 107, 54)' }}
-                className="hidden md:flex group items-center gap-6 px-10 py-5 rounded-full text-white text-[25px] font-normal font-bomstad hover:bg-black transition-all shadow-lg"
+                className="hidden md:flex group items-center gap-6 px-10 py-5 rounded-full text-white text-[25px] font-normal font-arpona hover:bg-black transition-all shadow-lg"
               >
                 Learn More
                 <Image src="/images/arrow.svg" alt="Arrow" width={32} height={32} className="object-contain" />
@@ -441,7 +441,7 @@ export default function Home() {
                       <span style={{ color: 'rgb(247, 0, 52)' }}>POUCH TO PLATE </span><br />
                       <span style={{ color: 'rgb(21, 107, 54)' }}>IN 5 STEPS</span>
                     </h2>
-                    <p className="font-bomstad font-normal text-[13px] leading-[1.2] mt-2" style={{ color: 'rgb(21, 107, 54)' }}>
+                    <p className="font-arpona font-normal text-[13px] leading-[1.2] mt-2" style={{ color: 'rgb(21, 107, 54)' }}>
                       No Chopping. No Stress.<br />Just Real Food.
                     </p>
                   </div>
@@ -487,7 +487,7 @@ export default function Home() {
                     <span style={{ color: 'rgb(247, 0, 52)' }}>Pouch To Plate </span>
                     <span style={{ color: 'rgb(21, 107, 54)' }}>In 5 Steps</span>
                   </h2>
-                  <p className="font-bomstad font-normal text-[17px] sm:text-[20px] lg:text-[25px] leading-[1.2] mt-4" style={{ color: 'rgb(21, 107, 54)' }}>
+                  <p className="font-arpona font-normal text-[17px] sm:text-[20px] lg:text-[25px] leading-[1.2] mt-4" style={{ color: 'rgb(21, 107, 54)' }}>
                     No Chopping. No Stress. Just Real Food.
                   </p>
                 </div>
@@ -570,7 +570,7 @@ export default function Home() {
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>
-                      <p className="font-bomstad font-normal text-[15px] md:text-[20px] leading-[1.2] md:leading-[24px] whitespace-pre-line px-2 text-center" style={{ color: 'rgb(21, 107, 54)' }}>
+                      <p className="font-arpona font-normal text-[15px] md:text-[20px] leading-[1.2] md:leading-[24px] whitespace-pre-line px-2 text-center" style={{ color: 'rgb(21, 107, 54)' }}>
                         {item.text}
                       </p>
                     </div>
@@ -619,7 +619,7 @@ export default function Home() {
                   className="absolute inset-0 rounded-full flex items-center justify-center"
                   style={{ backgroundColor: 'rgb(247, 0, 52)' }}
                 >
-                  <span className="text-white font-bomstad font-bold text-[14px] uppercase tracking-wide">
+                  <span className="text-white font-arpona font-bold text-[14px] uppercase tracking-wide">
                     Ingredients & Purity
                   </span>
                 </div>
@@ -640,7 +640,7 @@ export default function Home() {
               </h2>
 
               {/* Subtitle */}
-              <p className="font-bomstad font-normal text-[18px] leading-[1.4] mb-8 px-2" style={{ color: 'rgb(21, 107, 54)' }}>
+              <p className="font-arpona font-normal text-[18px] leading-[1.4] mb-8 px-2" style={{ color: 'rgb(21, 107, 54)' }}>
                 Every batch is tested and every ingredient is printed.<br />
                 No shortcuts, just real food.
               </p>
@@ -676,10 +676,10 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="flex flex-col leading-tight min-w-[150px]">
-                      <h4 className="font-bomstad font-bold text-[16px]" style={{ color: 'rgb(21, 107, 54)' }}>
+                      <h4 className="font-arpona font-bold text-[16px]" style={{ color: 'rgb(21, 107, 54)' }}>
                         {item.title}
                       </h4>
-                      <p className="font-bomstad font-normal text-[14px]" style={{ color: 'rgb(12, 61, 27)' }}>
+                      <p className="font-arpona font-normal text-[14px]" style={{ color: 'rgb(12, 61, 27)' }}>
                         {item.desc}
                       </p>
                     </div>
@@ -699,7 +699,7 @@ export default function Home() {
                       className="absolute inset-0 w-[325px] h-[60px] rounded-[100px] flex items-center justify-center"
                       style={{ backgroundColor: 'rgb(247, 0, 52)' }}
                     >
-                      <span className="text-white font-bold text-[23px] font-bomstad tracking-wider">
+                      <span className="text-white font-bold text-[23px] font-arpona tracking-wider">
                         Ingredients & Purity
                       </span>
                     </div>
@@ -723,7 +723,7 @@ export default function Home() {
                   </div>
 
                   {/* Subtitle */}
-                  <p className="max-w-2xl font-bomstad font-normal leading-[1.4] text-[22px]" style={{ color: 'rgb(21, 107, 54)' }}>
+                  <p className="max-w-2xl font-arpona font-normal leading-[1.4] text-[22px]" style={{ color: 'rgb(21, 107, 54)' }}>
                     Every batch is tested and every ingredient is printed.<br />
                     No shortcuts, just real food.
                   </p>
@@ -761,10 +761,10 @@ export default function Home() {
                     </div>
                     {/* Ingredient Text */}
                     <div className="flex flex-col gap-1">
-                      <h4 className="font-bomstad font-bold text-[26px] leading-[1.1] whitespace-nowrap" style={{ color: 'rgb(21, 107, 54)' }}>
+                      <h4 className="font-arpona font-bold text-[26px] leading-[1.1] whitespace-nowrap" style={{ color: 'rgb(21, 107, 54)' }}>
                         {item.title}
                       </h4>
-                      <p className="font-bomstad font-normal text-[20px] leading-[1.2]" style={{ color: 'rgb(12, 61, 27)' }}>
+                      <p className="font-arpona font-normal text-[20px] leading-[1.2]" style={{ color: 'rgb(12, 61, 27)' }}>
                         {item.desc}
                       </p>
                     </div>
@@ -800,7 +800,7 @@ export default function Home() {
                         />
                       </div>
                     </div>
-                    <span className="font-bomstad font-normal text-[18px] md:text-[25px] leading-none" style={{ color: 'rgb(21, 107, 54)' }}>
+                    <span className="font-arpona font-normal text-[18px] md:text-[25px] leading-none" style={{ color: 'rgb(21, 107, 54)' }}>
                       {item.text}
                     </span>
                   </div>
@@ -847,7 +847,7 @@ export default function Home() {
               <div className="md:hidden relative w-[280px] h-[48px] mb-6">
                 <div className="absolute inset-0 rounded-full" style={{ backgroundColor: 'rgb(247, 216, 13)' }} />
                 <div className="absolute inset-0 border-[1.5px] border-[#f70034] rounded-full flex items-center justify-center">
-                  <span className="font-bomstad font-bold text-[13px] leading-none text-center" style={{ color: 'rgb(21, 107, 54)' }}>
+                  <span className="font-arpona font-bold text-[13px] leading-none text-center" style={{ color: 'rgb(21, 107, 54)' }}>
                     Make 20+ recipes with one gravy.
                   </span>
                 </div>
@@ -869,7 +869,7 @@ export default function Home() {
                   fill
                   className="pointer-events-none object-contain"
                 />
-                <span className="absolute inset-0 flex items-center justify-center font-bomstad font-semibold text-[18px] leading-none tracking-normal" style={{ color: 'rgb(21, 107, 54)' }}>
+                <span className="absolute inset-0 flex items-center justify-center font-arpona font-semibold text-[18px] leading-none tracking-normal" style={{ color: 'rgb(21, 107, 54)' }}>
                   Make 20+ recipes with one gravy.
                 </span>
               </div>
@@ -885,7 +885,7 @@ export default function Home() {
               </div>
 
               {/* Subtext */}
-              <div className="text-white text-[16px] md:text-[25px] font-bomstad font-normal leading-[1.3] max-w-4xl pl-2 pr-4 md:pl-3 md:pr-6 opacity-90">
+              <div className="text-white text-[16px] md:text-[25px] font-arpona font-normal leading-[1.3] max-w-4xl pl-2 pr-4 md:pl-3 md:pr-6 opacity-90">
                 <p>Just switch your ingredients and create</p>
                 <p>a whole new dish each time.</p>
               </div>
@@ -938,14 +938,14 @@ export default function Home() {
 
                   <div className="flex flex-col items-start px-1 md:px-2">
                     <div className="px-2 md:px-4 py-0.5 md:py-1.5 rounded-full mb-2 md:mb-3 shadow-sm" style={{ backgroundColor: 'rgb(207, 219, 204)' }}>
-                      <span className="text-[10px] md:text-[18px] font-bomstad font-normal tracking-wide" style={{ color: 'rgb(21, 107, 54)' }}>
+                      <span className="text-[10px] md:text-[18px] font-arpona font-normal tracking-wide" style={{ color: 'rgb(21, 107, 54)' }}>
                         Indian classic
                       </span>
                     </div>
-                    <h3 className="font-bomstad font-bold text-[16px] md:text-[30px] leading-tight tracking-normal mb-2 md:mb-3" style={{ color: 'rgb(247, 0, 52)' }}>
+                    <h3 className="font-arpona font-bold text-[16px] md:text-[30px] leading-tight tracking-normal mb-2 md:mb-3" style={{ color: 'rgb(247, 0, 52)' }}>
                       {item.title}
                     </h3>
-                    <p className="font-bomstad text-[12px] md:text-[18px] leading-relaxed tracking-normal font-normal max-w-full" style={{ color: 'rgb(21, 107, 54)' }}>
+                    <p className="font-arpona text-[12px] md:text-[18px] leading-relaxed tracking-normal font-normal max-w-full" style={{ color: 'rgb(21, 107, 54)' }}>
                       {item.desc}
                     </p>
                   </div>
@@ -994,14 +994,14 @@ export default function Home() {
 
                   <div className="flex flex-col items-start px-1 md:px-2">
                     <div className="px-2 md:px-4 py-0.5 md:py-1.5 rounded-full mb-2 md:mb-3 shadow-sm" style={{ backgroundColor: 'rgb(207, 219, 204)' }}>
-                      <span className="text-[10px] md:text-[18px] font-bomstad font-normal tracking-wide" style={{ color: 'rgb(21, 107, 54)' }}>
+                      <span className="text-[10px] md:text-[18px] font-arpona font-normal tracking-wide" style={{ color: 'rgb(21, 107, 54)' }}>
                         Indian classic
                       </span>
                     </div>
-                    <h3 className="font-bomstad font-bold text-[16px] md:text-[30px] leading-tight tracking-normal mb-2 md:mb-3" style={{ color: 'rgb(247, 0, 52)' }}>
+                    <h3 className="font-arpona font-bold text-[16px] md:text-[30px] leading-tight tracking-normal mb-2 md:mb-3" style={{ color: 'rgb(247, 0, 52)' }}>
                       {item.title}
                     </h3>
-                    <p className="font-bomstad text-[12px] md:text-[18px] leading-relaxed tracking-normal font-normal max-w-full" style={{ color: 'rgb(21, 107, 54)' }}>
+                    <p className="font-arpona text-[12px] md:text-[18px] leading-relaxed tracking-normal font-normal max-w-full" style={{ color: 'rgb(21, 107, 54)' }}>
                       {item.desc}
                     </p>
                   </div>
@@ -1025,7 +1025,7 @@ export default function Home() {
               </div>
 
               <button
-                className="bg-[#f70034] text-white px-4 md:px-10 py-2.5 md:py-5 rounded-full font-bomstad font-bold text-[11px] md:text-[30px] shadow-lg hover:bg-black transition-all whitespace-nowrap z-10 shrink-0"
+                className="bg-[#f70034] text-white px-4 md:px-10 py-2.5 md:py-5 rounded-full font-arpona font-bold text-[11px] md:text-[30px] shadow-lg hover:bg-black transition-all whitespace-nowrap z-10 shrink-0"
               >
                 Order Your Pouch
               </button>
@@ -1048,7 +1048,7 @@ export default function Home() {
                   fill
                   className="pointer-events-none object-contain"
                 />
-                <span className="absolute inset-0 flex items-center justify-center font-bomstad font-bold text-[14px] text-white uppercase tracking-wide">
+                <span className="absolute inset-0 flex items-center justify-center font-arpona font-bold text-[14px] text-white uppercase tracking-wide">
                   How we make it
                 </span>
               </div>
@@ -1056,7 +1056,7 @@ export default function Home() {
                 <span style={{ color: 'rgb(247, 0, 52)' }}>Every dish starts </span>
                 <span style={{ color: 'rgb(21, 107, 54)' }}>with GrabV</span>
               </h2>
-              <p className="text-[12px] font-bomstad font-normal opacity-90 max-w-[280px]" style={{ color: 'rgb(21, 107, 54)' }}>
+              <p className="text-[12px] font-arpona font-normal opacity-90 max-w-[280px]" style={{ color: 'rgb(21, 107, 54)' }}>
                 Order yours now!
               </p>
             </div>
@@ -1068,7 +1068,7 @@ export default function Home() {
                   <Image src="/images/red rectangle.svg" alt="" fill className="pointer-events-none object-fill" />
                 </div>
                 <Image src="/images/green border.svg" alt="" fill className="pointer-events-none object-contain" />
-                <span className="absolute inset-0 flex items-center justify-center font-bomstad font-semibold text-[18px] leading-none tracking-normal text-white">
+                <span className="absolute inset-0 flex items-center justify-center font-arpona font-semibold text-[18px] leading-none tracking-normal text-white">
                   How we make it
                 </span>
               </div>
@@ -1076,7 +1076,7 @@ export default function Home() {
                 <span style={{ color: 'rgb(247, 0, 52)' }}>Every dish starts </span>
                 <span style={{ color: 'rgb(21, 107, 54)' }}>with GrabV</span>
               </h2>
-              <div className="max-w-4xl text-[18px] md:text-[25px] font-bomstad font-normal leading-[1.4] tracking-normal text-center mb-12 px-6 opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+              <div className="max-w-4xl text-[18px] md:text-[25px] font-arpona font-normal leading-[1.4] tracking-normal text-center mb-12 px-6 opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
                 Order yours now!
               </div>
             </div>
@@ -1106,7 +1106,7 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="flex flex-col text-left pr-4 justify-center h-[44px]">
-                      <h4 className="font-bomstad text-[17px] font-bold mb-0" style={{ color: 'rgb(247, 0, 52)' }}>{item.title}</h4>
+                      <h4 className="font-arpona text-[17px] font-bold mb-0" style={{ color: 'rgb(247, 0, 52)' }}>{item.title}</h4>
                     </div>
                   </div>
                 ))}
@@ -1131,7 +1131,7 @@ export default function Home() {
                       <span className="font-kura text-[50px] relative z-10 pt-[4px]" style={{ color: 'rgb(247, 0, 52)' }}>{item.step}</span>
                     </div>
                     <div className="flex flex-col items-start text-left">
-                      <h4 className="font-bomstad text-[32px] font-semibold mb-0" style={{ color: 'rgb(21, 107, 54)' }}>{item.title}</h4>
+                      <h4 className="font-arpona text-[32px] font-semibold mb-0" style={{ color: 'rgb(21, 107, 54)' }}>{item.title}</h4>
                     </div>
                   </div>
                 ))}
@@ -1161,7 +1161,7 @@ export default function Home() {
               <div className="md:hidden relative w-[240px] h-[63px] mb-4">
                 <div className="absolute left-[2.5px] top-[5.6px] w-[235px] h-[51px] rounded-full bg-[rgb(247,216,13)]" />
                 <Image src="/images/red border.svg" alt="" fill className="pointer-events-none object-contain" />
-                <span className="absolute inset-0 flex items-center justify-center font-bomstad font-bold text-[14px] leading-none tracking-normal text-[#156b36]">
+                <span className="absolute inset-0 flex items-center justify-center font-arpona font-bold text-[14px] leading-none tracking-normal text-[#156b36]">
                   What people are saying
                 </span>
               </div>
@@ -1170,7 +1170,7 @@ export default function Home() {
               <div className="hidden md:block relative w-[315px] h-[83px] mb-10">
                 <div className="absolute left-[0.76px] top-[7.36px] w-[310px] h-[67px] rounded-[100px] bg-[rgb(247,216,13)]" />
                 <Image src="/images/red border.svg" alt="" fill className="pointer-events-none object-contain" />
-                <span className="absolute inset-0 flex items-center justify-center font-bomstad font-semibold text-[18px] leading-none tracking-normal" style={{ color: 'rgb(21, 107, 54)' }}>
+                <span className="absolute inset-0 flex items-center justify-center font-arpona font-semibold text-[18px] leading-none tracking-normal" style={{ color: 'rgb(21, 107, 54)' }}>
                   What people are saying
                 </span>
               </div>
@@ -1274,7 +1274,7 @@ export default function Home() {
             </h2>
 
             {/* Subtext */}
-            <p className="text-white text-[16px] md:text-[28px] font-bomstad font-normal tracking-wide opacity-90 mb-8 md:mb-12 max-w-4xl px-2 md:px-0 leading-relaxed md:leading-[1.3]">
+            <p className="text-white text-[16px] md:text-[28px] font-arpona font-normal tracking-wide opacity-90 mb-8 md:mb-12 max-w-4xl px-2 md:px-0 leading-relaxed md:leading-[1.3]">
               Reclaim your time with our preservative free gravy pouches.<br className="hidden md:block" /> Freshly chilled, FSSAI certified, and delivered to your door.
             </p>
 
@@ -1282,18 +1282,18 @@ export default function Home() {
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-8 md:mb-12 w-full max-w-[1000px]">
               <div className="flex flex-row items-center justify-center gap-3 md:gap-8 w-full md:w-auto">
                 {/* Order 750g */}
-                <button className="bg-white text-[#f70034] flex-1 md:w-[260px] py-3 md:py-5 rounded-full font-bomstad font-medium text-[14px] md:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all shrink-0">
+                <button className="bg-white text-[#f70034] flex-1 md:w-[260px] py-3 md:py-5 rounded-full font-arpona font-medium text-[14px] md:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all shrink-0">
                   Order 750g
                 </button>
 
                 {/* Order 250g */}
-                <button className="bg-white text-[#f70034] flex-1 md:w-[260px] py-3 md:py-5 rounded-full font-bomstad font-medium text-[14px] md:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all shrink-0">
+                <button className="bg-white text-[#f70034] flex-1 md:w-[260px] py-3 md:py-5 rounded-full font-arpona font-medium text-[14px] md:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all shrink-0">
                   Order 250g
                 </button>
               </div>
 
               {/* WhatsApp - Tertiary */}
-              <button className="bg-white text-[#f70034] w-[180px] md:w-[260px] py-2.5 md:py-5 rounded-full font-bomstad font-normal text-[14px] md:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all group flex items-center justify-center gap-2 md:gap-4 shrink-0">
+              <button className="bg-white text-[#f70034] w-[180px] md:w-[260px] py-2.5 md:py-5 rounded-full font-arpona font-normal text-[14px] md:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all group flex items-center justify-center gap-2 md:gap-4 shrink-0">
                 <div className="w-5 h-5 md:w-8 md:h-8 relative group-hover:brightness-0 group-hover:invert transition-all">
                   <Image src="/images/whatsapp.svg" alt="WhatsApp" fill className="object-contain" />
                 </div>
@@ -1318,14 +1318,14 @@ export default function Home() {
                 <div className="w-[70px] h-[35px] relative">
                   <Image src="/images/logo.svg" alt="GrabV Logo" fill className="object-contain" />
                 </div>
-                <div className="flex flex-col gap-0 text-[11px] font-medium leading-tight font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
+                <div className="flex flex-col gap-0 text-[11px] font-medium leading-tight font-arpona" style={{ color: 'rgb(247, 216, 13)' }}>
                   <p>© 2026 GrabV. All rights reserved.</p>
                 </div>
               </div>
 
               <div className="flex flex-col gap-1">
                 <h4 className="text-[16px] font-bold" style={{ color: 'rgb(247, 216, 13)' }}>Company</h4>
-                <div className="flex flex-col gap-0 text-[14px] font-medium font-bomstad leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
+                <div className="flex flex-col gap-0 text-[14px] font-medium font-arpona leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
                   <Link href="/ourstory">Our Story</Link>
                   <Link href="/#process">Process</Link>
                   <Link href="/#quality">Quality Promise</Link>
@@ -1338,7 +1338,7 @@ export default function Home() {
             <div className="flex flex-col gap-10">
               <div className="flex flex-col gap-1">
                 <h4 className="text-[16px] font-bold" style={{ color: 'rgb(247, 216, 13)' }}>Order & Policies</h4>
-                <div className="flex flex-col gap-0 text-[14px] font-medium font-bomstad leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
+                <div className="flex flex-col gap-0 text-[14px] font-medium font-arpona leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
                   <Link href="#">WhatsApp Order</Link>
                   <Link href="#">Exchange Order</Link>
                   <Link href="#">Privacy Policy</Link>
@@ -1347,7 +1347,7 @@ export default function Home() {
 
               <div className="flex flex-col gap-1">
                 <h4 className="text-[16px] font-bold" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
-                <div className="flex flex-col gap-0 text-[14px] font-medium font-bomstad leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
+                <div className="flex flex-col gap-0 text-[14px] font-medium font-arpona leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
                   <Link href="/all-purposegravy">All Purpose Gravy</Link>
                   <Link href="/all-purposegravy">Ingredients</Link>
                   <Link href="/all-purposegravy">How to Use</Link>
@@ -1355,7 +1355,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex flex-col gap-1 mt-2">
-                  <span className="text-[11px] font-bold font-bomstad text-white">Follow Us</span>
+                  <span className="text-[11px] font-bold font-arpona text-white">Follow Us</span>
                   <div className="flex items-center gap-3">
                     <Link href="#" className="w-4 h-4 relative brightness-0 invert">
                       <Image src="/images/facebook.svg" alt="Facebook" fill className="object-contain" />
@@ -1380,13 +1380,13 @@ export default function Home() {
                 <div className="w-[110px] h-[55px] relative mb-4">
                   <Image src="/images/logo.svg" alt="GrabV Logo" fill className="object-contain object-left" />
                 </div>
-                <div className="flex flex-col gap-1 text-[14px] md:text-[16px] font-medium leading-tight font-bomstad" style={{ color: 'rgb(247, 216, 13)' }}>
+                <div className="flex flex-col gap-1 text-[14px] md:text-[16px] font-medium leading-tight font-arpona" style={{ color: 'rgb(247, 216, 13)' }}>
                   <p>© 2026 GrabV. All rights reserved.</p>
                 </div>
               </div>
 
               <div className="flex flex-col items-start gap-3 mt-auto">
-                <span className="text-[14px] md:text-[16px] font-bold font-bomstad text-white">Follow Us</span>
+                <span className="text-[14px] md:text-[16px] font-bold font-arpona text-white">Follow Us</span>
                 <div className="flex items-center gap-5">
                   <Link href="#" className="w-5 h-5 md:w-6 md:h-6 relative hover:scale-110 transition-transform brightness-0 invert">
                     <Image src="/images/facebook.svg" alt="Facebook" fill className="object-contain" />
@@ -1404,7 +1404,7 @@ export default function Home() {
             {/* Column 2: Company Box */}
             <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
               <h4 className="text-[18px] md:text-[22px] font-bold mb-3 md:mb-4" style={{ color: 'rgb(247, 216, 13)' }}>Company</h4>
-              <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
+              <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-arpona leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
                 <Link href="/ourstory" className="hover:opacity-80 transition-opacity">Our Story</Link>
                 <Link href="/#process" className="hover:opacity-80 transition-opacity">Process</Link>
                 <Link href="/#quality" className="hover:text-[rgb(247,216,13)] transition-colors">Quality Promise</Link>
@@ -1415,7 +1415,7 @@ export default function Home() {
             {/* Column 3: Product Box */}
             <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
               <h4 className="text-[18px] md:text-[22px] font-bold mb-3 md:mb-4" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
-              <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
+              <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-arpona leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
                 <Link href="/all-purposegravy" className="hover:opacity-80 transition-opacity">All Purpose Gravy</Link>
                 <Link href="/all-purposegravy" className="hover:opacity-80 transition-opacity">Ingredients</Link>
                 <Link href="/all-purposegravy" className="hover:opacity-80 transition-opacity">How to Use</Link>
@@ -1426,7 +1426,7 @@ export default function Home() {
             {/* Column 4: Orders & Policies Box */}
             <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
               <h4 className="text-[18px] md:text-[22px] font-bold mb-3 md:mb-4" style={{ color: 'rgb(247, 216, 13)' }}>Order & Policies</h4>
-              <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-bomstad leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
+              <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-arpona leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
                 <Link href="#" className="hover:opacity-80 transition-opacity">WhatsApp Order</Link>
                 <Link href="#" className="hover:opacity-80 transition-opacity">Exchange Order</Link>
                 <Link href="#" className="hover:opacity-80 transition-opacity">Privacy Policy</Link>
