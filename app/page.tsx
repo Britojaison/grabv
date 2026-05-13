@@ -392,11 +392,11 @@ export default function Home() {
               {/* Description text */}
               {/* Mobile Description */}
               <p className="md:hidden max-w-[320px] leading-[1.3] mb-0 md:mb-12 font-normal font-arpona text-[16px] text-center" style={{ color: 'rgb(21, 107, 54)' }}>
-                A ready to use, chilled, fresh food processing solution that cuts the average 40-45 minute curry prep time into a quick, preservative free meal.
+                Freshly made and chilled curry bases that help you prepare rich, flavourful gravy in just 10 minutes. Made with real ingredients and absolutely no preservatives.
               </p>
               {/* Desktop Description */}
               <p className="hidden md:block max-w-xl leading-[1.3] mb-12 font-normal font-arpona text-[25px] text-left" style={{ color: 'rgb(21, 107, 54)' }}>
-                A ready to use, chilled, fresh food processing solution that cuts the average 40-45 minute curry prep time into a quick, preservative free meal.
+                Freshly made and chilled curry bases that help you prepare rich, flavourful gravy in just 10 minutes. Made with real ingredients and absolutely no preservatives.
               </p>
 
               {/* Desktop Learn More Button */}
@@ -539,7 +539,7 @@ export default function Home() {
             <div className="flex overflow-x-auto md:overflow-visible no-scrollbar md:grid w-full max-w-[1284px] mx-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 md:gap-x-8 md:gap-y-20 mt-2 md:mt-20 mb-20 px-2 md:px-0 pt-7 md:pt-0">
               {[
                 { step: 1, text: "Add your tempering\n(tadka) in oil", rotate: "-rotate-6" },
-                { step: 2, text: "Sauté veggies or\npaneer of your choice.", rotate: "rotate-6" },
+                { step: 2, text: "Sauté veggies or\nprotein of your choice.", rotate: "rotate-6" },
                 { step: 3, text: "Pour gravy &\nadjust consistency", rotate: "-rotate-6" },
                 { step: 4, text: "Sprinkle spices\n& salt to taste.", rotate: "rotate-6" },
                 { step: 5, text: "Cook for 7 mins\nand enjoy!", rotate: "-rotate-6" }
@@ -658,11 +658,11 @@ export default function Home() {
               {/* Ingredients Horizontal Scroll for Mobile */}
               <div className="flex overflow-x-auto no-scrollbar gap-6 w-full pb-2 px-4">
                 {[
-                  { img: 'Fresh Onions & Tomatoes.jpg', title: 'Fresh Onions & Tomatoes', desc: 'Slow-fried to golden perfection' },
-                  { img: 'The Whole Spice Bloom.jpg', title: 'The Whole Spice Bloom', desc: 'Cumin, Cinnamon, Clove, and Bay Leaf' },
+                  { img: 'Fresh Onions & Tomatoes.jpg', title: 'Fresh Onions & Tomatoes', desc: 'Slow-cooked to golden perfection' },
+                  { img: 'The Whole Spice Bloom.jpg', title: 'The Whole Spice Bloom', desc: 'Cumin, Cinnamon, Clove, and Bay Leaf roasted and grounded for deep aroma' },
                   { img: 'The Essential Spice Blend.jpg', title: 'The Essential Spice Blend', desc: 'Chilli, Turmeric, Coriander, and Pepper' },
                   { img: 'The Creamy Secret.jpg', title: 'The Creamy Secret', desc: 'A touch of Cashews' },
-                  { img: 'Zero Additives.jpg', title: 'Zero Additives', desc: '100% preservative-free and fresh-chilled' },
+                  { img: 'Zero Additives.jpg', title: 'Zero Additives', desc: '100% preservative-free and freshly made and chilled to lock in natural flavour' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3 text-left shrink-0">
                     <div className="w-[80px] h-[80px] flex-shrink-0 flex items-center justify-center bg-white rounded-xl border-[2px] border-[rgb(247,0,52)] overflow-hidden shadow-sm">
@@ -877,10 +877,10 @@ export default function Home() {
               {/* Main Heading */}
               <div className="mb-6 md:mb-10 flex flex-col md:flex-row items-center md:items-baseline justify-center gap-1.5 md:gap-4 whitespace-nowrap">
                 <h2 className="font-kura text-[25px] md:text-[85px] leading-[0.9]" style={{ color: 'rgb(247, 216, 13)' }}>
-                  Your little shortcut
+                  One GrabV.
                 </h2>
                 <h2 className="font-kura text-[25px] md:text-[85px] leading-[0.9] text-white">
-                  to cooking.
+                  Endless Possibilities
                 </h2>
               </div>
 
@@ -1082,8 +1082,8 @@ export default function Home() {
             </div>
 
             {/* Mobile Vertical Timeline (md:hidden) */}
-            <div className="md:hidden w-full relative flex flex-col items-center gap-6 px-4">
-              <div className="relative flex flex-col gap-6 items-start w-fit -ml-6">
+            <div className="md:hidden w-full relative flex justify-center px-4">
+              <div className="relative flex w-full max-w-[340px] translate-x-3 flex-col gap-6">
                 {[
                   { step: 1, title: "Cooked in small batches", desc: "" },
                   { step: 2, title: "Clean and hygienic preparation", desc: "" },
@@ -1092,7 +1092,7 @@ export default function Home() {
                   { step: 5, title: "No preservatives added", desc: "" },
                   { step: 6, title: "100% veg base gravy", desc: "" }
                 ].map((item) => (
-                  <div key={item.step} className="flex items-start gap-6 relative">
+                  <div key={item.step} className="relative grid grid-cols-[94px_minmax(0,1fr)] items-center gap-6">
                     {/* Connecting Line - Correctly scoped to bridge the gap */}
                     {item.step !== 6 && (
                       <div className="absolute top-[22px] left-[47px] w-[2px] h-[calc(100%+24px)] bg-[rgb(247,216,13)] z-0" />
@@ -1105,7 +1105,7 @@ export default function Home() {
                         <span className="font-kura text-[24px] relative z-10 pt-[2px]" style={{ color: 'rgb(247, 0, 52)' }}>{item.step}</span>
                       </div>
                     </div>
-                    <div className="flex flex-col text-left pr-4 justify-center h-[44px]">
+                    <div className="flex min-w-0 flex-col justify-center text-left">
                       <h4 className="font-arpona text-[17px] font-bold mb-0" style={{ color: 'rgb(247, 0, 52)' }}>{item.title}</h4>
                     </div>
                   </div>
@@ -1186,79 +1186,79 @@ export default function Home() {
           {/* Review Cards - Horizontal scroll on mobile */}
           <div className="w-full flex flex-col items-center">
             <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 pt-4 md:py-20 flex overflow-x-auto no-scrollbar md:grid md:grid-cols-3 gap-6 md:gap-8 pb-8 md:pb-16">
-            {[
-              {
-                name: "Sneha Mehta",
-                location: "Bengaluru",
-                text: "I recently shifted to Bengaluru, and I was craving for the home cooked flavour and that's when GrabV’s onion tomato gravy saved me!!! It was absolutely delicious.",
-                rating: 5,
-                image: "/images/cheerful-traditional-indian-woman-white-background-studio-shot.jpg"
-              },
-              {
-                name: "Harshitha",
-                location: "Bengaluru",
-                text: "Oh mahn!! What a flavourrr… made me feel like a real chef!!",
-                rating: 4.5,
-                image: "/images/indian-woman-posing-cute-stylish-outfit-camera-smiling.jpg"
-              },
-              {
-                name: "Chetana Gowda",
-                location: "Bengaluru",
-                text: "It is an absolute saviour to my busy days, so quick and so easy. Am stocking this up again for sure!!",
-                rating: 4,
-                image: "/images/stylish-indian-beard-model-man-casual-clothes-posed-outdoor-street-india.jpg"
-              }
-            ].map((item, idx) => (
-              <div key={idx} className="relative p-4 md:p-6 rounded-[20px] bg-white flex flex-col gap-2 md:gap-4 shrink-0 w-[211px] min-h-[150px] h-auto pb-4 md:w-auto md:h-auto shadow-sm">
-                {/* Mobile Card Borders (Double yellow border effect per request) */}
-                <div className="absolute -inset-1 md:hidden pointer-events-none">
-                  <Image src="/images/card border phone.svg" alt="" fill className="object-fill" />
-                </div>
-                <div className="absolute -inset-1.5 md:hidden pointer-events-none rotate-[1.5deg] scale-[1.02] opacity-70">
-                  <Image src="/images/card border phone.svg" alt="" fill className="object-fill" />
-                </div>
-
-                {/* Desktop Card Borders (Double yellow border effect per request) */}
-                <div className="absolute -inset-2.5 hidden md:block pointer-events-none">
-                  <Image src="/images/card border web.svg" alt="" fill className="object-fill" />
-                </div>
-                <div className="absolute -inset-3 hidden md:block pointer-events-none -rotate-[0.8deg] scale-[1.01] opacity-70">
-                  <Image src="/images/card border web.svg" alt="" fill className="object-fill" />
-                </div>
-
-                <div className="flex items-center gap-3 md:gap-4 relative z-10">
-                  <div className="w-10 h-10 md:w-16 md:h-16 rounded-full overflow-hidden relative border border-neutral-100">
-                    <Image src={item.image} alt={item.name} fill className="object-cover" />
+              {[
+                {
+                  name: "Sneha Mehta",
+                  location: "Bengaluru",
+                  text: "I recently shifted to Bengaluru, and I was craving for the home cooked flavour and that's when GrabV’s onion tomato gravy saved me!!! It was absolutely delicious.",
+                  rating: 5,
+                  image: "/images/cheerful-traditional-indian-woman-white-background-studio-shot.jpg"
+                },
+                {
+                  name: "Harshitha",
+                  location: "Bengaluru",
+                  text: "Oh mahn!! What a flavourrr… made me feel like a real chef!!",
+                  rating: 4.5,
+                  image: "/images/indian-woman-posing-cute-stylish-outfit-camera-smiling.jpg"
+                },
+                {
+                  name: "Chetana Gowda",
+                  location: "Bengaluru",
+                  text: "It is an absolute saviour to my busy days, so quick and so easy. Am stocking this up again for sure!!",
+                  rating: 4,
+                  image: "/images/stylish-indian-beard-model-man-casual-clothes-posed-outdoor-street-india.jpg"
+                }
+              ].map((item, idx) => (
+                <div key={idx} className="relative p-4 md:p-6 rounded-[20px] bg-white flex flex-col gap-2 md:gap-4 shrink-0 w-[211px] min-h-[150px] h-auto pb-4 md:w-auto md:h-auto shadow-sm">
+                  {/* Mobile Card Borders (Double yellow border effect per request) */}
+                  <div className="absolute -inset-1 md:hidden pointer-events-none">
+                    <Image src="/images/card border phone.svg" alt="" fill className="object-fill" />
                   </div>
-                  <div className="flex flex-col">
-                    <span className="text-[14px] md:text-[20px] font-bold" style={{ color: 'rgb(21, 107, 54)' }}>{item.name}</span>
-                    <span className="text-[11px] md:text-[16px] text-neutral-400">{item.location}</span>
+                  <div className="absolute -inset-1.5 md:hidden pointer-events-none rotate-[1.5deg] scale-[1.02] opacity-70">
+                    <Image src="/images/card border phone.svg" alt="" fill className="object-fill" />
                   </div>
+
+                  {/* Desktop Card Borders (Double yellow border effect per request) */}
+                  <div className="absolute -inset-2.5 hidden md:block pointer-events-none">
+                    <Image src="/images/card border web.svg" alt="" fill className="object-fill" />
+                  </div>
+                  <div className="absolute -inset-3 hidden md:block pointer-events-none -rotate-[0.8deg] scale-[1.01] opacity-70">
+                    <Image src="/images/card border web.svg" alt="" fill className="object-fill" />
+                  </div>
+
+                  <div className="flex items-center gap-3 md:gap-4 relative z-10">
+                    <div className="w-10 h-10 md:w-16 md:h-16 rounded-full overflow-hidden relative border border-neutral-100">
+                      <Image src={item.image} alt={item.name} fill className="object-cover" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-[14px] md:text-[20px] font-bold" style={{ color: 'rgb(21, 107, 54)' }}>{item.name}</span>
+                      <span className="text-[11px] md:text-[16px] text-neutral-400">{item.location}</span>
+                    </div>
+                  </div>
+                  <div className="flex gap-0.5 relative z-10">
+                    {[1, 2, 3, 4, 5].map((s) => {
+                      const isFull = s <= Math.floor(item.rating);
+                      const isHalf = s === Math.ceil(item.rating) && item.rating % 1 !== 0;
+                      return (
+                        <div key={s} className="relative text-[15px] md:text-[24px] leading-none">
+                          <span style={{ color: 'rgb(210, 210, 210)' }}>★</span>
+                          {isFull && (
+                            <span className="absolute inset-0" style={{ color: 'rgb(247, 216, 13)' }}>★</span>
+                          )}
+                          {isHalf && (
+                            <span className="absolute inset-0 overflow-hidden w-[50%]" style={{ color: 'rgb(247, 216, 13)' }}>★</span>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <p className="text-[12px] md:text-[22px] leading-relaxed font-medium relative z-10 md:line-clamp-none" style={{ color: 'rgb(21, 107, 54)' }}>
+                    &quot;{item.text}&quot;
+                  </p>
                 </div>
-                <div className="flex gap-0.5 relative z-10">
-                  {[1, 2, 3, 4, 5].map((s) => {
-                    const isFull = s <= Math.floor(item.rating);
-                    const isHalf = s === Math.ceil(item.rating) && item.rating % 1 !== 0;
-                    return (
-                      <div key={s} className="relative text-[15px] md:text-[24px] leading-none">
-                        <span style={{ color: 'rgb(210, 210, 210)' }}>★</span>
-                        {isFull && (
-                          <span className="absolute inset-0" style={{ color: 'rgb(247, 216, 13)' }}>★</span>
-                        )}
-                        {isHalf && (
-                          <span className="absolute inset-0 overflow-hidden w-[50%]" style={{ color: 'rgb(247, 216, 13)' }}>★</span>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-                <p className="text-[12px] md:text-[22px] leading-relaxed font-medium relative z-10 md:line-clamp-none" style={{ color: 'rgb(21, 107, 54)' }}>
-                  &quot;{item.text}&quot;
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
         </div>
 
         <div className="w-full flex flex-col items-center">
