@@ -112,7 +112,7 @@ export default function ProductsPage() {
                                 <div className="relative w-full aspect-[1/1.1] md:aspect-square rounded-[20px] md:rounded-[12px] overflow-hidden bg-[#e5e5e5]/40 md:bg-transparent flex items-center justify-center p-2 md:p-6 md:max-w-[580px]">
                                     <div className="relative w-full h-full">
                                         <Image
-                                            src="/images/onion2.png"
+                                            src="/images/onion_new2.png"
                                             alt="Product Main"
                                             fill
                                             className="object-contain rounded-[10px]"
@@ -305,18 +305,18 @@ export default function ProductsPage() {
 
                                 <div className="w-full flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible gap-4 md:gap-10 pb-4 md:pb-0 no-scrollbar px-4 md:px-0">
                                     {[
-                                        { status: 'active', title: 'Onion Tomato Gravy', image: '/images/onion.png' },
+                                        { status: 'active', title: 'Onion Tomato Gravy', image: '/images/onion_new.png' },
                                         { status: 'coming_soon', title: 'Smoked Makhani Gravy', image: '/images/smoked makani.png' },
                                         { status: 'coming_soon', title: 'Smoked Makhani Gravy', image: '/images/smoked makani.png' }
                                     ].map((item, idx) => (
                                         <div key={idx} className="flex flex-col items-center group shrink-0 w-[190px] md:w-auto">
                                             {/* Image Container */}
-                                            <div className={`relative w-full aspect-[4/5] rounded-[20px] overflow-hidden mb-5 ${item.status === 'active' ? 'cursor-pointer' : 'md:bg-transparent'}`}>
+                                            <div className={`relative w-full aspect-[4/5] rounded-[20px] overflow-hidden mb-5 bg-[#F5F5F5] ${item.status === 'active' ? 'cursor-pointer' : ''}`}>
                                                 <Image
                                                     src={item.image}
                                                     alt={item.title}
                                                     fill
-                                                    className={`object-cover object-bottom scale-[1.45] transition-transform duration-500 ${item.status === 'coming_soon' ? 'grayscale opacity-60' : 'group-hover:scale-[1.48]'}`}
+                                                    className={`${idx === 0 ? 'object-contain mix-blend-multiply' : 'object-cover object-bottom scale-[1.45] group-hover:scale-[1.48]'} transition-transform duration-500 ${item.status === 'coming_soon' ? 'grayscale opacity-60' : ''}`}
                                                 />
                                                 {/* Coming Soon Badge */}
                                                 {item.status === 'coming_soon' && (

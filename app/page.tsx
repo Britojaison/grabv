@@ -413,7 +413,7 @@ export default function Home() {
             </div>
 
             {/* Right Content - Product Image */}
-            <div className="w-full lg:w-[60%] flex justify-center lg:justify-end relative h-[320px] md:h-[800px] mt-4 md:mt-0 lg:translate-y-10 lg:translate-x-40">
+            <div className="w-full lg:w-[60%] flex justify-center lg:justify-end relative h-[320px] md:h-[800px] mt-4 md:mt-0 lg:translate-y-10 lg:left-[50px]">
               <div className="relative w-full h-full max-w-[500px] md:max-w-[900px]">
                 <Image
                   src="/images/product 1.svg"
@@ -563,7 +563,7 @@ export default function Home() {
                     <div className="bg-white rounded-[15px] md:rounded-[10px] p-1.5 pt-6 md:pt-[30px] shadow-sm border-[1.5px] border-[rgb(247,216,13)] flex flex-col items-center text-center w-full h-[230px] md:h-[350px]">
                       <div className="relative w-full h-[110px] md:h-[200px] mb-5 md:mb-6 rounded-[10px] overflow-hidden">
                         <Image
-                          src={`/images/step ${item.step}.webp`}
+                          src={item.step === 3 ? "/images/step3.png" : `/images/step ${item.step}.webp`}
                           alt={`Step ${item.step}`}
                           fill
                           sizes="(max-width: 640px) 160px, 20vw"
@@ -658,11 +658,11 @@ export default function Home() {
               {/* Ingredients Horizontal Scroll for Mobile */}
               <div className="flex overflow-x-auto no-scrollbar gap-6 w-full pb-2 px-4">
                 {[
-                  { img: 'Fresh Onions & Tomatoes.jpg', title: 'Fresh Onions & Tomatoes', desc: 'Slow-cooked to golden perfection' },
-                  { img: 'The Whole Spice Bloom.jpg', title: 'The Whole Spice Bloom', desc: 'Cumin, Cinnamon, Clove, and Bay Leaf roasted and grounded for deep aroma' },
-                  { img: 'The Essential Spice Blend.jpg', title: 'The Essential Spice Blend', desc: 'Chilli, Turmeric, Coriander, and Pepper' },
-                  { img: 'The Creamy Secret.jpg', title: 'The Creamy Secret', desc: 'A touch of Cashews' },
-                  { img: 'Zero Additives.jpg', title: 'Zero Additives', desc: '100% preservative-free and freshly made and chilled to lock in natural flavour' },
+                  { img: 'Fresh Onions & Tomatoes.jpg', title: 'Fresh Onions & Tomatoes', desc: 'Slow-cooked to golden perfection for a rich, robust base.' },
+                  { img: 'The Whole Spice Bloom.jpg', title: 'The Whole Spice Bloom', desc: 'Cumin, Cinnamon, Clove, and Bay Leaf roasted and ground for deep aroma.' },
+                  { img: 'The Essential Spice Blend.jpg', title: 'The Essential Spice Blend', desc: 'Chilli, Turmeric, Coriander, and Pepper for authentic home-style depth.' },
+                  { img: 'The Creamy Secret.jpg', title: 'The Creamy Secret', desc: 'A touch of Cashews for a velvety, restaurant-style finish.' },
+                  { img: 'Zero Additives.jpg', title: 'Zero Additives', desc: '100% preservative-free and freshly made and chilled to lock in natural flavor.' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3 text-left shrink-0">
                     <div className="w-[80px] h-[80px] flex-shrink-0 flex items-center justify-center bg-white rounded-xl border-[2px] border-[rgb(247,0,52)] overflow-hidden shadow-sm">
@@ -742,11 +742,11 @@ export default function Home() {
               {/* Ingredients Grid - Tightened spacing */}
               <div className="w-full lg:w-[1146px] lg:h-[402px] rounded-[10px] grid grid-cols-1 lg:grid-cols-2 gap-x-[120px] gap-y-8 mt-2">
                 {[
-                  { img: 'Fresh Onions & Tomatoes.jpg', title: 'Fresh Onions & Tomatoes', desc: 'Slow-fried to golden perfection for a rich, robust base.' },
-                  { img: 'The Whole Spice Bloom.jpg', title: 'The Whole Spice Bloom', desc: 'Cumin, Cinnamon, Clove, and Bay Leaf roasted for deep aroma.' },
+                  { img: 'Fresh Onions & Tomatoes.jpg', title: 'Fresh Onions & Tomatoes', desc: 'Slow-cooked to golden perfection for a rich, robust base.' },
+                  { img: 'The Whole Spice Bloom.jpg', title: 'The Whole Spice Bloom', desc: 'Cumin, Cinnamon, Clove, and Bay Leaf roasted and ground for deep aroma.' },
                   { img: 'The Essential Spice Blend.jpg', title: 'The Essential Spice Blend', desc: 'Chilli, Turmeric, Coriander, and Pepper for authentic home-style depth.' },
                   { img: 'The Creamy Secret.jpg', title: 'The Creamy Secret', desc: 'A touch of Cashews for a velvety, restaurant-style finish.' },
-                  { img: 'Zero Additives.jpg', title: 'Zero Additives', desc: '100% preservative-free and fresh-chilled to lock in natural flavor.' },
+                  { img: 'Zero Additives.jpg', title: 'Zero Additives', desc: '100% preservative-free and freshly made and chilled to lock in natural flavor.' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-8">
                     <div className="w-[117px] h-[119px] flex-shrink-0 flex items-center justify-center bg-white rounded-2xl border-[3px] border-[rgb(247,0,52)] overflow-hidden shadow-sm">
@@ -910,12 +910,13 @@ export default function Home() {
             </div>
 
             {/* Vegetarian Recipes - Horizontal scroll on mobile */}
-            <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex overflow-x-auto no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12">
+            <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex overflow-x-auto no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8">
               {[
-                { title: "Paneer Butter Masala", desc: "Rich, creamy, restaurant style classic.", image: "/images/Panner masala.jpg" },
-                { title: "Paneer Do Pyaza", desc: "Bold, onion forward, perfectly balanced flavours.", image: "/images/paneer-pyaza-is-popular-punjabi-vegetarian-recipe-using-cubes-cottage-cheese-with-lots-onion-gravy.jpg" },
-                { title: "Chole Masala", desc: "Hearty, spiced, homestyle comfort.", image: "/images/chole.jpg" },
-                { title: "Veg Kolhapuri", desc: "Fiery, robust, flavour packed gravy.", image: "/images/Kolhapuri.jpg" }
+                { title: "Mutter Paneer", desc: "Soft, creamy, mildly spiced goodness.", image: "/images/mutter panner.png" },
+                { title: "Mix Veg", desc: "Fresh vegetables in a rich, hearty gravy.", image: "/images/mix veg.png" },
+                { title: "Bhindi Masala", desc: "Spicy, sauteed, flavour-packed classic.", image: "/images/bhindi masala.png" },
+                { title: "Aloo Gobhi", desc: "Comforting, homestyle flavours with the perfect spice kick.", image: "/images/aloo gobhi.png" },
+                { title: "Mutter Mushroom", desc: "Earthy mushrooms with a smooth, flavourful finish.", image: "/images/mutter mushrooom.png" }
               ].map((item, idx) => (
                 <div key={idx} className="flex flex-col group items-start shrink-0 w-[175px] md:w-auto">
                   <div className="relative w-full aspect-[4/5] rounded-[15px] md:rounded-[30px] overflow-hidden mb-4 md:mb-8 shadow-md md:shadow-xl">
@@ -925,12 +926,12 @@ export default function Home() {
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute top-3 md:top-5 inset-x-3 md:inset-x-5 flex justify-between items-center opacity-90">
-                      <div className="text-white px-2 md:px-5 py-1 md:py-2 rounded-full text-[11px] md:text-[20px] font-bold shadow-md" style={{ backgroundColor: 'rgba(21, 107, 54, 0.9)' }}>
+                    <div className="absolute top-3 md:top-5 inset-x-3 md:inset-x-5 flex justify-between items-center">
+                      <div className="text-white px-2.5 md:px-4 py-1 md:py-1.5 rounded-full text-[12px] md:text-[20px] font-normal font-arpona shadow-sm" style={{ backgroundColor: 'rgba(21, 107, 54, 0.6)' }}>
                         Veg
                       </div>
-                      <div className="text-white px-2 md:px-5 py-1 md:py-2 rounded-full text-[11px] md:text-[20px] font-bold shadow-md flex items-center gap-1 md:gap-2" style={{ backgroundColor: 'rgba(21, 107, 54, 0.9)' }}>
-                        <Image src="/images/timer.svg" alt="Timer" width={12} height={12} className="brightness-0 invert" />
+                      <div className="text-white px-2.5 md:px-4 py-1 md:py-1.5 rounded-full text-[12px] md:text-[20px] font-normal font-arpona shadow-sm flex items-center gap-1 md:gap-2" style={{ backgroundColor: 'rgba(21, 107, 54, 0.6)' }}>
+                        <Image src="/images/timer.svg" alt="Timer" width={14} height={14} className="brightness-0 invert w-3 md:w-5" />
                         <span>6 Min</span>
                       </div>
                     </div>
@@ -966,12 +967,13 @@ export default function Home() {
             </div>
 
             {/* Non-Vegetarian Recipes - Horizontal scroll on mobile */}
-            <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex overflow-x-auto no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 mb-16 md:mb-32">
+            <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex overflow-x-auto no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8 mb-16 md:mb-32">
               {[
-                { title: "Butter Chicken", desc: "Smooth, buttery, indulgent favourite.", image: "/images/Butter Chicken.jpg" },
-                { title: "Chicken Curry", desc: "Homestyle, well spiced, everyday classic.", image: "/images/chiken curry.jpg" },
-                { title: "Egg Masala (Motta Curry)", desc: "Thick, masaledar, deeply satisfying.", image: "/images/anda-curry-egg-masala-gravy-indian-spicy-food-recipe-served-with-jeera-rice-roti-naan-selective-focus-colourful-wooden-table-top.jpg" },
-                { title: "Mutton Sukka Gravy", desc: "Rich, intense, slow cooked flavours.", image: "/images/Mutton Sukka Gravy.jpg" }
+                { title: "Home Style Chicken Curry", desc: "Simple, soulful, made just like home flavours.", image: "/images/home style chicken.png" },
+                { title: "Dhaba Style Chicken Do Pyaza", desc: "Robust spices with caramelised onion richness.", image: "/images/chicken do pyaza.png" },
+                { title: "Egg Curry", desc: "Thick, masaledar, simple yet satisfying.", image: "/images/egg curry.png" },
+                { title: "Mutton Curry", desc: "Deep, spicy, slow cooked taste in every bite.", image: "/images/mutton curry.png" },
+                { title: "Mutton Sukka", desc: "Spicy, roasted, deeply flavourful classic.", image: "/images/mutton shuka.png" }
               ].map((item, idx) => (
                 <div key={idx} className="flex flex-col group items-start shrink-0 w-[175px] md:w-auto">
                   <div className="relative w-full aspect-[4/5] rounded-[15px] md:rounded-[30px] overflow-hidden mb-4 md:mb-8 shadow-md md:shadow-xl">
@@ -981,12 +983,12 @@ export default function Home() {
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute top-3 md:top-5 inset-x-3 md:inset-x-5 flex justify-between items-center opacity-90">
-                      <div className="text-white px-2 md:px-5 py-1 md:py-2 rounded-full text-[11px] md:text-[20px] font-bold shadow-md" style={{ backgroundColor: 'rgba(125, 23, 16, 0.9)' }}>
+                    <div className="absolute top-3 md:top-5 inset-x-3 md:inset-x-5 flex justify-between items-center">
+                      <div className="text-white px-2.5 md:px-4 py-1 md:py-1.5 rounded-full text-[12px] md:text-[20px] font-normal font-arpona shadow-sm" style={{ backgroundColor: 'rgba(125, 23, 16, 0.6)' }}>
                         Non-veg
                       </div>
-                      <div className="text-white px-2 md:px-5 py-1 md:py-2 rounded-full text-[11px] md:text-[20px] font-bold shadow-md flex items-center gap-1 md:gap-2" style={{ backgroundColor: 'rgba(125, 23, 16, 0.9)' }}>
-                        <Image src="/images/timer.svg" alt="Timer" width={12} height={12} className="brightness-0 invert" />
+                      <div className="text-white px-2.5 md:px-4 py-1 md:py-1.5 rounded-full text-[12px] md:text-[20px] font-normal font-arpona shadow-sm flex items-center gap-1 md:gap-2" style={{ backgroundColor: 'rgba(125, 23, 16, 0.6)' }}>
+                        <Image src="/images/timer.svg" alt="Timer" width={14} height={14} className="brightness-0 invert w-3 md:w-5" />
                         <span>6 Min</span>
                       </div>
                     </div>
@@ -1014,7 +1016,7 @@ export default function Home() {
               className="w-[calc(100%-32px)] md:w-full max-w-[1600px] mx-auto rounded-[15px] pl-2 pr-4 md:pl-4 md:pr-8 py-6 md:py-10 flex flex-row items-center justify-between gap-4 mb-4 md:mb-10 overflow-hidden relative"
               style={{ backgroundColor: 'rgb(21, 107, 54)' }}
             >
-              <div className="flex flex-col items-start text-left z-10 max-w-[65%]">
+              <div className="flex flex-col items-start text-left z-10 max-w-[65%] md:pl-6">
                 <h2 className="font-kura text-[14px] md:text-[55px] leading-tight mb-1 uppercase">
                   <span style={{ color: 'rgb(247, 216, 13)' }}>20+ RECIPES. </span>
                   <span className="text-white">ONE POUCH.</span>

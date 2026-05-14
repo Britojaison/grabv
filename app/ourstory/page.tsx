@@ -161,7 +161,7 @@ export default function OurStoryPage() {
                         <div className="w-[50%] md:w-[40%] flex justify-center md:justify-end">
                             <div className="story-reveal-image relative w-full aspect-[4/5] md:aspect-[581/424] max-w-[320px] md:max-w-[581px] rounded-[15px] md:rounded-[20px] overflow-hidden border-t-[6px] md:border-t-[10px] border-r-[6px] md:border-r-[10px] border-[rgb(247,0,52)] md:-mt-4 shadow-lg">
                                 <Image
-                                    src="/images/ourstory1.webp"
+                                    src="/images/ourstory1.png"
                                     alt="How it started"
                                     fill
                                     className="object-cover"
@@ -196,7 +196,7 @@ export default function OurStoryPage() {
                             <span className="block text-[18px]" style={{ color: 'rgb(247, 0, 52)' }}>behind</span>
                         </h2>
 
-                        <p className="font-arpona font-normal text-[13.5px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                        <p className="font-arpona font-normal text-[13.5px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
                             Grab was born from observing something incredibly common, people were skipping cooking not because they didn&apos;t want to, but because they simply didn&apos;t have the time anymore.
                         </p>
                     </div>
@@ -238,20 +238,18 @@ export default function OurStoryPage() {
 
                             <div className="flex flex-col gap-3 md:gap-5">
                                 {/* Desktop Para 1 */}
-                                <p className="hidden md:block font-arpona font-normal text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                                <p className="hidden md:block font-arpona font-normal text-[18px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
                                     Grab was born from observing something incredibly common, people were skipping cooking not because they didn&apos;t want to, but because they simply didn&apos;t have the time anymore.
                                 </p>
                                 
-                                {/* Para 2 (Visible on both) */}
-                                <p className="font-arpona font-normal text-[13.5px] md:text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                                <p className="font-arpona font-normal text-[13.5px] md:text-[18px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
                                     The idea was never to create another packaged food brand. The goal was to create something that genuinely helped everyday cooking feel easier while still tasting real.
                                 </p>
                                 
-                                {/* Desktop Para 3 & 4 */}
-                                <p className="hidden md:block font-arpona font-normal text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
-                                    That meant building gravies that felt fresh, rich, and dependable. Something that could save nearly an hour in the kitchen without taking away the joy of cooking itself.
+                                <p className="hidden md:block font-arpona font-normal text-[18px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
+                                    That meant building gravies that felt fresh, rich, and dependable. Something that could save nearly an hour in the kitchen without taking away the taste and joy of cooking itself.
                                 </p>
-                                <p className="hidden md:block font-arpona font-normal text-[18px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                                <p className="hidden md:block font-arpona font-normal text-[18px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
                                     After countless trials, recipes, and processes, Grab became a fresh-chilled gravy solution made for the way modern India cooks today.
                                 </p>
                             </div>
@@ -260,10 +258,10 @@ export default function OurStoryPage() {
 
                     {/* Mobile Para 3 & 4 */}
                     <div className="block md:hidden w-full px-4 mt-1 flex flex-col gap-1">
-                        <p className="font-arpona font-normal text-[13.5px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
-                            That meant building gravies that felt fresh, rich, and dependable. Something that could save nearly an hour in the kitchen without taking away the joy of cooking itself.
+                        <p className="font-arpona font-normal text-[13.5px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
+                            That meant building gravies that felt fresh, rich, and dependable. Something that could save nearly an hour in the kitchen without taking away the taste and joy of cooking itself.
                         </p>
-                        <p className="font-arpona font-normal text-[13.5px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
+                        <p className="font-arpona font-normal text-[13.5px] leading-[1.3]" style={{ color: 'rgb(21, 107, 54)' }}>
                             After countless trials, recipes, and processes, Grab became a fresh-chilled gravy solution made for the way modern India cooks today.
                         </p>
                     </div>
