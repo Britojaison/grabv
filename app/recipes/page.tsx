@@ -216,7 +216,7 @@ export default function RecipesPage() {
                   <Image src="/images/leaf.svg" alt="" width={20} height={20} className="w-4 md:w-6 h-4 md:h-6" />
                   <span className="font-arpona font-semibold text-[14px] md:text-[22px] uppercase tracking-wide text-[rgb(21,107,54)]">GrabV Recipes</span>
                 </div>
-                <Image src="/images/border2.svg" alt="" fill className="object-fill pointer-events-none scale-110" />
+                <Image src="/images/border2.svg" alt="" fill className="z-20 object-fill pointer-events-none scale-110" />
               </div>
 
               <h1 className="font-kura uppercase leading-[0.9] mb-4 md:mb-6">
@@ -286,7 +286,7 @@ export default function RecipesPage() {
               {activeRecipes.map((item, index) => {
                 const textFirst = index % 2 === 0;
                 const textBlock = (
-                  <div className="p-5 md:p-8 lg:p-10">
+                  <div className={`p-5 md:p-8 lg:p-10 ${textFirst ? "order-1" : "order-1 md:order-2"}`}>
                     <h2 className="font-kura uppercase text-[32px] md:text-[52px] leading-[0.95] mb-4 text-[rgb(247,0,52)]">{item.title}</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-5">
                       {[
@@ -311,7 +311,7 @@ export default function RecipesPage() {
                   </div>
                 );
                 const imageBlock = (
-                  <div className="relative min-h-[300px] md:min-h-full aspect-[4/3] md:aspect-auto bg-[rgb(239,238,230)]">
+                  <div className={`relative min-h-[300px] md:min-h-full aspect-[4/3] md:aspect-auto bg-[rgb(239,238,230)] ${textFirst ? "order-2" : "order-2 md:order-1"}`}>
                     <Image src={item.image} alt={item.title} fill className="object-cover" sizes="(min-width: 768px) 45vw, 92vw" />
                   </div>
                 );

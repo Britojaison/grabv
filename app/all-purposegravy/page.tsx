@@ -105,17 +105,17 @@ export default function ProductsPage() {
                     {/* Main Product Info Section */}
                     <div className="w-full flex flex-col pt-4 md:pt-2">
 
-                        <div className="w-full flex flex-row md:flex-row gap-3 md:gap-24">
+                        <div className="w-full flex flex-row md:flex-row gap-2 md:gap-24">
 
                             {/* Left: Product Image */}
-                            <div className="w-[45%] md:w-[50%] flex flex-col items-center md:items-start">
+                            <div className="w-[50%] md:w-[50%] flex flex-col items-center md:items-start">
                                 <div className="relative w-full aspect-[1/1.1] md:aspect-square rounded-[20px] md:rounded-[12px] overflow-hidden bg-[#e5e5e5]/40 md:bg-transparent flex items-center justify-center p-2 md:p-6 md:max-w-[580px]">
                                     <div className="relative w-full h-full">
                                         <Image
                                             src="/images/onion_new2.png"
                                             alt="Product Main"
                                             fill
-                                            className="object-contain rounded-[10px]"
+                                            className="object-cover object-bottom scale-[1.22] md:scale-[1.12] rounded-[10px]"
                                             priority
                                         />
                                         {/* Pagination dots inside image area on desktop */}
