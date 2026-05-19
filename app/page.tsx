@@ -53,7 +53,7 @@ export default function Home() {
           {/* Desktop Nav - Hidden on Mobile */}
           <nav className="hidden md:flex items-center gap-12 text-white font-medium">
             <Link href="/" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Home</Link>
-            <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Recipes</Link>
+            <Link href="/recipes" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Recipes</Link>
             <Link href="/products" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Products</Link>
             <Link href="/ourstory" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Our Story</Link>
             <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Contact Us</Link>
@@ -86,7 +86,7 @@ export default function Home() {
             </button>
             <nav className="flex flex-col items-center gap-8 text-white font-arpona font-medium text-[24px]">
               <Link href="/" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Home</Link>
-              <Link href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Recipes</Link>
+              <Link href="/recipes" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Recipes</Link>
               <Link href="/products" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Products</Link>
               <Link href="/ourstory" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Our Story</Link>
               <Link href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Contact Us</Link>
@@ -912,13 +912,13 @@ export default function Home() {
             {/* Vegetarian Recipes - Horizontal scroll on mobile */}
             <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex overflow-x-auto no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8">
               {[
-                { title: "Mutter Paneer", desc: "Soft, creamy, mildly spiced goodness.", image: "/images/mutter panner.png" },
-                { title: "Mix Veg", desc: "Fresh vegetables in a rich, hearty gravy.", image: "/images/mix veg.png" },
-                { title: "Bhindi Masala", desc: "Spicy, sauteed, flavour-packed classic.", image: "/images/bhindi masala.png" },
-                { title: "Aloo Gobhi", desc: "Comforting, homestyle flavours with the perfect spice kick.", image: "/images/aloo gobhi.png" },
-                { title: "Mutter Mushroom", desc: "Earthy mushrooms with a smooth, flavourful finish.", image: "/images/mutter mushrooom.png" }
+                { title: "Mutter Paneer", desc: "Soft, creamy, mildly spiced goodness.", image: "/images/mutter panner.png", href: "/recipes#matar-paneer" },
+                { title: "Mix Veg", desc: "Fresh vegetables in a rich, hearty gravy.", image: "/images/mix veg.png", href: "/recipes#mix-veg" },
+                { title: "Bhindi Masala", desc: "Spicy, sauteed, flavour-packed classic.", image: "/images/bhindi masala.png", href: "/recipes#bhindi-masala" },
+                { title: "Aloo Gobhi", desc: "Comforting, homestyle flavours with the perfect spice kick.", image: "/images/aloo gobhi.png", href: "/recipes#aloo-gobhi" },
+                { title: "Mutter Mushroom", desc: "Earthy mushrooms with a smooth, flavourful finish.", image: "/images/mutter mushrooom.png", href: "/recipes#matar-mushroom" }
               ].map((item, idx) => (
-                <div key={idx} className="flex flex-col group items-start shrink-0 w-[175px] md:w-auto">
+                <Link href={item.href} key={idx} className="flex flex-col group items-start shrink-0 w-[175px] md:w-auto">
                   <div className="relative w-full aspect-[4/5] rounded-[15px] md:rounded-[30px] overflow-hidden mb-4 md:mb-8 shadow-md md:shadow-xl">
                     <Image
                       src={item.image}
@@ -950,7 +950,7 @@ export default function Home() {
                       {item.desc}
                     </p>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
 
@@ -969,13 +969,13 @@ export default function Home() {
             {/* Non-Vegetarian Recipes - Horizontal scroll on mobile */}
             <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex overflow-x-auto no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8 mb-16 md:mb-32">
               {[
-                { title: "Home Style Chicken Curry", desc: "Simple, soulful, made just like home flavours.", image: "/images/home style chicken.png" },
-                { title: "Dhaba Style Chicken Do Pyaza", desc: "Robust spices with caramelised onion richness.", image: "/images/chicken do pyaza.png" },
-                { title: "Egg Curry", desc: "Thick, masaledar, simple yet satisfying.", image: "/images/egg curry.png" },
-                { title: "Mutton Curry", desc: "Deep, spicy, slow cooked taste in every bite.", image: "/images/mutton curry.png" },
-                { title: "Mutton Sukka", desc: "Spicy, roasted, deeply flavourful classic.", image: "/images/mutton shuka.png" }
+                { title: "Home Style Chicken Curry", desc: "Simple, soulful, made just like home flavours.", image: "/images/home style chicken.png", href: "/recipes#homestyle-chicken-curry" },
+                { title: "Dhaba Style Chicken Do Pyaza", desc: "Robust spices with caramelised onion richness.", image: "/images/chicken do pyaza.png", href: "/recipes#dhaba-style-chicken-do-pyaza" },
+                { title: "Egg Curry", desc: "Thick, masaledar, simple yet satisfying.", image: "/images/egg curry.png", href: "/recipes#egg-curry" },
+                { title: "Mutton Curry", desc: "Deep, spicy, slow cooked taste in every bite.", image: "/images/mutton curry.png", href: "/recipes#mutton-curry" },
+                { title: "Mutton Sukka", desc: "Spicy, roasted, deeply flavourful classic.", image: "/images/mutton shuka.png", href: "/recipes#mutton-sukka" }
               ].map((item, idx) => (
-                <div key={idx} className="flex flex-col group items-start shrink-0 w-[175px] md:w-auto">
+                <Link href={item.href} key={idx} className="flex flex-col group items-start shrink-0 w-[175px] md:w-auto">
                   <div className="relative w-full aspect-[4/5] rounded-[15px] md:rounded-[30px] overflow-hidden mb-4 md:mb-8 shadow-md md:shadow-xl">
                     <Image
                       src={item.image}
@@ -1007,7 +1007,7 @@ export default function Home() {
                       {item.desc}
                     </p>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
 
@@ -1353,7 +1353,7 @@ export default function Home() {
                   <Link href="/all-purposegravy">All Purpose Gravy</Link>
                   <Link href="/all-purposegravy">Ingredients</Link>
                   <Link href="/all-purposegravy">How to Use</Link>
-                  <Link href="#">Recipes</Link>
+                  <Link href="/recipes">Recipes</Link>
                 </div>
 
                 <div className="flex flex-col gap-1 mt-2">
@@ -1421,7 +1421,7 @@ export default function Home() {
                 <Link href="/all-purposegravy" className="hover:opacity-80 transition-opacity">All Purpose Gravy</Link>
                 <Link href="/all-purposegravy" className="hover:opacity-80 transition-opacity">Ingredients</Link>
                 <Link href="/all-purposegravy" className="hover:opacity-80 transition-opacity">How to Use</Link>
-                <Link href="#" className="hover:opacity-80 transition-opacity">Recipes</Link>
+                <Link href="/recipes" className="hover:opacity-80 transition-opacity">Recipes</Link>
               </div>
             </div>
 

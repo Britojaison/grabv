@@ -45,7 +45,7 @@ export default function ProductsPage() {
 
                     <nav className="hidden md:flex items-center gap-12 text-white font-medium">
                         <Link href="/" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Home</Link>
-                        <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Recipes</Link>
+                        <Link href="/recipes" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Recipes</Link>
                         <Link href="/products" className="text-[rgb(247,216,13)] transition-colors text-[18px]">Products</Link>
                         <Link href="/ourstory" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Our Story</Link>
                         <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Contact Us</Link>
@@ -78,7 +78,7 @@ export default function ProductsPage() {
                         </button>
                         <nav className="flex flex-col items-center gap-8 text-white font-arpona font-medium text-[24px]">
                             <Link href="/" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Home</Link>
-                            <Link href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Recipes</Link>
+                            <Link href="/recipes" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Recipes</Link>
                             <Link href="/products" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors text-[rgb(247,216,13)]">Products</Link>
                             <Link href="/ourstory" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Our Story</Link>
                             <Link href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Contact Us</Link>
@@ -105,17 +105,17 @@ export default function ProductsPage() {
                     {/* Main Product Info Section */}
                     <div className="w-full flex flex-col pt-4 md:pt-2">
 
-                        <div className="w-full flex flex-row md:flex-row gap-3 md:gap-24">
+                        <div className="w-full flex flex-row md:flex-row gap-2 md:gap-24">
 
                             {/* Left: Product Image */}
-                            <div className="w-[45%] md:w-[50%] flex flex-col items-center md:items-start">
+                            <div className="w-[50%] md:w-[50%] flex flex-col items-center md:items-start">
                                 <div className="relative w-full aspect-[1/1.1] md:aspect-square rounded-[20px] md:rounded-[12px] overflow-hidden bg-[#e5e5e5]/40 md:bg-transparent flex items-center justify-center p-2 md:p-6 md:max-w-[580px]">
                                     <div className="relative w-full h-full">
                                         <Image
                                             src="/images/onion_new2.png"
                                             alt="Product Main"
                                             fill
-                                            className="object-contain rounded-[10px]"
+                                            className="object-cover object-bottom scale-[1.22] md:scale-[1.12] rounded-[10px]"
                                             priority
                                         />
                                         {/* Pagination dots inside image area on desktop */}
@@ -575,7 +575,7 @@ export default function ProductsPage() {
                                     <Link href="/all-purposegravy">All Purpose Gravy</Link>
                                     <Link href="/all-purposegravy#ingredients">Ingredients</Link>
                                     <Link href="/all-purposegravy#how-to-use">How to Use</Link>
-                                    <Link href="#">Recipes</Link>
+                                    <Link href="/recipes">Recipes</Link>
                                 </div>
                                 <div className="flex flex-col gap-1 mt-2">
                                     <span className="text-[11px] font-bold font-arpona text-white">Follow Us</span>
@@ -638,7 +638,7 @@ export default function ProductsPage() {
                                 <Link href="/all-purposegravy" className="hover:opacity-80 transition-opacity">All Purpose Gravy</Link>
                                 <Link href="/all-purposegravy#ingredients" className="hover:opacity-80 transition-opacity">Ingredients</Link>
                                 <Link href="/all-purposegravy#how-to-use" className="hover:opacity-80 transition-opacity">How to Use</Link>
-                                <Link href="#" className="hover:opacity-80 transition-opacity">Recipes</Link>
+                                <Link href="/recipes" className="hover:opacity-80 transition-opacity">Recipes</Link>
                             </div>
                         </div>
                         <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>

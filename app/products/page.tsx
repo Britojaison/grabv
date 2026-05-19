@@ -44,7 +44,7 @@ export default function ProductsListPage() {
 
                     <nav className="hidden md:flex items-center gap-12 text-white font-medium">
                         <Link href="/" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Home</Link>
-                        <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Recipes</Link>
+                        <Link href="/recipes" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Recipes</Link>
                         <Link href="/products" className="text-[rgb(247,216,13)] transition-colors text-[18px]">Products</Link>
                         <Link href="/ourstory" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Our Story</Link>
                         <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Contact Us</Link>
@@ -77,7 +77,7 @@ export default function ProductsListPage() {
                         </button>
                         <nav className="flex flex-col items-center gap-8 text-white font-arpona font-medium text-[24px]">
                             <Link href="/" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Home</Link>
-                            <Link href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Recipes</Link>
+                            <Link href="/recipes" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Recipes</Link>
                             <Link href="/products" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors text-[rgb(247,216,13)]">Products</Link>
                             <Link href="/ourstory" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Our Story</Link>
                             <Link href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Contact Us</Link>
@@ -109,7 +109,7 @@ export default function ProductsListPage() {
 
                         <div className="w-full flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible gap-4 md:gap-10 pb-4 md:pb-0 no-scrollbar px-4 md:px-0">
                             {[
-                                { status: 'active', title: 'Onion Tomato Gravy', image: '/images/onion_new.png' },
+                                { status: 'active', title: 'Onion Tomato Gravy', image: '/images/onion_new2.png' },
                                 { status: 'coming_soon', title: 'Smoked Makhani Gravy', image: '/images/smoked makani.png' },
                                 { status: 'coming_soon', title: 'Smoked Makhani Gravy', image: '/images/smoked makani.png' }
                             ].map((item, idx) => (
@@ -120,7 +120,7 @@ export default function ProductsListPage() {
                                             src={item.image}
                                             alt={item.title}
                                             fill
-                                            className={`${idx === 0 ? 'object-contain mix-blend-multiply' : 'object-cover object-bottom scale-[1.45] group-hover:scale-[1.48]'} transition-transform duration-500 ${item.status === 'coming_soon' ? 'grayscale opacity-60' : ''}`}
+                                            className={`object-cover object-bottom scale-[1.45] group-hover:scale-[1.48] transition-transform duration-500 ${item.status === 'coming_soon' ? 'grayscale opacity-60' : ''}`}
                                         />
                                         {/* Coming Soon Badge */}
                                         {item.status === 'coming_soon' && (
@@ -215,7 +215,7 @@ export default function ProductsListPage() {
                                     <Link href="/all-purposegravy">All Purpose Gravy</Link>
                                     <Link href="/all-purposegravy#ingredients">Ingredients</Link>
                                     <Link href="/all-purposegravy#how-to-use">How to Use</Link>
-                                    <Link href="#">Recipes</Link>
+                                    <Link href="/recipes">Recipes</Link>
                                 </div>
                                 <div className="flex flex-col gap-1 mt-2">
                                     <span className="text-[11px] font-bold font-arpona text-white">Follow Us</span>
@@ -282,7 +282,7 @@ export default function ProductsListPage() {
                                 <Link href="/all-purposegravy" className="hover:opacity-80 transition-opacity">All Purpose Gravy</Link>
                                 <Link href="/all-purposegravy#ingredients" className="hover:opacity-80 transition-opacity">Ingredients</Link>
                                 <Link href="/all-purposegravy#how-to-use" className="hover:opacity-80 transition-opacity">How to Use</Link>
-                                <Link href="#" className="hover:opacity-80 transition-opacity">Recipes</Link>
+                                <Link href="/recipes" className="hover:opacity-80 transition-opacity">Recipes</Link>
                             </div>
                         </div>
 
