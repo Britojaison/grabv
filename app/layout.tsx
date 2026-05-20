@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import ImageDownloadProtection from "./ImageDownloadProtection";
+import TextPopAnimator from "./TextPopAnimator";
 import "./globals.css";
 
 const kuraDisplay = localFont({
@@ -51,7 +53,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning={true} className={`h-full antialiased ${kuraDisplay.variable} ${arponaSans.variable}`}>
-      <body suppressHydrationWarning={true} className="min-h-full flex flex-col font-arpona">{children}</body>
+      <body suppressHydrationWarning={true} className="min-h-full flex flex-col font-arpona">
+        <ImageDownloadProtection />
+        <TextPopAnimator />
+        {children}
+      </body>
     </html>
   );
 }
