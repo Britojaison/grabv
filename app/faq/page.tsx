@@ -140,10 +140,9 @@ export default function FAQPage() {
             </header>
 
             <main className="w-full flex-1" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
-                <section className="relative overflow-hidden px-3 md:px-8 py-12 md:py-20">
-                    <div className="absolute inset-x-0 top-0 h-[260px] md:h-[360px] z-0" style={{ backgroundColor: 'rgb(21, 107, 54)' }} />
-                    <div className="relative z-10 w-full max-w-[1380px] mx-auto">
-                        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 md:gap-10 mb-8 md:mb-14">
+                <section className="px-3 md:px-8 py-12 md:py-20" style={{ backgroundColor: 'rgb(21, 107, 54)' }}>
+                    <div className="w-full max-w-[1380px] mx-auto">
+                        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 md:gap-10">
                             <div>
                                 <p className="font-arpona font-semibold text-[14px] md:text-[22px] uppercase tracking-wide mb-3" style={{ color: 'rgb(247, 216, 13)' }}>
                                     GrabV Help
@@ -157,7 +156,11 @@ export default function FAQPage() {
                                 Everything you need to know about storing, cooking, and enjoying GrabV.
                             </p>
                         </div>
+                    </div>
+                </section>
 
+                <section className="px-3 md:px-8 pt-10 md:pt-16 pb-12 md:pb-20">
+                    <div className="w-full max-w-[1380px] mx-auto">
                         <div className="grid grid-cols-1 gap-3 md:hidden">
                             {faqs.map((faq, index) => (
                                 <details
