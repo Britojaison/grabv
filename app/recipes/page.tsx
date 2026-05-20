@@ -31,7 +31,7 @@ const recipes = {
     {
       title: "Bhindi Masala",
       slug: "bhindi-masala",
-      image: "/images/bhindi masala.png",
+      image: "/images/hf_20260520_124216_6b93a302-8202-4d71-9ed1-b179a1a555e2.png",
       serves: "2",
       cookTime: "10 minutes",
       timeSaved: "20 to 25 minutes",

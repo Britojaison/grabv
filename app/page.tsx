@@ -192,7 +192,7 @@ export default function Home() {
           <div className="md:hidden absolute right-[-40px] top-[-30px] w-[300px] h-[600px] z-40 pointer-events-none">
             <div className="relative w-full h-full">
               <Image
-                src="/images/Gravy pouring.svg"
+                src="/images/new.png"
                 alt="Gravy Flow"
                 fill
                 className="object-contain object-top-right"
@@ -222,7 +222,7 @@ export default function Home() {
           style={{ width: '720px', height: '1368px', top: '-40px' }}
         >
           <Image
-            src="/images/Gravy pouring.svg"
+            src="/images/new.png"
             alt="Gravy Flow"
             fill
             className="object-contain"
