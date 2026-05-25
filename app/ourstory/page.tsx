@@ -343,12 +343,12 @@ export default function OurStoryPage() {
                                 {[
                                     { icon: "/images/timer2.svg", text: "Ready in 7 mins" },
                                     { icon: "/images/slow.svg", text: "Slow cooked" },
-                                    { icon: "/images/FSSAI (1).svg", text: "FSSAI Certified" },
+                                    { icon: "/images/fssai.svg", text: "FSSAI Certified" },
                                     { icon: "/images/tick2.svg", text: "Zero Preservatives" },
                                     { icon: "/images/cold.svg", text: "Cold Chain Packed" },
                                     { icon: "/images/timer2.svg", text: "Ready in 7 mins" },
                                     { icon: "/images/slow.svg", text: "Slow cooked" },
-                                    { icon: "/images/FSSAI (1).svg", text: "FSSAI Certified" },
+                                    { icon: "/images/fssai.svg", text: "FSSAI Certified" },
                                     { icon: "/images/tick2.svg", text: "Zero Preservatives" },
                                     { icon: "/images/cold.svg", text: "Cold Chain Packed" },
                                 ].map((item, idx) => (
@@ -373,7 +373,7 @@ export default function OurStoryPage() {
                                     {[
                                         { icon: "/images/timer2.svg", text: "Ready in 7 mins" },
                                         { icon: "/images/slow.svg", text: "Slow cooked" },
-                                        { icon: "/images/FSSAI (1).svg", text: "FSSAI Certified" },
+                                        { icon: "/images/fssai.svg", text: "FSSAI Certified" },
                                     ].map((item, idx) => (
                                         <div key={idx} className="bg-[rgb(239,238,230)] rounded-full px-8 py-3.5 flex items-center gap-3 text-[rgb(21,107,54)]">
                                             <div className="relative w-8 h-8 shrink-0">

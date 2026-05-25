@@ -11,7 +11,7 @@ const recipes = {
     {
       title: "Matar Paneer",
       slug: "matar-paneer",
-      image: "/images/muttar panner.png",
+      image: "/images/mutter panner.png",
       serves: "2",
       cookTime: "10 to 12 minutes",
       timeSaved: "22 to 25 minutes",
@@ -21,7 +21,7 @@ const recipes = {
     {
       title: "Mix Veg",
       slug: "mix-veg",
-      image: "/images/mix veg copy.png",
+      image: "/images/mix veg.png",
       serves: "2",
       cookTime: "10 to 15 minutes",
       timeSaved: "22 to 25 minutes",
@@ -31,7 +31,7 @@ const recipes = {
     {
       title: "Bhindi Masala",
       slug: "bhindi-masala",
-      image: "/images/hf_20260520_124216_6b93a302-8202-4d71-9ed1-b179a1a555e2.png",
+      image: "/images/bhindi masala.png",
       serves: "2",
       cookTime: "10 minutes",
       timeSaved: "20 to 25 minutes",
@@ -41,7 +41,7 @@ const recipes = {
     {
       title: "Aloo Gobhi",
       slug: "aloo-gobhi",
-      image: "/images/aalo gobi.png",
+      image: "/images/aloo gobhi.png",
       serves: "2",
       cookTime: "10 to 15 minutes",
       timeSaved: "20 to 25 minutes",
@@ -51,7 +51,7 @@ const recipes = {
     {
       title: "Matar Mushroom",
       slug: "matar-mushroom",
-      image: "/images/muttar mushroom.png",
+      image: "/images/mutter mushrooom.png",
       serves: "2",
       cookTime: "10 to 12 minutes",
       timeSaved: "22 to 25 minutes",
@@ -63,7 +63,7 @@ const recipes = {
     {
       title: "Homestyle Chicken Curry",
       slug: "homestyle-chicken-curry",
-      image: "/images/home cooked chicken.png",
+      image: "/images/home style chicken.png",
       serves: "2",
       cookTime: "10 to 15 minutes",
       timeSaved: "22 to 25 minutes",
@@ -73,7 +73,7 @@ const recipes = {
     {
       title: "Dhaba Style Chicken Do Pyaza",
       slug: "dhaba-style-chicken-do-pyaza",
-      image: "/images/do payaza.png",
+      image: "/images/chicken do pyaza.png",
       serves: "2",
       cookTime: "10 to 15 minutes",
       timeSaved: "22 to 25 minutes",
@@ -83,7 +83,7 @@ const recipes = {
     {
       title: "Egg Curry",
       slug: "egg-curry",
-      image: "/images/egg curry copy.png",
+      image: "/images/egg curry.png",
       serves: "2",
       cookTime: "10 minutes",
       timeSaved: "20 to 25 minutes",
@@ -93,7 +93,7 @@ const recipes = {
     {
       title: "Mutton Curry",
       slug: "mutton-curry",
-      image: "/images/mutton curry copy.png",
+      image: "/images/mutton curry.png",
       serves: "2",
       cookTime: "15 to 20 minutes",
       timeSaved: "25 to 30 minutes",
@@ -103,7 +103,7 @@ const recipes = {
     {
       title: "Mutton Sukka",
       slug: "mutton-sukka",
-      image: "/images/mutton sukha.png",
+      image: "/images/mutton shuka.png",
       serves: "2",
       cookTime: "15 to 20 minutes",
       timeSaved: "20 to 25 minutes",
@@ -229,7 +229,7 @@ export default function RecipesPage() {
             </div>
 
             <div className="relative w-full md:w-[42%] max-w-[520px] aspect-[5/4]">
-              <Image src={isVeg ? "/images/muttar panner.png" : "/images/home cooked chicken.png"} alt={isVeg ? "Mutter Paneer" : "Home Style Chicken Curry"} fill className="object-cover rounded-[18px] md:rounded-[28px] border-[6px] md:border-[10px] border-[rgb(247,216,13)] shadow-2xl" priority />
+              <Image src={isVeg ? "/images/mutter panner.png" : "/images/home style chicken.png"} alt={isVeg ? "Mutter Paneer" : "Home Style Chicken Curry"} fill className="object-cover rounded-[18px] md:rounded-[28px] border-[6px] md:border-[10px] border-[rgb(247,216,13)] shadow-2xl" priority />
             </div>
           </div>
         </section>

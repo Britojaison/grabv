@@ -285,7 +285,7 @@ export default function Home() {
                   className="rounded-full px-7 py-3 flex items-center gap-3 shadow-sm"
                 >
                   <div className="w-[30px] h-[30px] relative">
-                    <Image src="/images/FSSAI (1).svg" alt="FSSAI Certified" fill className="object-contain" />
+                    <Image src="/images/fssai.svg" alt="FSSAI Certified" fill className="object-contain" />
                   </div>
                   <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-arpona whitespace-nowrap">FSSAI Certified</span>
                 </div>
@@ -912,11 +912,11 @@ export default function Home() {
             {/* Vegetarian Recipes - Horizontal scroll on mobile */}
             <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex overflow-x-auto md:overflow-visible no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8">
               {[
-                { title: "Mutter Paneer", desc: "Soft, creamy, mildly spiced goodness.", image: "/images/muttar panner.png", href: "/recipes#matar-paneer" },
-                { title: "Mix Veg", desc: "Fresh vegetables in a rich, hearty gravy.", image: "/images/mix veg copy.png", href: "/recipes#mix-veg" },
+                { title: "Mutter Paneer", desc: "Soft, creamy, mildly spiced goodness.", image: "/images/mutter panner.png", href: "/recipes#matar-paneer" },
+                { title: "Mix Veg", desc: "Fresh vegetables in a rich, hearty gravy.", image: "/images/mix veg.png", href: "/recipes#mix-veg" },
                 { title: "Bhindi Masala", desc: "Spicy, sauteed, flavour-packed classic.", image: "/images/bhindi masala.png", href: "/recipes#bhindi-masala" },
-                { title: "Aloo Gobhi", desc: "Comforting, homestyle flavours with the perfect spice kick.", image: "/images/aalo gobi.png", href: "/recipes#aloo-gobhi" },
-                { title: "Mutter Mushroom", desc: "Earthy mushrooms with a smooth, flavourful finish.", image: "/images/muttar mushroom.png", href: "/recipes#matar-mushroom" }
+                { title: "Aloo Gobhi", desc: "Comforting, homestyle flavours with the perfect spice kick.", image: "/images/aloo gobhi.png", href: "/recipes#aloo-gobhi" },
+                { title: "Mutter Mushroom", desc: "Earthy mushrooms with a smooth, flavourful finish.", image: "/images/mutter mushrooom.png", href: "/recipes#matar-mushroom" }
               ].map((item, idx) => (
                 <Link href={item.href} key={idx} className="flex flex-col group items-start shrink-0 w-[175px] md:w-auto">
                   <div className="relative w-full aspect-[4/5] rounded-[15px] md:rounded-[30px] overflow-hidden mb-4 md:mb-8 shadow-md md:shadow-xl">
@@ -969,11 +969,11 @@ export default function Home() {
             {/* Non-Vegetarian Recipes - Horizontal scroll on mobile */}
             <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex overflow-x-auto md:overflow-visible no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8 mb-16 md:mb-32">
               {[
-                { title: "Home Style Chicken Curry", desc: "Simple, soulful, made just like home flavours.", image: "/images/home cooked chicken.png", href: "/recipes#homestyle-chicken-curry" },
-                { title: "Dhaba Style Chicken Do Pyaza", desc: "Robust spices with caramelised onion richness.", image: "/images/do payaza.png", href: "/recipes#dhaba-style-chicken-do-pyaza" },
-                { title: "Egg Curry", desc: "Thick, masaledar, simple yet satisfying.", image: "/images/egg curry copy.png", href: "/recipes#egg-curry" },
-                { title: "Mutton Curry", desc: "Deep, spicy, slow cooked taste in every bite.", image: "/images/mutton curry copy.png", href: "/recipes#mutton-curry" },
-                { title: "Mutton Sukka", desc: "Spicy, roasted, deeply flavourful classic.", image: "/images/mutton sukha.png", href: "/recipes#mutton-sukka" }
+                { title: "Home Style Chicken Curry", desc: "Simple, soulful, made just like home flavours.", image: "/images/home style chicken.png", href: "/recipes#homestyle-chicken-curry" },
+                { title: "Dhaba Style Chicken Do Pyaza", desc: "Robust spices with caramelised onion richness.", image: "/images/chicken do pyaza.png", href: "/recipes#dhaba-style-chicken-do-pyaza" },
+                { title: "Egg Curry", desc: "Thick, masaledar, simple yet satisfying.", image: "/images/egg curry.png", href: "/recipes#egg-curry" },
+                { title: "Mutton Curry", desc: "Deep, spicy, slow cooked taste in every bite.", image: "/images/mutton curry.png", href: "/recipes#mutton-curry" },
+                { title: "Mutton Sukka", desc: "Spicy, roasted, deeply flavourful classic.", image: "/images/mutton shuka.png", href: "/recipes#mutton-sukka" }
               ].map((item, idx) => (
                 <Link href={item.href} key={idx} className="flex flex-col group items-start shrink-0 w-[175px] md:w-auto">
                   <div className="relative w-full aspect-[4/5] rounded-[15px] md:rounded-[30px] overflow-hidden mb-4 md:mb-8 shadow-md md:shadow-xl">
