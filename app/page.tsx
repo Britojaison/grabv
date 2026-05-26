@@ -284,8 +284,8 @@ export default function Home() {
                   style={{ backgroundColor: 'rgb(247, 216, 13)' }}
                   className="rounded-full px-7 py-3 flex items-center gap-3 shadow-sm"
                 >
-                  <div className="w-[30px] h-[30px] relative">
-                    <Image src="/images/fssai.svg" alt="FSSAI Certified" fill className="object-contain" />
+                  <div className="w-[56px] h-[28px] relative shrink-0">
+                    <Image src="/images/objects.svg" alt="FSSAI Certified" fill className="object-contain" />
                   </div>
                   <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-arpona whitespace-nowrap">FSSAI Certified</span>
                 </div>
