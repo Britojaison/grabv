@@ -72,8 +72,8 @@ export default function OurStoryPage() {
                         <Link href="/recipes" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Recipes</Link>
                         <Link href="/products" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Products</Link>
                         <Link href="/ourstory" className="text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Our Story</Link>
-                        <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Contact Us</Link>
-                        <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">FAQ</Link>
+                        <Link href="/contact" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Contact Us</Link>
+                        <Link href="/faq" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">FAQ</Link>
                     </nav>
 
                     <button
@@ -105,8 +105,8 @@ export default function OurStoryPage() {
                             <Link href="/recipes" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Recipes</Link>
                             <Link href="/products" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Products</Link>
                             <Link href="/ourstory" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors text-[rgb(247,216,13)]">Our Story</Link>
-                            <Link href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Contact Us</Link>
-                            <Link href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">FAQ</Link>
+                            <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Contact Us</Link>
+                            <Link href="/faq" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">FAQ</Link>
                             <button 
                                 style={{ backgroundColor: 'rgb(247, 216, 13)', color: 'rgb(12, 61, 27)' }}
                                 className="mt-4 px-10 py-3 rounded-full font-bold text-[18px] hover:bg-yellow-400 transition-colors"
@@ -401,7 +401,8 @@ export default function OurStoryPage() {
                     </div>
                 </section>
 
-                {/* Amit Shah Section */}
+                {/* Amit Shah Section hidden by request. Keep this content in code for future restore. */}
+                {false && (
                 <section className="w-full py-12 md:py-24 flex flex-col items-center overflow-hidden">
                     {/* Mobile View Section (Side-by-side) */}
                     <div className="md:hidden w-full max-w-[1600px] mx-auto px-4 flex flex-col gap-8">
@@ -495,6 +496,7 @@ export default function OurStoryPage() {
                         </div>
                     </div>
                 </section>
+                )}
             </main>
 
             {/* New Grid Footer Section */}
@@ -519,7 +521,7 @@ export default function OurStoryPage() {
                                     <Link href="/ourstory">Our Story</Link>
                                     <Link href="/#process">Process</Link>
                                     <Link href="/#quality">Quality Promise</Link>
-                                    <Link href="#">Contact Us</Link>
+                                    <Link href="/contact">Contact Us</Link>
                                 </div>
                             </div>
                         </div>
@@ -598,7 +600,7 @@ export default function OurStoryPage() {
                                 <Link href="/ourstory" className="hover:opacity-80 transition-opacity">Our Story</Link>
                                 <Link href="/#process" className="hover:opacity-80 transition-opacity">Process</Link>
                                 <Link href="/#quality" className="hover:text-[rgb(247,216,13)] transition-colors">Quality Promise</Link>
-                                <Link href="#" className="hover:opacity-80 transition-opacity">Contact Us</Link>
+                                <Link href="/contact" className="hover:opacity-80 transition-opacity">Contact Us</Link>
                             </div>
                         </div>
 

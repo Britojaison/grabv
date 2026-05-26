@@ -47,8 +47,8 @@ export default function ProductsListPage() {
                         <Link href="/recipes" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Recipes</Link>
                         <Link href="/products" className="text-[rgb(247,216,13)] transition-colors text-[18px]">Products</Link>
                         <Link href="/ourstory" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Our Story</Link>
-                        <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Contact Us</Link>
-                        <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">FAQ</Link>
+                        <Link href="/contact" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Contact Us</Link>
+                        <Link href="/faq" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">FAQ</Link>
                     </nav>
 
                     <button
@@ -80,8 +80,8 @@ export default function ProductsListPage() {
                             <Link href="/recipes" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Recipes</Link>
                             <Link href="/products" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors text-[rgb(247,216,13)]">Products</Link>
                             <Link href="/ourstory" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Our Story</Link>
-                            <Link href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Contact Us</Link>
-                            <Link href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">FAQ</Link>
+                            <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Contact Us</Link>
+                            <Link href="/faq" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">FAQ</Link>
                             <button
                                 style={{ backgroundColor: 'rgb(247, 216, 13)', color: 'rgb(12, 61, 27)' }}
                                 className="mt-4 px-10 py-3 rounded-full font-bold text-[18px] hover:bg-yellow-400 transition-colors"
@@ -109,7 +109,7 @@ export default function ProductsListPage() {
 
                         <div className="w-full flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible gap-4 md:gap-10 pb-4 md:pb-0 no-scrollbar px-4 md:px-0">
                             {[
-                                { status: 'active', title: 'Onion Tomato Gravy', image: '/images/onion_new2.png' },
+                                { status: 'active', title: 'Onion Tomato Gravy', image: '/images/APGArtboard-1 (3).png' },
                                 { status: 'coming_soon', title: 'Smoked Makhani Gravy', image: '/images/smoked makani.png' },
                                 { status: 'coming_soon', title: 'Smoked Makhani Gravy', image: '/images/smoked makani.png' }
                             ].map((item, idx) => (
@@ -120,7 +120,11 @@ export default function ProductsListPage() {
                                             src={item.image}
                                             alt={item.title}
                                             fill
-                                            className={`object-cover object-bottom scale-[1.45] group-hover:scale-[1.48] transition-transform duration-500 ${item.status === 'coming_soon' ? 'grayscale opacity-60' : ''}`}
+                                            className={`object-cover transition-transform duration-500 ${
+                                                item.status === 'coming_soon'
+                                                    ? 'object-bottom scale-[1.45] group-hover:scale-[1.48] grayscale opacity-60'
+                                                    : 'object-center scale-[1.36] -translate-y-[16px] group-hover:scale-[1.38] md:object-bottom md:scale-[1.34] md:-translate-y-[28px] md:group-hover:scale-[1.37]'
+                                                }`}
                                         />
                                         {/* Coming Soon Badge */}
                                         {item.status === 'coming_soon' && (
@@ -195,7 +199,7 @@ export default function ProductsListPage() {
                                     <Link href="/ourstory">Our Story</Link>
                                     <Link href="/#process">Process</Link>
                                     <Link href="/#quality">Quality Promise</Link>
-                                    <Link href="#">Contact Us</Link>
+                                    <Link href="/contact">Contact Us</Link>
                                 </div>
                             </div>
                         </div>
@@ -271,7 +275,7 @@ export default function ProductsListPage() {
                                 <Link href="/ourstory" className="hover:opacity-80 transition-opacity">Our Story</Link>
                                 <Link href="/#process" className="hover:opacity-80 transition-opacity">Process</Link>
                                 <Link href="/#quality" className="hover:text-[rgb(247,216,13)] transition-colors">Quality Promise</Link>
-                                <Link href="#" className="hover:opacity-80 transition-opacity">Contact Us</Link>
+                                <Link href="/contact" className="hover:opacity-80 transition-opacity">Contact Us</Link>
                             </div>
                         </div>
 

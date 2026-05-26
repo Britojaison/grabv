@@ -56,8 +56,8 @@ export default function Home() {
             <Link href="/recipes" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Recipes</Link>
             <Link href="/products" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Products</Link>
             <Link href="/ourstory" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Our Story</Link>
-            <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Contact Us</Link>
-            <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">FAQ</Link>
+            <Link href="/contact" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Contact Us</Link>
+            <Link href="/faq" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">FAQ</Link>
           </nav>
 
           <button
@@ -89,8 +89,8 @@ export default function Home() {
               <Link href="/recipes" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Recipes</Link>
               <Link href="/products" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Products</Link>
               <Link href="/ourstory" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Our Story</Link>
-              <Link href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Contact Us</Link>
-              <Link href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">FAQ</Link>
+              <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Contact Us</Link>
+              <Link href="/faq" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">FAQ</Link>
               <button
                 style={{ backgroundColor: 'rgb(247, 216, 13)', color: 'rgb(12, 61, 27)' }}
                 className="mt-4 px-10 py-3 rounded-full font-bold text-[18px] hover:bg-yellow-400 transition-colors"
@@ -140,7 +140,7 @@ export default function Home() {
               {/* Yellow Pill Background */}
               <div
                 style={{ backgroundColor: 'rgb(247, 216, 13)' }}
-                className="w-fit px-4 md:px-8 h-[40px] md:h-[60px] rounded-full flex items-center justify-center gap-2 md:gap-3 relative z-10 shadow-md"
+                className="text-pop-label w-fit px-4 md:px-8 h-[40px] md:h-[60px] rounded-full flex items-center justify-center gap-2 md:gap-3 relative z-10 shadow-md"
               >
                 <div className="relative w-[18px] h-[18px] md:w-[27px] md:h-[27px] shrink-0" style={{ filter: 'brightness(0) invert(34%) sepia(35%) saturate(1048%) hue-rotate(97deg) brightness(93%) contrast(92%)' }}>
                   <Image
@@ -181,7 +181,7 @@ export default function Home() {
             <div className="flex flex-wrap lg:flex-nowrap items-center gap-4">
               <Link
                 href="/products"
-                className="bg-[rgb(17,82,40)] border border-transparent text-white rounded-full px-6 md:px-12 py-2.5 md:py-4 text-[18px] md:text-[30px] font-arpona font-semibold hover:bg-brand-yellow hover:text-[rgb(17,82,40)] transition-all shadow-sm whitespace-nowrap uppercase tracking-wide"
+                className="text-pop-label bg-[rgb(17,82,40)] border border-transparent text-white rounded-full px-6 md:px-12 py-2.5 md:py-4 text-[18px] md:text-[30px] font-arpona font-semibold hover:bg-brand-yellow hover:text-[rgb(17,82,40)] transition-all shadow-sm whitespace-nowrap uppercase tracking-wide"
               >
                 Grab Your Packs
               </Link>
@@ -192,7 +192,7 @@ export default function Home() {
           <div className="md:hidden absolute right-[-40px] top-[-30px] w-[300px] h-[600px] z-40 pointer-events-none">
             <div className="relative w-full h-full">
               <Image
-                src="/images/Gravy pouring.svg"
+                src="/images/new.png"
                 alt="Gravy Flow"
                 fill
                 className="object-contain object-top-right"
@@ -222,7 +222,7 @@ export default function Home() {
           style={{ width: '720px', height: '1368px', top: '-40px' }}
         >
           <Image
-            src="/images/Gravy pouring.svg"
+            src="/images/new.png"
             alt="Gravy Flow"
             fill
             className="object-contain"
@@ -910,13 +910,13 @@ export default function Home() {
             </div>
 
             {/* Vegetarian Recipes - Horizontal scroll on mobile */}
-            <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex overflow-x-auto no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8">
+            <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex overflow-x-auto md:overflow-visible no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8">
               {[
-                { title: "Mutter Paneer", desc: "Soft, creamy, mildly spiced goodness.", image: "/images/mutter panner.png", href: "/recipes#matar-paneer" },
-                { title: "Mix Veg", desc: "Fresh vegetables in a rich, hearty gravy.", image: "/images/mix veg.png", href: "/recipes#mix-veg" },
+                { title: "Mutter Paneer", desc: "Soft, creamy, mildly spiced goodness.", image: "/images/muttar panner.png", href: "/recipes#matar-paneer" },
+                { title: "Mix Veg", desc: "Fresh vegetables in a rich, hearty gravy.", image: "/images/mix veg copy.png", href: "/recipes#mix-veg" },
                 { title: "Bhindi Masala", desc: "Spicy, sauteed, flavour-packed classic.", image: "/images/bhindi masala.png", href: "/recipes#bhindi-masala" },
-                { title: "Aloo Gobhi", desc: "Comforting, homestyle flavours with the perfect spice kick.", image: "/images/aloo gobhi.png", href: "/recipes#aloo-gobhi" },
-                { title: "Mutter Mushroom", desc: "Earthy mushrooms with a smooth, flavourful finish.", image: "/images/mutter mushrooom.png", href: "/recipes#matar-mushroom" }
+                { title: "Aloo Gobhi", desc: "Comforting, homestyle flavours with the perfect spice kick.", image: "/images/aalo gobi.png", href: "/recipes#aloo-gobhi" },
+                { title: "Mutter Mushroom", desc: "Earthy mushrooms with a smooth, flavourful finish.", image: "/images/muttar mushroom.png", href: "/recipes#matar-mushroom" }
               ].map((item, idx) => (
                 <Link href={item.href} key={idx} className="flex flex-col group items-start shrink-0 w-[175px] md:w-auto">
                   <div className="relative w-full aspect-[4/5] rounded-[15px] md:rounded-[30px] overflow-hidden mb-4 md:mb-8 shadow-md md:shadow-xl">
@@ -926,12 +926,12 @@ export default function Home() {
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute top-3 md:top-5 inset-x-3 md:inset-x-5 flex justify-between items-center">
-                      <div className="text-white px-2.5 md:px-4 py-1 md:py-1.5 rounded-full text-[12px] md:text-[20px] font-normal font-arpona shadow-sm" style={{ backgroundColor: 'rgba(21, 107, 54, 0.6)' }}>
+                    <div className="absolute top-3 md:top-4 inset-x-3 md:inset-x-4 flex justify-between items-center">
+                      <div className="text-white px-2.5 md:px-3 py-1 rounded-full text-[12px] md:text-[14px] font-normal font-arpona shadow-sm" style={{ backgroundColor: 'rgba(21, 107, 54, 0.6)' }}>
                         Veg
                       </div>
-                      <div className="text-white px-2.5 md:px-4 py-1 md:py-1.5 rounded-full text-[12px] md:text-[20px] font-normal font-arpona shadow-sm flex items-center gap-1 md:gap-2" style={{ backgroundColor: 'rgba(21, 107, 54, 0.6)' }}>
-                        <Image src="/images/timer.svg" alt="Timer" width={14} height={14} className="brightness-0 invert w-3 md:w-5" />
+                      <div className="text-white px-2.5 md:px-3 py-1 rounded-full text-[12px] md:text-[14px] font-normal font-arpona shadow-sm flex items-center gap-1 md:gap-1.5" style={{ backgroundColor: 'rgba(21, 107, 54, 0.6)' }}>
+                        <Image src="/images/timer.svg" alt="Timer" width={14} height={14} className="brightness-0 invert w-3 md:w-4" />
                         <span>6 Min</span>
                       </div>
                     </div>
@@ -967,13 +967,13 @@ export default function Home() {
             </div>
 
             {/* Non-Vegetarian Recipes - Horizontal scroll on mobile */}
-            <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex overflow-x-auto no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8 mb-16 md:mb-32">
+            <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex overflow-x-auto md:overflow-visible no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8 mb-16 md:mb-32">
               {[
-                { title: "Home Style Chicken Curry", desc: "Simple, soulful, made just like home flavours.", image: "/images/home style chicken.png", href: "/recipes#homestyle-chicken-curry" },
-                { title: "Dhaba Style Chicken Do Pyaza", desc: "Robust spices with caramelised onion richness.", image: "/images/chicken do pyaza.png", href: "/recipes#dhaba-style-chicken-do-pyaza" },
-                { title: "Egg Curry", desc: "Thick, masaledar, simple yet satisfying.", image: "/images/egg curry.png", href: "/recipes#egg-curry" },
-                { title: "Mutton Curry", desc: "Deep, spicy, slow cooked taste in every bite.", image: "/images/mutton curry.png", href: "/recipes#mutton-curry" },
-                { title: "Mutton Sukka", desc: "Spicy, roasted, deeply flavourful classic.", image: "/images/mutton shuka.png", href: "/recipes#mutton-sukka" }
+                { title: "Home Style Chicken Curry", desc: "Simple, soulful, made just like home flavours.", image: "/images/home cooked chicken.png", href: "/recipes#homestyle-chicken-curry" },
+                { title: "Dhaba Style Chicken Do Pyaza", desc: "Robust spices with caramelised onion richness.", image: "/images/do payaza.png", href: "/recipes#dhaba-style-chicken-do-pyaza" },
+                { title: "Egg Curry", desc: "Thick, masaledar, simple yet satisfying.", image: "/images/egg curry copy.png", href: "/recipes#egg-curry" },
+                { title: "Mutton Curry", desc: "Deep, spicy, slow cooked taste in every bite.", image: "/images/mutton curry copy.png", href: "/recipes#mutton-curry" },
+                { title: "Mutton Sukka", desc: "Spicy, roasted, deeply flavourful classic.", image: "/images/mutton sukha.png", href: "/recipes#mutton-sukka" }
               ].map((item, idx) => (
                 <Link href={item.href} key={idx} className="flex flex-col group items-start shrink-0 w-[175px] md:w-auto">
                   <div className="relative w-full aspect-[4/5] rounded-[15px] md:rounded-[30px] overflow-hidden mb-4 md:mb-8 shadow-md md:shadow-xl">
@@ -983,12 +983,12 @@ export default function Home() {
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute top-3 md:top-5 inset-x-3 md:inset-x-5 flex justify-between items-center">
-                      <div className="text-white px-2.5 md:px-4 py-1 md:py-1.5 rounded-full text-[12px] md:text-[20px] font-normal font-arpona shadow-sm" style={{ backgroundColor: 'rgba(125, 23, 16, 0.6)' }}>
+                    <div className="absolute top-3 md:top-4 inset-x-3 md:inset-x-4 flex justify-between items-center">
+                      <div className="text-white px-2.5 md:px-3 py-1 rounded-full text-[12px] md:text-[14px] font-normal font-arpona shadow-sm" style={{ backgroundColor: '#CD191C99' }}>
                         Non-veg
                       </div>
-                      <div className="text-white px-2.5 md:px-4 py-1 md:py-1.5 rounded-full text-[12px] md:text-[20px] font-normal font-arpona shadow-sm flex items-center gap-1 md:gap-2" style={{ backgroundColor: 'rgba(125, 23, 16, 0.6)' }}>
-                        <Image src="/images/timer.svg" alt="Timer" width={14} height={14} className="brightness-0 invert w-3 md:w-5" />
+                      <div className="text-white px-2.5 md:px-3 py-1 rounded-full text-[12px] md:text-[14px] font-normal font-arpona shadow-sm flex items-center gap-1 md:gap-1.5" style={{ backgroundColor: '#CD191C99' }}>
+                        <Image src="/images/timer.svg" alt="Timer" width={14} height={14} className="brightness-0 invert w-3 md:w-4" />
                         <span>6 Min</span>
                       </div>
                     </div>
@@ -1331,7 +1331,7 @@ export default function Home() {
                   <Link href="/ourstory">Our Story</Link>
                   <Link href="/#process">Process</Link>
                   <Link href="/#quality">Quality Promise</Link>
-                  <Link href="#">Contact Us</Link>
+                  <Link href="/contact">Contact Us</Link>
                 </div>
               </div>
             </div>
@@ -1410,7 +1410,7 @@ export default function Home() {
                 <Link href="/ourstory" className="hover:opacity-80 transition-opacity">Our Story</Link>
                 <Link href="/#process" className="hover:opacity-80 transition-opacity">Process</Link>
                 <Link href="/#quality" className="hover:text-[rgb(247,216,13)] transition-colors">Quality Promise</Link>
-                <Link href="#" className="hover:opacity-80 transition-opacity">Contact Us</Link>
+                <Link href="/contact" className="hover:opacity-80 transition-opacity">Contact Us</Link>
               </div>
             </div>
 

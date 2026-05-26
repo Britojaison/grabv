@@ -11,7 +11,7 @@ const recipes = {
     {
       title: "Matar Paneer",
       slug: "matar-paneer",
-      image: "/images/mutter panner.png",
+      image: "/images/muttar panner.png",
       serves: "2",
       cookTime: "10 to 12 minutes",
       timeSaved: "22 to 25 minutes",
@@ -21,7 +21,7 @@ const recipes = {
     {
       title: "Mix Veg",
       slug: "mix-veg",
-      image: "/images/mix veg.png",
+      image: "/images/mix veg copy.png",
       serves: "2",
       cookTime: "10 to 15 minutes",
       timeSaved: "22 to 25 minutes",
@@ -31,7 +31,7 @@ const recipes = {
     {
       title: "Bhindi Masala",
       slug: "bhindi-masala",
-      image: "/images/bhindi masala.png",
+      image: "/images/hf_20260520_124216_6b93a302-8202-4d71-9ed1-b179a1a555e2.png",
       serves: "2",
       cookTime: "10 minutes",
       timeSaved: "20 to 25 minutes",
@@ -41,7 +41,7 @@ const recipes = {
     {
       title: "Aloo Gobhi",
       slug: "aloo-gobhi",
-      image: "/images/aloo gobhi.png",
+      image: "/images/aalo gobi.png",
       serves: "2",
       cookTime: "10 to 15 minutes",
       timeSaved: "20 to 25 minutes",
@@ -51,7 +51,7 @@ const recipes = {
     {
       title: "Matar Mushroom",
       slug: "matar-mushroom",
-      image: "/images/mutter mushrooom.png",
+      image: "/images/muttar mushroom.png",
       serves: "2",
       cookTime: "10 to 12 minutes",
       timeSaved: "22 to 25 minutes",
@@ -63,7 +63,7 @@ const recipes = {
     {
       title: "Homestyle Chicken Curry",
       slug: "homestyle-chicken-curry",
-      image: "/images/home style chicken.png",
+      image: "/images/home cooked chicken.png",
       serves: "2",
       cookTime: "10 to 15 minutes",
       timeSaved: "22 to 25 minutes",
@@ -73,7 +73,7 @@ const recipes = {
     {
       title: "Dhaba Style Chicken Do Pyaza",
       slug: "dhaba-style-chicken-do-pyaza",
-      image: "/images/chicken do pyaza.png",
+      image: "/images/do payaza.png",
       serves: "2",
       cookTime: "10 to 15 minutes",
       timeSaved: "22 to 25 minutes",
@@ -83,7 +83,7 @@ const recipes = {
     {
       title: "Egg Curry",
       slug: "egg-curry",
-      image: "/images/egg curry.png",
+      image: "/images/egg curry copy.png",
       serves: "2",
       cookTime: "10 minutes",
       timeSaved: "20 to 25 minutes",
@@ -93,7 +93,7 @@ const recipes = {
     {
       title: "Mutton Curry",
       slug: "mutton-curry",
-      image: "/images/mutton curry.png",
+      image: "/images/mutton curry copy.png",
       serves: "2",
       cookTime: "15 to 20 minutes",
       timeSaved: "25 to 30 minutes",
@@ -103,7 +103,7 @@ const recipes = {
     {
       title: "Mutton Sukka",
       slug: "mutton-sukka",
-      image: "/images/mutton shuka.png",
+      image: "/images/mutton sukha.png",
       serves: "2",
       cookTime: "15 to 20 minutes",
       timeSaved: "20 to 25 minutes",
@@ -170,8 +170,8 @@ export default function RecipesPage() {
             <Link href="/recipes" className="text-[rgb(247,216,13)] transition-colors text-[18px]">Recipes</Link>
             <Link href="/products" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Products</Link>
             <Link href="/ourstory" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Our Story</Link>
-            <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Contact Us</Link>
-            <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">FAQ</Link>
+            <Link href="/contact" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Contact Us</Link>
+            <Link href="/faq" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">FAQ</Link>
           </nav>
 
           <button
@@ -194,8 +194,8 @@ export default function RecipesPage() {
               <Link href="/recipes" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors text-[rgb(247,216,13)]">Recipes</Link>
               <Link href="/products" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Products</Link>
               <Link href="/ourstory" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Our Story</Link>
-              <Link href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Contact Us</Link>
-              <Link href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">FAQ</Link>
+              <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Contact Us</Link>
+              <Link href="/faq" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">FAQ</Link>
               <button style={{ backgroundColor: "rgb(247, 216, 13)", color: "rgb(12, 61, 27)" }} className="mt-4 px-10 py-3 rounded-full font-bold text-[18px] hover:bg-yellow-400 transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Order Now
               </button>
@@ -229,7 +229,7 @@ export default function RecipesPage() {
             </div>
 
             <div className="relative w-full md:w-[42%] max-w-[520px] aspect-[5/4]">
-              <Image src={isVeg ? "/images/mutter panner.png" : "/images/home style chicken.png"} alt={isVeg ? "Mutter Paneer" : "Home Style Chicken Curry"} fill className="object-cover rounded-[18px] md:rounded-[28px] border-[6px] md:border-[10px] border-[rgb(247,216,13)] shadow-2xl" priority />
+              <Image src={isVeg ? "/images/muttar panner.png" : "/images/home cooked chicken.png"} alt={isVeg ? "Mutter Paneer" : "Home Style Chicken Curry"} fill className="object-cover rounded-[18px] md:rounded-[28px] border-[6px] md:border-[10px] border-[rgb(247,216,13)] shadow-2xl" priority />
             </div>
           </div>
         </section>
@@ -237,15 +237,6 @@ export default function RecipesPage() {
         <section className="w-full pt-8 md:pt-14 pb-16 md:pb-24" style={{ backgroundColor: "rgb(239, 238, 230)" }}>
           <div className="w-full max-w-[1600px] mx-auto pl-4 pr-4 md:pl-16 md:pr-8">
             <div className="flex flex-col items-center gap-5 md:gap-8 mb-8 md:mb-14">
-              <div className="w-full max-w-[900px] text-center rounded-[18px] border border-[rgba(21,107,54,0.18)] bg-white/75 px-5 md:px-8 py-4 md:py-5 shadow-sm">
-                <p className="text-[15px] md:text-[20px] leading-[1.45] font-medium text-[rgb(21,107,54)]">
-                  For more servings, multiply all ingredients based on the serving size.
-                </p>
-                <p className="text-[13px] md:text-[17px] leading-[1.45] mt-1 text-[rgb(21,107,54)]">
-                  Ingredient quantity = 2 serving quantity x required servings / 2. For oil, salt and water, increase gradually and adjust while cooking, instead of scaling fully at once.
-                </p>
-              </div>
-
               <div className="grid grid-cols-2 w-full max-w-[520px] rounded-full p-1.5 md:p-2 bg-white shadow-md border border-[rgba(21,107,54,0.18)]">
                 {[
                   { key: "veg" as RecipeType, label: "Veg" },
@@ -286,8 +277,8 @@ export default function RecipesPage() {
               {activeRecipes.map((item, index) => {
                 const textFirst = index % 2 === 0;
                 const textBlock = (
-                  <div className={`p-5 md:p-8 lg:p-10 ${textFirst ? "order-1" : "order-1 md:order-2"}`}>
-                    <h2 className="font-kura uppercase text-[32px] md:text-[52px] leading-[0.95] mb-4 text-[rgb(247,0,52)]">{item.title}</h2>
+                  <div className={`min-w-0 p-5 md:p-7 lg:p-9 ${textFirst ? "order-1" : "order-1 md:order-2"}`}>
+                    <h2 className="font-kura uppercase text-[32px] md:text-[46px] lg:text-[52px] leading-[0.95] mb-4 text-[rgb(247,0,52)]">{item.title}</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-5">
                       {[
                         ["Serves", item.serves],
@@ -301,7 +292,7 @@ export default function RecipesPage() {
                       ))}
                     </div>
                     <h3 className="text-[18px] md:text-[22px] font-bold mb-2 text-[rgb(21,107,54)]">Ingredients</h3>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-1.5 mb-5 text-[15px] md:text-[17px] leading-snug text-[rgb(21,107,54)]">
+                    <ul className="grid grid-cols-1 lg:grid-cols-2 gap-x-5 gap-y-1.5 mb-5 text-[15px] md:text-[17px] leading-snug text-[rgb(21,107,54)]">
                       {item.ingredients.map((ingredient) => (
                         <li key={ingredient}>{ingredient}</li>
                       ))}
@@ -311,13 +302,20 @@ export default function RecipesPage() {
                   </div>
                 );
                 const imageBlock = (
-                  <div className={`relative min-h-[300px] md:min-h-full aspect-[4/3] md:aspect-auto bg-[rgb(239,238,230)] ${textFirst ? "order-2" : "order-2 md:order-1"}`}>
-                    <Image src={item.image} alt={item.title} fill className="object-cover" sizes="(min-width: 768px) 45vw, 92vw" />
+                  <div className={`relative min-h-[280px] md:min-h-full aspect-[4/3] md:aspect-auto overflow-hidden bg-white ${textFirst ? "order-2" : "order-2 md:order-1"}`}>
+                    <Image src={item.image} alt={item.title} fill className="object-cover" sizes="(min-width: 768px) 44vw, 92vw" />
                   </div>
                 );
+                const articleColumns = textFirst
+                  ? "md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]"
+                  : "md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]";
 
                 return (
-                  <article id={item.slug} key={item.title} className="scroll-mt-24 grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 overflow-hidden rounded-[18px] md:rounded-[28px] bg-white shadow-lg border border-[rgba(21,107,54,0.12)]">
+                  <article
+                    id={item.slug}
+                    key={item.title}
+                    className={`scroll-mt-24 grid grid-cols-1 ${articleColumns} gap-0 overflow-hidden rounded-[18px] md:rounded-[28px] bg-white shadow-lg border border-[rgba(21,107,54,0.12)]`}
+                  >
                     {textFirst ? (
                       <>
                         {textBlock}
@@ -332,6 +330,9 @@ export default function RecipesPage() {
                   </article>
                 );
               })}
+              <p className="text-center text-[14px] md:text-[18px] leading-relaxed font-medium text-[rgb(21,107,54)]">
+                Note: For more servings, multiply all ingredients based on the serving size.
+              </p>
             </div>
           </div>
         </section>
@@ -358,7 +359,7 @@ export default function RecipesPage() {
             </div>
 
             {[
-              { title: "Company", links: [{ label: "Our Story", href: "/ourstory" }, { label: "Process", href: "/#process" }, { label: "Quality Promise", href: "/#quality" }, { label: "Contact Us", href: "#" }] },
+              { title: "Company", links: [{ label: "Our Story", href: "/ourstory" }, { label: "Process", href: "/#process" }, { label: "Quality Promise", href: "/#quality" }, { label: "Contact Us", href: "/contact" }] },
               { title: "Product", links: [{ label: "All Purpose Gravy", href: "/all-purposegravy" }, { label: "Ingredients", href: "/all-purposegravy#ingredients" }, { label: "How to Use", href: "/all-purposegravy#how-to-use" }, { label: "Recipes", href: "/recipes" }] },
               { title: "Order & Policies", links: [{ label: "WhatsApp Order", href: "#" }, { label: "Exchange Order", href: "#" }, { label: "Privacy Policy", href: "#" }] },
             ].map((column) => (
