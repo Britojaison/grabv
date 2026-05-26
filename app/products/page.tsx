@@ -47,7 +47,7 @@ export default function ProductsListPage() {
                         <Link href="/recipes" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Recipes</Link>
                         <Link href="/products" className="text-[rgb(247,216,13)] transition-colors text-[18px]">Products</Link>
                         <Link href="/ourstory" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Our Story</Link>
-                        <Link href="#" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Contact Us</Link>
+                        <Link href="/contact" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Contact Us</Link>
                         <Link href="/faq" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">FAQ</Link>
                     </nav>
 
@@ -80,7 +80,7 @@ export default function ProductsListPage() {
                             <Link href="/recipes" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Recipes</Link>
                             <Link href="/products" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors text-[rgb(247,216,13)]">Products</Link>
                             <Link href="/ourstory" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Our Story</Link>
-                            <Link href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Contact Us</Link>
+                            <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Contact Us</Link>
                             <Link href="/faq" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">FAQ</Link>
                             <button
                                 style={{ backgroundColor: 'rgb(247, 216, 13)', color: 'rgb(12, 61, 27)' }}
@@ -199,7 +199,7 @@ export default function ProductsListPage() {
                                     <Link href="/ourstory">Our Story</Link>
                                     <Link href="/#process">Process</Link>
                                     <Link href="/#quality">Quality Promise</Link>
-                                    <Link href="#">Contact Us</Link>
+                                    <Link href="/contact">Contact Us</Link>
                                 </div>
                             </div>
                         </div>
@@ -275,7 +275,7 @@ export default function ProductsListPage() {
                                 <Link href="/ourstory" className="hover:opacity-80 transition-opacity">Our Story</Link>
                                 <Link href="/#process" className="hover:opacity-80 transition-opacity">Process</Link>
                                 <Link href="/#quality" className="hover:text-[rgb(247,216,13)] transition-colors">Quality Promise</Link>
-                                <Link href="#" className="hover:opacity-80 transition-opacity">Contact Us</Link>
+                                <Link href="/contact" className="hover:opacity-80 transition-opacity">Contact Us</Link>
                             </div>
                         </div>
 
