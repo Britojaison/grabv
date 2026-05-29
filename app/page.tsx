@@ -910,7 +910,7 @@ export default function Home() {
             </div>
 
             {/* Vegetarian Recipes - Horizontal scroll on mobile */}
-            <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex overflow-x-auto md:overflow-visible no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8">
+            <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex overflow-x-auto overflow-y-hidden md:overflow-visible no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8">
               {[
                 { title: "Mutter Paneer", desc: "Soft, creamy, mildly spiced goodness.", image: "/images/mutter panner.png", href: "/recipes#matar-paneer" },
                 { title: "Mix Veg", desc: "Fresh vegetables in a rich, hearty gravy.", image: "/images/mix veg.png", href: "/recipes#mix-veg" },
@@ -967,7 +967,7 @@ export default function Home() {
             </div>
 
             {/* Non-Vegetarian Recipes - Horizontal scroll on mobile */}
-            <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex overflow-x-auto md:overflow-visible no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8 mb-16 md:mb-32">
+            <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex overflow-x-auto overflow-y-hidden md:overflow-visible no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8 mb-16 md:mb-32">
               {[
                 { title: "Home Style Chicken Curry", desc: "Simple, soulful, made just like home flavours.", image: "/images/home style chicken.png", href: "/recipes#homestyle-chicken-curry" },
                 { title: "Dhaba Style Chicken Do Pyaza", desc: "Robust spices with caramelised onion richness.", image: "/images/chicken do pyaza.png", href: "/recipes#dhaba-style-chicken-do-pyaza" },
