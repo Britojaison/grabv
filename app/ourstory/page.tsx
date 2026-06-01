@@ -341,12 +341,12 @@ export default function OurStoryPage() {
                         <div className="lg:hidden relative z-10 w-full overflow-hidden py-4">
                             <div className="flex flex-row animate-marquee whitespace-nowrap gap-8 w-max">
                                 {[
-                                    { icon: "/images/timer2.svg", text: "Ready in 7 mins" },
+                                    { icon: "/images/timer2.svg", text: "Ready in 10 mins" },
                                     { icon: "/images/slow.svg", text: "Slow cooked" },
                                     { icon: "/images/objects.svg", text: "FSSAI Certified" },
                                     { icon: "/images/tick2.svg", text: "Zero Preservatives" },
                                     { icon: "/images/cold.svg", text: "Cold Chain Packed" },
-                                    { icon: "/images/timer2.svg", text: "Ready in 7 mins" },
+                                    { icon: "/images/timer2.svg", text: "Ready in 10 mins" },
                                     { icon: "/images/slow.svg", text: "Slow cooked" },
                                     { icon: "/images/objects.svg", text: "FSSAI Certified" },
                                     { icon: "/images/tick2.svg", text: "Zero Preservatives" },
@@ -371,7 +371,7 @@ export default function OurStoryPage() {
                             <div className="relative z-10 flex flex-col items-center gap-6 mt-4">
                                 <div className="flex flex-wrap justify-center items-center gap-6">
                                     {[
-                                        { icon: "/images/timer2.svg", text: "Ready in 7 mins" },
+                                        { icon: "/images/timer2.svg", text: "Ready in 10 mins" },
                                         { icon: "/images/slow.svg", text: "Slow cooked" },
                                         { icon: "/images/objects.svg", text: "FSSAI Certified" },
                                     ].map((item, idx) => (

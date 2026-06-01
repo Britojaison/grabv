@@ -248,7 +248,7 @@ export default function ProductsPage() {
                                             <li>Sauté veggies or paneer of your choice</li>
                                             <li>Pour gravy & adjust consistency</li>
                                             <li>Sprinkle spices & salt to taste</li>
-                                            <li>Cook for 7 mins and enjoy!</li>
+                                            <li>Cook for 10 mins and enjoy!</li>
                                         </ul>
                                     )
                                 },
