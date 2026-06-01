@@ -100,7 +100,7 @@ export default function ProductsListPage() {
 
 
                 {/* Explore Products Section */}
-                <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 pt-8 md:pt-16 pb-8">
+                <div className="w-full max-w-[1600px] mx-auto px-4 md:px-16 pt-8 md:pt-16 pb-8">
                     <div className="w-full flex flex-col items-center mb-8 md:mb-20 px-4 text-center">
                         <h2 className="font-kura leading-none mb-8 md:mb-12 uppercase text-center">
                             <span className="text-[32px] sm:text-[42px] md:text-[50px] lg:text-[65px] mr-2 md:mr-4 inline-block" style={{ color: 'rgb(21, 107, 54)' }}>OUR</span>

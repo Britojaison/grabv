@@ -131,7 +131,7 @@ export default function Home() {
         </div>
 
         {/* Content Wrapper constrained to 1440px with correct z-index */}
-        <div className="relative w-full max-w-[1600px] mx-auto px-4 md:pl-12 lg:pl-16 md:pr-8 h-auto min-h-[380px] md:h-[800px] shrink-0 z-30 flex">
+        <div className="relative w-full max-w-[1600px] mx-auto px-4 md:px-12 lg:px-16 h-auto min-h-[380px] md:h-[800px] shrink-0 z-30 flex">
 
           {/* Left Text Content - In normal flow so alignment strictly matches navbar */}
           <div className="w-full lg:w-[60%] pt-10 md:pt-[70px] z-20 flex flex-col items-start">
@@ -232,7 +232,7 @@ export default function Home() {
 
         {/* Features Bottom Bar - positioned in the beige section below the green hero */}
         <div className="w-full relative pt-4 md:pt-12 pb-12 md:pb-24 z-10">
-          <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-12 lg:pl-16 md:pr-8 relative z-[30]">
+          <div className="w-full max-w-[1600px] mx-auto px-4 md:px-12 lg:px-16 relative z-[30]">
 
             {/* Features Horizontal Scroll - Mobile and Tablet */}
             <div className="lg:hidden overflow-hidden relative w-full mb-8">
@@ -342,7 +342,7 @@ export default function Home() {
           </div>
 
           {/* Content Wrapper */}
-          <div className="relative w-full max-w-[1600px] mx-auto px-4 md:pl-12 lg:pl-16 md:pr-8 z-[40] flex flex-col lg:flex-row items-center pt-20 md:pt-28 lg:pt-32">
+          <div className="relative w-full max-w-[1600px] mx-auto px-4 md:px-12 lg:px-16 z-[40] flex flex-col lg:flex-row items-center pt-20 md:pt-28 lg:pt-32">
 
             {/* Left Content */}
             <div className="w-full lg:w-[40%] flex flex-col items-center lg:items-start pt-0 text-center lg:text-left lg:pr-10">
@@ -430,7 +430,7 @@ export default function Home() {
 
         {/* Pouch To Plate Section */}
         <section className="w-full pt-16 md:pt-28 pb-20 md:pb-24 flex flex-col items-center" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
-          <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-12 lg:pl-16 md:pr-8">
+          <div className="w-full max-w-[1600px] mx-auto px-4 md:px-12 lg:px-16">
 
             <div className="flex flex-col mb-10 relative">
               {/* Mobile Layout (Hidden on Desktop) */}
@@ -610,7 +610,7 @@ export default function Home() {
           </div>
 
           {/* Content Wrapper */}
-          <div className="relative w-full max-w-[1600px] mx-auto px-4 md:pl-12 lg:pl-16 md:pr-8 z-10 flex flex-col items-start pb-0">
+          <div className="relative w-full max-w-[1600px] mx-auto px-4 md:px-12 lg:px-16 z-10 flex flex-col items-start pb-0">
 
             {/* Mobile Layout (Hidden on Desktop) */}
             <div className="lg:hidden flex flex-col items-center w-full text-center -mt-8">
@@ -780,7 +780,7 @@ export default function Home() {
 
         {/* Our Quality Promise Section */}
         <section id="quality" className="w-full relative pt-4 md:pt-12 pb-8 md:pb-12 flex flex-col items-center overflow-hidden" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
-          <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-12 lg:pl-16 md:pr-8 flex flex-col items-center relative z-10 pt-0 pb-12">
+          <div className="w-full max-w-[1600px] mx-auto px-4 md:px-12 lg:px-16 flex flex-col items-center relative z-10 pt-0 pb-12">
 
             <h2 className="font-kura font-normal text-[34px] md:text-[46px] lg:text-[60px] m-0 p-0 leading-[1.1] text-center tracking-wide uppercase mb-8 md:mb-16">
               <span style={{ color: 'rgb(247, 0, 52)' }}>Our Quality </span>
@@ -899,7 +899,7 @@ export default function Home() {
             style={{ backgroundColor: 'rgb(239, 238, 230)' }}
           >
             {/* Vegetarian Category */}
-            <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-12 lg:pl-16 md:pr-8 flex items-center gap-3 md:gap-8 mb-8 md:mb-12 opacity-80">
+            <div className="w-full max-w-[1600px] mx-auto px-4 md:px-12 lg:px-16 flex items-center gap-3 md:gap-8 mb-8 md:mb-12 opacity-80">
               <div className="flex-1 h-[1px] md:h-[2px]" style={{ backgroundColor: 'rgb(21, 107, 54)' }} />
               <div className="flex items-center gap-2 md:gap-3 px-4 md:px-8 py-2 md:py-3 rounded-full shrink-0" style={{ backgroundColor: 'rgb(179, 202, 183)' }}>
                 <div className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 rounded-full" style={{ backgroundColor: 'rgb(21, 107, 54)' }} />
@@ -911,7 +911,7 @@ export default function Home() {
             </div>
 
             {/* Vegetarian Recipes - Horizontal scroll on mobile and tablet */}
-            <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-12 lg:pl-16 md:pr-8 flex overflow-x-auto overflow-y-hidden lg:overflow-visible no-scrollbar lg:grid lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-8">
+            <div className="w-full max-w-[1600px] mx-auto px-4 md:px-12 lg:px-16 flex overflow-x-auto overflow-y-hidden lg:overflow-visible no-scrollbar lg:grid lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-8">
               {[
                 { title: "Mutter Paneer", desc: "Soft, creamy, mildly spiced goodness.", image: "/images/mutter panner.png", href: "/recipes#matar-paneer" },
                 { title: "Mix Veg", desc: "Fresh vegetables in a rich, hearty gravy.", image: "/images/mix veg.png", href: "/recipes#mix-veg" },
@@ -956,7 +956,7 @@ export default function Home() {
             </div>
 
             {/* Non-Vegetarian Category */}
-            <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-12 lg:pl-16 md:pr-8 flex items-center gap-3 md:gap-8 mt-16 md:mt-24 mb-8 md:mb-12 opacity-80">
+            <div className="w-full max-w-[1600px] mx-auto px-4 md:px-12 lg:px-16 flex items-center gap-3 md:gap-8 mt-16 md:mt-24 mb-8 md:mb-12 opacity-80">
               <div className="flex-1 h-[1px] md:h-[2px]" style={{ backgroundColor: 'rgb(247, 0, 52)' }} />
               <div className="flex items-center gap-2 md:gap-3 px-4 md:px-8 py-2 md:py-3 rounded-full shrink-0" style={{ backgroundColor: 'rgba(247, 0, 52, 0.15)' }}>
                 <div className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 rounded-full" style={{ backgroundColor: 'rgb(247, 0, 52)' }} />
@@ -968,7 +968,7 @@ export default function Home() {
             </div>
 
             {/* Non-Vegetarian Recipes - Horizontal scroll on mobile and tablet */}
-            <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-12 lg:pl-16 md:pr-8 flex overflow-x-auto overflow-y-hidden lg:overflow-visible no-scrollbar lg:grid lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-8 mb-16 lg:mb-32">
+            <div className="w-full max-w-[1600px] mx-auto px-4 md:px-12 lg:px-16 flex overflow-x-auto overflow-y-hidden lg:overflow-visible no-scrollbar lg:grid lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-8 mb-16 lg:mb-32">
               {[
                 { title: "Home Style Chicken Curry", desc: "Simple, soulful, made just like home flavours.", image: "/images/home style chicken.png", href: "/recipes#homestyle-chicken-curry" },
                 { title: "Dhaba Style Chicken Do Pyaza", desc: "Robust spices with caramelised onion richness.", image: "/images/chicken do pyaza.png", href: "/recipes#dhaba-style-chicken-do-pyaza" },
@@ -1038,7 +1038,7 @@ export default function Home() {
 
         {/* Manufacturing Process Section */}
         <section id="process" className="w-full pt-0 md:pt-0 pb-20 md:pb-32 flex flex-col items-center" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
-          <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-12 lg:pl-16 md:pr-8 flex flex-col items-center">
+          <div className="w-full max-w-[1600px] mx-auto px-4 md:px-12 lg:px-16 flex flex-col items-center">
 
             {/* Mobile Header (lg:hidden) */}
             <div className="lg:hidden flex flex-col items-center text-center mb-10 w-full">
@@ -1188,7 +1188,7 @@ export default function Home() {
 
           {/* Review Cards - Horizontal scroll on mobile and tablet */}
           <div className="w-full flex flex-col items-center">
-            <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-12 lg:pl-16 md:pr-8 pt-4 md:py-8 lg:py-20 flex overflow-x-auto no-scrollbar lg:grid lg:grid-cols-3 gap-6 md:gap-8 pb-8 md:pb-16">
+            <div className="w-full max-w-[1600px] mx-auto px-4 md:px-12 lg:px-16 pt-4 md:py-8 lg:py-20 flex overflow-x-auto no-scrollbar lg:grid lg:grid-cols-3 gap-6 md:gap-8 pb-8 md:pb-16">
               {[
                 {
                   name: "Sneha Mehta",

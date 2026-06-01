@@ -209,7 +209,7 @@ export default function RecipesPage() {
           <div className="absolute inset-0 opacity-25">
             <Image src="/images/bg green2.svg" alt="" fill className="object-cover object-bottom" priority />
           </div>
-          <div className="relative w-full max-w-[1600px] mx-auto pl-4 pr-4 md:pl-16 md:pr-8 flex flex-col md:flex-row items-center gap-8 md:gap-14">
+          <div className="relative w-full max-w-[1600px] mx-auto px-4 md:px-16 flex flex-col md:flex-row items-center gap-8 md:gap-14">
             <div className="w-full md:w-[58%] text-center md:text-left">
               <div className="relative inline-flex mb-5 md:mb-8">
                 <div className="relative z-10 flex items-center gap-2 px-5 md:px-8 py-2 md:py-3 rounded-full bg-[rgb(247,216,13)]">
@@ -235,7 +235,7 @@ export default function RecipesPage() {
         </section>
 
         <section className="w-full pt-8 md:pt-14 pb-16 md:pb-24" style={{ backgroundColor: "rgb(239, 238, 230)" }}>
-          <div className="w-full max-w-[1600px] mx-auto pl-4 pr-4 md:pl-16 md:pr-8">
+          <div className="w-full max-w-[1600px] mx-auto px-4 md:px-16">
             <div className="flex flex-col items-center gap-5 md:gap-8 mb-8 md:mb-14">
               <div className="grid grid-cols-2 w-full max-w-[520px] rounded-full p-1.5 md:p-2 bg-white shadow-md border border-[rgba(21,107,54,0.18)]">
                 {[

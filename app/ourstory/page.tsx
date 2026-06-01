@@ -136,7 +136,7 @@ export default function OurStoryPage() {
                         />
                     </div>
 
-                    <div className="relative w-full max-w-[1600px] mx-auto pl-4 pr-4 md:pl-16 md:pr-8 z-10 flex flex-row md:flex-row items-center gap-4 md:gap-12">
+                    <div className="relative w-full max-w-[1600px] mx-auto px-4 md:px-16 z-10 flex flex-row md:flex-row items-center gap-4 md:gap-12">
                         
                         {/* Left Content */}
                         <div className="w-[50%] md:w-[60%] flex flex-col items-start">
@@ -201,7 +201,7 @@ export default function OurStoryPage() {
                         </p>
                     </div>
 
-                    <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 flex flex-row md:flex-row items-center gap-4 md:gap-16">
+                    <div className="w-full max-w-[1600px] mx-auto px-4 md:px-16 flex flex-row md:flex-row items-center gap-4 md:gap-16">
                         {/* Image */}
                         <div className="w-[45%] md:w-[50%] flex justify-center md:justify-start">
                             <div className="story-reveal-image relative w-full aspect-square md:aspect-[581/593] max-w-[650px]" style={{ "--reveal-delay": "80ms" } as React.CSSProperties}>
@@ -267,7 +267,7 @@ export default function OurStoryPage() {
                     </div>
 
                     {/* Bottom Sub-section */}
-                    <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 flex flex-row-reverse md:flex-row-reverse items-center gap-4 md:gap-16 mt-6 md:mt-0">
+                    <div className="w-full max-w-[1600px] mx-auto px-4 md:px-16 flex flex-row-reverse md:flex-row-reverse items-center gap-4 md:gap-16 mt-6 md:mt-0">
                         {/* Image */}
                         <div className="w-[45%] md:w-[50%] flex justify-center md:justify-end">
                             <div className="story-reveal-image relative w-full aspect-square md:aspect-[581/593] max-w-[700px]" style={{ "--reveal-delay": "120ms" } as React.CSSProperties}>
