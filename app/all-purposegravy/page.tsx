@@ -7,6 +7,16 @@ export default function ProductsPage() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [openSection, setOpenSection] = useState<number | null>(null);
     const [selectedSize, setSelectedSize] = useState("250g");
+
+    React.useEffect(() => {
+        if (typeof window !== "undefined") {
+            const params = new URLSearchParams(window.location.search);
+            const size = params.get("size");
+            if (size === "750g" || size === "250g") {
+                setSelectedSize(size);
+            }
+        }
+    }, []);
     return (
         <div className="flex flex-col min-h-screen w-full font-arpona overflow-x-hidden" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
 
@@ -52,7 +62,8 @@ export default function ProductsPage() {
                         <Link href="/faq" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">FAQ</Link>
                     </nav>
 
-                    <button
+                    <Link
+                        href="/all-purposegravy"
                         style={{
                             borderRadius: '5px',
                             backgroundColor: 'rgb(247, 216, 13)',
@@ -62,7 +73,7 @@ export default function ProductsPage() {
                         className="font-arpona font-medium flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0 text-[12px] md:text-[18px] w-[85px] md:w-[142px] h-[30px] md:h-[37px]"
                     >
                         Order Now
-                    </button>
+                    </Link>
                 </div>
 
                 {/* Mobile Menu Overlay */}
@@ -83,13 +94,14 @@ export default function ProductsPage() {
                             <Link href="/ourstory" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Our Story</Link>
                             <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Contact Us</Link>
                             <Link href="/faq" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">FAQ</Link>
-                            <button
+                            <Link
+                                href="/all-purposegravy"
                                 style={{ backgroundColor: 'rgb(247, 216, 13)', color: 'rgb(12, 61, 27)' }}
-                                className="mt-4 px-10 py-3 rounded-full font-bold text-[18px] hover:bg-yellow-400 transition-colors"
+                                className="mt-4 px-10 py-3 rounded-full font-bold text-[18px] hover:bg-yellow-400 transition-colors flex items-center justify-center"
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 Order Now
-                            </button>
+                            </Link>
                         </nav>
                     </div>
                 )}
@@ -512,7 +524,13 @@ export default function ProductsPage() {
                             {/* Buttons */}
                             <div className="flex flex-col md:flex-row md:flex-wrap items-center justify-center gap-4 lg:gap-6 mb-8 md:mb-12 w-full max-w-[1000px]">
                                 {/* Order 750g */}
-                                <button className="bg-white text-[#f70034] min-w-[150px] md:min-w-[240px] lg:min-w-[260px] py-2.5 md:py-4 lg:py-5 rounded-full font-arpona font-normal text-[14px] md:text-[18px] lg:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all group flex items-center justify-center gap-2 md:gap-4 shrink-0">
+                                <button
+                                    onClick={() => {
+                                        setSelectedSize("750g");
+                                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                                    }}
+                                    className="bg-white text-[#f70034] min-w-[150px] md:min-w-[240px] lg:min-w-[260px] py-2.5 md:py-4 lg:py-5 rounded-full font-arpona font-normal text-[14px] md:text-[18px] lg:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all group flex items-center justify-center gap-2 md:gap-4 shrink-0"
+                                >
                                     <div className="w-5 h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 relative group-hover:brightness-0 group-hover:invert transition-all">
                                         <Image src="/images/whatsapp.svg" alt="WhatsApp" fill className="object-contain" />
                                     </div>
@@ -520,7 +538,13 @@ export default function ProductsPage() {
                                 </button>
 
                                 {/* Order 250g */}
-                                <button className="bg-white text-[#f70034] min-w-[150px] md:min-w-[240px] lg:min-w-[260px] py-2.5 md:py-4 lg:py-5 rounded-full font-arpona font-normal text-[14px] md:text-[18px] lg:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all group flex items-center justify-center gap-2 md:gap-4 shrink-0">
+                                <button
+                                    onClick={() => {
+                                        setSelectedSize("250g");
+                                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                                    }}
+                                    className="bg-white text-[#f70034] min-w-[150px] md:min-w-[240px] lg:min-w-[260px] py-2.5 md:py-4 lg:py-5 rounded-full font-arpona font-normal text-[14px] md:text-[18px] lg:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all group flex items-center justify-center gap-2 md:gap-4 shrink-0"
+                                >
                                     <div className="w-5 h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 relative group-hover:brightness-0 group-hover:invert transition-all">
                                         <Image src="/images/whatsapp.svg" alt="WhatsApp" fill className="object-contain" />
                                     </div>

@@ -76,7 +76,8 @@ export default function OurStoryPage() {
                         <Link href="/faq" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">FAQ</Link>
                     </nav>
 
-                    <button
+                    <Link
+                        href="/all-purposegravy"
                         style={{
                             borderRadius: '5px',
                             backgroundColor: 'rgb(247, 216, 13)',
@@ -86,7 +87,7 @@ export default function OurStoryPage() {
                         className="font-arpona font-medium flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0 text-[12px] md:text-[18px] w-[85px] md:w-[142px] h-[30px] md:h-[37px]"
                     >
                         Order Now
-                    </button>
+                    </Link>
                 </div>
 
                 {/* Mobile Menu Overlay */}
@@ -107,13 +108,14 @@ export default function OurStoryPage() {
                             <Link href="/ourstory" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors text-[rgb(247,216,13)]">Our Story</Link>
                             <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Contact Us</Link>
                             <Link href="/faq" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">FAQ</Link>
-                            <button 
+                            <Link
+                                href="/all-purposegravy"
                                 style={{ backgroundColor: 'rgb(247, 216, 13)', color: 'rgb(12, 61, 27)' }}
-                                className="mt-4 px-10 py-3 rounded-full font-bold text-[18px] hover:bg-yellow-400 transition-colors"
+                                className="mt-4 px-10 py-3 rounded-full font-bold text-[18px] hover:bg-yellow-400 transition-colors flex items-center justify-center"
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 Order Now
-                            </button>
+                            </Link>
                         </nav>
                     </div>
                 )}
