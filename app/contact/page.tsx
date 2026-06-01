@@ -212,7 +212,7 @@ export default function ContactPage() {
         </section>
       </main>
 
-      <footer className="w-full py-12 md:py-16 pl-3 pr-6 md:pl-4 md:pr-8" style={{ backgroundColor: "rgb(21, 107, 54)" }}>
+      <footer className="w-full py-12 md:py-16 px-6 md:px-8 lg:px-10" style={{ backgroundColor: "rgb(21, 107, 54)" }}>
         <div className="max-w-[1600px] mx-auto">
           <div className="md:hidden grid grid-cols-2 gap-x-8 gap-y-10">
             <div className="flex flex-col gap-10">
@@ -257,7 +257,7 @@ export default function ContactPage() {
           </div>
 
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-0 flex flex-col w-full md:w-[299px] h-auto md:h-[234px] justify-between">
+            <div className="p-0 flex flex-col w-full h-auto md:h-[234px] justify-between">
               <div className="flex flex-col">
                 <div className="w-[110px] h-[55px] relative mb-4">
                   <Image src="/images/logo.svg" alt="GrabV Logo" fill className="object-contain object-left" />
@@ -268,7 +268,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: "rgb(55, 122, 49)" }}>
+            <div className="rounded-[30px] p-6 flex flex-col w-full h-auto md:h-[234px]" style={{ backgroundColor: "rgb(55, 122, 49)" }}>
               <h4 className="text-[22px] font-bold mb-2" style={{ color: "rgb(247, 216, 13)" }}>Company</h4>
               <div className="flex flex-col gap-1 text-[18px] font-medium font-arpona leading-tight" style={{ color: "rgb(247, 216, 13)" }}>
                 <Link href="/ourstory" className="hover:opacity-80 transition-opacity">Our Story</Link>
@@ -278,7 +278,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: "rgb(55, 122, 49)" }}>
+            <div className="rounded-[30px] p-6 flex flex-col w-full h-auto md:h-[234px]" style={{ backgroundColor: "rgb(55, 122, 49)" }}>
               <h4 className="text-[22px] font-bold mb-2" style={{ color: "rgb(247, 216, 13)" }}>Product</h4>
               <div className="flex flex-col gap-1 text-[18px] font-medium font-arpona leading-tight" style={{ color: "rgb(247, 216, 13)" }}>
                 <Link href="/all-purposegravy" className="hover:opacity-80 transition-opacity">All Purpose Gravy</Link>
@@ -288,7 +288,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: "rgb(55, 122, 49)" }}>
+            <div className="rounded-[30px] p-6 flex flex-col w-full h-auto md:h-[234px]" style={{ backgroundColor: "rgb(55, 122, 49)" }}>
               <h4 className="text-[22px] font-bold mb-2" style={{ color: "rgb(247, 216, 13)" }}>Order & Policies</h4>
               <div className="flex flex-col gap-1 text-[18px] font-medium font-arpona leading-tight" style={{ color: "rgb(247, 216, 13)" }}>
                 <Link href="#" className="hover:opacity-80 transition-opacity">WhatsApp Order</Link>

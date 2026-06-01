@@ -1282,25 +1282,29 @@ export default function Home() {
             </p>
 
             {/* Buttons */}
-            <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-8 mb-8 md:mb-12 w-full max-w-[1000px]">
-              <div className="flex flex-row items-center justify-center gap-3 w-full md:max-w-[540px] lg:w-auto">
-                {/* Order 750g */}
-                <button className="bg-white text-[#f70034] flex-1 py-3 md:py-4 lg:py-5 rounded-full font-arpona font-medium text-[14px] md:text-[18px] lg:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all shrink-0">
-                  Order 750g
-                </button>
-
-                {/* Order 250g */}
-                <button className="bg-white text-[#f70034] flex-1 py-3 md:py-4 lg:py-5 rounded-full font-arpona font-medium text-[14px] md:text-[18px] lg:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all shrink-0">
-                  Order 250g
-                </button>
-              </div>
-
-              {/* WhatsApp - Tertiary */}
-              <button className="bg-white text-[#f70034] w-[180px] md:w-[240px] lg:w-[260px] py-2.5 md:py-4 lg:py-5 rounded-full font-arpona font-normal text-[14px] md:text-[18px] lg:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all group flex items-center justify-center gap-2 md:gap-4 shrink-0">
+            <div className="flex flex-col md:flex-row md:flex-wrap items-center justify-center gap-4 lg:gap-6 mb-8 md:mb-12 w-full max-w-[1000px]">
+              {/* Order 750g */}
+              <button className="bg-white text-[#f70034] min-w-[150px] md:min-w-[240px] lg:min-w-[260px] py-2.5 md:py-4 lg:py-5 rounded-full font-arpona font-normal text-[14px] md:text-[18px] lg:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all group flex items-center justify-center gap-2 md:gap-4 shrink-0">
                 <div className="w-5 h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 relative group-hover:brightness-0 group-hover:invert transition-all">
                   <Image src="/images/whatsapp.svg" alt="WhatsApp" fill className="object-contain" />
                 </div>
-                <span>WhatsApp us</span>
+                <span className="whitespace-nowrap">Order 750g</span>
+              </button>
+
+              {/* Order 250g */}
+              <button className="bg-white text-[#f70034] min-w-[150px] md:min-w-[240px] lg:min-w-[260px] py-2.5 md:py-4 lg:py-5 rounded-full font-arpona font-normal text-[14px] md:text-[18px] lg:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all group flex items-center justify-center gap-2 md:gap-4 shrink-0">
+                <div className="w-5 h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 relative group-hover:brightness-0 group-hover:invert transition-all">
+                  <Image src="/images/whatsapp.svg" alt="WhatsApp" fill className="object-contain" />
+                </div>
+                <span className="whitespace-nowrap">Order 250g</span>
+              </button>
+
+              {/* WhatsApp - Tertiary */}
+              <button className="bg-white text-[#f70034] min-w-[150px] md:min-w-[240px] lg:min-w-[260px] py-2.5 md:py-4 lg:py-5 rounded-full font-arpona font-normal text-[14px] md:text-[18px] lg:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all group flex items-center justify-center gap-2 md:gap-4 shrink-0">
+                <div className="w-5 h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 relative group-hover:brightness-0 group-hover:invert transition-all">
+                  <Image src="/images/whatsapp.svg" alt="WhatsApp" fill className="object-contain" />
+                </div>
+                <span className="whitespace-nowrap">WhatsApp us</span>
               </button>
             </div>
 
@@ -1311,7 +1315,7 @@ export default function Home() {
       </main>
 
       {/* New Grid Footer Section */}
-      <footer className="w-full py-12 md:py-16 pl-3 pr-6 md:pl-4 md:pr-8" style={{ backgroundColor: 'rgb(21, 107, 54)' }}>
+      <footer className="w-full py-12 md:py-16 px-6 md:px-8 lg:px-10" style={{ backgroundColor: 'rgb(21, 107, 54)' }}>
         <div className="max-w-[1600px] mx-auto">
           {/* Mobile Footer (Figma Style) */}
           <div className="md:hidden grid grid-cols-2 gap-x-8 gap-y-10">
@@ -1378,7 +1382,7 @@ export default function Home() {
           {/* Desktop Footer Section */}
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
             {/* Column 1: Brand & Socials (No Box) */}
-            <div className="p-0 flex flex-col w-full md:w-[299px] h-auto md:h-[234px] justify-between">
+            <div className="p-0 flex flex-col w-full h-auto md:h-[234px] justify-start gap-12">
               <div className="flex flex-col">
                 <div className="w-[110px] h-[55px] relative mb-4">
                   <Image src="/images/logo.svg" alt="GrabV Logo" fill className="object-contain object-left" />
@@ -1388,7 +1392,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="flex flex-col items-start gap-3 mt-auto">
+              <div className="flex flex-col items-start gap-3">
                 <span className="text-[14px] md:text-[16px] font-bold font-arpona text-white">Follow Us</span>
                 <div className="flex items-center gap-5">
                   <Link href="#" className="w-5 h-5 md:w-6 md:h-6 relative hover:scale-110 transition-transform brightness-0 invert">
@@ -1405,7 +1409,7 @@ export default function Home() {
             </div>
 
             {/* Column 2: Company Box */}
-            <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
+            <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
               <h4 className="text-[18px] md:text-[22px] font-bold mb-3 md:mb-4" style={{ color: 'rgb(247, 216, 13)' }}>Company</h4>
               <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-arpona leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
                 <Link href="/ourstory" className="hover:opacity-80 transition-opacity">Our Story</Link>
@@ -1416,7 +1420,7 @@ export default function Home() {
             </div>
 
             {/* Column 3: Product Box */}
-            <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
+            <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
               <h4 className="text-[18px] md:text-[22px] font-bold mb-3 md:mb-4" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
               <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-arpona leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
                 <Link href="/all-purposegravy" className="hover:opacity-80 transition-opacity">All Purpose Gravy</Link>
@@ -1427,7 +1431,7 @@ export default function Home() {
             </div>
 
             {/* Column 4: Orders & Policies Box */}
-            <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
+            <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
               <h4 className="text-[18px] md:text-[22px] font-bold mb-3 md:mb-4" style={{ color: 'rgb(247, 216, 13)' }}>Order & Policies</h4>
               <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-arpona leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
                 <Link href="#" className="hover:opacity-80 transition-opacity">WhatsApp Order</Link>

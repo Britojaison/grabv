@@ -338,17 +338,17 @@ export default function RecipesPage() {
         </section>
       </main>
 
-      <footer className="w-full py-12 md:py-16 pl-3 pr-6 md:pl-4 md:pr-8" style={{ backgroundColor: "rgb(21, 107, 54)" }}>
+      <footer className="w-full py-12 md:py-16 px-6 md:px-8 lg:px-10" style={{ backgroundColor: "rgb(21, 107, 54)" }}>
         <div className="max-w-[1600px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-0 flex flex-col w-full md:w-[299px] h-auto md:h-[234px] justify-between">
+            <div className="p-0 flex flex-col w-full h-auto md:h-[234px] justify-start gap-12">
               <div>
                 <div className="w-[110px] h-[55px] relative mb-4">
                   <Image src="/images/logo.svg" alt="GrabV Logo" fill className="object-contain object-left" />
                 </div>
                 <p className="text-[16px] font-medium leading-[1.2] font-arpona text-[rgb(247,216,13)]">&copy; 2026 GrabV. All rights reserved.</p>
               </div>
-              <div className="flex flex-col items-start gap-1.5 mt-8 md:mt-auto">
+              <div className="flex flex-col items-start gap-1.5 mt-8 md:mt-0">
                 <span className="text-[14px] font-bold font-arpona text-white">Follow Us</span>
                 <div className="flex items-center gap-3">
                   <Link href="#" className="w-6 h-6 relative hover:scale-110 transition-transform brightness-0 invert"><Image src="/images/facebook.svg" alt="Facebook" fill className="object-contain" /></Link>
@@ -363,7 +363,7 @@ export default function RecipesPage() {
               { title: "Product", links: [{ label: "All Purpose Gravy", href: "/all-purposegravy" }, { label: "Ingredients", href: "/all-purposegravy#ingredients" }, { label: "How to Use", href: "/all-purposegravy#how-to-use" }, { label: "Recipes", href: "/recipes" }] },
               { title: "Order & Policies", links: [{ label: "WhatsApp Order", href: "#" }, { label: "Exchange Order", href: "#" }, { label: "Privacy Policy", href: "#" }] },
             ].map((column) => (
-              <div key={column.title} className="rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: "rgb(55, 122, 49)" }}>
+              <div key={column.title} className="rounded-[30px] p-6 flex flex-col w-full h-auto md:h-[234px]" style={{ backgroundColor: "rgb(55, 122, 49)" }}>
                 <h3 className="text-[22px] font-bold mb-2 text-[rgb(247,216,13)]">{column.title}</h3>
                 <div className="flex flex-col gap-1 text-[18px] font-medium font-arpona leading-tight text-[rgb(247,216,13)]">
                   {column.links.map((link) => (
