@@ -1029,11 +1029,12 @@ export default function Home() {
                 </p>
               </div>
 
-              <button
+              <Link
+                href="/all-purposegravy"
                 className="bg-[#f70034] text-white px-4 md:px-10 py-2.5 md:py-5 rounded-full font-arpona font-bold text-[11px] md:text-[30px] shadow-lg hover:bg-black transition-all whitespace-nowrap z-10 shrink-0"
               >
                 Order Your Pouch
-              </button>
+              </Link>
             </div>
           </div>
         </section>
