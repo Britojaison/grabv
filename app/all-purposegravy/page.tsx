@@ -13,12 +13,12 @@ export default function ProductsPage() {
             {/* Navbar */}
             <header
                 style={{ backgroundColor: 'rgb(12, 61, 27)' }}
-                className="relative z-[100] w-full flex-shrink-0 shadow-md"
+                className="sticky top-0 z-[100] w-full flex-shrink-0 shadow-md"
             >
-                <div className="max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 h-[70px] md:h-[80px] flex items-center justify-between">
+                <div className="max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 h-[70px] md:h-[80px] flex items-center justify-between">
                     <div className="flex items-center gap-4">
-                        {/* Hamburger Menu - Mobile Only */}
-                        <div className="md:hidden flex items-center">
+                        {/* Hamburger Menu - Mobile and Tablet */}
+                        <div className="lg:hidden flex items-center">
                             <button
                                 className="text-white focus:outline-none p-2"
                                 onClick={() => setIsMenuOpen(true)}
@@ -43,7 +43,7 @@ export default function ProductsPage() {
                         </Link>
                     </div>
 
-                    <nav className="hidden md:flex items-center gap-12 text-white font-medium">
+                    <nav className="hidden lg:flex items-center gap-8 xl:gap-12 text-white font-medium">
                         <Link href="/" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Home</Link>
                         <Link href="/recipes" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Recipes</Link>
                         <Link href="/products" className="text-[rgb(247,216,13)] transition-colors text-[18px]">Products</Link>
@@ -99,7 +99,7 @@ export default function ProductsPage() {
             <main className="w-full relative flex flex-col items-center">
 
                 {/* Content Wrapper for Product Info */}
-                <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 pt-8 md:pt-16 pb-12 md:pb-20">
+                <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 pt-8 md:pt-16 pb-12 md:pb-20">
 
 
                     {/* Main Product Info Section */}
@@ -166,10 +166,10 @@ export default function ProductsPage() {
                                         </h1>
                                     </div>
                                     <div className="hidden md:block">
-                                        <h1 className="font-kura leading-[0.95] text-[65px] uppercase" style={{ color: 'rgb(21, 107, 54)' }}>
+                                        <h1 className="font-kura leading-[0.95] text-[50px] lg:text-[65px] uppercase" style={{ color: 'rgb(21, 107, 54)' }}>
                                             Onion Tomato
                                         </h1>
-                                        <h1 className="font-kura leading-[0.95] text-[65px] uppercase" style={{ color: 'rgb(247, 0, 52)' }}>
+                                        <h1 className="font-kura leading-[0.95] text-[50px] lg:text-[65px] uppercase" style={{ color: 'rgb(247, 0, 52)' }}>
                                             Gravy
                                         </h1>
                                     </div>
@@ -296,20 +296,20 @@ export default function ProductsPage() {
                         </div>
 
                         {/* Explore More Products Section */}
-                        <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] pl-2 pr-4 md:pl-4 md:pr-8 pt-10 pb-8 md:pb-4 mb-4" style={{ backgroundColor: 'rgb(239, 239, 231)' }}>
+                        <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] px-4 md:pl-4 md:pr-8 pt-10 pb-8 md:pb-4 mb-4" style={{ backgroundColor: 'rgb(239, 239, 231)' }}>
                             <div className="max-w-[1600px] mx-auto flex flex-col items-center md:items-start">
-                                <h2 className="font-kura leading-none mb-10 md:mb-12 uppercase text-[32px] md:text-[65px] text-center md:text-left whitespace-nowrap">
+                                <h2 className="font-kura leading-none mb-10 md:mb-12 uppercase text-[32px] md:text-[50px] lg:text-[65px] text-center md:text-left lg:whitespace-nowrap">
                                     <span style={{ color: 'rgb(21, 107, 54)' }}>Explore </span>
                                     <span style={{ color: 'rgb(247, 0, 52)' }}>More Products</span>
                                 </h2>
 
-                                <div className="w-full flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible gap-4 md:gap-10 pb-4 md:pb-0 no-scrollbar px-4 md:px-0">
+                                <div className="w-full flex lg:grid lg:grid-cols-3 overflow-x-auto lg:overflow-visible gap-4 md:gap-10 pb-4 lg:pb-0 no-scrollbar px-4 md:px-0">
                                     {[
                                         { status: 'active', title: 'Onion Tomato Gravy', image: '/images/APGArtboard-1 (3).png' },
                                         { status: 'coming_soon', title: 'Smoked Makhani Gravy', image: '/images/smoked makani.png' },
                                         { status: 'coming_soon', title: 'Smoked Makhani Gravy', image: '/images/smoked makani.png' }
                                     ].map((item, idx) => (
-                                        <div key={idx} className="flex flex-col items-center group shrink-0 w-[190px] md:w-auto">
+                                        <div key={idx} className="flex flex-col items-center group shrink-0 w-[190px] md:w-[300px] lg:w-auto">
                                             {/* Image Container */}
                                             <div className={`relative w-full aspect-[4/5] rounded-[20px] overflow-hidden mb-5 bg-[#F5F5F5] ${item.status === 'active' ? 'cursor-pointer' : ''}`}>
                                                 <Image
@@ -346,10 +346,10 @@ export default function ProductsPage() {
                                             {/* View Product Button */}
                                             <Link
                                                 href="/all-purposegravy"
-                                                className="w-full md:w-[353px] relative h-[60px] md:h-[72px] flex items-center justify-center hover:scale-[1.02] transition-all group/btn"
+                                                className="w-full lg:w-[353px] relative h-[60px] md:h-[72px] flex items-center justify-center hover:scale-[1.02] transition-all group/btn"
                                             >
                                                 <div
-                                                    className="absolute w-[calc(100%-10px)] md:w-[349px] h-[calc(100%-28px)] md:h-[60px] top-[14px] left-[5px] md:left-[0.75px] z-0 bg-[rgb(247,216,13)] rounded-[9px]"
+                                                    className="absolute w-[calc(100%-10px)] lg:w-[349px] h-[calc(100%-28px)] md:h-[60px] top-[14px] left-[5px] lg:left-[0.75px] z-0 bg-[rgb(247,216,13)] rounded-[9px]"
                                                     style={{ transform: 'rotate(-0.8deg)' }}
                                                 />
                                                 <div className="absolute inset-0 z-10 w-full h-full">
@@ -407,16 +407,16 @@ export default function ProductsPage() {
                                 </div>
 
                                 {/* Heading */}
-                                <h2 className="font-kura text-[32px] md:text-[85px] leading-tight mb-0 md:mb-4 text-center uppercase">
+                                <h2 className="font-kura text-[32px] md:text-[55px] lg:text-[85px] leading-tight mb-0 md:mb-4 text-center uppercase">
                                     <span className="text-white">The GrabV </span>
                                     <span style={{ color: 'rgb(247, 216, 13)' }}>Experience</span>
                                 </h2>
                             </div>
                         </div>
 
-                        {/* Review Cards - Horizontal scroll on mobile */}
+                        {/* Review Cards - Horizontal scroll on mobile and tablet */}
                         <div className="w-full flex flex-col items-center">
-                            <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 pt-4 md:py-20 flex overflow-x-auto no-scrollbar md:grid md:grid-cols-3 gap-6 md:gap-8 pb-8 md:pb-16">
+                            <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 pt-4 md:py-8 lg:py-20 flex overflow-x-auto no-scrollbar lg:grid lg:grid-cols-3 gap-6 md:gap-8 pb-8 md:pb-16">
                             {[
                                 {
                                     name: "Sneha Mehta",
@@ -440,7 +440,7 @@ export default function ProductsPage() {
                                     image: "/images/stylish-indian-beard-model-man-casual-clothes-posed-outdoor-street-india.jpg"
                                 }
                             ].map((item, idx) => (
-                                <div key={idx} className="relative p-4 md:p-6 rounded-[20px] bg-white flex flex-col gap-2 md:gap-4 shrink-0 w-[211px] min-h-[150px] h-auto pb-4 md:w-auto md:h-auto shadow-sm">
+                                <div key={idx} className="relative p-4 md:p-6 rounded-[20px] bg-white flex flex-col gap-2 md:gap-4 shrink-0 w-[211px] md:w-[350px] lg:w-auto min-h-[150px] h-auto pb-4 lg:h-auto shadow-sm">
                                     {/* Mobile Card Borders (Double yellow border effect per request) */}
                                     <div className="absolute -inset-1 md:hidden pointer-events-none">
                                         <Image src="/images/card border phone.svg" alt="" fill className="object-fill" />
@@ -494,38 +494,38 @@ export default function ProductsPage() {
                     {/* Ready to Cook Section */}
                     <div className="w-full flex flex-col items-center">
                         <div
-                            className="w-[calc(100%-16px)] md:w-full max-w-[1600px] mx-auto min-h-[280px] md:h-[550px] rounded-[8px] pl-2 pr-4 md:pl-4 md:pr-8 py-8 md:p-24 flex flex-col items-center justify-center text-center relative overflow-hidden mb-10 shadow-xl"
+                            className="w-[calc(100%-32px)] md:w-full max-w-[1600px] mx-auto min-h-[280px] md:min-h-[450px] lg:h-[550px] rounded-[8px] px-4 md:px-12 lg:px-24 py-8 md:py-16 lg:py-24 flex flex-col items-center justify-center text-center relative overflow-hidden mb-10 shadow-xl"
                             style={{ backgroundColor: 'rgb(21, 106, 55)' }}
                         >
 
                             {/* Heading - Single line for mobile */}
-                            <h2 className="font-kura text-[19px] md:text-[70px] leading-tight mb-4 md:mb-8 whitespace-nowrap">
+                            <h2 className="font-kura text-[19px] md:text-[46px] lg:text-[70px] leading-tight mb-4 md:mb-8 lg:whitespace-nowrap">
                                 <span style={{ color: 'rgb(247, 216, 13)' }}>Ready to cook smarter </span>
                                 <span className="text-white">every day?</span>
                             </h2>
 
                             {/* Subtext */}
-                            <p className="text-white text-[16px] md:text-[28px] font-arpona font-normal tracking-wide opacity-90 mb-8 md:mb-12 max-w-4xl px-2 md:px-0 leading-relaxed md:leading-[1.3]">
+                            <p className="text-white text-[16px] md:text-[20px] lg:text-[28px] font-arpona font-normal tracking-wide opacity-90 mb-8 md:mb-12 max-w-4xl px-2 md:px-0 leading-relaxed md:leading-[1.3]">
                                 Reclaim your time with our preservative free gravy pouches.<br className="hidden md:block" /> Freshly chilled, FSSAI certified, and delivered to your door.
                             </p>
 
                             {/* Buttons */}
-                            <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-8 md:mb-12 w-full max-w-[1000px]">
-                                <div className="flex flex-row items-center justify-center gap-3 md:gap-8 w-full md:w-auto">
+                            <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-8 mb-8 md:mb-12 w-full max-w-[1000px]">
+                                <div className="flex flex-row items-center justify-center gap-3 w-full md:max-w-[540px] lg:w-auto">
                                     {/* Order 750g */}
-                                    <button className="bg-white text-[#f70034] flex-1 md:w-[260px] py-3 md:py-5 rounded-full font-arpona font-medium text-[14px] md:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all shrink-0">
+                                    <button className="bg-white text-[#f70034] flex-1 py-3 md:py-4 lg:py-5 rounded-full font-arpona font-medium text-[14px] md:text-[18px] lg:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all shrink-0">
                                         Order 750g
                                     </button>
 
                                     {/* Order 250g */}
-                                    <button className="bg-white text-[#f70034] flex-1 md:w-[260px] py-3 md:py-5 rounded-full font-arpona font-medium text-[14px] md:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all shrink-0">
+                                    <button className="bg-white text-[#f70034] flex-1 py-3 md:py-4 lg:py-5 rounded-full font-arpona font-medium text-[14px] md:text-[18px] lg:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all shrink-0">
                                         Order 250g
                                     </button>
                                 </div>
 
                                 {/* WhatsApp - Tertiary */}
-                                <button className="bg-white text-[#f70034] w-[180px] md:w-[260px] py-2.5 md:py-5 rounded-full font-arpona font-normal text-[14px] md:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all group flex items-center justify-center gap-2 md:gap-4 shrink-0">
-                                    <div className="w-5 h-5 md:w-8 md:h-8 relative group-hover:brightness-0 group-hover:invert transition-all">
+                                <button className="bg-white text-[#f70034] w-[180px] md:w-[240px] lg:w-[260px] py-2.5 md:py-4 lg:py-5 rounded-full font-arpona font-normal text-[14px] md:text-[18px] lg:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all group flex items-center justify-center gap-2 md:gap-4 shrink-0">
+                                    <div className="w-5 h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 relative group-hover:brightness-0 group-hover:invert transition-all">
                                         <Image src="/images/whatsapp.svg" alt="WhatsApp" fill className="object-contain" />
                                     </div>
                                     <span>WhatsApp us</span>
@@ -600,7 +600,7 @@ export default function ProductsPage() {
                     </div>
 
                     {/* Desktop Footer Section (Unchanged) */}
-                    <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                    <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
                         {/* Column 1: Brand & Socials (No Box) */}
                         <div className="p-0 flex flex-col w-full md:w-[299px] h-auto md:h-[234px] justify-between">
                             <div className="flex flex-col">

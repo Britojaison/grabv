@@ -12,12 +12,12 @@ export default function ProductsListPage() {
             {/* Navbar */}
             <header
                 style={{ backgroundColor: 'rgb(12, 61, 27)' }}
-                className="relative z-[100] w-full flex-shrink-0 shadow-md"
+                className="sticky top-0 z-[100] w-full flex-shrink-0 shadow-md"
             >
-                <div className="max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 h-[70px] md:h-[80px] flex items-center justify-between">
+                <div className="max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 h-[70px] md:h-[80px] flex items-center justify-between">
                     <div className="flex items-center gap-4">
-                        {/* Hamburger Menu - Mobile Only */}
-                        <div className="md:hidden flex items-center">
+                        {/* Hamburger Menu - Mobile and Tablet */}
+                        <div className="lg:hidden flex items-center">
                             <button
                                 className="text-white focus:outline-none p-2"
                                 onClick={() => setIsMenuOpen(true)}
@@ -42,7 +42,7 @@ export default function ProductsListPage() {
                         </Link>
                     </div>
 
-                    <nav className="hidden md:flex items-center gap-12 text-white font-medium">
+                    <nav className="hidden lg:flex items-center gap-8 xl:gap-12 text-white font-medium">
                         <Link href="/" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Home</Link>
                         <Link href="/recipes" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Recipes</Link>
                         <Link href="/products" className="text-[rgb(247,216,13)] transition-colors text-[18px]">Products</Link>
@@ -100,14 +100,14 @@ export default function ProductsListPage() {
 
 
                 {/* Explore Products Section */}
-                <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 pt-8 md:pt-16 pb-8">
+                <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 pt-8 md:pt-16 pb-8">
                     <div className="w-full flex flex-col items-center mb-8 md:mb-20 px-4 text-center">
-                        <h2 className="font-kura leading-none mb-8 md:mb-12 uppercase flex gap-2 md:gap-4 justify-center">
-                            <span className="text-[42px] md:text-[65px]" style={{ color: 'rgb(21, 107, 54)' }}>OUR</span>
-                            <span className="text-[42px] md:text-[65px]" style={{ color: 'rgb(247, 0, 52)' }}>PRODUCTS</span>
+                        <h2 className="font-kura leading-none mb-8 md:mb-12 uppercase text-center">
+                            <span className="text-[32px] sm:text-[42px] md:text-[50px] lg:text-[65px] mr-2 md:mr-4 inline-block" style={{ color: 'rgb(21, 107, 54)' }}>OUR</span>
+                            <span className="text-[32px] sm:text-[42px] md:text-[50px] lg:text-[65px] inline-block" style={{ color: 'rgb(247, 0, 52)' }}>PRODUCTS</span>
                         </h2>
 
-                        <div className="w-full flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible gap-4 md:gap-10 pb-4 md:pb-0 no-scrollbar px-4 md:px-0">
+                        <div className="w-full flex md:grid md:grid-cols-2 lg:grid-cols-3 overflow-x-auto md:overflow-visible gap-4 md:gap-10 pb-4 md:pb-0 no-scrollbar px-4 md:px-0">
                             {[
                                 { status: 'active', title: 'Onion Tomato Gravy', image: '/images/APGArtboard-1 (3).png' },
                                 { status: 'coming_soon', title: 'Smoked Makhani Gravy', image: '/images/smoked makani.png' },
@@ -240,7 +240,7 @@ export default function ProductsListPage() {
                     </div>
 
                     {/* Desktop Footer Section */}
-                    <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {/* Column 1: Brand & Socials (No Box) */}
                         <div className="p-0 flex flex-col w-full md:w-[299px] h-auto md:h-[234px] justify-between">
                             <div className="flex flex-col">

@@ -37,12 +37,12 @@ export default function OurStoryPage() {
             {/* Navbar */}
             <header
                 style={{ backgroundColor: 'rgb(12, 61, 27)' }}
-                className="relative z-[100] w-full flex-shrink-0 shadow-md"
+                className="sticky top-0 z-[100] w-full flex-shrink-0 shadow-md"
             >
-                <div className="max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 h-[70px] md:h-[80px] flex items-center justify-between">
+                <div className="max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 h-[70px] md:h-[80px] flex items-center justify-between">
                     <div className="flex items-center gap-4">
-                        {/* Hamburger Menu - Mobile Only */}
-                        <div className="md:hidden flex items-center">
+                        {/* Hamburger Menu - Mobile and Tablet */}
+                        <div className="lg:hidden flex items-center">
                             <button 
                                 className="text-white focus:outline-none p-2"
                                 onClick={() => setIsMenuOpen(true)}
@@ -67,7 +67,7 @@ export default function OurStoryPage() {
                         </Link>
                     </div>
 
-                    <nav className="hidden md:flex items-center gap-12 text-white font-medium">
+                    <nav className="hidden lg:flex items-center gap-8 xl:gap-12 text-white font-medium">
                         <Link href="/" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Home</Link>
                         <Link href="/recipes" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Recipes</Link>
                         <Link href="/products" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Products</Link>
@@ -142,8 +142,8 @@ export default function OurStoryPage() {
                         <div className="w-[50%] md:w-[60%] flex flex-col items-start">
 
                             <h1 className="font-kura leading-[0.9] mb-4 md:mb-10 uppercase">
-                                <span className="block text-[22px] md:text-[100px]" style={{ color: 'rgb(21, 107, 54)' }}>The curry</span>
-                                <span className="block text-[18px] md:text-[60px]" style={{ color: 'rgb(247, 0, 52)' }}>story</span>
+                                <span className="block text-[22px] md:text-[70px] lg:text-[100px]" style={{ color: 'rgb(21, 107, 54)' }}>The curry</span>
+                                <span className="block text-[18px] md:text-[42px] lg:text-[60px]" style={{ color: 'rgb(247, 0, 52)' }}>story</span>
                             </h1>
 
                             {/* Description Texts */}
@@ -201,7 +201,7 @@ export default function OurStoryPage() {
                         </p>
                     </div>
 
-                    <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex flex-row md:flex-row items-center gap-4 md:gap-16">
+                    <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 flex flex-row md:flex-row items-center gap-4 md:gap-16">
                         {/* Image */}
                         <div className="w-[45%] md:w-[50%] flex justify-center md:justify-start">
                             <div className="story-reveal-image relative w-full aspect-square md:aspect-[581/593] max-w-[650px]" style={{ "--reveal-delay": "80ms" } as React.CSSProperties}>
@@ -267,7 +267,7 @@ export default function OurStoryPage() {
                     </div>
 
                     {/* Bottom Sub-section */}
-                    <div className="w-full max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 flex flex-row-reverse md:flex-row-reverse items-center gap-4 md:gap-16 mt-6 md:mt-0">
+                    <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 flex flex-row-reverse md:flex-row-reverse items-center gap-4 md:gap-16 mt-6 md:mt-0">
                         {/* Image */}
                         <div className="w-[45%] md:w-[50%] flex justify-center md:justify-end">
                             <div className="story-reveal-image relative w-full aspect-square md:aspect-[581/593] max-w-[700px]" style={{ "--reveal-delay": "120ms" } as React.CSSProperties}>
@@ -294,8 +294,8 @@ export default function OurStoryPage() {
                             </div>
 
                             <h2 className="font-kura leading-[0.95] mb-2 md:mb-6 uppercase">
-                                <span className="block text-[18px] md:text-[60px]" style={{ color: 'rgb(21, 107, 54)' }}>What makes</span>
-                                <span className="block text-[18px] md:text-[60px]" style={{ color: 'rgb(247, 0, 52)' }}>Grab different</span>
+                                <span className="block text-[18px] md:text-[44px] lg:text-[60px]" style={{ color: 'rgb(21, 107, 54)' }}>What makes</span>
+                                <span className="block text-[18px] md:text-[44px] lg:text-[60px]" style={{ color: 'rgb(247, 0, 52)' }}>Grab different</span>
                             </h2>
 
                             <div className="flex flex-col gap-3 md:gap-5">
@@ -313,7 +313,7 @@ export default function OurStoryPage() {
                     </div>
 
                     {/* Mobile Para 2 & 3 */}
-                    <div className="block md:hidden w-full pl-2 pr-4 mt-2 flex flex-col gap-1">
+                    <div className="block md:hidden w-full px-4 mt-2 flex flex-col gap-1">
                         <p className="font-arpona font-normal text-[13.5px] leading-[1.3] opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
                             The idea was simple: when you cook with Grab, the meal should still feel like your own.
                         </p>
@@ -338,7 +338,7 @@ export default function OurStoryPage() {
                         </div>
                         
                         {/* Mobile Bar Content - Infinite Scrolling Marquee */}
-                        <div className="md:hidden relative z-10 w-full overflow-hidden py-4">
+                        <div className="lg:hidden relative z-10 w-full overflow-hidden py-4">
                             <div className="flex flex-row animate-marquee whitespace-nowrap gap-8 w-max">
                                 {[
                                     { icon: "/images/timer2.svg", text: "Ready in 7 mins" },
@@ -363,7 +363,7 @@ export default function OurStoryPage() {
                         </div>
 
                         {/* Desktop Background Layer (Unchanged) */}
-                        <div className="hidden md:block w-full relative pt-24 pb-16 flex flex-col items-center text-center overflow-hidden">
+                        <div className="hidden lg:block w-full relative pt-24 pb-16 flex flex-col items-center text-center overflow-hidden">
                             <div className="absolute inset-0 z-0 overflow-hidden">
                                 <Image src="/images/bg green2.svg" alt="" fill className="object-cover object-top scale-x-[-1]" priority />
                                 <div className="absolute inset-0 -z-10" style={{ backgroundColor: 'rgb(239, 238, 230)' }} />
@@ -565,7 +565,7 @@ export default function OurStoryPage() {
                     </div>
 
                     {/* Desktop Footer Section (Unchanged) */}
-                    <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                    <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
                         {/* Column 1: Brand & Socials (No Box) */}
                         <div className="p-0 flex flex-col w-full md:w-[299px] h-auto md:h-[234px] justify-between">
                             <div className="flex flex-col">

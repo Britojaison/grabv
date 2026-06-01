@@ -147,10 +147,10 @@ export default function RecipesPage() {
 
   return (
     <div className="flex flex-col min-h-screen w-full font-arpona overflow-x-hidden" style={{ backgroundColor: "rgb(239, 238, 230)" }}>
-      <header style={{ backgroundColor: "rgb(12, 61, 27)" }} className="relative z-[100] w-full flex-shrink-0 shadow-md">
-        <div className="max-w-[1600px] mx-auto pl-2 pr-4 md:pl-4 md:pr-8 h-[70px] md:h-[80px] flex items-center justify-between">
+      <header style={{ backgroundColor: "rgb(12, 61, 27)" }} className="sticky top-0 z-[100] w-full flex-shrink-0 shadow-md">
+        <div className="max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 h-[70px] md:h-[80px] flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="md:hidden flex items-center">
+            <div className="lg:hidden flex items-center">
               <button className="text-white focus:outline-none p-2" onClick={() => setIsMenuOpen(true)} aria-label="Open menu">
                 <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <line x1="0" y1="2" x2="24" y2="2" stroke="white" strokeWidth="2.5" />
@@ -165,7 +165,7 @@ export default function RecipesPage() {
             </Link>
           </div>
 
-          <nav className="hidden md:flex items-center gap-12 text-white font-medium">
+          <nav className="hidden lg:flex items-center gap-8 xl:gap-12 text-white font-medium">
             <Link href="/" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Home</Link>
             <Link href="/recipes" className="text-[rgb(247,216,13)] transition-colors text-[18px]">Recipes</Link>
             <Link href="/products" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Products</Link>
@@ -220,8 +220,8 @@ export default function RecipesPage() {
               </div>
 
               <h1 className="font-kura uppercase leading-[0.9] mb-4 md:mb-6">
-                <span className="block text-[42px] md:text-[92px] text-[rgb(247,216,13)]">Recipes</span>
-                <span className="block text-[34px] md:text-[72px] text-white">GrabV</span>
+                <span className="block text-[42px] md:text-[68px] lg:text-[92px] text-[rgb(247,216,13)]">Recipes</span>
+                <span className="block text-[34px] md:text-[52px] lg:text-[72px] text-white">GrabV</span>
               </h1>
               <p className="text-white/90 text-[16px] md:text-[24px] leading-[1.35] max-w-[640px] mx-auto md:mx-0">
                 Switch the ingredients, keep the flavour. Make everyday curries faster with GrabV onion tomato gravy.
