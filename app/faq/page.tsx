@@ -46,7 +46,7 @@ const faqs = [
     },
     {
         question: "How to use it?",
-        answer: "Add your tempering (tadka) in oil, saute veggies or paneer of your choice, pour gravy and adjust consistency, sprinkle spices and salt to taste. Cook for 7 minutes and enjoy.",
+        answer: "Add your tempering (tadka) in oil, saute veggies or paneer of your choice, pour gravy and adjust consistency, sprinkle spices and salt to taste. Cook for 10 minutes and enjoy.",
     },
 ];
 

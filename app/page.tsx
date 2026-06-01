@@ -240,7 +240,7 @@ export default function Home() {
                 {[...Array(4)].map((_, i) => (
                   <React.Fragment key={i}>
                     {[
-                      { img: 'timer2.svg', text: 'Ready in 7 mins' },
+                      { img: 'timer2.svg', text: 'Ready in 10 mins' },
                       { img: 'slow.svg', text: 'Slow cooked' },
                       { img: 'FSSAI (1).svg', text: 'FSSAI Certified' },
                       { img: 'tick2.svg', text: 'Zero Preservatives' },
@@ -267,9 +267,9 @@ export default function Home() {
                   className="rounded-full px-7 py-3 flex items-center gap-3 shadow-sm"
                 >
                   <div className="w-[30px] h-[30px] relative">
-                    <Image src="/images/timer2.svg" alt="Ready in 7 mins" fill className="object-contain" />
+                    <Image src="/images/timer2.svg" alt="Ready in 10 mins" fill className="object-contain" />
                   </div>
-                  <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-arpona whitespace-nowrap">Ready in 7 mins</span>
+                  <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-arpona whitespace-nowrap">Ready in 10 mins</span>
                 </div>
                 <div
                   style={{ backgroundColor: 'rgb(247, 216, 13)' }}
@@ -392,11 +392,11 @@ export default function Home() {
               {/* Description text */}
               {/* Mobile Description */}
               <p className="lg:hidden max-w-[320px] md:max-w-xl leading-[1.3] mb-8 lg:mb-12 font-normal font-arpona text-[16px] md:text-[20px] text-center" style={{ color: 'rgb(21, 107, 54)' }}>
-                Freshly made and chilled curry bases that help you prepare rich, flavourful gravy in just 10 minutes. Made with real ingredients and absolutely no preservatives.
+                Freshly made and chilled curry bases that help you prepare rich, flavourful gravy in just 10 minutes. Made with fresh ingredients and absolutely no preservatives.
               </p>
               {/* Desktop Description */}
               <p className="hidden lg:block max-w-xl leading-[1.3] mb-12 font-normal font-arpona text-[25px] text-left" style={{ color: 'rgb(21, 107, 54)' }}>
-                Freshly made and chilled curry bases that help you prepare rich, flavourful gravy in just 10 minutes. Made with real ingredients and absolutely no preservatives.
+                Freshly made and chilled curry bases that help you prepare rich, flavourful gravy in just 10 minutes. Made with fresh ingredients and absolutely no preservatives.
               </p>
 
               {/* Desktop Learn More Button */}
@@ -463,8 +463,8 @@ export default function Home() {
                   className="w-full rounded-[8px] mt-4 p-3 grid grid-cols-2 gap-x-4 gap-y-3 shadow-sm border border-[rgb(21,107,54)]/10"
                 >
                   <div className="flex flex-col border-r border-[rgb(21,107,54)]/20 pr-3">
-                    <span className="font-bold text-[18px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>7 Min</span>
-                    <span className="text-[12px] font-bold" style={{ color: 'rgb(16, 107, 54)' }}>cooking time</span>
+                    <span className="font-bold text-[18px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>Ready in</span>
+                    <span className="text-[12px] font-bold" style={{ color: 'rgb(16, 107, 54)' }}>10 mins</span>
                   </div>
                   <div className="flex flex-col pl-3">
                     <span className="font-bold text-[18px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>Zero</span>
@@ -510,8 +510,8 @@ export default function Home() {
                     <div className="flex-1 flex items-center justify-center gap-4 px-4 shrink-0">
                       <Image src="/images/clock.svg" alt="" width={48} height={48} className="shrink-0" />
                       <div className="flex flex-col text-left shrink-0">
-                        <span className="font-bold text-[30px] leading-tight whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)' }}>7 Min</span>
-                        <span className="text-[15px] font-bold whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)', letterSpacing: '0.05em' }}>cooking time</span>
+                        <span className="font-bold text-[30px] leading-tight whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)' }}>Ready in</span>
+                        <span className="text-[15px] font-bold whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)', letterSpacing: '0.05em' }}>10 mins</span>
                       </div>
                     </div>
                     <div className="hidden sm:block w-[1px] h-10 bg-[rgb(16,107,54)]/30" />
@@ -543,7 +543,7 @@ export default function Home() {
                 { step: 2, text: "Sauté veggies or\nprotein of your choice.", rotate: "rotate-6" },
                 { step: 3, text: "Pour gravy &\nadjust consistency", rotate: "-rotate-6" },
                 { step: 4, text: "Sprinkle spices\n& salt to taste.", rotate: "rotate-6" },
-                { step: 5, text: "Cook for 7 mins\nand enjoy!", rotate: "-rotate-6" }
+                { step: 5, text: "Cook for 10 mins\nand enjoy!", rotate: "-rotate-6" }
               ].map((item) => (
                 <div key={item.step} className="flex flex-col items-center shrink-0 w-[47%] md:w-full">
                   <div className="relative group w-full">
