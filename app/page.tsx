@@ -60,7 +60,8 @@ export default function Home() {
             <Link href="/faq" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">FAQ</Link>
           </nav>
 
-          <button
+          <Link
+            href="/all-purposegravy"
             style={{
               borderRadius: '5px',
               backgroundColor: 'rgb(247, 216, 13)',
@@ -70,7 +71,7 @@ export default function Home() {
             className="font-arpona font-medium flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0 text-[12px] md:text-[18px] w-[85px] md:w-[142px] h-[30px] md:h-[37px]"
           >
             Order Now
-          </button>
+          </Link>
         </div>
 
         {/* Mobile Menu Overlay */}
@@ -91,13 +92,14 @@ export default function Home() {
               <Link href="/ourstory" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Our Story</Link>
               <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Contact Us</Link>
               <Link href="/faq" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">FAQ</Link>
-              <button
+              <Link
+                href="/all-purposegravy"
                 style={{ backgroundColor: 'rgb(247, 216, 13)', color: 'rgb(12, 61, 27)' }}
-                className="mt-4 px-10 py-3 rounded-full font-bold text-[18px] hover:bg-yellow-400 transition-colors"
+                className="mt-4 px-10 py-3 rounded-full font-bold text-[18px] hover:bg-yellow-400 transition-colors flex items-center justify-center"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Order Now
-              </button>
+              </Link>
             </nav>
           </div>
         )}
@@ -1285,14 +1287,14 @@ export default function Home() {
             <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-8 mb-8 md:mb-12 w-full max-w-[1000px]">
               <div className="flex flex-row items-center justify-center gap-3 w-full md:max-w-[540px] lg:w-auto">
                 {/* Order 750g */}
-                <button className="bg-white text-[#f70034] flex-1 py-3 md:py-4 lg:py-5 rounded-full font-arpona font-medium text-[14px] md:text-[18px] lg:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all shrink-0">
+                <Link href="/all-purposegravy?size=750g" className="bg-white text-[#f70034] flex-1 py-3 md:py-4 lg:py-5 rounded-full font-arpona font-medium text-[14px] md:text-[18px] lg:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all shrink-0 flex items-center justify-center">
                   Order 750g
-                </button>
+                </Link>
 
                 {/* Order 250g */}
-                <button className="bg-white text-[#f70034] flex-1 py-3 md:py-4 lg:py-5 rounded-full font-arpona font-medium text-[14px] md:text-[18px] lg:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all shrink-0">
+                <Link href="/all-purposegravy?size=250g" className="bg-white text-[#f70034] flex-1 py-3 md:py-4 lg:py-5 rounded-full font-arpona font-medium text-[14px] md:text-[18px] lg:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all shrink-0 flex items-center justify-center">
                   Order 250g
-                </button>
+                </Link>
               </div>
 
               {/* WhatsApp - Tertiary */}
