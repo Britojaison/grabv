@@ -230,7 +230,7 @@ export default function ProductsListPage() {
                                         <Link href="#" className="w-4 h-4 relative brightness-0 invert">
                                             <Image src="/images/whatsapp1.svg" alt="WhatsApp" fill className="object-contain" />
                                         </Link>
-                                        <Link href="#" className="w-4 h-4 relative brightness-0 invert">
+                                        <Link href="https://www.instagram.com/grab__v/" target="_blank" rel="noopener noreferrer" className="w-4 h-4 relative brightness-0 invert">
                                             <Image src="/images/insta.svg" alt="Instagram" fill className="object-contain" />
                                         </Link>
                                     </div>
@@ -261,7 +261,7 @@ export default function ProductsListPage() {
                                     <Link href="#" className="w-6 h-6 relative hover:scale-110 transition-transform brightness-0 invert">
                                         <Image src="/images/whatsapp1.svg" alt="WhatsApp" fill className="object-contain" />
                                     </Link>
-                                    <Link href="#" className="w-6 h-6 relative hover:scale-110 transition-transform brightness-0 invert">
+                                    <Link href="https://www.instagram.com/grab__v/" target="_blank" rel="noopener noreferrer" className="w-6 h-6 relative hover:scale-110 transition-transform brightness-0 invert">
                                         <Image src="/images/insta.svg" alt="Instagram" fill className="object-contain" />
                                     </Link>
                                 </div>
