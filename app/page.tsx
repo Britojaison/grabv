@@ -50,18 +50,12 @@ export default function Home() {
       heroVideoTime.current = video.currentTime;
     }
 
-    const isHeroVisible = () => {
+    const isHeroActive = () => {
       const rect = hero.getBoundingClientRect();
       const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      const headerHeight = document.querySelector("header")?.getBoundingClientRect().height ?? 0;
 
-      return rect.top < viewportHeight && rect.bottom > 0;
-    };
-
-    const isNextSectionVisible = () => {
-      const rect = nextSection.getBoundingClientRect();
-      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-
-      return rect.top < viewportHeight && rect.bottom > 0;
+      return rect.top <= headerHeight + 4 && rect.bottom > headerHeight + viewportHeight * 0.35;
     };
 
     const finishHeroVideo = () => {
@@ -144,18 +138,15 @@ export default function Home() {
         return;
       }
 
-      const shouldScrubHero =
-        isHeroVisible() || (scrubSeconds < 0 && hasCompletedHeroVideo.current && isNextSectionVisible());
+      if (hasCompletedHeroVideo.current && scrubSeconds > 0) {
+        return;
+      }
 
-      if (!shouldScrubHero) {
+      if (!isHeroActive()) {
         return;
       }
 
       event.preventDefault();
-
-      if (scrubSeconds < 0 && hasCompletedHeroVideo.current && !isHeroVisible()) {
-        hero.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
 
       if (!Number.isFinite(video.duration) || video.duration <= 0) {
         video.load();
