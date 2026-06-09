@@ -1,10 +1,16 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const heroRef = useRef<HTMLElement | null>(null);
+  const heroVideoRef = useRef<HTMLVideoElement | null>(null);
+  const nextSectionRef = useRef<HTMLElement | null>(null);
+  const hasCompletedHeroVideo = useRef(false);
+  const hasInitializedHeroVideo = useRef(false);
+  const heroVideoTime = useRef(0);
   const qualityPromises = [
     { text: "100% Vegan", icon: "leaf.svg" },
     { text: "Batch Tested", icon: "Batch tested.svg" },
@@ -12,6 +18,138 @@ export default function Home() {
     { text: "No Artificial Colours", icon: "No artificial colours.svg" },
     { text: "Zero Preservatives", icon: "Zero Preservatives (1).svg" },
   ];
+
+  useEffect(() => {
+    const hero = heroRef.current;
+    const video = heroVideoRef.current;
+    const nextSection = nextSectionRef.current;
+
+    if (!hero || !video || !nextSection) {
+      return;
+    }
+
+    let touchStartY = 0;
+    video.pause();
+
+    const syncHeroVideoTime = () => {
+      const duration = video.duration;
+      const currentTime =
+        Number.isFinite(duration) && duration > 0
+          ? Math.min(heroVideoTime.current, duration)
+          : heroVideoTime.current;
+
+      if (Math.abs(video.currentTime - currentTime) > 0.05) {
+        video.currentTime = currentTime;
+      }
+    };
+
+    if (hasInitializedHeroVideo.current) {
+      syncHeroVideoTime();
+    } else {
+      hasInitializedHeroVideo.current = true;
+      heroVideoTime.current = video.currentTime;
+    }
+
+    const isHeroVisible = () => {
+      const rect = hero.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+      return rect.top < viewportHeight && rect.bottom > 0;
+    };
+
+    const finishHeroVideo = () => {
+      hasCompletedHeroVideo.current = true;
+      video.pause();
+      nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
+    const advanceHeroVideo = (seconds: number) => {
+      if (hasCompletedHeroVideo.current) {
+        return;
+      }
+
+      const duration = video.duration;
+      if (!Number.isFinite(duration) || duration <= 0) {
+        return;
+      }
+
+      const currentTime = Math.max(video.currentTime, heroVideoTime.current);
+      const nextTime = Math.min(duration, currentTime + seconds);
+
+      video.pause();
+      video.currentTime = nextTime;
+      heroVideoTime.current = nextTime;
+
+      if (nextTime >= duration - 0.08) {
+        finishHeroVideo();
+      }
+    };
+
+    const handleEnded = () => {
+      heroVideoTime.current = video.duration || video.currentTime;
+      finishHeroVideo();
+    };
+
+    const handlePause = () => {
+      heroVideoTime.current = video.currentTime;
+    };
+
+    const handleScrollIntent = (event: WheelEvent | TouchEvent | KeyboardEvent) => {
+      if (hasCompletedHeroVideo.current || !isHeroVisible()) {
+        return;
+      }
+
+      const isWheelDown = event.type === "wheel" && "deltaY" in event && event.deltaY > 0;
+      const isTouchScroll =
+        event.type === "touchmove" &&
+        "touches" in event &&
+        event.touches.length > 0 &&
+        touchStartY - event.touches[0].clientY > 8;
+      const isKeyboardScroll =
+        event.type === "keydown" &&
+        "key" in event &&
+        ["ArrowDown", "PageDown", " ", "Spacebar"].includes(event.key);
+
+      if (!isWheelDown && !isTouchScroll && !isKeyboardScroll) {
+        return;
+      }
+
+      event.preventDefault();
+
+      if (event.type === "wheel" && "deltaY" in event) {
+        advanceHeroVideo(Math.min(0.12, event.deltaY / 1800));
+      } else if (event.type === "touchmove" && "touches" in event && event.touches.length > 0) {
+        const touchDelta = Math.max(0, touchStartY - event.touches[0].clientY);
+        advanceHeroVideo(Math.min(0.14, touchDelta / 900));
+        touchStartY = event.touches[0].clientY;
+      } else {
+        advanceHeroVideo(0.35);
+      }
+    };
+
+    const handleTouchStart = (event: TouchEvent) => {
+      touchStartY = event.touches[0]?.clientY ?? 0;
+    };
+
+    video.addEventListener("loadedmetadata", syncHeroVideoTime);
+    video.addEventListener("ended", handleEnded);
+    video.addEventListener("pause", handlePause);
+    document.addEventListener("wheel", handleScrollIntent, { passive: false });
+    document.addEventListener("touchstart", handleTouchStart, { passive: true });
+    document.addEventListener("touchmove", handleScrollIntent, { passive: false });
+    document.addEventListener("keydown", handleScrollIntent, { passive: false });
+
+    return () => {
+      heroVideoTime.current = video.currentTime;
+      video.removeEventListener("loadedmetadata", syncHeroVideoTime);
+      video.removeEventListener("ended", handleEnded);
+      video.removeEventListener("pause", handlePause);
+      document.removeEventListener("wheel", handleScrollIntent);
+      document.removeEventListener("touchstart", handleTouchStart);
+      document.removeEventListener("touchmove", handleScrollIntent);
+      document.removeEventListener("keydown", handleScrollIntent);
+    };
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen w-full font-arpona overflow-x-hidden" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
@@ -106,219 +244,25 @@ export default function Home() {
       {/* Main Container - Full Width */}
       <main className="w-full relative flex flex-col">
 
-        {/* Full-width Background Panel */}
-        <div className="absolute left-0 top-0 w-full h-[380px] md:h-[800px] z-0 flex-shrink-0">
-          {/* Mobile Background */}
-          <div className="md:hidden absolute inset-0">
-            <Image
-              src="/images/green mobile 1.svg"
-              alt="Hero Background Mobile"
-              fill
-              className="object-cover object-top"
-              priority
-            />
-          </div>
-          {/* Desktop Background */}
-          <div className="hidden md:block absolute inset-0">
-            <Image
-              src="/images/bg green.svg"
-              alt="Hero Background Desktop"
-              fill
-              className="object-cover object-bottom"
-              priority
-            />
-          </div>
-        </div>
-
-        {/* Content Wrapper constrained to 1440px with correct z-index */}
-        <div className="relative w-full max-w-[1600px] mx-auto px-4 md:pl-12 lg:pl-16 md:pr-8 h-auto min-h-[380px] md:h-[800px] shrink-0 z-30 flex">
-
-          {/* Left Text Content - In normal flow so alignment strictly matches navbar */}
-          <div className="w-full lg:w-[60%] pt-10 md:pt-[70px] z-20 flex flex-col items-start">
-            {/* Fresh & Flavorful Pill with Custom Border */}
-            <div className="relative mb-6 md:mb-8 inline-block w-fit">
-              {/* Yellow Pill Background */}
-              <div
-                style={{ backgroundColor: 'rgb(247, 216, 13)' }}
-                className="text-pop-label w-fit px-4 md:px-8 h-[40px] md:h-[60px] rounded-full flex items-center justify-center gap-2 md:gap-3 relative z-10 shadow-md"
-              >
-                <div className="relative w-[18px] h-[18px] md:w-[27px] md:h-[27px] shrink-0" style={{ filter: 'brightness(0) invert(34%) sepia(35%) saturate(1048%) hue-rotate(97deg) brightness(93%) contrast(92%)' }}>
-                  <Image
-                    src="/images/leaf.svg"
-                    alt="Leaf"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                <span className="font-arpona font-medium tracking-wide whitespace-nowrap text-[18px] md:text-[27px]" style={{ color: 'rgb(21, 107, 54)' }}>
-                  Fresh & Flavorful
-                </span>
-              </div>
-
-              {/* Border SVG on Top - forced to stretch via object-fill */}
-              <div className="absolute -inset-x-4 md:-inset-x-6 -inset-y-1 md:-inset-y-2 z-20 pointer-events-none">
-                <Image
-                  src="/images/border2.svg"
-                  alt="Pill Border"
-                  fill
-                  className="object-fill"
-                />
-              </div>
-            </div>
-
-            <div className="mt-4 md:mt-10 mb-8 md:mb-16">
-              <h1 className="font-kura leading-[0.9] text-brand-yellow m-0 p-0 uppercase text-[38px] md:text-[90px] max-w-[300px] md:max-w-none">
-                The taste of <br className="hidden md:block" /> slow cooking
-              </h1>
-              <h1 className="font-kura leading-[1.1] text-white m-0 p-0 uppercase text-[19px] md:text-[50px] lg:text-[60px] md:whitespace-nowrap max-w-[300px] md:max-w-none mt-2">
-                Without the long prep.
-              </h1>
-            </div>
-
-
-
-            {/* CTA Buttons - Single button as per request */}
-            <div className="flex flex-wrap lg:flex-nowrap items-center gap-4">
-              <Link
-                href="/products"
-                className="text-pop-label bg-[rgb(17,82,40)] border border-transparent text-white rounded-full px-6 md:px-12 py-2.5 md:py-4 text-[18px] md:text-[30px] font-arpona font-semibold hover:bg-brand-yellow hover:text-[rgb(17,82,40)] transition-all shadow-sm whitespace-nowrap uppercase tracking-wide"
-              >
-                Grab Your Packs
-              </Link>
-            </div>
-          </div>
-
-          {/* Mobile Gravy Pouring Image - Positioned to attach to the top/navbar area */}
-          <div className="lg:hidden absolute right-[-30px] top-[-20px] w-[240px] h-[480px] md:w-[420px] md:h-[840px] md:-top-[60px] md:-right-[60px] z-40 pointer-events-none">
-            <div className="relative w-full h-full">
-              <Image
-                src="/images/new.png"
-                alt="Gravy Flow"
-                fill
-                className="object-contain object-top-right"
-                priority
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Spices Overlay behind the gravy pot - scaled down and kept within green area */}
-        <div
-          className="absolute pointer-events-none hidden lg:block z-20 overflow-hidden"
-          style={{ width: '784px', height: '603px', top: '50px', right: '50px' }}
+        <section
+          ref={heroRef}
+          className="relative z-10 h-[calc(100svh-70px)] md:h-[calc(100svh-80px)] min-h-[520px] w-full overflow-hidden bg-[rgb(12,61,27)]"
         >
-          <Image
-            src="/images/spices.svg"
-            alt="Spices background"
-            fill
-            className="object-contain object-right"
-            priority
+          <video
+            ref={heroVideoRef}
+            className="h-full w-full object-cover"
+            src="/images/hero video/forCheck.mp4"
+            muted
+            playsInline
+            preload="auto"
+            aria-label="GrabV hero video"
           />
-        </div>
-
-
-        <div
-          className="absolute right-0 pointer-events-none hidden lg:block z-[50]"
-          style={{ width: '720px', height: '1368px', top: '-40px' }}
-        >
-          <Image
-            src="/images/new.png"
-            alt="Gravy Flow"
-            fill
-            className="object-contain"
-            priority
-          />
-        </div>
-
-        {/* Features Bottom Bar - positioned in the beige section below the green hero */}
-        <div className="w-full relative pt-4 md:pt-12 pb-12 md:pb-24 z-10">
-          <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 relative z-[30]">
-
-            {/* Features Horizontal Scroll - Mobile and Tablet */}
-            <div className="lg:hidden overflow-hidden relative w-full mb-8">
-              <div className="animate-marquee flex w-max gap-12 py-2">
-                {[...Array(4)].map((_, i) => (
-                  <React.Fragment key={i}>
-                    {[
-                      { img: 'timer2.svg', text: 'Ready in 7 mins' },
-                      { img: 'slow.svg', text: 'Slow cooked' },
-                      { img: 'FSSAI (1).svg', text: 'FSSAI Certified' },
-                      { img: 'tick2.svg', text: 'Zero Preservatives' },
-                      { img: 'cold.svg', text: 'Cold Chain Packed' }
-                    ].map((item, idx) => (
-                      <div key={`${i}-${idx}`} className="flex items-center gap-2 shrink-0">
-                        <div className="w-[20px] h-[20px] relative">
-                          <Image src={`/images/${item.img}`} alt={item.text} fill className="object-contain" />
-                        </div>
-                        <span className="text-[rgb(21,107,54)] font-normal text-[18px] font-arpona whitespace-nowrap">{item.text}</span>
-                      </div>
-                    ))}
-                  </React.Fragment>
-                ))}
-              </div>
-            </div>
-
-            {/* Features Rows of Pills - Desktop Staggered Layout */}
-            <div className="hidden lg:flex flex-col gap-5 items-start lg:w-[75%]">
-              {/* Row 1 */}
-              <div className="flex flex-wrap items-center gap-5">
-                <div
-                  style={{ backgroundColor: 'rgb(247, 216, 13)' }}
-                  className="rounded-full px-7 py-3 flex items-center gap-3 shadow-sm"
-                >
-                  <div className="w-[30px] h-[30px] relative">
-                    <Image src="/images/timer2.svg" alt="Ready in 7 mins" fill className="object-contain" />
-                  </div>
-                  <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-arpona whitespace-nowrap">Ready in 7 mins</span>
-                </div>
-                <div
-                  style={{ backgroundColor: 'rgb(247, 216, 13)' }}
-                  className="rounded-full px-7 py-3 flex items-center gap-3 shadow-sm"
-                >
-                  <div className="w-[30px] h-[30px] relative">
-                    <Image src="/images/slow.svg" alt="Slow cooked" fill className="object-contain" />
-                  </div>
-                  <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-arpona whitespace-nowrap">Slow cooked</span>
-                </div>
-                <div
-                  style={{ backgroundColor: 'rgb(247, 216, 13)' }}
-                  className="rounded-full px-7 py-3 flex items-center gap-3 shadow-sm"
-                >
-                  <div className="w-[56px] h-[28px] relative shrink-0">
-                    <Image src="/images/objects.svg" alt="FSSAI Certified" fill className="object-contain" />
-                  </div>
-                  <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-arpona whitespace-nowrap">FSSAI Certified</span>
-                </div>
-              </div>
-              {/* Row 2 */}
-              <div className="flex flex-wrap items-center gap-5 ml-20">
-                <div
-                  style={{ backgroundColor: 'rgb(247, 216, 13)' }}
-                  className="rounded-full px-7 py-3 flex items-center gap-3 shadow-sm"
-                >
-                  <div className="w-[30px] h-[30px] relative">
-                    <Image src="/images/tick2.svg" alt="Zero Preservatives" fill className="object-contain" />
-                  </div>
-                  <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-arpona whitespace-nowrap">Zero Preservatives</span>
-                </div>
-                <div
-                  style={{ backgroundColor: 'rgb(247, 216, 13)' }}
-                  className="rounded-full px-7 py-3 flex items-center gap-3 shadow-sm"
-                >
-                  <div className="w-[30px] h-[30px] relative">
-                    <Image src="/images/cold.svg" alt="Cold Chain Packed" fill className="object-contain" />
-                  </div>
-                  <span className="text-[rgb(21,107,54)] font-normal text-[25px] font-arpona whitespace-nowrap">Cold Chain Packed</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
+        </section>
 
         {/* What is GrabV Section */}
         <section
-          className="w-screen relative left-1/2 -translate-x-1/2 pt-0 pb-0 flex flex-col items-center overflow-visible -mt-10 md:mt-0 min-h-[400px] md:min-h-[600px]"
+          ref={nextSectionRef}
+          className="w-screen relative left-1/2 -translate-x-1/2 flex flex-col items-center justify-center overflow-hidden min-h-[calc(100svh-70px)] md:min-h-[calc(100svh-80px)] scroll-mt-[70px] md:scroll-mt-[80px]"
         >
           {/* Mobile Background */}
           <div className="md:hidden absolute inset-0 z-0">
@@ -342,7 +286,7 @@ export default function Home() {
           </div>
 
           {/* Content Wrapper */}
-          <div className="relative w-full max-w-[1600px] mx-auto px-4 md:pl-12 lg:pl-16 md:pr-8 z-[40] flex flex-col lg:flex-row items-center pt-20 md:pt-28 lg:pt-32">
+          <div className="relative w-full max-w-[1600px] mx-auto px-4 md:pl-12 lg:pl-16 md:pr-8 py-10 md:py-14 z-[40] flex flex-col lg:flex-row items-center">
 
             {/* Left Content */}
             <div className="w-full lg:w-[40%] flex flex-col items-center lg:items-start pt-0 text-center lg:text-left lg:pr-10">
@@ -413,7 +357,7 @@ export default function Home() {
             </div>
 
             {/* Right Content - Product Image */}
-            <div className="w-full lg:w-[60%] flex justify-center lg:justify-end relative h-[320px] md:h-[600px] lg:h-[800px] mt-4 md:mt-10 lg:mt-0 lg:translate-y-10 lg:left-[50px]">
+            <div className="w-full lg:w-[60%] flex justify-center lg:justify-end relative h-[320px] md:h-[520px] lg:h-[620px] mt-4 md:mt-8 lg:mt-0 lg:left-[50px]">
               <div className="relative w-full h-full max-w-[500px] md:max-w-[900px]">
                 <Image
                   src="/images/product 1.svg"
