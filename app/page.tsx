@@ -29,6 +29,8 @@ export default function Home() {
     }
 
     let touchStartY = 0;
+    let targetHeroVideoTime = heroVideoTime.current;
+    let scrubAnimationFrame: number | null = null;
     video.pause();
 
     const syncHeroVideoTime = () => {
@@ -38,6 +40,7 @@ export default function Home() {
           ? Math.min(heroVideoTime.current, duration)
           : heroVideoTime.current;
 
+      targetHeroVideoTime = currentTime;
       if (Math.abs(video.currentTime - currentTime) > 0.05) {
         video.currentTime = currentTime;
       }
@@ -51,17 +54,47 @@ export default function Home() {
     }
 
     const isHeroActive = () => {
-      const rect = hero.getBoundingClientRect();
-      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-      const headerHeight = document.querySelector("header")?.getBoundingClientRect().height ?? 0;
-
-      return rect.top <= headerHeight + 4 && rect.bottom > headerHeight + viewportHeight * 0.35;
+      return window.scrollY <= 4;
     };
 
     const finishHeroVideo = () => {
       hasCompletedHeroVideo.current = true;
+      if (scrubAnimationFrame) {
+        window.cancelAnimationFrame(scrubAnimationFrame);
+        scrubAnimationFrame = null;
+      }
       video.pause();
-      nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      if (isHeroActive()) {
+        nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
+
+    const animateHeroScrub = () => {
+      const duration = video.duration;
+      if (!Number.isFinite(duration) || duration <= 0) {
+        scrubAnimationFrame = null;
+        return;
+      }
+
+      const currentTime = video.currentTime;
+      const remaining = targetHeroVideoTime - currentTime;
+
+      if (Math.abs(remaining) <= 0.012) {
+        video.currentTime = targetHeroVideoTime;
+        heroVideoTime.current = targetHeroVideoTime;
+        scrubAnimationFrame = null;
+
+        if (targetHeroVideoTime >= duration - 0.08) {
+          finishHeroVideo();
+        }
+        return;
+      }
+
+      video.pause();
+      video.currentTime = currentTime + remaining * 0.18;
+      heroVideoTime.current = video.currentTime;
+      scrubAnimationFrame = window.requestAnimationFrame(animateHeroScrub);
     };
 
     const scrubHeroVideo = (seconds: number) => {
@@ -70,24 +103,23 @@ export default function Home() {
         return false;
       }
 
-      const currentTime =
-        seconds >= 0
-          ? Math.max(video.currentTime, heroVideoTime.current)
-          : Math.min(video.currentTime, heroVideoTime.current);
+      const currentTime = targetHeroVideoTime;
       const nextTime = Math.min(duration, Math.max(0, currentTime + seconds));
 
       if (Math.abs(nextTime - currentTime) <= 0.01) {
         return false;
       }
 
-      video.pause();
-      video.currentTime = nextTime;
-      heroVideoTime.current = nextTime;
+      targetHeroVideoTime = nextTime;
 
       if (nextTime >= duration - 0.08) {
-        finishHeroVideo();
+        targetHeroVideoTime = duration;
       } else {
         hasCompletedHeroVideo.current = false;
+      }
+
+      if (!scrubAnimationFrame) {
+        scrubAnimationFrame = window.requestAnimationFrame(animateHeroScrub);
       }
 
       return true;
@@ -172,6 +204,9 @@ export default function Home() {
 
     return () => {
       heroVideoTime.current = video.currentTime;
+      if (scrubAnimationFrame) {
+        window.cancelAnimationFrame(scrubAnimationFrame);
+      }
       video.removeEventListener("loadedmetadata", syncHeroVideoTime);
       video.removeEventListener("ended", handleEnded);
       video.removeEventListener("pause", handlePause);
@@ -389,14 +424,31 @@ export default function Home() {
 
             {/* Right Content - Product Image */}
             <div className="w-full lg:w-[60%] flex justify-center lg:justify-end relative h-[320px] md:h-[520px] lg:h-[620px] mt-4 md:mt-8 lg:mt-0 lg:left-[50px]">
-              <div className="relative w-full h-full max-w-[500px] md:max-w-[900px]">
+              <div className="relative w-full max-w-[500px] md:max-w-[900px] aspect-[744/419]">
                 <Image
-                  src="/images/product 1.svg"
+                  src="/images/product 1.svg?v=clean"
                   alt="Product Showcase"
                   fill
                   className="object-contain object-top lg:object-right"
                   priority
                 />
+                <div
+                  className="absolute"
+                  style={{
+                    left: "49.2%",
+                    top: "46.5%",
+                    width: "50.8%",
+                    height: "53.5%",
+                  }}
+                >
+                  <Image
+                    src="/images/product-family.png"
+                    alt="Family enjoying GrabV meal"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
               </div>
             </div>
 
