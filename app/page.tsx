@@ -57,24 +57,34 @@ export default function Home() {
       return rect.top < viewportHeight && rect.bottom > 0;
     };
 
+    const isNextSectionVisible = () => {
+      const rect = nextSection.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+      return rect.top < viewportHeight && rect.bottom > 0;
+    };
+
     const finishHeroVideo = () => {
       hasCompletedHeroVideo.current = true;
       video.pause();
       nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
     };
 
-    const advanceHeroVideo = (seconds: number) => {
-      if (hasCompletedHeroVideo.current) {
-        return;
-      }
-
+    const scrubHeroVideo = (seconds: number) => {
       const duration = video.duration;
       if (!Number.isFinite(duration) || duration <= 0) {
-        return;
+        return false;
       }
 
-      const currentTime = Math.max(video.currentTime, heroVideoTime.current);
-      const nextTime = Math.min(duration, currentTime + seconds);
+      const currentTime =
+        seconds >= 0
+          ? Math.max(video.currentTime, heroVideoTime.current)
+          : Math.min(video.currentTime, heroVideoTime.current);
+      const nextTime = Math.min(duration, Math.max(0, currentTime + seconds));
+
+      if (Math.abs(nextTime - currentTime) <= 0.01) {
+        return false;
+      }
 
       video.pause();
       video.currentTime = nextTime;
@@ -82,7 +92,11 @@ export default function Home() {
 
       if (nextTime >= duration - 0.08) {
         finishHeroVideo();
+      } else {
+        hasCompletedHeroVideo.current = false;
       }
+
+      return true;
     };
 
     const handleEnded = () => {
@@ -95,35 +109,61 @@ export default function Home() {
     };
 
     const handleScrollIntent = (event: WheelEvent | TouchEvent | KeyboardEvent) => {
-      if (hasCompletedHeroVideo.current || !isHeroVisible()) {
-        return;
-      }
-
-      const isWheelDown = event.type === "wheel" && "deltaY" in event && event.deltaY > 0;
+      const isWheelScroll = event.type === "wheel" && "deltaY" in event && event.deltaY !== 0;
       const isTouchScroll =
         event.type === "touchmove" &&
         "touches" in event &&
         event.touches.length > 0 &&
-        touchStartY - event.touches[0].clientY > 8;
-      const isKeyboardScroll =
+        Math.abs(touchStartY - event.touches[0].clientY) > 8;
+      const isKeyboardForward =
         event.type === "keydown" &&
         "key" in event &&
         ["ArrowDown", "PageDown", " ", "Spacebar"].includes(event.key);
+      const isKeyboardBackward =
+        event.type === "keydown" &&
+        "key" in event &&
+        ["ArrowUp", "PageUp"].includes(event.key);
 
-      if (!isWheelDown && !isTouchScroll && !isKeyboardScroll) {
+      if (!isWheelScroll && !isTouchScroll && !isKeyboardForward && !isKeyboardBackward) {
+        return;
+      }
+
+      let scrubSeconds = 0;
+
+      if (event.type === "wheel" && "deltaY" in event) {
+        scrubSeconds = Math.max(-0.12, Math.min(0.12, event.deltaY / 1800));
+      } else if (event.type === "touchmove" && "touches" in event && event.touches.length > 0) {
+        const touchDelta = touchStartY - event.touches[0].clientY;
+        scrubSeconds = Math.max(-0.14, Math.min(0.14, touchDelta / 900));
+        touchStartY = event.touches[0].clientY;
+      } else {
+        scrubSeconds = isKeyboardBackward ? -0.35 : 0.35;
+      }
+
+      if (scrubSeconds === 0) {
+        return;
+      }
+
+      const shouldScrubHero =
+        isHeroVisible() || (scrubSeconds < 0 && hasCompletedHeroVideo.current && isNextSectionVisible());
+
+      if (!shouldScrubHero) {
         return;
       }
 
       event.preventDefault();
 
-      if (event.type === "wheel" && "deltaY" in event) {
-        advanceHeroVideo(Math.min(0.12, event.deltaY / 1800));
-      } else if (event.type === "touchmove" && "touches" in event && event.touches.length > 0) {
-        const touchDelta = Math.max(0, touchStartY - event.touches[0].clientY);
-        advanceHeroVideo(Math.min(0.14, touchDelta / 900));
-        touchStartY = event.touches[0].clientY;
-      } else {
-        advanceHeroVideo(0.35);
+      if (scrubSeconds < 0 && hasCompletedHeroVideo.current && !isHeroVisible()) {
+        hero.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      if (!Number.isFinite(video.duration) || video.duration <= 0) {
+        video.load();
+        return;
+      }
+
+      if (!scrubHeroVideo(scrubSeconds) && scrubSeconds < 0 && heroVideoTime.current <= 0.01) {
+        event.preventDefault();
       }
     };
 
