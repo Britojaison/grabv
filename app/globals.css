@@ -144,12 +144,20 @@
 :root {
   --background: rgb(239, 239, 231);
   --foreground: #ffffff;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+html {
+  overflow-x: hidden;
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: "Arpona Sans", sans-serif;
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
 }
 
 img,
@@ -220,9 +228,17 @@ legend {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  [data-native-scroll] {
+    overscroll-behavior: contain;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
+
   .story-reveal-image {
     opacity: 1;
     transform: none;

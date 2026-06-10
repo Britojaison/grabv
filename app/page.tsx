@@ -6,6 +6,7 @@ import Link from "next/link";
 const HERO_FRAME_COUNT = 490;
 const HERO_SCROLL_DISTANCE = 2200;
 const HERO_PRELOAD_RADIUS = 8;
+const HERO_FRAME_EASE = 0.18;
 const HERO_FRAME_PATH = (frame: number) =>
   `/images/hero video/frames/frame_${String(frame).padStart(4, "0")}.jpg`;
 
@@ -36,8 +37,11 @@ export default function Home() {
 
     const images = new Map<number, HTMLImageElement>();
     let currentFrame = -1;
+    let currentProgress = 0;
+    let targetProgress = 0;
     let animationFrame: number | null = null;
     let isCancelled = false;
+    let hasSyncedInitialProgress = false;
 
     const drawFrame = (image: HTMLImageElement) => {
       if (!image.naturalWidth || !image.naturalHeight) {
@@ -105,35 +109,54 @@ export default function Home() {
       context.imageSmoothingQuality = "high";
     };
 
-    const renderScrollFrame = () => {
-      animationFrame = null;
-
+    const updateScrollState = () => {
       const heroTop = hero.offsetTop;
       const heroBottom = heroTop + hero.offsetHeight;
-      const progress = Math.min(1, Math.max(0, (window.scrollY - heroTop) / HERO_SCROLL_DISTANCE));
-      const nextFrame = Math.min(
-        HERO_FRAME_COUNT,
-        Math.max(1, Math.floor(progress * (HERO_FRAME_COUNT - 1)) + 1),
-      );
+      targetProgress = Math.min(1, Math.max(0, (window.scrollY - heroTop) / HERO_SCROLL_DISTANCE));
       const isPinned = window.scrollY >= heroTop && window.scrollY < heroBottom;
+      const absoluteTop = window.scrollY < heroTop ? 0 : HERO_SCROLL_DISTANCE - window.innerHeight;
 
       canvas.style.position = isPinned ? "fixed" : "absolute";
-      canvas.style.top = "0";
+      canvas.style.top = isPinned ? "0" : `${absoluteTop}px`;
 
-      if (nextFrame === currentFrame) {
-        return;
+      if (!hasSyncedInitialProgress) {
+        currentProgress = targetProgress;
+        hasSyncedInitialProgress = true;
+      }
+    };
+
+    const renderScrollFrame = () => {
+      animationFrame = null;
+      currentProgress += (targetProgress - currentProgress) * HERO_FRAME_EASE;
+
+      if (Math.abs(targetProgress - currentProgress) < 0.001) {
+        currentProgress = targetProgress;
       }
 
-      currentFrame = nextFrame;
-      const image = loadFrame(nextFrame);
-      preloadFramesAround(nextFrame + 1);
+      const nextFrame = Math.min(
+        HERO_FRAME_COUNT,
+        Math.max(1, Math.floor(currentProgress * (HERO_FRAME_COUNT - 1)) + 1),
+      );
 
-      if (image.complete && image.naturalWidth > 0) {
-        drawFrame(image);
+      if (nextFrame !== currentFrame) {
+        currentFrame = nextFrame;
+        const image = loadFrame(nextFrame);
+        preloadFramesAround(nextFrame + 1);
+
+        if (image.complete && image.naturalWidth > 0) {
+          drawFrame(image);
+        }
+      }
+
+      if (currentProgress !== targetProgress) {
+        animationFrame = window.requestAnimationFrame(renderScrollFrame);
+        return;
       }
     };
 
     const requestRender = () => {
+      updateScrollState();
+
       if (animationFrame !== null) {
         return;
       }
@@ -144,6 +167,7 @@ export default function Home() {
     const handleResize = () => {
       resizeCanvas();
       currentFrame = -1;
+      hasSyncedInitialProgress = false;
       requestRender();
     };
 

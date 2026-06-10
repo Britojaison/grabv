@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import ImageDownloadProtection from "./ImageDownloadProtection";
+import SmoothScroll from "./SmoothScroll";
 import TextPopAnimator from "./TextPopAnimator";
 import "./globals.css";
 
@@ -55,6 +56,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning={true} className={`h-full antialiased ${kuraDisplay.variable} ${arponaSans.variable}`}>
       <body suppressHydrationWarning={true} className="min-h-full flex flex-col font-arpona">
         <ImageDownloadProtection />
+        <SmoothScroll />
         <TextPopAnimator />
         {children}
       </body>
