@@ -113,8 +113,9 @@ export default function Home() {
       const heroTop = hero.offsetTop;
       const heroBottom = heroTop + hero.offsetHeight;
       targetProgress = Math.min(1, Math.max(0, (window.scrollY - heroTop) / HERO_SCROLL_DISTANCE));
-      const isPinned = window.scrollY >= heroTop && window.scrollY < heroBottom;
-      const absoluteTop = window.scrollY < heroTop ? 0 : HERO_SCROLL_DISTANCE - window.innerHeight;
+      const releasePoint = heroBottom - window.innerHeight;
+      const isPinned = window.scrollY >= heroTop && window.scrollY < releasePoint;
+      const absoluteTop = window.scrollY < heroTop ? 0 : Math.max(0, hero.offsetHeight - window.innerHeight);
 
       canvas.style.position = isPinned ? "fixed" : "absolute";
       canvas.style.top = isPinned ? "0" : `${absoluteTop}px`;
@@ -288,7 +289,7 @@ export default function Home() {
         <section
           ref={heroRef}
           className="relative z-10 w-full overflow-hidden bg-[rgb(12,61,27)]"
-          style={{ height: `${HERO_SCROLL_DISTANCE}px` }}
+          style={{ height: `calc(${HERO_SCROLL_DISTANCE}px + 100svh)` }}
         >
           <canvas
             ref={heroCanvasRef}

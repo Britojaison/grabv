@@ -3,8 +3,10 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-const WHEEL_EASE = 0.16;
-const WHEEL_DISTANCE_MULTIPLIER = 0.95;
+const WHEEL_EASE = 0.14;
+const WHEEL_DISTANCE_MULTIPLIER = 0.72;
+const MAX_WHEEL_STEP = 180;
+const MAX_SCROLL_LEAD_RATIO = 0.72;
 const LINE_HEIGHT = 40;
 
 function getMaxScrollY() {
@@ -102,8 +104,16 @@ export default function SmoothScroll() {
         return;
       }
 
+      const wheelDelta = normalizeWheelDelta(event) * WHEEL_DISTANCE_MULTIPLIER;
+      const limitedDelta = Math.sign(wheelDelta) * Math.min(Math.abs(wheelDelta), MAX_WHEEL_STEP);
+      const maxLead = window.innerHeight * MAX_SCROLL_LEAD_RATIO;
+      const nextTargetY = Math.min(
+        window.scrollY + maxLead,
+        Math.max(window.scrollY - maxLead, targetY + limitedDelta),
+      );
+
       event.preventDefault();
-      moveTo(targetY + normalizeWheelDelta(event) * WHEEL_DISTANCE_MULTIPLIER);
+      moveTo(nextTargetY);
     };
 
     const handleKeyDown = (event: KeyboardEvent) => {
