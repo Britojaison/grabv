@@ -3,14 +3,16 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+const HERO_FRAME_COUNT = 490;
+const HERO_SCROLL_DISTANCE = 2200;
+const HERO_PRELOAD_RADIUS = 8;
+const HERO_FRAME_PATH = (frame: number) =>
+  `/images/hero video/frames/frame_${String(frame).padStart(4, "0")}.jpg`;
+
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const heroRef = useRef<HTMLElement | null>(null);
-  const heroVideoRef = useRef<HTMLVideoElement | null>(null);
-  const nextSectionRef = useRef<HTMLElement | null>(null);
-  const hasCompletedHeroVideo = useRef(false);
-  const hasInitializedHeroVideo = useRef(false);
-  const heroVideoTime = useRef(0);
+  const heroCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const qualityPromises = [
     { text: "100% Vegan", icon: "leaf.svg" },
     { text: "Batch Tested", icon: "Batch tested.svg" },
@@ -21,199 +23,148 @@ export default function Home() {
 
   useEffect(() => {
     const hero = heroRef.current;
-    const video = heroVideoRef.current;
-    const nextSection = nextSectionRef.current;
+    const canvas = heroCanvasRef.current;
 
-    if (!hero || !video || !nextSection) {
+    if (!hero || !canvas) {
       return;
     }
 
-    let touchStartY = 0;
-    let targetHeroVideoTime = heroVideoTime.current;
-    let scrubAnimationFrame: number | null = null;
-    video.pause();
-
-    const syncHeroVideoTime = () => {
-      const duration = video.duration;
-      const currentTime =
-        Number.isFinite(duration) && duration > 0
-          ? Math.min(heroVideoTime.current, duration)
-          : heroVideoTime.current;
-
-      targetHeroVideoTime = currentTime;
-      if (Math.abs(video.currentTime - currentTime) > 0.05) {
-        video.currentTime = currentTime;
-      }
-    };
-
-    if (hasInitializedHeroVideo.current) {
-      syncHeroVideoTime();
-    } else {
-      hasInitializedHeroVideo.current = true;
-      heroVideoTime.current = video.currentTime;
+    const context = canvas.getContext("2d");
+    if (!context) {
+      return;
     }
 
-    const isHeroActive = () => {
-      return window.scrollY <= 4;
-    };
+    const images = new Map<number, HTMLImageElement>();
+    let currentFrame = -1;
+    let animationFrame: number | null = null;
+    let isCancelled = false;
 
-    const finishHeroVideo = () => {
-      hasCompletedHeroVideo.current = true;
-      if (scrubAnimationFrame) {
-        window.cancelAnimationFrame(scrubAnimationFrame);
-        scrubAnimationFrame = null;
-      }
-      video.pause();
-
-      if (isHeroActive()) {
-        nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    };
-
-    const animateHeroScrub = () => {
-      const duration = video.duration;
-      if (!Number.isFinite(duration) || duration <= 0) {
-        scrubAnimationFrame = null;
+    const drawFrame = (image: HTMLImageElement) => {
+      if (!image.naturalWidth || !image.naturalHeight) {
         return;
       }
 
-      const currentTime = video.currentTime;
-      const remaining = targetHeroVideoTime - currentTime;
+      const canvasWidth = canvas.width;
+      const canvasHeight = canvas.height;
+      const imageRatio = image.naturalWidth / image.naturalHeight;
+      const canvasRatio = canvasWidth / canvasHeight;
 
-      if (Math.abs(remaining) <= 0.012) {
-        video.currentTime = targetHeroVideoTime;
-        heroVideoTime.current = targetHeroVideoTime;
-        scrubAnimationFrame = null;
+      let drawWidth = canvasWidth;
+      let drawHeight = canvasHeight;
+      let drawX = 0;
+      let drawY = 0;
 
-        if (targetHeroVideoTime >= duration - 0.08) {
-          finishHeroVideo();
+      if (imageRatio > canvasRatio) {
+        drawWidth = canvasHeight * imageRatio;
+        drawX = (canvasWidth - drawWidth) / 2;
+      } else {
+        drawHeight = canvasWidth / imageRatio;
+        drawY = (canvasHeight - drawHeight) / 2;
+      }
+
+      context.clearRect(0, 0, canvasWidth, canvasHeight);
+      context.drawImage(image, drawX, drawY, drawWidth, drawHeight);
+    };
+
+    const loadFrame = (frame: number) => {
+      const boundedFrame = Math.min(HERO_FRAME_COUNT, Math.max(1, frame));
+      const existingImage = images.get(boundedFrame);
+
+      if (existingImage) {
+        return existingImage;
+      }
+
+      const image = new window.Image();
+      image.decoding = "async";
+      image.src = HERO_FRAME_PATH(boundedFrame);
+      image.onload = () => {
+        if (!isCancelled && boundedFrame === currentFrame) {
+          drawFrame(image);
         }
-        return;
-      }
+      };
+      images.set(boundedFrame, image);
 
-      video.pause();
-      video.currentTime = currentTime + remaining * 0.18;
-      heroVideoTime.current = video.currentTime;
-      scrubAnimationFrame = window.requestAnimationFrame(animateHeroScrub);
+      return image;
     };
 
-    const scrubHeroVideo = (seconds: number) => {
-      const duration = video.duration;
-      if (!Number.isFinite(duration) || duration <= 0) {
-        return false;
-      }
+    const preloadFramesAround = (frame: number) => {
+      const endFrame = Math.min(HERO_FRAME_COUNT, frame + HERO_PRELOAD_RADIUS);
 
-      const currentTime = targetHeroVideoTime;
-      const nextTime = Math.min(duration, Math.max(0, currentTime + seconds));
-
-      if (Math.abs(nextTime - currentTime) <= 0.01) {
-        return false;
-      }
-
-      targetHeroVideoTime = nextTime;
-
-      if (nextTime >= duration - 0.08) {
-        targetHeroVideoTime = duration;
-      } else {
-        hasCompletedHeroVideo.current = false;
-      }
-
-      if (!scrubAnimationFrame) {
-        scrubAnimationFrame = window.requestAnimationFrame(animateHeroScrub);
-      }
-
-      return true;
-    };
-
-    const handleEnded = () => {
-      heroVideoTime.current = video.duration || video.currentTime;
-      finishHeroVideo();
-    };
-
-    const handlePause = () => {
-      heroVideoTime.current = video.currentTime;
-    };
-
-    const handleScrollIntent = (event: WheelEvent | TouchEvent | KeyboardEvent) => {
-      const isWheelScroll = event.type === "wheel" && "deltaY" in event && event.deltaY !== 0;
-      const isTouchScroll =
-        event.type === "touchmove" &&
-        "touches" in event &&
-        event.touches.length > 0 &&
-        Math.abs(touchStartY - event.touches[0].clientY) > 8;
-      const isKeyboardForward =
-        event.type === "keydown" &&
-        "key" in event &&
-        ["ArrowDown", "PageDown", " ", "Spacebar"].includes(event.key);
-      const isKeyboardBackward =
-        event.type === "keydown" &&
-        "key" in event &&
-        ["ArrowUp", "PageUp"].includes(event.key);
-
-      if (!isWheelScroll && !isTouchScroll && !isKeyboardForward && !isKeyboardBackward) {
-        return;
-      }
-
-      let scrubSeconds = 0;
-
-      if (event.type === "wheel" && "deltaY" in event) {
-        scrubSeconds = Math.max(-0.12, Math.min(0.12, event.deltaY / 1800));
-      } else if (event.type === "touchmove" && "touches" in event && event.touches.length > 0) {
-        const touchDelta = touchStartY - event.touches[0].clientY;
-        scrubSeconds = Math.max(-0.14, Math.min(0.14, touchDelta / 900));
-        touchStartY = event.touches[0].clientY;
-      } else {
-        scrubSeconds = isKeyboardBackward ? -0.35 : 0.35;
-      }
-
-      if (scrubSeconds === 0) {
-        return;
-      }
-
-      if (hasCompletedHeroVideo.current && scrubSeconds > 0) {
-        return;
-      }
-
-      if (!isHeroActive()) {
-        return;
-      }
-
-      event.preventDefault();
-
-      if (!Number.isFinite(video.duration) || video.duration <= 0) {
-        video.load();
-        return;
-      }
-
-      if (!scrubHeroVideo(scrubSeconds) && scrubSeconds < 0 && heroVideoTime.current <= 0.01) {
-        event.preventDefault();
+      for (let nextFrame = frame; nextFrame <= endFrame; nextFrame += 1) {
+        loadFrame(nextFrame);
       }
     };
 
-    const handleTouchStart = (event: TouchEvent) => {
-      touchStartY = event.touches[0]?.clientY ?? 0;
+    const resizeCanvas = () => {
+      const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+      const { width, height } = canvas.getBoundingClientRect();
+
+      canvas.width = Math.round(width * pixelRatio);
+      canvas.height = Math.round(height * pixelRatio);
+      context.imageSmoothingEnabled = true;
+      context.imageSmoothingQuality = "high";
     };
 
-    video.addEventListener("loadedmetadata", syncHeroVideoTime);
-    video.addEventListener("ended", handleEnded);
-    video.addEventListener("pause", handlePause);
-    document.addEventListener("wheel", handleScrollIntent, { passive: false });
-    document.addEventListener("touchstart", handleTouchStart, { passive: true });
-    document.addEventListener("touchmove", handleScrollIntent, { passive: false });
-    document.addEventListener("keydown", handleScrollIntent, { passive: false });
+    const renderScrollFrame = () => {
+      animationFrame = null;
+
+      const heroTop = hero.offsetTop;
+      const heroBottom = heroTop + hero.offsetHeight;
+      const progress = Math.min(1, Math.max(0, (window.scrollY - heroTop) / HERO_SCROLL_DISTANCE));
+      const nextFrame = Math.min(
+        HERO_FRAME_COUNT,
+        Math.max(1, Math.floor(progress * (HERO_FRAME_COUNT - 1)) + 1),
+      );
+      const isPinned = window.scrollY >= heroTop && window.scrollY < heroBottom;
+
+      canvas.style.position = isPinned ? "fixed" : "absolute";
+      canvas.style.top = "0";
+
+      if (nextFrame === currentFrame) {
+        return;
+      }
+
+      currentFrame = nextFrame;
+      const image = loadFrame(nextFrame);
+      preloadFramesAround(nextFrame + 1);
+
+      if (image.complete && image.naturalWidth > 0) {
+        drawFrame(image);
+      }
+    };
+
+    const requestRender = () => {
+      if (animationFrame !== null) {
+        return;
+      }
+
+      animationFrame = window.requestAnimationFrame(renderScrollFrame);
+    };
+
+    const handleResize = () => {
+      resizeCanvas();
+      currentFrame = -1;
+      requestRender();
+    };
+
+    resizeCanvas();
+    preloadFramesAround(1);
+    requestRender();
+
+    const resizeObserver = new ResizeObserver(handleResize);
+    resizeObserver.observe(canvas);
+
+    window.addEventListener("scroll", requestRender, { passive: true });
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      heroVideoTime.current = video.currentTime;
-      if (scrubAnimationFrame) {
-        window.cancelAnimationFrame(scrubAnimationFrame);
+      isCancelled = true;
+      if (animationFrame) {
+        window.cancelAnimationFrame(animationFrame);
       }
-      video.removeEventListener("loadedmetadata", syncHeroVideoTime);
-      video.removeEventListener("ended", handleEnded);
-      video.removeEventListener("pause", handlePause);
-      document.removeEventListener("wheel", handleScrollIntent);
-      document.removeEventListener("touchstart", handleTouchStart);
-      document.removeEventListener("touchmove", handleScrollIntent);
-      document.removeEventListener("keydown", handleScrollIntent);
+      resizeObserver.disconnect();
+      window.removeEventListener("scroll", requestRender);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -312,22 +263,18 @@ export default function Home() {
 
         <section
           ref={heroRef}
-          className="relative z-10 h-[calc(100svh-70px)] md:h-[calc(100svh-80px)] min-h-[520px] w-full overflow-hidden bg-[rgb(12,61,27)]"
+          className="relative z-10 w-full overflow-hidden bg-[rgb(12,61,27)]"
+          style={{ height: `${HERO_SCROLL_DISTANCE}px` }}
         >
-          <video
-            ref={heroVideoRef}
-            className="h-full w-full object-cover"
-            src="/images/hero video/forCheck.mp4"
-            muted
-            playsInline
-            preload="auto"
+          <canvas
+            ref={heroCanvasRef}
+            className="left-0 z-10 block h-svh w-full bg-[rgb(12,61,27)]"
             aria-label="GrabV hero video"
           />
         </section>
 
         {/* What is GrabV Section */}
         <section
-          ref={nextSectionRef}
           className="w-screen relative left-1/2 -translate-x-1/2 flex flex-col items-center justify-center overflow-hidden min-h-[calc(100svh-70px)] md:min-h-[calc(100svh-80px)] scroll-mt-[70px] md:scroll-mt-[80px]"
         >
           {/* Mobile Background */}

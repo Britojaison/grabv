@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "extract:hero-frames": "ffmpeg -y -i \"public/images/hero video/forCheck.mp4\" -vf fps=30 -q:v 3 \"public/images/hero video/frames/frame_%04d.jpg\"",
     "start": "next start",
     "lint": "eslint"
   },
