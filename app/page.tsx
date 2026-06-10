@@ -199,7 +199,7 @@ export default function Home() {
       {/* Navbar Section (H: 80px) */}
       <header
         style={{ backgroundColor: 'rgb(12, 61, 27)' }}
-        className="sticky top-0 z-[100] w-full flex-shrink-0 shadow-md"
+        className="fixed top-0 z-[100] w-full flex-shrink-0 shadow-md"
       >
         <div className="max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 h-[70px] md:h-[80px] flex items-center justify-between">
           <div className="flex items-center gap-4">
