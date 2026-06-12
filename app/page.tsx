@@ -421,12 +421,12 @@ export default function Home() {
           </div>
 
           {/* Product Images */}
-          <div className="w-full pl-[120px] pr-0 pb-48 flex flex-col md:flex-row justify-between items-center gap-24 relative z-10">
-            <div className="w-full md:w-[600px] flex justify-center">
-              <img src="/images/HomePage/product1.png" className="w-[400px] md:w-[600px] h-auto object-contain" alt="Product 1" />
+          <div className="w-full pl-[120px] pr-0 pb-48 -mt-16 flex flex-col md:flex-row justify-between items-center gap-24 relative z-10 overflow-visible">
+            <div className="flex justify-center flex-shrink-0">
+              <img src="/images/HomePage/product1.png" className="h-[400px] md:h-[750px] w-auto object-contain" alt="Product 1" />
             </div>
-            <div className="w-full md:w-[600px] flex justify-end md:translate-x-[130px]">
-              <img src="/images/HomePage/product2.png" className="w-[400px] md:w-[600px] h-auto object-contain" alt="Product 2" />
+            <div className="flex justify-end md:translate-x-0">
+              <img src="/images/HomePage/product2.png" className="h-[400px] md:h-[750px] w-auto object-contain" alt="Product 2" />
             </div>
           </div>
 
