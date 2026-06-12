@@ -196,12 +196,12 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen w-full font-arpona overflow-x-hidden" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
 
-      {/* Navbar Section (H: 80px) */}
+      {/* Navbar Section */}
       <header
         style={{ backgroundColor: 'rgb(12, 61, 27)' }}
         className="fixed top-0 z-[100] w-full flex-shrink-0 shadow-md"
       >
-        <div className="max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 h-[70px] md:h-[80px] flex items-center justify-between">
+        <div className="w-full px-4 md:px-[120px] h-[70px] md:h-[110px] flex items-center justify-between">
           <div className="flex items-center gap-4">
             {/* Hamburger Menu - Mobile and Tablet */}
             <div className="lg:hidden flex items-center">
@@ -222,22 +222,22 @@ export default function Home() {
               <Image
                 src="/images/logo.svg"
                 alt="GrabV Logo"
-                width={110}
-                height={40}
-                className="w-auto h-8 md:h-12"
+                width={200}
+                height={80}
+                className="w-auto h-8 md:h-[70px]"
                 priority
               />
             </div>
           </div>
 
           {/* Desktop Nav - Hidden on Mobile and Tablet */}
-          <nav className="hidden lg:flex items-center gap-8 xl:gap-12 text-white font-medium">
-            <Link href="/" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Home</Link>
-            <Link href="/recipes" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Recipes</Link>
-            <Link href="/products" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Products</Link>
-            <Link href="/ourstory" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Our Story</Link>
-            <Link href="/contact" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Contact Us</Link>
-            <Link href="/faq" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">FAQ</Link>
+          <nav className="hidden lg:flex flex-1 justify-center items-center gap-12 xl:gap-[110px] text-white font-medium px-12">
+            <Link href="/" className="hover:text-[rgb(247,216,13)] transition-colors text-[26px]">Home</Link>
+            <Link href="/recipes" className="hover:text-[rgb(247,216,13)] transition-colors text-[26px]">Recipes</Link>
+            <Link href="/products" className="hover:text-[rgb(247,216,13)] transition-colors text-[26px]">Products</Link>
+            <Link href="/ourstory" className="hover:text-[rgb(247,216,13)] transition-colors text-[26px] whitespace-nowrap">Our Story</Link>
+            <Link href="/contact" className="hover:text-[rgb(247,216,13)] transition-colors text-[26px] whitespace-nowrap">Contact Us</Link>
+            <Link href="/faq" className="hover:text-[rgb(247,216,13)] transition-colors text-[26px]">FAQ</Link>
           </nav>
 
           <button
@@ -247,7 +247,7 @@ export default function Home() {
               color: 'rgb(12, 61, 27)',
               letterSpacing: '0.05em'
             }}
-            className="font-arpona font-medium flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0 text-[12px] md:text-[18px] w-[85px] md:w-[142px] h-[30px] md:h-[37px]"
+            className="font-arpona font-bold flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0 text-[12px] md:text-[22px] w-[85px] md:w-[170px] h-[30px] md:h-[48px]"
           >
             Order Now
           </button>
@@ -298,1145 +298,141 @@ export default function Home() {
           />
         </section>
 
-        {/* What is GrabV Section */}
-        <section
-          className="w-screen relative left-1/2 -translate-x-1/2 flex flex-col items-center justify-center overflow-hidden min-h-[calc(100svh-70px)] md:min-h-[calc(100svh-80px)] scroll-mt-[70px] md:scroll-mt-[80px]"
-        >
-          {/* Mobile Background */}
-          <div className="md:hidden absolute inset-0 z-0">
+        {/* Freshly Made Product Section */}
+        <section className="relative w-full h-[100vh] flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
+          {/* Background Text Overlay */}
+          <div className="absolute left-[120px] right-[120px] inset-y-0 flex flex-col justify-center pointer-events-none select-none z-0 overflow-hidden font-kura uppercase tracking-[-0.08em] drop-shadow-[0_4px_12px_rgba(0,0,0,0.25)]" style={{ color: 'rgb(21, 107, 54)' }}>
+            <div className="relative w-full h-[138px] mb-4 whitespace-nowrap text-[138px] leading-[1.0]">
+              <span className="absolute left-0">FRESHLY MADE</span>
+              <span className="absolute right-0">FRESHLY MADE</span>
+            </div>
+            <div className="relative w-full h-[138px] mb-4 whitespace-nowrap text-[138px] leading-[1.0]">
+              <span className="absolute left-0">100 % VEG</span>
+              <span className="absolute right-[80px]">100 % VEG</span>
+            </div>
+            <div className="relative w-full h-[138px] mb-4 whitespace-nowrap text-[138px] leading-[1.0]">
+              <span className="absolute left-0">FSSAI CERTIFIED</span>
+              <span className="absolute right-[40px]">FSSAI CERTIFIED</span>
+            </div>
+            <div className="relative w-full h-[138px] mb-4 whitespace-nowrap text-[138px] leading-[1.0]">
+              <span className="absolute left-0">READY IN 10 MINS</span>
+              <span className="absolute right-[40px]">READY IN 10 MINS</span>
+            </div>
+            <div className="relative w-full h-[138px] whitespace-nowrap text-[138px] leading-[1.0]">
+              <span className="absolute left-0">REAL INGREDIENTS</span>
+              <span className="absolute right-0">REAL INGREDIENTS</span>
+            </div>
+          </div>
+
+          {/* Product Image */}
+          <div className="relative z-10 w-[900px] h-[913px] translate-y-6">
             <Image
-              src="/images/yellow mobile 2.svg"
-              alt="Yellow Background Mobile"
+              src="/images/HomePage/product package 1.png"
+              alt="GrabV Product Package"
               fill
-              className="object-cover object-top"
+              className="object-contain drop-shadow-2xl"
               priority
             />
           </div>
-          {/* Desktop Background */}
-          <div className="hidden md:block absolute inset-0 z-0">
-            <Image
-              src="/images/bg yellow.svg"
-              alt="Yellow Background Desktop"
-              fill
-              className="object-cover object-center"
-              priority
-            />
+
+          {/* Bottom Left Text */}
+          <div className="absolute bottom-20 left-[120px] z-20 flex flex-col font-arpona text-[28px] leading-[1.0] tracking-[-0.05em] font-medium text-black">
+            <span>Veg or non-veg</span>
+            <span>Possibilities are endless</span>
           </div>
 
-          {/* Content Wrapper */}
-          <div className="relative w-full max-w-[1600px] mx-auto px-4 md:pl-12 lg:pl-16 md:pr-8 py-10 md:py-14 z-[40] flex flex-col lg:flex-row items-center">
+          {/* Bottom Right Text */}
+          <div className="absolute bottom-20 right-[120px] z-20 flex flex-col font-arpona text-[28px] leading-[1.0] tracking-[-0.05em] font-medium text-black text-right">
+            <span>Just add in the gravy</span>
+            <span>And enjoy your meal</span>
+          </div>
+        </section>
 
-            {/* Left Content */}
-            <div className="w-full lg:w-[40%] flex flex-col items-center lg:items-start pt-0 text-center lg:text-left lg:pr-10">
-              {/* Question Pill with Border Settings */}
-              <div className="relative w-[210px] h-[42px] md:w-[280px] md:h-[52px] lg:w-[325px] lg:h-[60px] mb-6 md:mb-8">
-                {/* Red Pill Background */}
-                <div
-                  style={{ backgroundColor: 'rgb(247, 0, 52)' }}
-                  className="absolute inset-0 rounded-full flex items-center justify-center shadow-md z-10"
-                >
-                  <span className="text-white font-bold text-[14px] md:text-[18px] lg:text-[23px] uppercase tracking-wide whitespace-nowrap font-arpona">
-                    What is GrabV?
-                  </span>
-                </div>
+        {/* Pouch to Plate Section */}
+        <section className="relative w-full flex flex-col items-center pt-24 pb-32 overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
+          
+          {/* Top text */}
+          <p className="font-arpona text-[24px] md:text-[30px] leading-[1.0] tracking-[-0.05em] font-medium text-black mb-10 text-center z-10">
+            No Chopping. No Stress. Just Real Food.
+          </p>
 
-                {/* Border Setting - matching Ingredients & Purity */}
-                <div className="absolute inset-0 -rotate-[4deg] lg:-rotate-[2.01deg] scale-105 z-20 pointer-events-none">
-                  <Image
-                    src="/images/corner rectangle.svg"
-                    alt="Pill Border"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              </div>
+          {/* Huge Heading */}
+          <div className="relative font-kura uppercase text-[120px] md:text-[300px] leading-[0.85] tracking-[-0.02em] text-center w-full flex justify-center drop-shadow-xl z-10">
+            {/* Outline layer */}
+            <div className="absolute inset-0 flex justify-center text-transparent z-0" style={{ WebkitTextStroke: '24px rgb(247, 216, 13)' }}>
+              <div>POUCH TO<br/>PLATE IN 5<br/>STEPS</div>
+            </div>
+            {/* Fill layer */}
+            <div className="relative z-10" style={{ color: 'rgb(21, 107, 54)' }}>
+              <div>POUCH TO<br/>PLATE IN 5<br/>STEPS</div>
+            </div>
+          </div>
 
-              {/* Secret Heading */}
-              {/* Mobile Heading (1 Line) */}
-              <div className="lg:hidden mb-6 w-full flex flex-col items-center text-center px-4">
-                <h2 className="font-kura leading-[1.1] text-[20px] sm:text-[24px] md:text-[36px] m-0 p-0 uppercase">
-                  <span style={{ color: 'rgb(247, 0, 52)' }}>Your everyday </span>
-                  <span style={{ color: 'rgb(21, 107, 54)' }}>cooking, </span>
-                  <span style={{ color: 'rgb(247, 0, 52)' }}>made easier.</span>
-                </h2>
-              </div>
-              {/* Desktop Heading (2 Lines) */}
-              <div className="hidden lg:flex flex-col items-start mb-6 w-full text-left">
-                <h2 className="font-kura leading-[0.9] text-[60px] m-0 p-0 uppercase" style={{ color: 'rgb(247, 0, 52)' }}>
-                  Your everyday
-                </h2>
-                <h2 className="font-kura leading-[1.0] text-[60px] m-0 p-0 uppercase whitespace-nowrap mt-1">
-                  <span style={{ color: 'rgb(21, 107, 54)'/* Green */ }}>cooking, </span>
-                  <span style={{ color: 'rgb(247, 0, 52)'/* Red */ }}>made easier.</span>
-                </h2>
-              </div>
-
-              {/* Description text */}
-              {/* Mobile Description */}
-              <p className="lg:hidden max-w-[320px] md:max-w-xl leading-[1.3] mb-8 lg:mb-12 font-normal font-arpona text-[16px] md:text-[20px] text-center" style={{ color: 'rgb(21, 107, 54)' }}>
-                Freshly made and chilled curry bases that help you prepare rich, flavourful gravy in just 10 minutes. Made with real ingredients and absolutely no preservatives.
-              </p>
-              {/* Desktop Description */}
-              <p className="hidden lg:block max-w-xl leading-[1.3] mb-12 font-normal font-arpona text-[25px] text-left" style={{ color: 'rgb(21, 107, 54)' }}>
-                Freshly made and chilled curry bases that help you prepare rich, flavourful gravy in just 10 minutes. Made with real ingredients and absolutely no preservatives.
-              </p>
-
-              {/* Desktop Learn More Button */}
-              <Link
-                href="/ourstory"
-                style={{ backgroundColor: 'rgb(21, 107, 54)' }}
-                className="hidden md:flex group items-center gap-4 lg:gap-6 px-6 py-3 lg:px-10 lg:py-5 rounded-full text-white text-[16px] lg:text-[25px] font-normal font-arpona hover:bg-black transition-all shadow-lg mt-6 md:mt-10 mb-6 md:mb-12 lg:mb-0"
-              >
-                Learn More
-                <Image src="/images/arrow.svg" alt="Arrow" width={32} height={32} className="object-contain" />
-              </Link>
-
-
+          {/* Steps Container */}
+          <div className="w-full mt-24 pl-[120px] pr-0 flex gap-[50px] overflow-x-auto pb-16 pt-8 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            
+            {/* Step 1 */}
+            <div className="w-[600px] md:w-[900px] flex-shrink-0 snap-start flex flex-col">
+               <img src="/images/HomePage/cooking img1.png" className="w-full h-auto block" alt="Step 1" />
+               <p className="mt-10 ml-8 font-arpona text-[35px] tracking-[-0.05em] font-medium text-black">
+                 Add your tempering (tadka) in oil.
+               </p>
             </div>
 
-            {/* Right Content - Product Image */}
-            <div className="w-full lg:w-[60%] flex justify-center lg:justify-end relative h-[320px] md:h-[520px] lg:h-[620px] mt-4 md:mt-8 lg:mt-0 lg:left-[50px]">
-              <div className="relative w-full max-w-[500px] md:max-w-[900px] aspect-[744/419]">
-                <Image
-                  src="/images/product 1.svg?v=clean"
-                  alt="Product Showcase"
-                  fill
-                  className="object-contain object-top lg:object-right"
-                  priority
-                />
-                <div
-                  className="absolute"
-                  style={{
-                    left: "49.2%",
-                    top: "46.5%",
-                    width: "50.8%",
-                    height: "53.5%",
-                  }}
-                >
-                  <Image
-                    src="/images/product-family.png"
-                    alt="Family enjoying GrabV meal"
-                    fill
-                    className="object-contain"
-                    priority
-                  />
-                </div>
-              </div>
+            {/* Step 2 */}
+            <div className="w-[600px] md:w-[900px] flex-shrink-0 snap-start flex flex-col">
+               <img src="/images/HomePage/cooking img2.png" className="w-full h-auto block" alt="Step 2" />
+               <p className="mt-10 ml-8 font-arpona text-[35px] tracking-[-0.05em] font-medium text-black">
+                 Sauté veggies or protein of your choice.
+               </p>
             </div>
 
           </div>
         </section>
 
-        {/* Pouch To Plate Section */}
-        <section className="w-full pt-16 md:pt-28 pb-20 md:pb-24 flex flex-col items-center" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
-          <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8">
+        {/* Our Products Section */}
+        <section className="relative w-full flex flex-col items-center min-h-[900px] overflow-hidden -mt-10">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <Image src="/images/HomePage/red bg.png" alt="Red torn background" fill className="object-cover object-top" />
+          </div>
 
-            <div className="flex flex-col mb-10 relative">
-              {/* Mobile Layout (Hidden on Desktop) */}
-              <div className="md:hidden flex flex-col w-full mb-4 -mt-10">
-                <div className="flex justify-between items-center w-full gap-3">
-                  <div className="flex-[1] flex flex-col text-left">
-                    <h2 className="font-kura leading-[1.0] text-[23px] uppercase">
-                      <span style={{ color: 'rgb(247, 0, 52)' }}>POUCH TO PLATE </span><br />
-                      <span style={{ color: 'rgb(21, 107, 54)' }}>IN 5 STEPS</span>
-                    </h2>
-                    <p className="font-arpona font-normal text-[13px] leading-[1.2] mt-2" style={{ color: 'rgb(21, 107, 54)' }}>
-                      No Chopping. No Stress.<br />Just Real Food.
-                    </p>
-                  </div>
-
-                  <div className="flex-[1.2] flex flex-col items-center">
-                    <div className="relative w-full h-[150px] min-w-[120px]">
-                      <Image
-                        src="/images/cook2.svg"
-                        alt="GrabV Ingredients showcase"
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  style={{ backgroundColor: 'rgb(247, 216, 13)' }}
-                  className="w-full rounded-[8px] mt-4 p-3 grid grid-cols-2 gap-x-4 gap-y-3 shadow-sm border border-[rgb(21,107,54)]/10"
-                >
-                  <div className="flex flex-col border-r border-[rgb(21,107,54)]/20 pr-3">
-                    <span className="font-bold text-[18px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>7 Min</span>
-                    <span className="text-[12px] font-bold" style={{ color: 'rgb(16, 107, 54)' }}>cooking time</span>
-                  </div>
-                  <div className="flex flex-col pl-3">
-                    <span className="font-bold text-[18px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>Zero</span>
-                    <span className="text-[12px] font-bold" style={{ color: 'rgb(16, 107, 54)' }}>Preservatives</span>
-                  </div>
-                  <div className="flex flex-col border-t border-r border-[rgb(21,107,54)]/20 pt-3 pr-3">
-                    <span className="font-bold text-[18px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>20+</span>
-                    <span className="text-[12px] font-bold" style={{ color: 'rgb(16, 107, 54)' }}>delicious dishes</span>
-                  </div>
-                  <div className="flex flex-col border-t border-[rgb(21,107,54)]/20 pt-3 pl-3">
-                    <span className="font-bold text-[16px] leading-tight" style={{ color: 'rgb(16, 107, 54)' }}>250/750 G</span>
-                    <span className="text-[12px] font-bold" style={{ color: 'rgb(16, 107, 54)' }}>per pouch</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Desktop Layout (Hidden on Mobile) */}
-              <div className="hidden md:flex flex-col items-center text-center w-full">
-                <div className="relative z-20">
-                  <h2 className="font-kura leading-[1.0] text-[46px] sm:text-[56px] lg:text-[85px] m-0 p-0 uppercase">
-                    <span style={{ color: 'rgb(247, 0, 52)' }}>Pouch To Plate </span>
-                    <span style={{ color: 'rgb(21, 107, 54)' }}>In 5 Steps</span>
-                  </h2>
-                  <p className="font-arpona font-normal text-[17px] sm:text-[20px] lg:text-[25px] leading-[1.2] mt-4" style={{ color: 'rgb(21, 107, 54)' }}>
-                    No Chopping. No Stress. Just Real Food.
-                  </p>
-                </div>
-
-                <div className="flex flex-col items-center md:-mt-20 lg:-mt-32 w-full">
-                  <div className="relative w-[450px] h-[550px] sm:w-[600px] sm:h-[650px] z-10 shrink-0">
-                    <Image
-                      src="/images/cook2.svg"
-                      alt="GrabV Ingredients showcase"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-
-                  <div
-                    style={{ backgroundColor: 'rgb(247, 216, 13)' }}
-                    className="w-full max-w-[950px] min-h-[54px] rounded-[10px] flex flex-wrap sm:flex-nowrap items-center px-6 py-4 shadow-sm -mt-1"
-                  >
-                    <div className="flex-1 flex items-center justify-center gap-4 px-4 shrink-0">
-                      <Image src="/images/clock.svg" alt="" width={48} height={48} className="shrink-0" />
-                      <div className="flex flex-col text-left shrink-0">
-                        <span className="font-bold text-[30px] leading-tight whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)' }}>7 Min</span>
-                        <span className="text-[15px] font-bold whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)', letterSpacing: '0.05em' }}>cooking time</span>
-                      </div>
-                    </div>
-                    <div className="hidden sm:block w-[1px] h-10 bg-[rgb(16,107,54)]/30" />
-
-                    <div className="flex-1 flex flex-col items-center justify-center text-center px-4 shrink-0">
-                      <span className="font-bold text-[30px] leading-tight whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)' }}>Zero</span>
-                      <span className="text-[15px] font-bold whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)', letterSpacing: '0.05em' }}>Preservatives</span>
-                    </div>
-                    <div className="hidden sm:block w-[1px] h-10 bg-[rgb(16,107,54)]/30" />
-
-                    <div className="flex-1 flex flex-col items-center justify-center text-center px-4 shrink-0">
-                      <span className="font-bold text-[30px] leading-tight whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)' }}>20+</span>
-                      <span className="text-[15px] font-bold whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)', letterSpacing: '0.05em' }}>delicious dishes</span>
-                    </div>
-                    <div className="hidden sm:block w-[1px] h-10 bg-[rgb(16,107,54)]/30" />
-
-                    <div className="flex-1 flex flex-col items-center justify-center text-center px-4 shrink-0">
-                      <span className="font-bold text-[30px] leading-tight whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)' }}>250/750 G</span>
-                      <span className="text-[15px] font-bold whitespace-nowrap" style={{ color: 'rgb(16, 107, 54)', letterSpacing: '0.05em' }}>per pouch</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          {/* Huge Heading */}
+          <div className="relative z-10 font-kura uppercase leading-[0.8] tracking-[-0.02em] text-center flex flex-col items-center drop-shadow-[0_15px_15px_rgba(0,0,0,0.3)] pt-[250px] pb-32">
+            
+            {/* Outline layer */}
+            <div className="absolute inset-0 flex flex-col items-center pt-[250px] text-transparent z-0 pointer-events-none" style={{ WebkitTextStroke: '28px rgb(21, 107, 54)' }}>
+              <div className="text-[150px] md:text-[300px]">OUR</div>
+              <div className="text-[150px] md:text-[300px]">PRODUCTS</div>
             </div>
 
-            <div className="max-md:flex max-md:overflow-x-auto md:overflow-visible no-scrollbar md:grid w-full max-w-[1284px] mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-x-8 md:gap-y-20 mt-2 md:mt-20 mb-20 px-2 md:px-0 pt-7 md:pt-0">
-              {[
-                { step: 1, text: "Add your tempering\n(tadka) in oil", rotate: "-rotate-6" },
-                { step: 2, text: "Sauté veggies or\nprotein of your choice.", rotate: "rotate-6" },
-                { step: 3, text: "Pour gravy &\nadjust consistency", rotate: "-rotate-6" },
-                { step: 4, text: "Sprinkle spices\n& salt to taste.", rotate: "rotate-6" },
-                { step: 5, text: "Cook for 7 mins\nand enjoy!", rotate: "-rotate-6" }
-              ].map((item) => (
-                <div key={item.step} className="flex flex-col items-center shrink-0 w-[47%] md:w-full">
-                  <div className="relative group w-full">
-                    <div className="absolute -top-[15px] md:-top-[34px] left-1/2 -translate-x-1/2 w-[85px] md:w-[124px] h-[30px] md:h-[42px] z-20">
-                      <div className={`absolute inset-0 rounded-full bg-[rgb(247,216,13)] border-[1.5px] md:border-[3px] border-[rgb(247,0,52)] flex items-center justify-center shadow-sm md:hidden ${item.rotate}`}>
-                        <span className="font-kura text-[14px] text-[rgb(247,0,52)]">Step {item.step}</span>
-                      </div>
-
-                      {/* Desktop Tag (Tilted) */}
-                      <div className="hidden md:block absolute inset-0 w-full h-full">
-                        <div className="absolute inset-0 rounded-full" style={{ backgroundColor: 'rgb(247, 216, 13)' }} />
-                        <div className={`absolute inset-0 rounded-full border-[3px] border-[#f70034] flex items-center justify-center shadow-sm ${item.rotate}`}>
-                          <span className="font-kura text-[21px] leading-none text-[#f70034]">Step {item.step}</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="bg-white rounded-[15px] md:rounded-[10px] p-1.5 pt-6 md:pt-[30px] shadow-sm border-[1.5px] border-[rgb(247,216,13)] flex flex-col items-center text-center w-full h-[230px] md:h-[350px]">
-                      <div className="relative w-full h-[110px] md:h-[200px] mb-5 md:mb-6 rounded-[10px] overflow-hidden">
-                        <Image
-                          src={item.step === 3 ? "/images/step3.png" : `/images/step ${item.step}.webp`}
-                          alt={`Step ${item.step}`}
-                          fill
-                          sizes="(max-width: 640px) 160px, 20vw"
-                          className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                      </div>
-                      <p className="font-arpona font-normal text-[15px] md:text-[20px] leading-[1.2] md:leading-[24px] whitespace-pre-line px-2 text-center" style={{ color: 'rgb(21, 107, 54)' }}>
-                        {item.text}
-                      </p>
-                    </div>
-                  </div>
+            {/* Fill layer */}
+            <div className="relative z-10 flex flex-col items-center" style={{ color: 'rgb(247, 216, 13)' }}>
+              <div className="text-[150px] md:text-[300px]">OUR</div>
+              <div className="relative text-[150px] md:text-[300px]">
+                PRODUCTS
+                {/* Grab Your Packs text */}
+                <div className="absolute top-[10%] right-8 font-arpona text-[28px] tracking-[-0.05em] font-medium text-white normal-case tracking-normal drop-shadow-none pointer-events-none" style={{ WebkitTextStroke: '0', textShadow: 'none' }}>
+                  Grab Your Packs
                 </div>
-              ))}
+              </div>
             </div>
 
           </div>
+
+          {/* Product Images */}
+          <div className="w-full pl-[120px] pr-0 pb-48 flex flex-col md:flex-row justify-between items-center gap-24 relative z-10">
+            <div className="w-full md:w-[600px] flex justify-center">
+              <img src="/images/HomePage/product1.png" className="w-[400px] md:w-[600px] h-auto object-contain" alt="Product 1" />
+            </div>
+            <div className="w-full md:w-[600px] flex justify-end md:translate-x-[130px]">
+              <img src="/images/HomePage/product2.png" className="w-[400px] md:w-[600px] h-auto object-contain" alt="Product 2" />
+            </div>
+          </div>
+
         </section>
 
-        {/* Ingredients & Purity Section - Tighter height to fit viewport */}
-        <section className="w-full relative pt-0 pb-2 md:py-20 flex flex-col items-center overflow-visible min-h-0 md:min-h-[850px] justify-center" style={{ backgroundColor: 'rgb(239, 239, 231)' }}>
-          {/* Full-width Yellow Background with torn edges */}
-          <div className="absolute inset-x-0 -top-32 bottom-0 z-0 overflow-hidden">
-            {/* Mobile Background */}
-            <div className="md:hidden absolute inset-0">
-              <Image
-                src="/images/yellow mobile 3.svg"
-                alt="Yellow Background Mobile"
-                fill
-                className="object-cover object-top"
-                priority
-              />
-            </div>
-            {/* Desktop Background */}
-            <div className="hidden md:block absolute inset-0">
-              <Image
-                src="/images/bg yellow.svg"
-                alt="Yellow Background Desktop"
-                fill
-                className="object-cover object-top -scale-y-100"
-                priority
-              />
-            </div>
-          </div>
-
-          {/* Content Wrapper */}
-          <div className="relative w-full max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 lg:pl-10 lg:pr-[80px] z-10 flex flex-col items-start pb-0">
-
-            {/* Mobile Layout (Hidden on Desktop) */}
-            <div className="lg:hidden flex flex-col items-center w-full text-center -mt-8">
-              {/* Ingredients Pill */}
-              <div className="relative w-[210px] h-[42px] md:w-[280px] md:h-[52px] mb-6">
-                <div
-                  className="absolute inset-0 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: 'rgb(247, 0, 52)' }}
-                >
-                  <span className="text-white font-arpona font-bold text-[14px] md:text-[18px] uppercase tracking-wide">
-                    Ingredients & Purity
-                  </span>
-                </div>
-                <div className="absolute inset-0 -rotate-[4deg] scale-105">
-                  <Image
-                    src="/images/corner rectangle.svg"
-                    alt=""
-                    fill
-                    className="pointer-events-none object-contain"
-                  />
-                </div>
-              </div>
-
-              {/* Heading */}
-              <h2 className="font-kura leading-[1.1] text-[21px] md:text-[36px] lg:text-[65px] uppercase mb-4">
-                <span style={{ color: 'rgb(21, 107, 54)' }}>Our Slow-Cooked </span>
-                <span style={{ color: 'rgb(247, 0, 52)' }}>Secret</span>
-              </h2>
-
-              {/* Subtitle */}
-              <p className="font-arpona font-normal text-[18px] md:text-[22px] leading-[1.4] mb-8 px-2" style={{ color: 'rgb(21, 107, 54)' }}>
-                Every batch is tested and every ingredient is printed.<br />
-                No shortcuts, just real food.
-              </p>
-
-              {/* Showcase Image Container */}
-              <div className="w-full relative h-[250px] md:h-[400px] mb-8">
-                <Image
-                  src="/images/home ingredients .svg"
-                  alt="GrabV Fresh Ingredients"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-
-              {/* Ingredients Horizontal Scroll for Mobile and Tablet */}
-              <div className="flex overflow-x-auto no-scrollbar gap-6 w-full pb-2 px-4">
-                {[
-                  { img: 'Fresh Onions & Tomatoes.jpg', title: 'Fresh Onions & Tomatoes', desc: 'Slow-cooked to golden perfection for a rich, robust base.' },
-                  { img: 'The Whole Spice Bloom.jpg', title: 'The Whole Spice Bloom', desc: 'Cumin, Cinnamon, Clove, and Bay Leaf roasted and ground for deep aroma.' },
-                  { img: 'The Essential Spice Blend.jpg', title: 'The Essential Spice Blend', desc: 'Chilli, Turmeric, Coriander, and Pepper for authentic home-style depth.' },
-                  { img: 'The Creamy Secret.jpg', title: 'The Creamy Secret', desc: 'A touch of Cashews for a velvety, restaurant-style finish.' },
-                  { img: 'Zero Additives.jpg', title: 'Zero Additives', desc: '100% preservative-free and freshly made and chilled to lock in natural flavor.' },
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-3 text-left shrink-0">
-                    <div className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] flex-shrink-0 flex items-center justify-center bg-white rounded-xl border-[2px] border-[rgb(247,0,52)] overflow-hidden shadow-sm">
-                      <div className="relative w-full h-full">
-                        <Image
-                          src={`/images/${item.img}`}
-                          alt={item.title}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                    </div>
-                    <div className="flex flex-col leading-tight min-w-[150px] md:max-w-[240px]">
-                      <h4 className="font-arpona font-bold text-[16px] md:text-[20px]" style={{ color: 'rgb(21, 107, 54)' }}>
-                        {item.title}
-                      </h4>
-                      <p className="font-arpona font-normal text-[14px] md:text-[16px]" style={{ color: 'rgb(12, 61, 27)' }}>
-                        {item.desc}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Desktop Layout (Hidden on Mobile) */}
-            <div className="hidden lg:flex flex-col w-full">
-              {/* Top Row: Headings and Showcase Image */}
-              <div className="w-full flex flex-col lg:flex-row justify-between items-start gap-8 mb-8 -mt-6">
-                <div className="flex flex-col items-start w-full lg:w-[50%]">
-                  {/* Ingredients Pill */}
-                  <div className="relative w-[325px] h-[60px] mb-6 opacity-100">
-                    <div
-                      className="absolute inset-0 w-[325px] h-[60px] rounded-[100px] flex items-center justify-center"
-                      style={{ backgroundColor: 'rgb(247, 0, 52)' }}
-                    >
-                      <span className="text-white font-bold text-[23px] font-arpona tracking-wider">
-                        Ingredients & Purity
-                      </span>
-                    </div>
-                    <div className="absolute inset-0 -rotate-[2.01deg]">
-                      <Image
-                        src="/images/corner rectangle.svg"
-                        alt=""
-                        fill
-                        className="pointer-events-none object-contain"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="mb-6">
-                    <h2 className="font-kura leading-[1.0] text-[55px] lg:text-[65px] m-0 p-0 uppercase" style={{ color: 'rgb(21, 107, 54)' }}>
-                      Our Slow-Cooked
-                    </h2>
-                    <h2 className="font-kura leading-[1.0] text-[55px] lg:text-[65px] m-0 p-0 uppercase whitespace-nowrap" style={{ color: 'rgb(247, 0, 52)' }}>
-                      Secret
-                    </h2>
-                  </div>
-
-                  {/* Subtitle */}
-                  <p className="max-w-2xl font-arpona font-normal leading-[1.4] text-[22px]" style={{ color: 'rgb(21, 107, 54)' }}>
-                    Every batch is tested and every ingredient is printed.<br />
-                    No shortcuts, just real food.
-                  </p>
-                </div>
-
-                <div className="w-full lg:w-[563px] lg:h-[332px] relative -mt-4 shrink-0 lg:mr-12">
-                  <Image
-                    src="/images/home ingredients .svg"
-                    alt="Home Ingredients"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              </div>
-
-              {/* Ingredients Grid - Tightened spacing */}
-              <div className="w-full lg:w-[1146px] lg:h-[402px] rounded-[10px] grid grid-cols-1 lg:grid-cols-2 gap-x-[120px] gap-y-8 mt-2">
-                {[
-                  { img: 'Fresh Onions & Tomatoes.jpg', title: 'Fresh Onions & Tomatoes', desc: 'Slow-cooked to golden perfection for a rich, robust base.' },
-                  { img: 'The Whole Spice Bloom.jpg', title: 'The Whole Spice Bloom', desc: 'Cumin, Cinnamon, Clove, and Bay Leaf roasted and ground for deep aroma.' },
-                  { img: 'The Essential Spice Blend.jpg', title: 'The Essential Spice Blend', desc: 'Chilli, Turmeric, Coriander, and Pepper for authentic home-style depth.' },
-                  { img: 'The Creamy Secret.jpg', title: 'The Creamy Secret', desc: 'A touch of Cashews for a velvety, restaurant-style finish.' },
-                  { img: 'Zero Additives.jpg', title: 'Zero Additives', desc: '100% preservative-free and freshly made and chilled to lock in natural flavor.' },
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-8">
-                    <div className="w-[117px] h-[119px] flex-shrink-0 flex items-center justify-center bg-white rounded-2xl border-[3px] border-[rgb(247,0,52)] overflow-hidden shadow-sm">
-                      <div className="relative w-[110px] h-[110px]">
-                        <Image
-                          src={`/images/${item.img}`}
-                          alt={item.title}
-                          fill
-                          className="object-cover rounded-xl"
-                        />
-                      </div>
-                    </div>
-                    {/* Ingredient Text */}
-                    <div className="flex flex-col gap-1">
-                      <h4 className="font-arpona font-bold text-[26px] leading-[1.1] whitespace-nowrap" style={{ color: 'rgb(21, 107, 54)' }}>
-                        {item.title}
-                      </h4>
-                      <p className="font-arpona font-normal text-[20px] leading-[1.2]" style={{ color: 'rgb(12, 61, 27)' }}>
-                        {item.desc}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-
-          </div>
-        </section>
-
-        {/* Our Quality Promise Section */}
-        <section id="quality" className="w-full relative pt-4 md:pt-12 pb-8 md:pb-12 flex flex-col items-center overflow-hidden" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
-          <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 flex flex-col items-center relative z-10 pt-0 pb-12">
-
-            <h2 className="font-kura font-normal text-[34px] md:text-[46px] lg:text-[60px] m-0 p-0 leading-[1.1] text-center tracking-wide uppercase mb-8 md:mb-16">
-              <span style={{ color: 'rgb(247, 0, 52)' }}>Our Quality </span>
-              <span style={{ color: 'rgb(21, 107, 54)' }}>Promise</span>
-            </h2>
-
-            <div className="w-full overflow-hidden py-3 md:py-5">
-              <div className="flex w-max animate-marquee items-center gap-10 md:gap-16 whitespace-nowrap">
-                {[...qualityPromises, ...qualityPromises].map((item, idx) => (
-                  <div key={`${item.text}-${idx}`} className="flex items-center gap-3 md:gap-5 py-1 shrink-0">
-                    <div className="w-[46px] h-[46px] md:w-[58px] md:h-[58px] bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm relative overflow-hidden">
-                      <div className="relative w-[30px] h-[30px] md:w-[40px] md:h-[40px]" style={item.icon === 'leaf.svg' ? { filter: 'brightness(0) invert(34%) sepia(35%) saturate(1048%) hue-rotate(97deg) brightness(93%) contrast(92%)' } : {}}>
-                        <Image
-                          src={`/images/${item.icon}`}
-                          alt={item.text}
-                          fill
-                          className="object-contain"
-                        />
-                      </div>
-                    </div>
-                    <span className="font-arpona font-normal text-[18px] md:text-[25px] leading-none" style={{ color: 'rgb(21, 107, 54)' }}>
-                      {item.text}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-        {/* Cook Anything Section */}
-        <section className="w-full relative flex flex-col items-center overflow-visible -mt-12">
-          {/* Top Half - Background Image with Torn Edge */}
-          <div className="w-full relative pt-12 md:pt-24 pb-8 md:pb-36 flex flex-col items-center text-center overflow-hidden">
-            {/* Background Image Layer */}
-            <div className="absolute inset-0 z-0 overflow-hidden">
-              {/* Mobile Background */}
-              <div className="md:hidden absolute inset-0">
-                <Image
-                  src="/images/green mobile 2.svg"
-                  alt="Background Mobile"
-                  fill
-                  className="object-cover object-top"
-                  priority
-                />
-              </div>
-              {/* Desktop Background */}
-              <div className="hidden md:block absolute inset-0">
-                <Image
-                  src="/images/bg green2.svg"
-                  alt="Background Desktop"
-                  fill
-                  className="object-cover object-top"
-                  priority
-                />
-              </div>
-              {/* Fallback pattern / color blending top edge to beige */}
-              <div className="absolute inset-0 -z-10" style={{ backgroundColor: 'rgb(239, 238, 230)' }} />
-            </div>
-
-            {/* Content Wrapper */}
-            <div className="relative z-10 flex flex-col items-center w-full px-4">
-              {/* Mobile Pill (md:hidden) */}
-              <div className="md:hidden relative w-[280px] h-[48px] mb-6">
-                <div className="absolute inset-0 rounded-full" style={{ backgroundColor: 'rgb(247, 216, 13)' }} />
-                <div className="absolute inset-0 border-[1.5px] border-[#f70034] rounded-full flex items-center justify-center">
-                  <span className="font-arpona font-bold text-[13px] leading-none text-center" style={{ color: 'rgb(21, 107, 54)' }}>
-                    Make 20+ recipes with one gravy.
-                  </span>
-                </div>
-              </div>
-
-              {/* Desktop Pill (hidden md:block) */}
-              <div className="hidden md:block relative w-[420px] h-[83px] mb-10">
-                <div className="absolute left-[0.76px] top-[7.36px] w-[415px] h-[67px] rounded-[100px]">
-                  <Image
-                    src="/images/yellow rectangle.svg"
-                    alt=""
-                    fill
-                    className="pointer-events-none object-fill"
-                  />
-                </div>
-                <Image
-                  src="/images/red border.svg"
-                  alt=""
-                  fill
-                  className="pointer-events-none object-contain"
-                />
-                <span className="absolute inset-0 flex items-center justify-center font-arpona font-semibold text-[18px] leading-none tracking-normal" style={{ color: 'rgb(21, 107, 54)' }}>
-                  Make 20+ recipes with one gravy.
-                </span>
-              </div>
-
-              {/* Main Heading */}
-              <div className="mb-6 md:mb-10 flex flex-col lg:flex-row items-center lg:items-baseline justify-center gap-1.5 md:gap-4 lg:whitespace-nowrap">
-                <h2 className="font-kura text-[25px] md:text-[50px] lg:text-[85px] leading-[0.9]" style={{ color: 'rgb(247, 216, 13)' }}>
-                  One GrabV.
-                </h2>
-                <h2 className="font-kura text-[25px] md:text-[50px] lg:text-[85px] leading-[0.9] text-white">
-                  Endless Possibilities
-                </h2>
-              </div>
-
-              {/* Subtext */}
-              <div className="text-white text-[16px] md:text-[25px] font-arpona font-normal leading-[1.3] max-w-4xl px-4 md:pl-3 md:pr-6 opacity-90">
-                <p>Just switch your ingredients and create</p>
-                <p>a whole new dish each time.</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Half - Light Cream Background */}
-          <div
-            className="w-full pt-4 md:pt-12 pb-2 md:pb-20 flex flex-col items-center"
-            style={{ backgroundColor: 'rgb(239, 238, 230)' }}
-          >
-            {/* Vegetarian Category */}
-            <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 flex items-center gap-3 md:gap-8 mb-8 md:mb-12 opacity-80">
-              <div className="flex-1 h-[1px] md:h-[2px]" style={{ backgroundColor: 'rgb(21, 107, 54)' }} />
-              <div className="flex items-center gap-2 md:gap-3 px-4 md:px-8 py-2 md:py-3 rounded-full shrink-0" style={{ backgroundColor: 'rgb(179, 202, 183)' }}>
-                <div className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 rounded-full" style={{ backgroundColor: 'rgb(21, 107, 54)' }} />
-                <span className="font-bold text-[14px] md:text-[22px] tracking-[0.1em]" style={{ color: 'rgb(21, 107, 54)' }}>
-                  VEGETARIAN
-                </span>
-              </div>
-              <div className="flex-1 h-[1px] md:h-[2px]" style={{ backgroundColor: 'rgb(21, 107, 54)' }} />
-            </div>
-
-            {/* Vegetarian Recipes - Horizontal scroll on mobile and tablet */}
-            <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 flex overflow-x-auto overflow-y-hidden lg:overflow-visible no-scrollbar lg:grid lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-8">
-              {[
-                { title: "Mutter Paneer", desc: "Soft, creamy, mildly spiced goodness.", image: "/images/mutter panner.png", href: "/recipes#matar-paneer" },
-                { title: "Mix Veg", desc: "Fresh vegetables in a rich, hearty gravy.", image: "/images/mix veg.png", href: "/recipes#mix-veg" },
-                { title: "Bhindi Masala", desc: "Spicy, sauteed, flavour-packed classic.", image: "/images/bhindi masala.png", href: "/recipes#bhindi-masala" },
-                { title: "Aloo Gobhi", desc: "Comforting, homestyle flavours with the perfect spice kick.", image: "/images/aloo gobhi.png", href: "/recipes#aloo-gobhi" },
-                { title: "Mutter Mushroom", desc: "Earthy mushrooms with a smooth, flavourful finish.", image: "/images/mutter mushrooom.png", href: "/recipes#matar-mushroom" }
-              ].map((item, idx) => (
-                <Link href={item.href} key={idx} className="flex flex-col group items-start shrink-0 w-[175px] md:w-[280px] lg:w-auto">
-                  <div className="relative w-full aspect-[4/5] rounded-[15px] md:rounded-[30px] overflow-hidden mb-4 md:mb-8 shadow-md md:shadow-xl">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute top-3 md:top-4 inset-x-3 md:inset-x-4 flex justify-between items-center">
-                      <div className="text-white px-2.5 md:px-3 py-1 rounded-full text-[12px] md:text-[14px] font-normal font-arpona shadow-sm" style={{ backgroundColor: 'rgba(21, 107, 54, 0.6)' }}>
-                        Veg
-                      </div>
-                      <div className="text-white px-2.5 md:px-3 py-1 rounded-full text-[12px] md:text-[14px] font-normal font-arpona shadow-sm flex items-center gap-1 md:gap-1.5" style={{ backgroundColor: 'rgba(21, 107, 54, 0.6)' }}>
-                        <Image src="/images/timer.svg" alt="Timer" width={14} height={14} className="brightness-0 invert w-3 md:w-4" />
-                        <span>6 Min</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col items-start px-1 md:px-2">
-                    <div className="px-2 md:px-4 py-0.5 md:py-1.5 rounded-full mb-2 md:mb-3 shadow-sm" style={{ backgroundColor: 'rgb(207, 219, 204)' }}>
-                      <span className="text-[10px] md:text-[14px] lg:text-[18px] font-arpona font-normal tracking-wide" style={{ color: 'rgb(21, 107, 54)' }}>
-                        Indian classic
-                      </span>
-                    </div>
-                    <h3 className="font-arpona font-bold text-[16px] md:text-[22px] lg:text-[30px] leading-tight tracking-normal mb-2 md:mb-3" style={{ color: 'rgb(247, 0, 52)' }}>
-                      {item.title}
-                    </h3>
-                    <p className="font-arpona text-[12px] md:text-[15px] lg:text-[18px] leading-relaxed tracking-normal font-normal max-w-full" style={{ color: 'rgb(21, 107, 54)' }}>
-                      {item.desc}
-                    </p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-
-            {/* Non-Vegetarian Category */}
-            <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 flex items-center gap-3 md:gap-8 mt-16 md:mt-24 mb-8 md:mb-12 opacity-80">
-              <div className="flex-1 h-[1px] md:h-[2px]" style={{ backgroundColor: 'rgb(247, 0, 52)' }} />
-              <div className="flex items-center gap-2 md:gap-3 px-4 md:px-8 py-2 md:py-3 rounded-full shrink-0" style={{ backgroundColor: 'rgba(247, 0, 52, 0.15)' }}>
-                <div className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 rounded-full" style={{ backgroundColor: 'rgb(247, 0, 52)' }} />
-                <span className="font-bold text-[14px] md:text-[22px] tracking-[0.1em]" style={{ color: 'rgb(247, 0, 52)' }}>
-                  NON-VEGETARIAN
-                </span>
-              </div>
-              <div className="flex-1 h-[1px] md:h-[2px]" style={{ backgroundColor: 'rgb(247, 0, 52)' }} />
-            </div>
-
-            {/* Non-Vegetarian Recipes - Horizontal scroll on mobile and tablet */}
-            <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 flex overflow-x-auto overflow-y-hidden lg:overflow-visible no-scrollbar lg:grid lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-8 mb-16 lg:mb-32">
-              {[
-                { title: "Home Style Chicken Curry", desc: "Simple, soulful, made just like home flavours.", image: "/images/home style chicken.png", href: "/recipes#homestyle-chicken-curry" },
-                { title: "Dhaba Style Chicken Do Pyaza", desc: "Robust spices with caramelised onion richness.", image: "/images/chicken do pyaza.png", href: "/recipes#dhaba-style-chicken-do-pyaza" },
-                { title: "Egg Curry", desc: "Thick, masaledar, simple yet satisfying.", image: "/images/egg curry.png", href: "/recipes#egg-curry" },
-                { title: "Mutton Curry", desc: "Deep, spicy, slow cooked taste in every bite.", image: "/images/mutton curry.png", href: "/recipes#mutton-curry" },
-                { title: "Mutton Sukka", desc: "Spicy, roasted, deeply flavourful classic.", image: "/images/mutton shuka.png", href: "/recipes#mutton-sukka" }
-              ].map((item, idx) => (
-                <Link href={item.href} key={idx} className="flex flex-col group items-start shrink-0 w-[175px] md:w-[280px] lg:w-auto">
-                  <div className="relative w-full aspect-[4/5] rounded-[15px] md:rounded-[30px] overflow-hidden mb-4 md:mb-8 shadow-md md:shadow-xl">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute top-3 md:top-4 inset-x-3 md:inset-x-4 flex justify-between items-center">
-                      <div className="text-white px-2.5 md:px-3 py-1 rounded-full text-[12px] md:text-[14px] font-normal font-arpona shadow-sm" style={{ backgroundColor: '#CD191C99' }}>
-                        Non-veg
-                      </div>
-                      <div className="text-white px-2.5 md:px-3 py-1 rounded-full text-[12px] md:text-[14px] font-normal font-arpona shadow-sm flex items-center gap-1 md:gap-1.5" style={{ backgroundColor: '#CD191C99' }}>
-                        <Image src="/images/timer.svg" alt="Timer" width={14} height={14} className="brightness-0 invert w-3 md:w-4" />
-                        <span>6 Min</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col items-start px-1 md:px-2">
-                    <div className="px-2 md:px-4 py-0.5 md:py-1.5 rounded-full mb-2 md:mb-3 shadow-sm" style={{ backgroundColor: 'rgb(207, 219, 204)' }}>
-                      <span className="text-[10px] md:text-[14px] lg:text-[18px] font-arpona font-normal tracking-wide" style={{ color: 'rgb(21, 107, 54)' }}>
-                        Indian classic
-                      </span>
-                    </div>
-                    <h3 className="font-arpona font-bold text-[16px] md:text-[22px] lg:text-[30px] leading-tight tracking-normal mb-2 md:mb-3" style={{ color: 'rgb(247, 0, 52)' }}>
-                      {item.title}
-                    </h3>
-                    <p className="font-arpona text-[12px] md:text-[15px] lg:text-[18px] leading-relaxed tracking-normal font-normal max-w-full" style={{ color: 'rgb(21, 107, 54)' }}>
-                      {item.desc}
-                    </p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-
-            {/* CTA Banner Section */}
-            <div
-              className="w-[calc(100%-32px)] md:w-full max-w-[1600px] mx-auto rounded-[15px] px-4 md:pl-4 md:pr-8 py-6 md:py-10 flex flex-row items-center justify-between gap-4 mb-4 md:mb-10 overflow-hidden relative"
-              style={{ backgroundColor: 'rgb(21, 107, 54)' }}
-            >
-              <div className="flex flex-col items-start text-left z-10 max-w-[65%] md:pl-6">
-                <h2 className="font-kura text-[14px] md:text-[36px] lg:text-[55px] leading-tight mb-1 uppercase">
-                  <span style={{ color: 'rgb(247, 216, 13)' }}>20+ RECIPES. </span>
-                  <span className="text-white">ONE POUCH.</span>
-                </h2>
-                <p className="text-white text-[9px] md:text-[22px] font-medium opacity-90 leading-tight">
-                  Every dish starts with GrabV. What will you make tonight?
-                </p>
-              </div>
-
-              <button
-                className="bg-[#f70034] text-white px-4 md:px-10 py-2.5 md:py-5 rounded-full font-arpona font-bold text-[11px] md:text-[30px] shadow-lg hover:bg-black transition-all whitespace-nowrap z-10 shrink-0"
-              >
-                Order Your Pouch
-              </button>
-            </div>
-          </div>
-        </section>
-
-        {/* Manufacturing Process Section */}
-        <section id="process" className="w-full pt-0 md:pt-0 pb-20 md:pb-32 flex flex-col items-center" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
-          <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 flex flex-col items-center">
-
-            {/* Mobile Header (lg:hidden) */}
-            <div className="lg:hidden flex flex-col items-center text-center mb-10 w-full">
-              {/* Badge - High Fidelity SVG Style */}
-              <div className="relative w-[220px] h-[58px] mb-6">
-                <div className="absolute left-[0.54px] top-[5.05px] w-[216.57px] h-[46.88px] rounded-[100px] bg-[#f70034]" />
-                <Image
-                  src="/images/green border.svg"
-                  alt=""
-                  fill
-                  className="pointer-events-none object-contain"
-                />
-                <span className="absolute inset-0 flex items-center justify-center font-arpona font-bold text-[14px] text-white uppercase tracking-wide">
-                  How we make it
-                </span>
-              </div>
-              <h2 className="font-kura text-[21px] leading-tight mb-1 uppercase">
-                <span style={{ color: 'rgb(247, 0, 52)' }}>Every dish starts </span>
-                <span style={{ color: 'rgb(21, 107, 54)' }}>with GrabV</span>
-              </h2>
-              <p className="text-[12px] font-arpona font-normal opacity-90 max-w-[280px]" style={{ color: 'rgb(21, 107, 54)' }}>
-                Order yours now!
-              </p>
-            </div>
-
-            {/* Desktop Header (hidden lg:flex) */}
-            <div className="hidden lg:flex flex-col items-center text-center mb-8 w-full">
-              <div className="relative w-[282px] h-[75px] mb-10">
-                <div className="absolute left-[0.69px] top-[6.46px] w-[277.615px] h-[60px] rounded-[100px]">
-                  <Image src="/images/red rectangle.svg" alt="" fill className="pointer-events-none object-fill" />
-                </div>
-                <Image src="/images/green border.svg" alt="" fill className="pointer-events-none object-contain" />
-                <span className="absolute inset-0 flex items-center justify-center font-arpona font-semibold text-[18px] leading-none tracking-normal text-white">
-                  How we make it
-                </span>
-              </div>
-              <h2 className="font-kura md:text-[55px] lg:text-[85px] leading-[0.9] mb-4 uppercase">
-                <span style={{ color: 'rgb(247, 0, 52)' }}>Every dish starts </span>
-                <span style={{ color: 'rgb(21, 107, 54)' }}>with GrabV</span>
-              </h2>
-              <div className="max-w-4xl text-[18px] md:text-[25px] font-arpona font-normal leading-[1.4] tracking-normal text-center mb-12 px-6 opacity-90" style={{ color: 'rgb(21, 107, 54)' }}>
-                Order yours now!
-              </div>
-            </div>
-
-            {/* Mobile Vertical Timeline (md:hidden) */}
-            <div className="lg:hidden w-full relative flex justify-center px-4">
-              <div className="relative flex w-full max-w-[340px] translate-x-3 flex-col gap-6">
-                {[
-                  { step: 1, title: "Cooked in small batches", desc: "" },
-                  { step: 2, title: "Clean and hygienic preparation", desc: "" },
-                  { step: 3, title: "Stored and delivered through cold chain", desc: "" },
-                  { step: 4, title: "Quality checked at every stage", desc: "" },
-                  { step: 5, title: "No preservatives added", desc: "" },
-                  { step: 6, title: "100% veg base gravy", desc: "" }
-                ].map((item) => (
-                  <div key={item.step} className="relative grid grid-cols-[94px_minmax(0,1fr)] items-center gap-6">
-                    {/* Connecting Line - Correctly scoped to bridge the gap */}
-                    {item.step !== 6 && (
-                      <div className="absolute top-[22px] left-[47px] w-[2px] h-[calc(100%+24px)] bg-[rgb(247,216,13)] z-0" />
-                    )}
-
-                    <div className="flex flex-col items-center shrink-0 w-[94px] relative">
-                      {/* Moon Icon */}
-                      <div className="relative w-full h-[44px] flex items-center justify-center mt-0.5 z-10">
-                        <Image src="/images/moon.svg" alt="Step" fill className="object-contain" />
-                        <span className="font-kura text-[24px] relative z-10 pt-[2px]" style={{ color: 'rgb(247, 0, 52)' }}>{item.step}</span>
-                      </div>
-                    </div>
-                    <div className="flex min-w-0 flex-col justify-center text-left">
-                      <h4 className="font-arpona text-[17px] font-bold mb-0" style={{ color: 'rgb(247, 0, 52)' }}>{item.title}</h4>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Desktop Timeline (hidden md:flex) */}
-            <div className="hidden lg:flex w-full relative flex flex-col items-center gap-12 pt-4">
-              <div className="relative flex flex-col items-start gap-12 w-fit">
-                <div className="absolute left-[89px] top-[41px] bottom-[41px] w-[4px] z-0" style={{ backgroundColor: 'rgb(247, 216, 13)' }} />
-                {[
-                  { step: 1, title: "Cooked in small batches", desc: "" },
-                  { step: 2, title: "Clean and hygienic preparation", desc: "" },
-                  { step: 3, title: "Stored and delivered through cold chain", desc: "" },
-                  { step: 4, title: "Quality checked at every stage", desc: "" },
-                  { step: 5, title: "No preservatives added", desc: "" },
-                  { step: 6, title: "100% veg base gravy", desc: "" }
-                ].map((item) => (
-                  <div key={item.step} className="flex items-center gap-16 relative z-10 w-full group">
-                    <div className="relative shrink-0 w-[178px] h-[82px] flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                      <Image src="/images/moon.svg" alt="Step" fill className="object-contain" />
-                      <span className="font-kura text-[50px] relative z-10 pt-[4px]" style={{ color: 'rgb(247, 0, 52)' }}>{item.step}</span>
-                    </div>
-                    <div className="flex flex-col items-start text-left">
-                      <h4 className="font-arpona text-[32px] font-semibold mb-0" style={{ color: 'rgb(21, 107, 54)' }}>{item.title}</h4>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Reviews Section */}
-        <div className="w-full relative flex flex-col items-center">
-          {/* Green Header with Jagged Edge */}
-          <div className="w-full relative pt-12 md:pt-20 pb-12 md:pb-32 flex flex-col items-center text-center">
-            <div className="absolute inset-0 z-0 overflow-hidden">
-              <Image
-                src="/images/bg green3.svg"
-                alt="Background"
-                fill
-                className="object-cover object-bottom scale-x-[-1]"
-                priority
-              />
-              {/* Fallback pattern / color blending top edge to beige */}
-              <div className="absolute inset-0 -z-10" style={{ backgroundColor: 'rgb(239, 238, 230)' }} />
-            </div>
-
-            <div className="relative z-10 flex flex-col items-center px-4 w-full">
-              {/* What people are saying Pill - Mobile optimized */}
-              <div className="md:hidden relative w-[240px] h-[63px] mb-4">
-                <div className="absolute left-[2.5px] top-[5.6px] w-[235px] h-[51px] rounded-full bg-[rgb(247,216,13)]" />
-                <Image src="/images/red border.svg" alt="" fill className="pointer-events-none object-contain" />
-                <span className="absolute inset-0 flex items-center justify-center font-arpona font-bold text-[14px] leading-none tracking-normal text-[#156b36]">
-                  What people are saying
-                </span>
-              </div>
-
-              {/* What people are saying Pill - Desktop */}
-              <div className="hidden md:block relative w-[315px] h-[83px] mb-10">
-                <div className="absolute left-[0.76px] top-[7.36px] w-[310px] h-[67px] rounded-[100px] bg-[rgb(247,216,13)]" />
-                <Image src="/images/red border.svg" alt="" fill className="pointer-events-none object-contain" />
-                <span className="absolute inset-0 flex items-center justify-center font-arpona font-semibold text-[18px] leading-none tracking-normal" style={{ color: 'rgb(21, 107, 54)' }}>
-                  What people are saying
-                </span>
-              </div>
-
-              {/* Heading */}
-              <h2 className="font-kura text-[32px] md:text-[55px] lg:text-[85px] leading-tight mb-0 md:mb-4 text-center uppercase">
-                <span className="text-white">The GrabV </span>
-                <span style={{ color: 'rgb(247, 216, 13)' }}>Experience</span>
-              </h2>
-            </div>
-          </div>
-
-          {/* Review Cards - Horizontal scroll on mobile and tablet */}
-          <div className="w-full flex flex-col items-center">
-            <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 pt-4 md:py-8 lg:py-20 flex overflow-x-auto no-scrollbar lg:grid lg:grid-cols-3 gap-6 md:gap-8 pb-8 md:pb-16">
-              {[
-                {
-                  name: "Sneha Mehta",
-                  location: "Bengaluru",
-                  text: "I recently shifted to Bengaluru, and I was craving for the home cooked flavour and that's when GrabV’s onion tomato gravy saved me!!! It was absolutely delicious.",
-                  rating: 5,
-                  image: "/images/cheerful-traditional-indian-woman-white-background-studio-shot.jpg"
-                },
-                {
-                  name: "Harshitha",
-                  location: "Bengaluru",
-                  text: "Oh mahn!! What a flavourrr… made me feel like a real chef!!",
-                  rating: 4.5,
-                  image: "/images/indian-woman-posing-cute-stylish-outfit-camera-smiling.jpg"
-                },
-                {
-                  name: "Chetana Gowda",
-                  location: "Bengaluru",
-                  text: "It is an absolute saviour to my busy days, so quick and so easy. Am stocking this up again for sure!!",
-                  rating: 4,
-                  image: "/images/stylish-indian-beard-model-man-casual-clothes-posed-outdoor-street-india.jpg"
-                }
-              ].map((item, idx) => (
-                <div key={idx} className="relative p-4 md:p-6 rounded-[20px] bg-white flex flex-col gap-2 md:gap-4 shrink-0 w-[211px] md:w-[350px] lg:w-auto min-h-[150px] h-auto pb-4 lg:h-auto shadow-sm">
-                  {/* Mobile Card Borders (Double yellow border effect per request) */}
-                  <div className="absolute -inset-1 md:hidden pointer-events-none">
-                    <Image src="/images/card border phone.svg" alt="" fill className="object-fill" />
-                  </div>
-                  <div className="absolute -inset-1.5 md:hidden pointer-events-none rotate-[1.5deg] scale-[1.02] opacity-70">
-                    <Image src="/images/card border phone.svg" alt="" fill className="object-fill" />
-                  </div>
-
-                  {/* Desktop Card Borders (Double yellow border effect per request) */}
-                  <div className="absolute -inset-2.5 hidden md:block pointer-events-none">
-                    <Image src="/images/card border web.svg" alt="" fill className="object-fill" />
-                  </div>
-                  <div className="absolute -inset-3 hidden md:block pointer-events-none -rotate-[0.8deg] scale-[1.01] opacity-70">
-                    <Image src="/images/card border web.svg" alt="" fill className="object-fill" />
-                  </div>
-
-                  <div className="flex items-center gap-3 md:gap-4 relative z-10">
-                    <div className="w-10 h-10 md:w-16 md:h-16 rounded-full overflow-hidden relative border border-neutral-100">
-                      <Image src={item.image} alt={item.name} fill className="object-cover" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-[14px] md:text-[20px] font-bold" style={{ color: 'rgb(21, 107, 54)' }}>{item.name}</span>
-                      <span className="text-[11px] md:text-[16px] text-neutral-400">{item.location}</span>
-                    </div>
-                  </div>
-                  <div className="flex gap-0.5 relative z-10">
-                    {[1, 2, 3, 4, 5].map((s) => {
-                      const isFull = s <= Math.floor(item.rating);
-                      const isHalf = s === Math.ceil(item.rating) && item.rating % 1 !== 0;
-                      return (
-                        <div key={s} className="relative text-[15px] md:text-[24px] leading-none">
-                          <span style={{ color: 'rgb(210, 210, 210)' }}>★</span>
-                          {isFull && (
-                            <span className="absolute inset-0" style={{ color: 'rgb(247, 216, 13)' }}>★</span>
-                          )}
-                          {isHalf && (
-                            <span className="absolute inset-0 overflow-hidden w-[50%]" style={{ color: 'rgb(247, 216, 13)' }}>★</span>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
-                  <p className="text-[12px] md:text-[22px] leading-relaxed font-medium relative z-10 md:line-clamp-none" style={{ color: 'rgb(21, 107, 54)' }}>
-                    &quot;{item.text}&quot;
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="w-full flex flex-col items-center">
-          <div
-            className="w-[calc(100%-32px)] md:w-full max-w-[1600px] mx-auto min-h-[280px] md:min-h-[450px] lg:h-[550px] rounded-[8px] px-4 md:px-12 lg:px-24 py-8 md:py-16 lg:py-24 flex flex-col items-center justify-center text-center relative overflow-hidden mb-10 shadow-xl"
-            style={{ backgroundColor: 'rgb(21, 106, 55)' }}
-          >
-
-            {/* Heading - Single line for mobile */}
-            <h2 className="font-kura text-[19px] md:text-[46px] lg:text-[70px] leading-tight mb-4 md:mb-8 lg:whitespace-nowrap">
-              <span style={{ color: 'rgb(247, 216, 13)' }}>Ready to cook smarter </span>
-              <span className="text-white">every day?</span>
-            </h2>
-
-            {/* Subtext */}
-            <p className="text-white text-[16px] md:text-[20px] lg:text-[28px] font-arpona font-normal tracking-wide opacity-90 mb-8 md:mb-12 max-w-4xl px-2 md:px-0 leading-relaxed md:leading-[1.3]">
-              Reclaim your time with our preservative free gravy pouches.<br className="hidden md:block" /> Freshly chilled, FSSAI certified, and delivered to your door.
-            </p>
-
-            {/* Buttons */}
-            <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-8 mb-8 md:mb-12 w-full max-w-[1000px]">
-              <div className="flex flex-row items-center justify-center gap-3 w-full md:max-w-[540px] lg:w-auto">
-                {/* Order 750g */}
-                <button className="bg-white text-[#f70034] flex-1 py-3 md:py-4 lg:py-5 rounded-full font-arpona font-medium text-[14px] md:text-[18px] lg:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all shrink-0">
-                  Order 750g
-                </button>
-
-                {/* Order 250g */}
-                <button className="bg-white text-[#f70034] flex-1 py-3 md:py-4 lg:py-5 rounded-full font-arpona font-medium text-[14px] md:text-[18px] lg:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all shrink-0">
-                  Order 250g
-                </button>
-              </div>
-
-              {/* WhatsApp - Tertiary */}
-              <button className="bg-white text-[#f70034] w-[180px] md:w-[240px] lg:w-[260px] py-2.5 md:py-4 lg:py-5 rounded-full font-arpona font-normal text-[14px] md:text-[18px] lg:text-[24px] shadow-xl hover:scale-105 hover:bg-[#f70034] hover:text-white transition-all group flex items-center justify-center gap-2 md:gap-4 shrink-0">
-                <div className="w-5 h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 relative group-hover:brightness-0 group-hover:invert transition-all">
-                  <Image src="/images/whatsapp.svg" alt="WhatsApp" fill className="object-contain" />
-                </div>
-                <span>WhatsApp us</span>
-              </button>
-            </div>
-
-            {/* Footer text */}
-
-          </div>
-        </div>
       </main>
-
-      {/* New Grid Footer Section */}
-      <footer className="w-full py-12 md:py-16 pl-3 pr-6 md:pl-4 md:pr-8" style={{ backgroundColor: 'rgb(21, 107, 54)' }}>
-        <div className="max-w-[1600px] mx-auto">
-          {/* Mobile Footer (Figma Style) */}
-          <div className="md:hidden grid grid-cols-2 gap-x-8 gap-y-10">
-            {/* Col 1: Brand & Company */}
-            <div className="flex flex-col gap-10">
-              <div className="flex flex-col gap-4">
-                <div className="w-[70px] h-[35px] relative">
-                  <Image src="/images/logo.svg" alt="GrabV Logo" fill className="object-contain" />
-                </div>
-                <div className="flex flex-col gap-0 text-[11px] font-medium leading-tight font-arpona" style={{ color: 'rgb(247, 216, 13)' }}>
-                  <p>© 2026 GrabV. All rights reserved.</p>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-1">
-                <h4 className="text-[16px] font-bold" style={{ color: 'rgb(247, 216, 13)' }}>Company</h4>
-                <div className="flex flex-col gap-0 text-[14px] font-medium font-arpona leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
-                  <Link href="/ourstory">Our Story</Link>
-                  <Link href="/#process">Process</Link>
-                  <Link href="/#quality">Quality Promise</Link>
-                  <Link href="/contact">Contact Us</Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Col 2: Policies & Products */}
-            <div className="flex flex-col gap-10">
-              <div className="flex flex-col gap-1">
-                <h4 className="text-[16px] font-bold" style={{ color: 'rgb(247, 216, 13)' }}>Order & Policies</h4>
-                <div className="flex flex-col gap-0 text-[14px] font-medium font-arpona leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
-                  <Link href="#">WhatsApp Order</Link>
-                  <Link href="#">Exchange Order</Link>
-                  <Link href="#">Privacy Policy</Link>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-1">
-                <h4 className="text-[16px] font-bold" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
-                <div className="flex flex-col gap-0 text-[14px] font-medium font-arpona leading-relaxed" style={{ color: 'rgb(247, 216, 13)' }}>
-                  <Link href="/all-purposegravy">All Purpose Gravy</Link>
-                  <Link href="/all-purposegravy">Ingredients</Link>
-                  <Link href="/all-purposegravy">How to Use</Link>
-                  <Link href="/recipes">Recipes</Link>
-                </div>
-
-                <div className="flex flex-col gap-1 mt-2">
-                  <span className="text-[11px] font-bold font-arpona text-white">Follow Us</span>
-                  <div className="flex items-center gap-3">
-                    <Link href="#" className="w-4 h-4 relative brightness-0 invert">
-                      <Image src="/images/facebook.svg" alt="Facebook" fill className="object-contain" />
-                    </Link>
-                    <Link href="#" className="w-4 h-4 relative brightness-0 invert">
-                      <Image src="/images/whatsapp1.svg" alt="WhatsApp" fill className="object-contain" />
-                    </Link>
-                    <Link href="#" className="w-4 h-4 relative brightness-0 invert">
-                      <Image src="/images/insta.svg" alt="Instagram" fill className="object-contain" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Desktop Footer Section */}
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-            {/* Column 1: Brand & Socials (No Box) */}
-            <div className="p-0 flex flex-col w-full md:w-[299px] h-auto md:h-[234px] justify-between">
-              <div className="flex flex-col">
-                <div className="w-[110px] h-[55px] relative mb-4">
-                  <Image src="/images/logo.svg" alt="GrabV Logo" fill className="object-contain object-left" />
-                </div>
-                <div className="flex flex-col gap-1 text-[14px] md:text-[16px] font-medium leading-tight font-arpona" style={{ color: 'rgb(247, 216, 13)' }}>
-                  <p>© 2026 GrabV. All rights reserved.</p>
-                </div>
-              </div>
-
-              <div className="flex flex-col items-start gap-3 mt-auto">
-                <span className="text-[14px] md:text-[16px] font-bold font-arpona text-white">Follow Us</span>
-                <div className="flex items-center gap-5">
-                  <Link href="#" className="w-5 h-5 md:w-6 md:h-6 relative hover:scale-110 transition-transform brightness-0 invert">
-                    <Image src="/images/facebook.svg" alt="Facebook" fill className="object-contain" />
-                  </Link>
-                  <Link href="#" className="w-5 h-5 md:w-6 md:h-6 relative hover:scale-110 transition-transform brightness-0 invert">
-                    <Image src="/images/whatsapp1.svg" alt="WhatsApp" fill className="object-contain" />
-                  </Link>
-                  <Link href="#" className="w-5 h-5 md:w-6 md:h-6 relative hover:scale-110 transition-transform brightness-0 invert">
-                    <Image src="/images/insta.svg" alt="Instagram" fill className="object-contain" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Column 2: Company Box */}
-            <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
-              <h4 className="text-[18px] md:text-[22px] font-bold mb-3 md:mb-4" style={{ color: 'rgb(247, 216, 13)' }}>Company</h4>
-              <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-arpona leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
-                <Link href="/ourstory" className="hover:opacity-80 transition-opacity">Our Story</Link>
-                <Link href="/#process" className="hover:opacity-80 transition-opacity">Process</Link>
-                <Link href="/#quality" className="hover:text-[rgb(247,216,13)] transition-colors">Quality Promise</Link>
-                <Link href="/contact" className="hover:opacity-80 transition-opacity">Contact Us</Link>
-              </div>
-            </div>
-
-            {/* Column 3: Product Box */}
-            <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
-              <h4 className="text-[18px] md:text-[22px] font-bold mb-3 md:mb-4" style={{ color: 'rgb(247, 216, 13)' }}>Product</h4>
-              <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-arpona leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
-                <Link href="/all-purposegravy" className="hover:opacity-80 transition-opacity">All Purpose Gravy</Link>
-                <Link href="/all-purposegravy" className="hover:opacity-80 transition-opacity">Ingredients</Link>
-                <Link href="/all-purposegravy" className="hover:opacity-80 transition-opacity">How to Use</Link>
-                <Link href="/recipes" className="hover:opacity-80 transition-opacity">Recipes</Link>
-              </div>
-            </div>
-
-            {/* Column 4: Orders & Policies Box */}
-            <div className="rounded-[20px] md:rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: 'rgb(55, 122, 49)' }}>
-              <h4 className="text-[18px] md:text-[22px] font-bold mb-3 md:mb-4" style={{ color: 'rgb(247, 216, 13)' }}>Order & Policies</h4>
-              <div className="flex flex-col gap-2 text-[16px] md:text-[18px] font-medium font-arpona leading-tight" style={{ color: 'rgb(247, 216, 13)' }}>
-                <Link href="#" className="hover:opacity-80 transition-opacity">WhatsApp Order</Link>
-                <Link href="#" className="hover:opacity-80 transition-opacity">Exchange Order</Link>
-                <Link href="#" className="hover:opacity-80 transition-opacity">Privacy Policy</Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
