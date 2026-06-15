@@ -9,6 +9,37 @@ const HERO_PRELOAD_RADIUS = 8;
 const HERO_FRAME_EASE = 0.18;
 const HERO_FRAME_PATH = (frame: number) =>
   `/images/hero video/frames/frame_${String(frame).padStart(4, "0")}.jpg`;
+const SlideIn = ({ children, className, direction }: { children: React.ReactNode, className?: string, direction: 'left' | 'right' }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1, rootMargin: "-20% 0px" } 
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const translateValue = direction === 'left' ? '-100px' : '100px';
+
+  return (
+    <div ref={ref} className={className}>
+      <div 
+        className="w-full h-full transition-all duration-[1000ms] ease-out"
+        style={{
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translateX(0)' : `translateX(${translateValue})`,
+        }}
+      >
+        {children}
+      </div>
+    </div>
+  );
+};
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,6 +52,53 @@ export default function Home() {
     { text: "No Artificial Colours", icon: "No artificial colours.svg" },
     { text: "Zero Preservatives", icon: "Zero Preservatives (1).svg" },
   ];
+
+  const processSectionRef = useRef<HTMLElement | null>(null);
+  const processPathRef = useRef<SVGPathElement | null>(null);
+  const ballPathRef = useRef<SVGPathElement | null>(null);
+  const coverPathRef = useRef<SVGPathElement | null>(null);
+
+  const stepsContainerRef = useRef<HTMLDivElement | null>(null);
+  const stepsTrackRef = useRef<HTMLDivElement | null>(null);
+  const stepsInnerRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    let pathLength = 0;
+    
+    setTimeout(() => {
+      if (processPathRef.current && ballPathRef.current && coverPathRef.current) {
+        pathLength = processPathRef.current.getTotalLength();
+        ballPathRef.current.style.strokeDasharray = `0.1 ${pathLength + 100}`;
+        coverPathRef.current.style.strokeDasharray = `${pathLength} 100000`;
+      }
+    }, 100);
+
+    const handleScroll = () => {
+      if (!processSectionRef.current || !ballPathRef.current || !coverPathRef.current || pathLength === 0) return;
+      const rect = processSectionRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      const pathStartPx = rect.height * 0.22;
+      const pathEndPx = rect.height * 0.83;
+      const currentScrollCenter = -rect.top + (windowHeight / 2);
+      
+      let progress = (currentScrollCenter - pathStartPx) / (pathEndPx - pathStartPx);
+      progress = Math.max(0, Math.min(1, progress));
+      
+      requestAnimationFrame(() => {
+        if (ballPathRef.current && coverPathRef.current) {
+          const offset = -(progress * pathLength);
+          ballPathRef.current.style.strokeDashoffset = `${offset}`;
+          coverPathRef.current.style.strokeDashoffset = `${offset}`;
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    setTimeout(handleScroll, 150);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const hero = heroRef.current;
@@ -193,8 +271,48 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    let animationFrameId: number;
+    const handleScroll = () => {
+      animationFrameId = requestAnimationFrame(() => {
+        if (stepsContainerRef.current && stepsTrackRef.current) {
+          const wrapper = stepsContainerRef.current;
+          const track = stepsTrackRef.current;
+          
+          const rect = wrapper.getBoundingClientRect();
+          const stickyOffset = window.innerWidth >= 768 ? 110 : 70;
+          const scrollableHeight = stickyOffset + rect.height - window.innerHeight;
+          const scrolled = stickyOffset - rect.top;
+          
+          let translate = 0;
+          if (scrollableHeight > 0) {
+            const maxTranslate = track.scrollWidth - window.innerWidth;
+            
+            if (scrolled >= 0 && scrolled <= scrollableHeight) {
+              const progress = scrolled / scrollableHeight;
+              translate = progress * maxTranslate;
+            } else if (scrolled < 0) {
+              translate = 0;
+            } else if (scrolled > scrollableHeight) {
+              translate = maxTranslate;
+            }
+            
+            track.style.transform = `translate3d(-${translate}px, 0, 0)`;
+          }
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // initial state
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
   return (
-    <div className="flex flex-col min-h-screen w-full font-arpona overflow-x-hidden" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
+    <div className="flex flex-col min-h-screen w-full font-arpona overflow-x-clip" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
 
       {/* Navbar Section */}
       <header
@@ -224,7 +342,7 @@ export default function Home() {
                 alt="GrabV Logo"
                 width={200}
                 height={80}
-                className="w-auto h-8 md:h-[70px]"
+                className="w-[120px] md:w-[180px] h-auto object-contain"
                 priority
               />
             </div>
@@ -247,7 +365,7 @@ export default function Home() {
               color: 'rgb(12, 61, 27)',
               letterSpacing: '0.05em'
             }}
-            className="font-arpona font-bold flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0 text-[12px] md:text-[22px] w-[85px] md:w-[170px] h-[30px] md:h-[48px]"
+            className="font-arpona font-medium flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0 text-[12px] md:text-[22px] w-[110px] md:w-[240px] h-[30px] md:h-[48px]"
           >
             Order Now
           </button>
@@ -273,7 +391,7 @@ export default function Home() {
               <Link href="/faq" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">FAQ</Link>
               <button
                 style={{ backgroundColor: 'rgb(247, 216, 13)', color: 'rgb(12, 61, 27)' }}
-                className="mt-4 px-10 py-3 rounded-full font-bold text-[18px] hover:bg-yellow-400 transition-colors"
+                className="mt-4 px-14 py-3 rounded-full font-arpona font-medium text-[18px] hover:bg-yellow-400 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Order Now
@@ -307,6 +425,7 @@ export default function Home() {
               <span className="absolute right-0">FRESHLY MADE</span>
             </div>
             <div className="relative w-full h-[138px] mb-4 whitespace-nowrap text-[138px] leading-[1.0]">
+              <img src="/images/HomePage/onion.png" alt="" className="absolute top-1/2 left-[11.5%] -translate-y-1/2 w-[140px] md:w-[240px] -rotate-12 opacity-90 pointer-events-none z-[-1]" />
               <span className="absolute left-0">100 % VEG</span>
               <span className="absolute right-[80px]">100 % VEG</span>
             </div>
@@ -319,6 +438,7 @@ export default function Home() {
               <span className="absolute right-[40px]">READY IN 10 MINS</span>
             </div>
             <div className="relative w-full h-[138px] whitespace-nowrap text-[138px] leading-[1.0]">
+              <img src="/images/HomePage/tomato.png" alt="" className="absolute top-[20%] left-[63%] -translate-y-1/2 w-[180px] md:w-[320px] rotate-12 opacity-90 pointer-events-none z-[-1]" />
               <span className="absolute left-0">REAL INGREDIENTS</span>
               <span className="absolute right-0">REAL INGREDIENTS</span>
             </div>
@@ -348,8 +468,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Pouch to Plate Section */}
-        <section className="relative w-full flex flex-col items-center pt-24 pb-32 overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
+        {/* Pouch to Plate Section - Heading */}
+        <section className="relative w-full flex flex-col items-center pt-24 pb-12 overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
           
           {/* Top text */}
           <p className="font-arpona text-[24px] md:text-[30px] leading-[1.0] tracking-[-0.05em] font-medium text-black mb-10 text-center z-10">
@@ -365,30 +485,66 @@ export default function Home() {
             {/* Fill layer */}
             <div className="relative z-10" style={{ color: 'rgb(21, 107, 54)' }}>
               <div>POUCH TO<br/>PLATE IN 5<br/>STEPS</div>
+              {/* Homemade Sticker */}
+              <img src="/images/HomePage/homemade.png" alt="Homemade-ish" className="absolute bottom-[21%] right-0 md:right-[1%] w-[130px] md:w-[290px] -rotate-6 drop-shadow-xl z-20 pointer-events-none" />
             </div>
-          </div>
-
-          {/* Steps Container */}
-          <div className="w-full mt-24 pl-[120px] pr-0 flex gap-[50px] overflow-x-auto pb-16 pt-8 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-            
-            {/* Step 1 */}
-            <div className="w-[600px] md:w-[900px] flex-shrink-0 snap-start flex flex-col">
-               <img src="/images/HomePage/cooking img1.png" className="w-full h-auto block" alt="Step 1" />
-               <p className="mt-10 ml-8 font-arpona text-[35px] tracking-[-0.05em] font-medium text-black">
-                 Add your tempering (tadka) in oil.
-               </p>
-            </div>
-
-            {/* Step 2 */}
-            <div className="w-[600px] md:w-[900px] flex-shrink-0 snap-start flex flex-col">
-               <img src="/images/HomePage/cooking img2.png" className="w-full h-auto block" alt="Step 2" />
-               <p className="mt-10 ml-8 font-arpona text-[35px] tracking-[-0.05em] font-medium text-black">
-                 Sauté veggies or protein of your choice.
-               </p>
-            </div>
-
           </div>
         </section>
+
+        {/* Pouch to Plate Wrapper for Scrolljacking */}
+        <div ref={stepsContainerRef} className="relative w-full h-[400vh] bg-[#FBF5E1]">
+          {/* Pouch to Plate Sticky Section */}
+          <section className="sticky top-[70px] md:top-[110px] w-full h-[calc(100vh-70px)] md:h-[calc(100vh-110px)] flex flex-col justify-center overflow-hidden bg-[#FBF5E1]">
+            
+            {/* Horizontal Scrolling Track */}
+            <div className="relative w-full z-30">
+              <div ref={stepsTrackRef} className="flex items-center gap-[50px] pl-[40px] md:pl-[120px] pr-[40px] md:pr-[120px] will-change-transform" style={{ width: 'max-content' }}>
+                
+                {/* Step 1 */}
+                <div className="w-[600px] md:w-[900px] flex-shrink-0 flex flex-col">
+                  <img src="/images/HomePage/cooking img1.png" className="w-full h-auto block drop-shadow-2xl" alt="Step 1" />
+                  <p className="mt-8 md:mt-10 ml-4 md:ml-8 font-arpona text-[24px] md:text-[35px] tracking-[-0.05em] font-medium text-black drop-shadow-lg">
+                    Add your tempering (tadka) in oil.
+                  </p>
+                </div>
+
+                {/* Step 2 */}
+                <div className="w-[600px] md:w-[900px] flex-shrink-0 flex flex-col">
+                  <img src="/images/HomePage/cooking img2.png" className="w-full h-auto block drop-shadow-2xl" alt="Step 2" />
+                  <p className="mt-8 md:mt-10 ml-4 md:ml-8 font-arpona text-[24px] md:text-[35px] tracking-[-0.05em] font-medium text-black drop-shadow-lg">
+                    Sauté veggies or protein of your choice.
+                  </p>
+                </div>
+
+                {/* Step 3 */}
+                <div className="w-[600px] md:w-[900px] flex-shrink-0 flex flex-col">
+                  <img src="/images/HomePage/cooking img3.png" className="w-full h-auto block drop-shadow-2xl" alt="Step 3" />
+                  <p className="mt-8 md:mt-10 ml-4 md:ml-8 font-arpona text-[24px] md:text-[35px] tracking-[-0.05em] font-medium text-black drop-shadow-lg">
+                    Pour in the GrabV gravy and mix well.
+                  </p>
+                </div>
+
+                {/* Step 4 */}
+                <div className="w-[600px] md:w-[900px] flex-shrink-0 flex flex-col">
+                  <img src="/images/HomePage/cooking img4.png" className="w-full h-auto block drop-shadow-2xl" alt="Step 4" />
+                  <p className="mt-8 md:mt-10 ml-4 md:ml-8 font-arpona text-[24px] md:text-[35px] tracking-[-0.05em] font-medium text-black drop-shadow-lg">
+                    Add water as needed and let it simmer.
+                  </p>
+                </div>
+
+                {/* Step 5 */}
+                <div className="w-[600px] md:w-[900px] flex-shrink-0 flex flex-col">
+                  <img src="/images/HomePage/cooking img5.png" className="w-full h-auto block drop-shadow-2xl" alt="Step 5" />
+                  <p className="mt-8 md:mt-10 ml-4 md:ml-8 font-arpona text-[24px] md:text-[35px] tracking-[-0.05em] font-medium text-black drop-shadow-lg">
+                    Garnish, serve hot, and show off!
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+          </section>
+        </div>
 
         {/* Our Products Section */}
         <section className="relative w-full flex flex-col items-center min-h-[900px] overflow-hidden -mt-10">
@@ -655,6 +811,326 @@ export default function Home() {
               </svg>
 
             </div>
+          </div>
+        </section>
+
+        {/* HOW WE MAKE IT Section */}
+        <section ref={processSectionRef} className="relative w-full flex flex-col items-center overflow-hidden z-0" style={{ backgroundColor: '#FBF5E1', height: '350vh' }}>
+          
+          {/* Huge Heading */}
+          <div className="relative z-10 font-kura uppercase leading-[0.85] text-left flex flex-col items-start w-full px-4 md:px-[120px] pt-16 md:pt-32 drop-shadow-xl" style={{ letterSpacing: '-0.02em' }}>
+            <div className="relative text-[100px] md:text-[300px]">
+              <span className="absolute inset-0 text-transparent pointer-events-none z-0" style={{ WebkitTextStroke: '20px rgb(247, 216, 13)' }}>HOW WE</span>
+              <span className="relative z-10" style={{ color: 'rgb(21, 107, 54)' }}>HOW WE</span>
+            </div>
+            <div className="relative text-[100px] md:text-[300px]">
+              <span className="absolute inset-0 text-transparent pointer-events-none z-0" style={{ WebkitTextStroke: '20px rgb(247, 216, 13)' }}>MAKE IT</span>
+              <span className="relative z-10" style={{ color: 'rgb(21, 107, 54)' }}>MAKE IT</span>
+            </div>
+          </div>
+
+          {/* Process Images */}
+          <div className="absolute top-[60px] md:top-[140px] left-0 right-0 w-full h-full max-w-[1920px] mx-auto pointer-events-none">
+            {/* SVG Connecting Lines */}
+            <svg className="absolute inset-0 w-full h-full z-0 hidden md:block" viewBox="0 0 1920 3500" preserveAspectRatio="none">
+              <path 
+                ref={processPathRef}
+                d="M 1520 780 
+                   Q 970 1000, 250 1200 
+                   C 150 1400, 1000 1550, 1400 1500 
+                   C 1800 1450, 2000 1900, 400 1900 
+                   C -100 1900, -100 2400, 1400 2400 
+                   C 1900 2400, 1900 2900, 500 2930" 
+                fill="none" 
+                stroke="#E3002B" 
+                strokeWidth="6" 
+                strokeDasharray="12 12" 
+                strokeLinecap="round" 
+                vectorEffect="non-scaling-stroke"
+              />
+              <path 
+                ref={coverPathRef}
+                d="M 1520 780 Q 970 1000, 250 1200 C 150 1400, 1000 1550, 1400 1500 C 1800 1450, 2000 1900, 400 1900 C -100 1900, -100 2400, 1400 2400 C 1900 2400, 1900 2900, 500 2930" 
+                fill="none" 
+                stroke="#FBF5E1" 
+                strokeWidth="12" 
+                strokeLinecap="round" 
+              />
+              <path 
+                ref={ballPathRef}
+                d="M 1520 780 Q 970 1000, 250 1200 C 150 1400, 1000 1550, 1400 1500 C 1800 1450, 2000 1900, 400 1900 C -100 1900, -100 2400, 1400 2400 C 1900 2400, 1900 2900, 500 2930" 
+                fill="none" 
+                stroke="#E3002B" 
+                strokeWidth="36" 
+                strokeLinecap="round" 
+              />
+            </svg>
+
+            {/* process1 - Top Right */}
+            <SlideIn direction="right" className="absolute top-[8%] md:top-[12%] right-[2%] w-[240px] md:w-[600px] z-10">
+              <div className="relative w-full h-full">
+                {/* Text Overlay */}
+                <div className="absolute top-2 md:top-8 right-0 md:-right-4 w-[240px] md:w-[410px] h-[190px] md:h-[310px] z-20 flex items-center justify-center rotate-[16deg]">
+                  <h3 className="relative z-10 font-bold text-black text-[22px] md:text-[32px] text-center leading-tight tracking-tight px-4 mt-1 -rotate-[6deg]">
+                    Cooked in<br/>small batches
+                  </h3>
+                </div>
+                <img src="/images/HomePage/process1.png" alt="Process 1" className="w-full h-auto drop-shadow-xl relative z-10" />
+              </div>
+            </SlideIn>
+
+            {/* process2 - Middle Left */}
+            <SlideIn direction="left" className="absolute top-[19%] -left-[10%] w-[320px] md:w-[1050px] z-10">
+              <div className="relative w-full h-full">
+                <img src="/images/HomePage/process2.png" alt="Process 2" className="w-full h-auto drop-shadow-xl" />
+                {/* Text Overlay */}
+                <h3 className="absolute z-20 font-bold text-black text-base md:text-[32px] text-center leading-tight tracking-tight bottom-[18%] left-[24%] -rotate-[8deg]">
+                  Clean and hygienic<br/>preparation
+                </h3>
+              </div>
+            </SlideIn>
+
+            {/* process3 - Middle Right */}
+            <SlideIn direction="right" className="absolute top-[21%] right-[4%] w-[280px] md:w-[1100px] z-10">
+              <div className="relative w-full h-full">
+                <img src="/images/HomePage/process3.png" alt="Process 3" className="w-full h-auto drop-shadow-xl" />
+                {/* Text Overlay */}
+                <h3 className="absolute z-20 font-bold text-black text-[22px] md:text-[32px] text-center leading-tight tracking-tight bottom-[18%] right-[21%] -rotate-[6deg]">
+                  Quality checked at<br/>every stage
+                </h3>
+              </div>
+            </SlideIn>
+
+            {/* process4 - Bottom Left */}
+            <SlideIn direction="left" className="absolute top-[55%] left-[5%] w-[300px] md:w-[750px] z-10">
+              <div className="relative w-full h-full">
+                <img src="/images/HomePage/process4.png" alt="Process 4" className="w-full h-auto drop-shadow-xl" />
+                {/* Text Overlay */}
+                <h3 className="absolute z-20 font-bold text-black text-[22px] md:text-[32px] text-center leading-tight tracking-tight bottom-[14%] left-[35%] rotate-[10deg]">
+                  Stored and delivered<br/>through cold chain
+                </h3>
+              </div>
+            </SlideIn>
+
+            {/* process5 - Bottom Right */}
+            <SlideIn direction="right" className="absolute top-[68%] right-[1%] w-[300px] md:w-[730px] z-10">
+              <div className="relative w-full h-full">
+                <img src="/images/HomePage/process5.png" alt="Process 5" className="w-full h-auto drop-shadow-xl" />
+                {/* Text Overlay */}
+                <h3 className="absolute z-20 font-bold text-black text-[22px] md:text-[32px] text-center leading-tight tracking-tight bottom-[12%] right-[14%] rotate-[8deg]">
+                  No preservatives<br/>added
+                </h3>
+              </div>
+            </SlideIn>
+
+            {/* process6 - Bottom Left */}
+            <SlideIn direction="left" className="absolute top-[76%] md:top-[75%] -left-[2%] w-[300px] md:w-[960px] z-10">
+              <div className="relative w-full h-full">
+                <img src="/images/HomePage/process6.png" alt="Process 6" className="w-full h-auto drop-shadow-xl" />
+                {/* Text Overlay */}
+                <h3 className="absolute z-20 font-bold text-black text-[22px] md:text-[32px] text-center leading-tight tracking-tight top-[24%] left-[14%] -rotate-[8deg]">
+                  100% veg base<br/>gravy
+                </h3>
+              </div>
+            </SlideIn>
+          </div>
+          
+          <div className="absolute bottom-0 w-full h-[50px] bg-[#C30128] -z-10" style={{ WebkitMaskImage: "url('/images/HomePage/red bg.png')", WebkitMaskSize: '100% 100%' }}></div>
+        </section>
+
+        {/* WHAT PEOPLE ARE SAYING SECTION */}
+        <section className="relative w-full bg-[#C30128] pt-10 pb-40 overflow-hidden font-arpona">
+          {/* Top text */}
+          <div className="max-w-[1920px] mx-auto px-4 md:px-[90px] pt-6 flex justify-between text-white text-xl md:text-3xl font-medium mb-12" style={{ letterSpacing: '-0.05em' }}>
+            <span>Our GrabV</span>
+            <span>Your review</span>
+          </div>
+
+          {/* Main Heading */}
+          <div className="relative w-full flex flex-col items-center justify-center text-center px-4 mt-8 md:mt-16">
+            
+            <div className="relative z-10 font-kura uppercase leading-[0.85] flex flex-col items-center w-full drop-shadow-xl" style={{ letterSpacing: '-0.02em' }}>
+              
+              {/* WHAT PEOPLE */}
+              <div className="relative text-[100px] md:text-[300px]">
+                <span className="absolute inset-0 text-transparent pointer-events-none z-0" style={{ WebkitTextStroke: '20px rgb(21, 107, 54)' }}>WHAT PEOPLE</span>
+                <span className="relative z-10" style={{ color: 'rgb(247, 216, 13)' }}>WHAT PEOPLE</span>
+              </div>
+              
+              {/* ARE SAYING */}
+              <div className="relative text-[100px] md:text-[300px]">
+                <span className="absolute inset-0 text-transparent pointer-events-none z-0" style={{ WebkitTextStroke: '20px rgb(21, 107, 54)' }}>ARE SAYING</span>
+                <span className="relative z-10" style={{ color: 'rgb(247, 216, 13)' }}>ARE SAYING</span>
+                
+                {/* Stir Simmer Sticker */}
+                <img 
+                  src="/images/HomePage/stir simmer sticker.png" 
+                  alt="Stir Simmer Sticker" 
+                  className="absolute left-[-10%] md:left-[-13%] -bottom-[10%] md:-bottom-[35%] w-[120px] md:w-[280px] rotate-3 z-30"
+                />
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* Reviews Grid */}
+          <div className="w-full max-w-[3000px] mx-auto mt-24 md:mt-32 px-0 flex flex-col md:flex-row justify-center items-center gap-12 md:gap-2 relative z-30">
+            
+            {/* Review 1 */}
+            <div className="relative w-[95%] md:w-[33%] max-w-[1400px] mx-auto">
+              <img src="/images/HomePage/review1.png" alt="Review 1" className="w-full h-auto drop-shadow-2xl" />
+              <div className="absolute bottom-[5%] left-[18%] right-[10%] h-[40%] flex items-start px-2">
+                <p className="text-black font-arpona font-normal tracking-[-0.02em] text-[16px] md:text-[26px] leading-[1.21] md:leading-[1.21] underline decoration-2 underline-offset-4 decoration-[#99B1FA]">
+                  I recently<br />
+                  shifted to Bengaluru, and I was<br />
+                  craving for the home cooked<br />
+                  flavour and that's when GrabV's<br />
+                  onion tomato gravy saved me!!!<br />
+                  It was absolutely delicious.
+                </p>
+              </div>
+            </div>
+
+            {/* Review 2 */}
+            <div className="relative w-[95%] md:w-[33%] max-w-[1400px] mx-auto">
+              <img src="/images/HomePage/review2.png" alt="Review 2" className="w-full h-auto drop-shadow-2xl" />
+              <div className="absolute bottom-[0%] left-[18%] right-[10%] h-[40%] flex items-start px-2">
+                <p className="text-black font-arpona font-normal tracking-[-0.02em] text-[16px] md:text-[26px] leading-[1.21] md:leading-[1.21] underline decoration-2 underline-offset-4 decoration-[#99B1FA]">
+                  Oh mahn!!<br />
+                  What a flavourrr... made me feel<br />
+                  like a real chef!!
+                </p>
+              </div>
+            </div>
+
+            {/* Review 3 */}
+            <div className="relative w-[95%] md:w-[33%] max-w-[1400px] mx-auto">
+              <img src="/images/HomePage/review3.png" alt="Review 3" className="w-full h-auto drop-shadow-2xl" />
+              <div className="absolute bottom-[0%] left-[18%] right-[10%] h-[40%] flex items-start px-2">
+                <p className="text-black font-arpona font-normal tracking-[-0.02em] text-[16px] md:text-[26px] leading-[1.21] md:leading-[1.21] underline decoration-2 underline-offset-4 decoration-[#99B1FA]">
+                  Oh It is an absolute saviour to my<br />
+                  busy days, so quick and so easy.<br />
+                  Am stocking this up<br />
+                  again for sure!!
+                </p>
+              </div>
+            </div>
+            
+          </div>
+        </section>
+
+        {/* READY TO COOK SECTION */}
+        <section className="relative w-full h-[150vh] bg-[#FDFBF2] pt-24 overflow-hidden font-arpona flex flex-col items-center">
+          
+          {/* Order Now Button */}
+          <button className="bg-[#F7D80C] text-black font-arpona font-medium text-[18px] md:text-[26px] px-20 md:px-32 py-3 md:py-4 rounded-xl mb-16 shadow-md hover:bg-yellow-400 transition-colors z-40">
+            Order now
+          </button>
+
+          {/* Main Heading */}
+          <div className="relative w-full flex flex-col items-center justify-center text-center px-4 mt-4">
+            
+            <div className="relative z-10 font-kura uppercase leading-[0.85] flex flex-col items-center w-full drop-shadow-xl" style={{ letterSpacing: '-0.02em' }}>
+              
+              {/* READY TO COOK */}
+              <div className="relative text-[100px] md:text-[300px] w-full flex justify-center whitespace-nowrap">
+                <span className="absolute text-transparent pointer-events-none z-0" style={{ WebkitTextStroke: '20px rgb(247, 216, 13)' }}>READY TO COOK</span>
+                <span className="relative z-10" style={{ color: 'rgb(21, 107, 54)' }}>READY TO COOK</span>
+                
+                {/* Chef Effort Sticker */}
+                <img 
+                  src="/images/HomePage/chef effort sticker.png" 
+                  alt="Chef Effort Sticker" 
+                  className="absolute left-[-5%] md:left-[5%] -top-[20%] md:-top-[60%] w-[120px] md:w-[300px] -rotate-3 z-30"
+                />
+              </div>
+              
+              {/* SMART SMRTER */}
+              <div className="relative text-[100px] md:text-[300px] w-full flex justify-center whitespace-nowrap">
+                <span className="absolute text-transparent pointer-events-none z-0" style={{ WebkitTextStroke: '20px rgb(247, 216, 13)' }}>SMART SMRTER</span>
+                <span className="relative z-10" style={{ color: 'rgb(21, 107, 54)' }}>SMART SMRTER</span>
+              </div>
+
+              {/* EVERY ERDAY? */}
+              <div className="relative text-[100px] md:text-[300px] w-full flex justify-center whitespace-nowrap">
+                <span className="absolute text-transparent pointer-events-none z-0" style={{ WebkitTextStroke: '20px rgb(247, 216, 13)' }}>EVERY ERDAY?</span>
+                <span className="relative z-10" style={{ color: 'rgb(21, 107, 54)' }}>EVERY ERDAY?</span>
+              </div>
+
+            </div>
+
+            {/* Product Image */}
+            <div className="absolute top-[15%] md:top-[5%] left-[57%] -translate-x-1/2 z-20 w-[95%] md:w-[1300px]">
+              <img src="/images/HomePage/product%20package%203.png" alt="Smoked Makhani Gravy" className="w-full h-auto drop-shadow-2xl" />
+            </div>
+
+          </div>
+          
+          {/* Footer Wavy Transition */}
+          <div className="absolute bottom-0 w-full h-[150px] md:h-[250px] bg-[#156B37]" style={{ WebkitMaskImage: "url('/images/HomePage/red bg.png')", WebkitMaskSize: '100% 100%', WebkitMaskRepeat: 'no-repeat', WebkitMaskPosition: 'bottom' }}></div>
+        </section>
+
+        {/* FOOTER SECTION */}
+        <section className="relative w-full bg-[#156B37] pt-16 pb-24 font-arpona">
+          <div className="w-full mx-auto px-8 md:px-[110px] flex flex-col md:flex-row md:justify-between items-start gap-12 md:gap-0">
+            
+            {/* Column 1: Logo & Copyright */}
+            <div className="flex flex-col items-start">
+              <img src="/images/logo.svg" alt="GrabV" className="w-[140px] mb-8" />
+              <p className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] leading-[1.6] font-normal">
+                © 2026 GrabV. All rights<br/>
+                reserved. 88gb Digital<br/>
+                Mraketing & Technology<br/>
+                Company
+              </p>
+            </div>
+
+            {/* Column 2: Company */}
+            <div className="flex flex-col items-start">
+              <h3 className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] font-normal mb-6">Company</h3>
+              <ul className="flex flex-col space-y-2">
+                <li><a href="#" className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-white transition-colors">Our Story</a></li>
+                <li><a href="#" className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-white transition-colors">Process</a></li>
+                <li><a href="#" className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-white transition-colors">Quality Promise</a></li>
+                <li><a href="#" className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-white transition-colors">Contact Us</a></li>
+              </ul>
+            </div>
+
+            {/* Column 3: Product */}
+            <div className="flex flex-col items-start">
+              <h3 className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] font-normal mb-6">Product</h3>
+              <ul className="flex flex-col space-y-2">
+                <li><a href="#" className="text-white text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-[#F7D80C] transition-colors">All Purpose Gravy</a></li>
+                <li><a href="#" className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-white transition-colors">Ingredients</a></li>
+                <li><a href="#" className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-white transition-colors">How to Use</a></li>
+                <li><a href="#" className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-white transition-colors">Recipes</a></li>
+              </ul>
+            </div>
+
+            {/* Column 4: Order & Policies & Follow Us */}
+            <div className="flex flex-col items-start">
+              <h3 className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] font-normal mb-6">Order & Policies</h3>
+              <ul className="flex flex-col space-y-2 mb-10">
+                <li><a href="#" className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-white transition-colors">WhatsApp Order</a></li>
+                <li><a href="#" className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-white transition-colors">Exchange Order</a></li>
+                <li><a href="#" className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-white transition-colors">Privacy Policy</a></li>
+              </ul>
+              
+              <h3 className="text-white text-[16px] md:text-[26px] tracking-[-0.03em] font-normal mb-4">Follow Us</h3>
+              <div className="flex items-center space-x-4">
+                <a href="#" className="hover:opacity-80 transition-opacity">
+                  <img src="/images/facebook.svg" alt="Facebook" className="w-8 h-8 brightness-0 invert" />
+                </a>
+                <a href="#" className="hover:opacity-80 transition-opacity">
+                  <img src="/images/whatsapp.svg" alt="WhatsApp" className="w-8 h-8 brightness-0 invert" />
+                </a>
+                <a href="#" className="hover:opacity-80 transition-opacity">
+                  <img src="/images/insta.svg" alt="Instagram" className="w-8 h-8 brightness-0 invert" />
+                </a>
+              </div>
+            </div>
+
           </div>
         </section>
 
