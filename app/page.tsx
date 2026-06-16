@@ -506,16 +506,21 @@ export default function Home() {
           </p>
 
           {/* Huge Heading */}
-          <div className="relative font-kura uppercase text-[120px] md:text-[300px] leading-[0.85] tracking-[-0.02em] text-center w-full flex justify-center drop-shadow-xl z-10">
-            {/* Outline layer */}
-            <div className="absolute inset-0 flex justify-center text-transparent z-0" style={{ WebkitTextStroke: '24px rgb(247, 216, 13)' }}>
+          <div className="relative font-kura uppercase text-[110px] md:text-[260px] leading-[0.85] tracking-[-0.02em] text-center w-full flex justify-center z-10">
+            {/* Vegetables Behind Text */}
+            <img src="/images/HomePage/onion.png" alt="" className="absolute top-[-6%] left-[12%] md:left-[18%] w-[60px] md:w-[190px] -rotate-[15deg] z-0 pointer-events-none opacity-90" />
+            <img src="/images/HomePage/tomato.png" alt="" className="absolute top-[-5%] left-[18%] md:left-[26%] w-[70px] md:w-[190px] z-0 pointer-events-none" />
+
+            {/* Shadow layer */}
+            <div className="absolute inset-0 flex justify-center z-0 translate-y-[5px] translate-x-[5px] md:translate-y-[12px] md:translate-x-[12px]" style={{ color: 'rgb(247, 216, 13)' }}>
               <div>POUCH TO<br/>PLATE IN 5<br/>STEPS</div>
             </div>
+            
             {/* Fill layer */}
             <div className="relative z-10" style={{ color: 'rgb(21, 107, 54)' }}>
               <div>POUCH TO<br/>PLATE IN 5<br/>STEPS</div>
               {/* Homemade Sticker */}
-              <img src="/images/HomePage/homemade.png" alt="Homemade-ish" className="absolute bottom-[21%] right-0 md:right-[1%] w-[130px] md:w-[290px] -rotate-6 drop-shadow-xl z-20 pointer-events-none" />
+              <img src="/images/HomePage/homemade.png" alt="Homemade-ish" className="absolute bottom-[18%] right-[-5%] md:right-[-3%] w-[130px] md:w-[290px] rotate-2 drop-shadow-xl z-20 pointer-events-none" />
             </div>
           </div>
         </section>
@@ -530,7 +535,7 @@ export default function Home() {
               <div ref={stepsTrackRef} className="flex items-center gap-[50px] pl-[40px] md:pl-[120px] pr-[40px] md:pr-[120px] will-change-transform" style={{ width: 'max-content' }}>
                 
                 {/* Step 1 */}
-                <div className="w-[80vw] md:w-[700px] flex-shrink-0 flex flex-col">
+                <div className="w-[80vw] md:w-[880px] flex-shrink-0 flex flex-col">
                   <img src="/images/HomePage/cooking img1.png" className="w-full h-auto block drop-shadow-2xl" alt="Step 1" />
                   <p className="mt-4 md:mt-6 ml-2 md:ml-4 font-arpona text-[20px] md:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg">
                     Add your tempering (tadka) in oil.
@@ -538,7 +543,7 @@ export default function Home() {
                 </div>
 
                 {/* Step 2 */}
-                <div className="w-[80vw] md:w-[700px] flex-shrink-0 flex flex-col">
+                <div className="w-[80vw] md:w-[880px] flex-shrink-0 flex flex-col">
                   <img src="/images/HomePage/cooking img2.png" className="w-full h-auto block drop-shadow-2xl" alt="Step 2" />
                   <p className="mt-4 md:mt-6 ml-2 md:ml-4 font-arpona text-[20px] md:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg">
                     Sauté veggies or protein of your choice.
@@ -546,7 +551,7 @@ export default function Home() {
                 </div>
 
                 {/* Step 3 */}
-                <div className="w-[80vw] md:w-[700px] flex-shrink-0 flex flex-col">
+                <div className="w-[80vw] md:w-[880px] flex-shrink-0 flex flex-col">
                   <img src="/images/HomePage/cooking img3.png" className="w-full h-auto block drop-shadow-2xl" alt="Step 3" />
                   <p className="mt-4 md:mt-6 ml-2 md:ml-4 font-arpona text-[20px] md:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg">
                     Pour in the GrabV gravy and mix well.
@@ -554,7 +559,7 @@ export default function Home() {
                 </div>
 
                 {/* Step 4 */}
-                <div className="w-[80vw] md:w-[700px] flex-shrink-0 flex flex-col">
+                <div className="w-[80vw] md:w-[880px] flex-shrink-0 flex flex-col">
                   <img src="/images/HomePage/cooking img4.png" className="w-full h-auto block drop-shadow-2xl" alt="Step 4" />
                   <p className="mt-4 md:mt-6 ml-2 md:ml-4 font-arpona text-[20px] md:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg">
                     Add water as needed and let it simmer.
@@ -562,7 +567,7 @@ export default function Home() {
                 </div>
 
                 {/* Step 5 */}
-                <div className="w-[80vw] md:w-[700px] flex-shrink-0 flex flex-col">
+                <div className="w-[80vw] md:w-[880px] flex-shrink-0 flex flex-col">
                   <img src="/images/HomePage/cooking img5.png" className="w-full h-auto block drop-shadow-2xl" alt="Step 5" />
                   <p className="mt-4 md:mt-6 ml-2 md:ml-4 font-arpona text-[20px] md:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg">
                     Garnish, serve hot, and show off!
