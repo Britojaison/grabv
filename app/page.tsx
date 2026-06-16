@@ -60,6 +60,9 @@ export default function Home() {
 
   const stepsContainerRef = useRef<HTMLDivElement | null>(null);
   const stepsTrackRef = useRef<HTMLDivElement | null>(null);
+
+  const productsContainerRef = useRef<HTMLDivElement | null>(null);
+  const productsTrackRef = useRef<HTMLDivElement | null>(null);
   const stepsInnerRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -311,6 +314,46 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    let animationFrameId: number;
+    const handleScroll = () => {
+      animationFrameId = requestAnimationFrame(() => {
+        if (productsContainerRef.current && productsTrackRef.current) {
+          const wrapper = productsContainerRef.current;
+          const track = productsTrackRef.current;
+          
+          const rect = wrapper.getBoundingClientRect();
+          const stickyOffset = window.innerWidth >= 768 ? 110 : 70;
+          const scrollableHeight = stickyOffset + rect.height - window.innerHeight;
+          const scrolled = stickyOffset - rect.top;
+          
+          let translate = 0;
+          if (scrollableHeight > 0) {
+            const maxTranslate = track.scrollWidth - window.innerWidth;
+            
+            if (scrolled >= 0 && scrolled <= scrollableHeight) {
+              const progress = scrolled / scrollableHeight;
+              translate = progress * maxTranslate;
+            } else if (scrolled < 0) {
+              translate = 0;
+            } else if (scrolled > scrollableHeight) {
+              translate = maxTranslate;
+            }
+            
+            track.style.transform = `translate3d(-${translate}px, 0, 0)`;
+          }
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // initial state
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen w-full font-arpona overflow-x-clip" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
 
@@ -501,41 +544,41 @@ export default function Home() {
               <div ref={stepsTrackRef} className="flex items-center gap-[50px] pl-[40px] md:pl-[120px] pr-[40px] md:pr-[120px] will-change-transform" style={{ width: 'max-content' }}>
                 
                 {/* Step 1 */}
-                <div className="w-[600px] md:w-[900px] flex-shrink-0 flex flex-col">
+                <div className="w-[80vw] md:w-[700px] flex-shrink-0 flex flex-col">
                   <img src="/images/HomePage/cooking img1.png" className="w-full h-auto block drop-shadow-2xl" alt="Step 1" />
-                  <p className="mt-8 md:mt-10 ml-4 md:ml-8 font-arpona text-[24px] md:text-[35px] tracking-[-0.05em] font-medium text-black drop-shadow-lg">
+                  <p className="mt-4 md:mt-6 ml-2 md:ml-4 font-arpona text-[20px] md:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg">
                     Add your tempering (tadka) in oil.
                   </p>
                 </div>
 
                 {/* Step 2 */}
-                <div className="w-[600px] md:w-[900px] flex-shrink-0 flex flex-col">
+                <div className="w-[80vw] md:w-[700px] flex-shrink-0 flex flex-col">
                   <img src="/images/HomePage/cooking img2.png" className="w-full h-auto block drop-shadow-2xl" alt="Step 2" />
-                  <p className="mt-8 md:mt-10 ml-4 md:ml-8 font-arpona text-[24px] md:text-[35px] tracking-[-0.05em] font-medium text-black drop-shadow-lg">
+                  <p className="mt-4 md:mt-6 ml-2 md:ml-4 font-arpona text-[20px] md:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg">
                     Sauté veggies or protein of your choice.
                   </p>
                 </div>
 
                 {/* Step 3 */}
-                <div className="w-[600px] md:w-[900px] flex-shrink-0 flex flex-col">
+                <div className="w-[80vw] md:w-[700px] flex-shrink-0 flex flex-col">
                   <img src="/images/HomePage/cooking img3.png" className="w-full h-auto block drop-shadow-2xl" alt="Step 3" />
-                  <p className="mt-8 md:mt-10 ml-4 md:ml-8 font-arpona text-[24px] md:text-[35px] tracking-[-0.05em] font-medium text-black drop-shadow-lg">
+                  <p className="mt-4 md:mt-6 ml-2 md:ml-4 font-arpona text-[20px] md:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg">
                     Pour in the GrabV gravy and mix well.
                   </p>
                 </div>
 
                 {/* Step 4 */}
-                <div className="w-[600px] md:w-[900px] flex-shrink-0 flex flex-col">
+                <div className="w-[80vw] md:w-[700px] flex-shrink-0 flex flex-col">
                   <img src="/images/HomePage/cooking img4.png" className="w-full h-auto block drop-shadow-2xl" alt="Step 4" />
-                  <p className="mt-8 md:mt-10 ml-4 md:ml-8 font-arpona text-[24px] md:text-[35px] tracking-[-0.05em] font-medium text-black drop-shadow-lg">
+                  <p className="mt-4 md:mt-6 ml-2 md:ml-4 font-arpona text-[20px] md:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg">
                     Add water as needed and let it simmer.
                   </p>
                 </div>
 
                 {/* Step 5 */}
-                <div className="w-[600px] md:w-[900px] flex-shrink-0 flex flex-col">
+                <div className="w-[80vw] md:w-[700px] flex-shrink-0 flex flex-col">
                   <img src="/images/HomePage/cooking img5.png" className="w-full h-auto block drop-shadow-2xl" alt="Step 5" />
-                  <p className="mt-8 md:mt-10 ml-4 md:ml-8 font-arpona text-[24px] md:text-[35px] tracking-[-0.05em] font-medium text-black drop-shadow-lg">
+                  <p className="mt-4 md:mt-6 ml-2 md:ml-4 font-arpona text-[20px] md:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg">
                     Garnish, serve hot, and show off!
                   </p>
                 </div>
@@ -547,87 +590,115 @@ export default function Home() {
         </div>
 
         {/* Our Products Section */}
-        <section className="relative w-full flex flex-col items-center min-h-[900px] overflow-hidden -mt-10">
-          {/* Background Image */}
+        {/* Entire Red Section Wrapper (Heading + Scrolljacking) */}
+        <div className="relative w-full bg-[#FBF5E1] z-10 pb-[100px] md:pb-[300px]">
+          
+          {/* Full-height background image spanning both heading and products */}
           <div className="absolute inset-0 z-0">
-            <Image src="/images/HomePage/red bg.png" alt="Red torn background" fill className="object-fill" />
+            <Image src="/images/HomePage/red2 bg.png" alt="Red torn background" fill className="object-fill" />
           </div>
 
-          {/* Huge Heading */}
-          <div className="relative z-10 font-kura uppercase leading-[0.8] tracking-[-0.02em] text-center flex flex-col items-center drop-shadow-[0_15px_15px_rgba(0,0,0,0.3)] pt-[250px] pb-32">
-            
-            {/* Outline layer */}
-            <div className="absolute inset-0 flex flex-col items-center pt-[250px] text-transparent z-0 pointer-events-none" style={{ WebkitTextStroke: '28px rgb(21, 107, 54)' }}>
-              <div className="text-[150px] md:text-[300px]">OUR</div>
-              <div className="text-[150px] md:text-[300px]">PRODUCTS</div>
-            </div>
-
-            {/* Fill layer */}
-            <div className="relative z-10 flex flex-col items-center" style={{ color: 'rgb(247, 216, 13)' }}>
-              <div className="text-[150px] md:text-[300px]">OUR</div>
-              <div className="relative text-[150px] md:text-[300px]">
-                PRODUCTS
-                {/* Grab Your Packs text */}
-                <div className="absolute top-[-25%] right-8 font-arpona text-[28px] tracking-[-0.05em] font-medium text-white normal-case tracking-normal drop-shadow-none pointer-events-none" style={{ WebkitTextStroke: '0', textShadow: 'none' }}>
-                  Grab Your Packs
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          {/* Product Images */}
-          <div className="w-full pl-[120px] pr-0 pb-48 mt-12 flex flex-col md:flex-row justify-between items-center gap-24 relative z-10 overflow-visible">
-            
-            <div className="relative inline-block flex-shrink-0">
-              <img src="/images/HomePage/product1.png" className="h-[450px] md:h-[820px] w-auto object-contain block" alt="Product 1" />
+          {/* Our Products Section - Heading (Normal Scroll) */}
+          <section className="relative w-full flex flex-col items-center pt-[150px] md:pt-[250px] pb-12 z-10">
+            {/* Huge Heading */}
+            <div className="relative z-10 font-kura uppercase leading-[0.8] tracking-[-0.02em] text-center flex flex-col items-center drop-shadow-[0_15px_15px_rgba(0,0,0,0.3)]">
               
-              <div className="absolute top-[28%] left-[64%] w-[36%] flex flex-col items-start text-black font-arpona">
-                <h3 className="text-[34px] md:text-[55px] leading-[0.98] tracking-[-0.05em] font-bold">
-                  ONION<br/>TOMATO<br/>GRAVY
-                </h3>
-                
-                <div className="mt-4 md:mt-7 flex flex-col gap-1 md:gap-1 text-[15px] md:text-[26px] font-medium tracking-tight">
-                  <p>Zero Added Preservatives</p>
-                  <p>All Purpose Gravy</p>
-                  <p>Slow Cooked</p>
+              {/* Onion Image Behind Text */}
+              <img src="/images/HomePage/onion.png" className="absolute left-[-15%] md:left-[-10%] top-[25%] md:top-[30%] w-[80px] md:w-[220px] object-contain z-[-1] pointer-events-none -rotate-12" alt="" />
+
+              {/* Outline layer */}
+              <div className="absolute inset-0 flex flex-col items-center text-transparent z-0 pointer-events-none" style={{ WebkitTextStroke: '28px rgb(21, 107, 54)' }}>
+                <div className="text-[150px] md:text-[300px]">OUR</div>
+                <div className="text-[150px] md:text-[300px]">PRODUCTS</div>
+              </div>
+
+              {/* Fill layer */}
+              <div className="relative z-10 flex flex-col items-center" style={{ color: 'rgb(247, 216, 13)' }}>
+                <div className="text-[150px] md:text-[300px]">OUR</div>
+                <div className="relative text-[150px] md:text-[300px]">
+                  PRODUCTS
+                  {/* Grab Your Packs text */}
+                  <div className="absolute top-[-25%] right-8 font-arpona text-[28px] tracking-[-0.05em] font-medium text-white normal-case tracking-normal drop-shadow-none pointer-events-none" style={{ WebkitTextStroke: '0', textShadow: 'none' }}>
+                    Grab Your Packs
+                  </div>
                 </div>
-                
-                <button className="mt-6 md:mt-10 bg-[rgb(247,216,13)] text-black px-4 py-1.5 md:px-7 md:py-2 rounded-[6px] font-medium text-[15px] md:text-[20px] hover:bg-yellow-400 transition-colors flex items-center justify-center gap-2 shadow-sm whitespace-nowrap">
-                  View Product
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 md:w-5 md:h-5 ml-1">
-                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </button>
               </div>
             </div>
+          </section>
 
-            <div className="relative inline-block flex-shrink-0 md:translate-x-0">
-              <img src="/images/HomePage/product2.png" className="h-[450px] md:h-[820px] w-auto object-contain block" alt="Product 2" />
+          {/* Our Products Wrapper for Scrolljacking */}
+          <div ref={productsContainerRef} className="relative w-full h-[250vh] z-10">
+            {/* Our Products Sticky Section */}
+            <section className="sticky top-[70px] md:top-[110px] w-full h-[calc(100vh-70px)] md:h-[calc(100vh-110px)] flex flex-col justify-center overflow-hidden">
+            
+            {/* Horizontal Scrolling Track */}
+            <div className="relative w-full z-30">
+              <div ref={productsTrackRef} className="flex items-center gap-[80px] md:gap-[200px] pl-[40px] md:pl-[120px] pr-[40px] md:pr-[120px] will-change-transform" style={{ width: 'max-content' }}>
+                
+                {/* Product 1 */}
+                <div className="relative inline-block flex-shrink-0 flex flex-col items-end">
+                  <div className="relative">
+                    <img src="/images/HomePage/product1.png" className="h-[450px] md:h-[820px] w-auto object-contain block drop-shadow-2xl" alt="Product 1" />
+                    
+                    <div className="absolute top-[28%] left-[64%] w-[36%] flex flex-col items-start text-black font-arpona">
+                      <h3 className="text-[34px] md:text-[55px] leading-[0.98] tracking-[-0.05em] font-bold">
+                        ONION<br/>TOMATO<br/>GRAVY
+                      </h3>
+                      
+                      <div className="mt-4 md:mt-7 flex flex-col gap-1 md:gap-1 text-[15px] md:text-[26px] font-medium tracking-tight">
+                        <p>Zero Added Preservatives</p>
+                        <p>All Purpose Gravy</p>
+                        <p>Slow Cooked</p>
+                      </div>
+                      
+                      <button className="mt-6 md:mt-10 bg-[rgb(247,216,13)] text-black px-4 py-1.5 md:px-7 md:py-2 rounded-[6px] font-medium text-[15px] md:text-[20px] hover:bg-yellow-400 transition-colors flex items-center justify-center gap-2 shadow-sm whitespace-nowrap">
+                        View Product
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 md:w-5 md:h-5 ml-1">
+                          <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  
+                  {/* See more button */}
+                  <div className="mt-[-20px] md:mt-[-40px] z-20">
+                    <button className="bg-[rgb(247,216,13)] text-black px-10 py-3 rounded-[6px] font-bold text-[24px] hover:bg-yellow-400 transition-colors shadow-sm tracking-tight font-arpona">
+                      See more
+                    </button>
+                  </div>
+                </div>
+
+                {/* Product 2 */}
+                <div className="relative inline-block flex-shrink-0">
+                  <img src="/images/HomePage/product2.png" className="h-[450px] md:h-[820px] w-auto object-contain block drop-shadow-2xl grayscale opacity-90" alt="Product 2" />
+                  
+                  {/* Coming Soon Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center -translate-y-8">
+                    <div className="bg-black/80 px-8 py-4 md:px-12 md:py-6 rounded-2xl backdrop-blur-md -rotate-12 shadow-2xl border-4 border-[rgb(247,216,13)]">
+                      <p className="text-[rgb(247,216,13)] font-kura text-[40px] md:text-[80px] uppercase tracking-wide leading-[0.9] text-center drop-shadow-md">
+                        Coming<br/>Soon
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
             </div>
-          </div>
-
-          {/* See more button */}
-          <div className="w-full flex justify-end pr-[120px] pb-32 relative z-10 -mt-24">
-            <button className="bg-[rgb(247,216,13)] text-black px-10 py-3 rounded-[6px] font-bold text-[24px] hover:bg-yellow-400 transition-colors shadow-sm tracking-tight font-arpona">
-              See more
-            </button>
-          </div>
-
-        </section>
+          </section>
+        </div>
+        {/* End of Entire Red Section Wrapper */}
+        </div>
 
         {/* How We Do It Section */}
         <section className="relative w-full flex flex-col items-center pt-24 pb-48 overflow-visible z-0" style={{ backgroundColor: '#FBF5E1' }}>
           
           {/* Huge Heading (In Front) */}
-          <div className="relative z-10 font-kura uppercase leading-[0.85] tracking-[-0.02em] text-center flex flex-col items-center drop-shadow-lg w-full">
-            <div className="relative text-[100px] md:text-[300px]">
-              <span className="absolute inset-0 text-transparent pointer-events-none z-0" style={{ WebkitTextStroke: '20px rgb(247, 216, 13)' }}>HOW</span>
-              <span className="relative z-10" style={{ color: 'rgb(21, 107, 54)' }}>HOW</span>
+          <div className="relative z-10 font-kura uppercase leading-[0.85] tracking-[-0.02em] text-center flex flex-col items-center w-full">
+            <div className="relative text-[#156B36] text-[100px] md:text-[300px]" style={{ WebkitTextStroke: '20px #F7D80C', paintOrder: 'stroke fill' }}>
+              HOW
             </div>
-            <div className="relative text-[100px] md:text-[300px]">
-              <span className="absolute inset-0 text-transparent pointer-events-none z-0" style={{ WebkitTextStroke: '20px rgb(247, 216, 13)' }}>WE DO IT</span>
-              <span className="relative z-10" style={{ color: 'rgb(21, 107, 54)' }}>WE DO IT</span>
+            <div className="relative text-[#156B36] text-[100px] md:text-[300px]" style={{ WebkitTextStroke: '20px #F7D80C', paintOrder: 'stroke fill' }}>
+              WE DO IT
             </div>
           </div>
 
@@ -646,9 +717,8 @@ export default function Home() {
                     <h4 className="font-bold text-[16px] md:text-[34px] tracking-[-0.05em] leading-tight mb-3">Fresh Onions<br/>& Tomatoes</h4>
                     <p className="font-medium text-[11px] md:text-[24px] tracking-[-0.05em] leading-snug underline decoration-2 underline-offset-4 decoration-blue-600 text-center">Slow cooked to<br/>perfection for a rich &<br/>robust base.</p>
                   </div>
-                  <svg className="absolute -bottom-8 right-1/4 w-12 h-12 md:w-24 md:h-24 overflow-visible pointer-events-none" viewBox="0 0 100 100" fill="none">
-                    <path d="M20,10 Q40,50 60,80" stroke="#E3002B" strokeWidth="6" strokeDasharray="12 12" strokeLinecap="round"/>
-                    <path d="M35,75 L60,80 L50,55" stroke="#E3002B" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>
+                  <svg className="absolute -bottom-8 right-[40%] w-12 h-12 md:w-24 md:h-24 overflow-visible pointer-events-none" viewBox="0 0 100 100" fill="none">
+                    <path d="M20,10 Q40,50 60,80 M35,75 Q45,78 60,80 M50,55 Q55,65 60,80" stroke="#E3002B" strokeWidth="6" strokeDasharray="12 12" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
 
@@ -659,49 +729,50 @@ export default function Home() {
                     <h4 className="font-bold text-[16px] md:text-[34px] tracking-[-0.05em] leading-tight mb-3">The Creamy Secret</h4>
                     <p className="font-medium text-[11px] md:text-[24px] tracking-[-0.05em] leading-snug underline decoration-2 underline-offset-4 decoration-blue-600 text-center">A dash of cashew for that<br/>restaurant-style velvet<br/>finish & texture</p>
                   </div>
-                  <svg className="absolute -bottom-8 left-[15%] w-12 h-12 md:w-24 md:h-24 overflow-visible pointer-events-none" viewBox="0 0 100 100" fill="none">
-                    <path d="M80,10 Q60,40 40,80" stroke="#E3002B" strokeWidth="6" strokeDasharray="12 12" strokeLinecap="round"/>
-                    <path d="M65,75 L40,80 L50,55" stroke="#E3002B" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>
+                  <svg className="absolute -bottom-8 left-[30%] w-12 h-12 md:w-24 md:h-24 overflow-visible pointer-events-none" viewBox="0 0 100 100" fill="none">
+                    <path d="M80,10 Q60,40 40,80 M65,75 Q55,78 40,80 M50,55 Q45,65 40,80" stroke="#E3002B" strokeWidth="6" strokeDasharray="12 12" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
 
                 {/* Card 3: The Whole Spice Bloom (Middle Left) */}
-                <div className="absolute top-[60%] left-[25%] md:top-[55%] md:left-[-2%] w-[200px] md:w-[600px] -translate-x-1/2 -rotate-[5deg]">
+                <div className="absolute top-[60%] left-[20%] md:top-[55%] md:left-[-6%] w-[200px] md:w-[600px] -translate-x-1/2 -rotate-[5deg]">
                   <img src="/images/HomePage/card.png" className="w-full h-auto drop-shadow-xl" alt="Card Background" />
                   <div className="absolute inset-0 px-[15%] pt-[14%] pb-[12%] flex flex-col justify-center items-center text-center text-black font-arpona -rotate-[4deg]">
                     <h4 className="font-bold text-[16px] md:text-[34px] tracking-[-0.05em] leading-tight mb-3">The Whole<br/>Spice Bloom</h4>
                     <p className="font-medium text-[11px] md:text-[24px] tracking-[-0.05em] leading-snug underline decoration-2 underline-offset-4 decoration-blue-600 text-center">Cumin, cinnamon, clove<br/>& bay leaves roasted &<br/>grounded for deep aroma</p>
                   </div>
-                  <svg className="absolute top-[40%] -right-10 md:-right-20 w-16 h-12 md:w-24 md:h-24 overflow-visible pointer-events-none" viewBox="0 0 100 100" fill="none">
-                    <path d="M10,20 Q50,30 90,60" stroke="#E3002B" strokeWidth="6" strokeDasharray="12 12" strokeLinecap="round"/>
-                    <path d="M65,45 L90,60 L75,75" stroke="#E3002B" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>
+                  <svg className="absolute top-[40%] -right-16 md:-right-32 w-16 h-12 md:w-24 md:h-24 overflow-visible pointer-events-none" viewBox="0 0 100 100" fill="none">
+                    <path d="M10,20 Q50,30 90,60 M65,45 Q75,50 90,60 M75,75 Q82,68 90,60" stroke="#E3002B" strokeWidth="6" strokeDasharray="12 12" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
 
                 {/* Card 4: The Special Blend (Bottom Left) */}
-                <div className="absolute top-[75%] left-[30%] md:top-[75%] md:left-[15%] w-[200px] md:w-[600px] -translate-x-1/2 -rotate-[3deg]">
+                <div className="absolute top-[75%] left-[25%] md:top-[75%] md:left-[10%] w-[200px] md:w-[600px] -translate-x-1/2 -rotate-[3deg]">
                   <img src="/images/HomePage/card.png" className="w-full h-auto drop-shadow-xl" alt="Card Background" />
                   <div className="absolute inset-0 px-[15%] pt-[14%] pb-[12%] flex flex-col justify-center items-center text-center text-black font-arpona -rotate-[4deg]">
                     <h4 className="font-bold text-[16px] md:text-[34px] tracking-[-0.05em] leading-tight mb-3">The Special<br/>Blend</h4>
                     <p className="font-medium text-[11px] md:text-[24px] tracking-[-0.05em] leading-snug underline decoration-2 underline-offset-4 decoration-blue-600 text-center">Chilli, turmeric, coriander<br/>& pepper for the taste &<br/>feel of home</p>
                   </div>
                   <svg className="absolute top-1/4 -right-10 md:-right-20 w-12 h-12 md:w-24 md:h-24 overflow-visible pointer-events-none" viewBox="0 0 100 100" fill="none">
-                    <path d="M10,80 Q40,50 80,20" stroke="#E3002B" strokeWidth="6" strokeDasharray="12 12" strokeLinecap="round"/>
-                    <path d="M55,25 L80,20 L70,45" stroke="#E3002B" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M10,80 Q40,50 80,20 M55,25 Q65,22 80,20 M70,45 Q75,32 80,20" stroke="#E3002B" strokeWidth="6" strokeDasharray="12 12" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
 
                 {/* Card 5: Zero Additives (Bottom Center) */}
-                <div className="absolute top-[85%] left-[50%] md:top-[85%] md:left-[68%] w-[200px] md:w-[600px] -translate-x-1/2 -rotate-[12deg]">
+                <div className="absolute top-[83%] left-[50%] md:top-[83%] md:left-[68%] w-[200px] md:w-[600px] -translate-x-1/2 -rotate-[12deg]">
                   <img src="/images/HomePage/card.png" className="w-full h-auto drop-shadow-xl" alt="Card Background" />
                   <div className="absolute inset-0 px-[15%] pt-[14%] pb-[12%] flex flex-col justify-center items-center text-center text-black font-arpona -rotate-[4deg]">
                     <h4 className="font-bold text-[16px] md:text-[34px] tracking-[-0.05em] leading-tight mb-3">Zero Additives</h4>
                     <p className="font-medium text-[11px] md:text-[24px] tracking-[-0.05em] leading-snug underline decoration-2 underline-offset-4 decoration-blue-600 text-center">100% preservative-free<br/>and freshly made and<br/>chilled to lock in<br/>natural flavor.</p>
                   </div>
                   <svg className="absolute -top-4 left-[30%] w-12 h-12 md:w-24 md:h-24 overflow-visible pointer-events-none" viewBox="0 0 100 100" fill="none">
-                    <path d="M80,90 Q50,60 20,20" stroke="#E3002B" strokeWidth="6" strokeDasharray="12 12" strokeLinecap="round"/>
-                    <path d="M45,25 L20,20 L30,45" stroke="#E3002B" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M80,90 Q50,60 20,20 M45,25 Q35,22 20,20 M30,45 Q25,32 20,20" stroke="#E3002B" strokeWidth="6" strokeDasharray="12 12" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
+                </div>
+
+                {/* Curry In Motion Sticker */}
+                <div className="absolute top-[85%] left-[85%] md:top-[85%] md:left-[96%] w-[120px] md:w-[280px] -translate-x-1/2 rotate-[12deg] z-20 pointer-events-none">
+                  <img src="/images/HomePage/curry in motion.png" className="w-full h-auto drop-shadow-xl" alt="Curry In Motion" />
                 </div>
 
               </div>
@@ -711,72 +782,72 @@ export default function Home() {
         </section>
 
         {/* 20+ RECIPES Section */}
-        <section className="relative w-full bg-white flex flex-col items-center overflow-hidden">
-          <div className="relative w-full min-h-[200vh] flex flex-col items-center py-20 md:py-32" style={{ backgroundImage: "url('/images/HomePage/yellow bg.png')", backgroundSize: '100% 100%', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+        <section className="relative w-full bg-transparent flex flex-col items-center overflow-hidden -mt-[100px] md:-mt-[150px] z-20">
+          <div className="relative w-full min-h-[200vh] flex flex-col items-center pt-[150px] md:pt-[250px] pb-20 md:pb-32" style={{ backgroundImage: "url('/images/HomePage/yellow bg.png')", backgroundSize: '100% 100%', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
             
             {/* Heading */}
-            <div className="relative z-10 flex flex-col items-center mt-10 md:mt-20 font-kura leading-none text-center pointer-events-none">
-              <h2 className="relative z-10 text-[#146A36] text-[120px] md:text-[350px] tracking-[-0.02em] drop-shadow-xl" style={{ WebkitTextStroke: '24px #FBD33F', paintOrder: 'stroke fill' }}>20+</h2>
-              <h2 className="relative z-20 text-[#146A36] text-[70px] md:text-[280px] tracking-[-0.02em] -mt-10 md:-mt-[60px] drop-shadow-xl" style={{ WebkitTextStroke: '24px #FBD33F', paintOrder: 'stroke fill' }}>RECIPES</h2>
+            <div className="relative z-10 flex flex-col items-center -mt-4 md:-mt-10 font-kura leading-none text-center pointer-events-none">
+              <h2 className="relative z-10 text-[#156B37] text-[120px] md:text-[350px] tracking-[-0.02em]" style={{ WebkitTextStroke: '24px #F7D80C', paintOrder: 'stroke fill' }}>20+</h2>
+              <h2 className="relative z-20 text-[#156B37] text-[70px] md:text-[280px] tracking-[-0.02em] -mt-10 md:-mt-[60px]" style={{ WebkitTextStroke: '24px #F7D80C', paintOrder: 'stroke fill' }}>RECIPES</h2>
             </div>
             
             {/* Center Container for Product and Dishes */}
             <div className="absolute inset-0 w-full h-full flex items-center justify-center z-20 pointer-events-none">
               
               {/* Center Product */}
-              <div className="absolute top-[50%] md:top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-[200px] md:w-[650px]">
+              <div className="absolute top-[50%] md:top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-[250px] md:w-[800px]">
                 <img src="/images/HomePage/product package 2.png" alt="Smoked Makhani Gravy" className="w-full h-auto drop-shadow-2xl" />
-                <p className="absolute -bottom-[300px] left-1/2 -translate-x-1/2 w-max text-black font-arpona font-medium text-[14px] md:text-[28px] text-center leading-tight tracking-[-0.05em]">
+                <p className="absolute -bottom-[220px] left-1/2 -translate-x-1/2 w-max text-black font-arpona font-medium text-[14px] md:text-[28px] text-center leading-tight tracking-[-0.05em]">
                   Just switch your ingredients and<br/>create a whole new dish each time.
                 </p>
               </div>
 
               {/* --- VEG DISHES (LEFT) --- */}
               {/* Dish 1: Bhindi Masala (Top Left) */}
-              <div className="absolute top-[10%] left-[-15%] md:top-[12%] md:left-[0%] w-[250px] md:w-[600px] z-30">
+              <div className="absolute top-[8%] left-[-40%] md:top-[8%] md:left-[-16%] w-[370px] md:w-[890px] z-30">
                 <img src="/images/HomePage/bhindi.png" alt="Bhindi Masala" className="w-full h-auto drop-shadow-xl" />
-                <div className="absolute top-[15%] right-[10%] bg-[#0E5429] text-white font-arpona font-bold text-[14px] md:text-[30px] px-3 md:px-6 py-2 md:py-4 transform -rotate-[8deg] shadow-lg">
+                <div className="absolute top-[19%] left-[58%] md:top-[19%] md:left-[58%] text-white font-arpona font-bold text-[14px] md:text-[30px] transform -rotate-[10deg] pointer-events-none">
                   Bhindi Masala
                 </div>
               </div>
 
               {/* Dish 2: Aloo Gobhi (Middle Left) */}
-              <div className="absolute top-[55%] left-[-25%] md:top-[55%] md:left-[-2%] w-[250px] md:w-[400px] -translate-y-1/2 z-20">
+              <div className="absolute top-[55%] left-[-35%] md:top-[55%] md:left-[-12%] w-[350px] md:w-[850px] -translate-y-1/2 z-20">
                 <img src="/images/HomePage/aloo.png" alt="Aloo Gobhi" className="w-full h-auto drop-shadow-xl" />
-                <div className="absolute bottom-[20%] right-[5%] bg-[#0E5429] text-white font-arpona font-bold text-[14px] md:text-[30px] px-3 md:px-6 py-2 md:py-4 transform -rotate-[5deg] shadow-lg">
+                <div className="absolute top-[61%] left-[60%] md:top-[61%] md:left-[60%] text-white font-arpona font-bold text-[14px] md:text-[30px] transform -rotate-[10deg] pointer-events-none">
                   Aloo Gobhi
                 </div>
               </div>
 
               {/* Dish 3: Mutter Paneer (Bottom Left) */}
-              <div className="absolute bottom-[5%] left-[-20%] md:bottom-[5%] md:left-[-2%] w-[250px] md:w-[550px] z-30">
+              <div className="absolute bottom-[0%] left-[-30%] md:bottom-[0%] md:left-[-12%] w-[390px] md:w-[920px] z-30">
                 <img src="/images/HomePage/panner.png" alt="Mutter Paneer" className="w-full h-auto drop-shadow-xl" />
-                <div className="absolute bottom-[5%] left-[30%] bg-[#0E5429] text-white font-arpona font-bold text-[14px] md:text-[30px] px-3 md:px-6 py-2 md:py-4 transform -rotate-[2deg] shadow-lg">
+                <div className="absolute top-[74%] left-[42%] md:top-[74%] md:left-[42%] text-white font-arpona font-bold text-[14px] md:text-[30px] transform rotate-[2deg] pointer-events-none">
                   Mutter Paneer
                 </div>
               </div>
 
               {/* --- NON-VEG DISHES (RIGHT) --- */}
               {/* Dish 4: Egg Curry (Top Right) */}
-              <div className="absolute top-[10%] right-[-15%] md:top-[12%] md:right-[0%] w-[250px] md:w-[600px] z-30">
+              <div className="absolute top-[8%] right-[-35%] md:top-[8%] md:right-[-16%] w-[420px] md:w-[950px] z-30">
                 <img src="/images/HomePage/egg.png" alt="Egg Curry" className="w-full h-auto drop-shadow-xl" />
-                <div className="absolute top-[10%] left-[5%] bg-[#E3002B] text-white font-arpona font-bold text-[14px] md:text-[30px] px-3 md:px-6 py-2 md:py-4 transform rotate-[8deg] shadow-lg" style={{ backgroundImage: "url('/images/HomePage/red bg.png')", backgroundSize: 'cover' }}>
+                <div className="absolute top-[21%] left-[31%] md:top-[21%] md:left-[31%] text-white font-arpona font-bold text-[14px] md:text-[30px] transform rotate-[12deg] pointer-events-none">
                   Egg Curry
                 </div>
               </div>
 
               {/* Dish 5: Chicken Curry (Middle Right) */}
-              <div className="absolute top-[45%] right-[-25%] md:top-[55%] md:right-[-2%] w-[250px] md:w-[400px] -translate-y-1/2 z-20">
+              <div className="absolute top-[45%] right-[-35%] md:top-[55%] md:right-[-12%] w-[320px] md:w-[750px] -translate-y-1/2 z-20">
                 <img src="/images/HomePage/chicken.png" alt="Chicken Curry" className="w-full h-auto drop-shadow-xl" />
-                <div className="absolute top-[20%] left-[5%] bg-[#E3002B] text-white font-arpona font-bold text-[14px] md:text-[30px] px-3 md:px-6 py-2 md:py-4 transform -rotate-[4deg] shadow-lg" style={{ backgroundImage: "url('/images/HomePage/red bg.png')", backgroundSize: 'cover' }}>
+                <div className="absolute top-[62%] left-[7%] md:top-[62%] md:left-[7%] text-white font-arpona font-bold text-[14px] md:text-[30px] transform rotate-[4deg] pointer-events-none">
                   Chicken Curry
                 </div>
               </div>
 
               {/* Dish 6: Mutton Sukka (Bottom Right) */}
-              <div className="absolute bottom-[5%] right-[-20%] md:bottom-[5%] md:right-[-2%] w-[250px] md:w-[550px] z-30">
+              <div className="absolute bottom-[2%] right-[-30%] md:bottom-[2%] md:right-[-12%] w-[280px] md:w-[660px] z-30">
                 <img src="/images/HomePage/mutton.png" alt="Mutton Sukka" className="w-full h-auto drop-shadow-xl" />
-                <div className="absolute bottom-[5%] right-[20%] bg-[#E3002B] text-white font-arpona font-bold text-[14px] md:text-[30px] px-3 md:px-6 py-2 md:py-4 transform -rotate-[5deg] shadow-lg" style={{ backgroundImage: "url('/images/HomePage/red bg.png')", backgroundSize: 'cover' }}>
+                <div className="absolute top-[80%] left-[14%] md:top-[80%] md:left-[14%] text-white font-arpona font-bold text-[14px] md:text-[30px] transform -rotate-[5deg] pointer-events-none">
                   Mutton Sukka
                 </div>
               </div>
@@ -815,10 +886,10 @@ export default function Home() {
         </section>
 
         {/* HOW WE MAKE IT Section */}
-        <section ref={processSectionRef} className="relative w-full flex flex-col items-center overflow-hidden z-0" style={{ backgroundColor: '#FBF5E1', height: '350vh' }}>
+        <section ref={processSectionRef} className="relative w-full flex flex-col items-center overflow-hidden z-0 -mt-[100px] md:-mt-[200px]" style={{ backgroundColor: '#FBF5E1', height: '350vh' }}>
           
           {/* Huge Heading */}
-          <div className="relative z-10 font-kura uppercase leading-[0.85] text-left flex flex-col items-start w-full px-4 md:px-[120px] pt-16 md:pt-32 drop-shadow-xl" style={{ letterSpacing: '-0.02em' }}>
+          <div className="relative z-10 font-kura uppercase leading-[0.85] text-left flex flex-col items-start w-full px-4 md:px-[120px] pt-[150px] md:pt-[300px] drop-shadow-xl" style={{ letterSpacing: '-0.02em' }}>
             <div className="relative text-[100px] md:text-[300px]">
               <span className="absolute inset-0 text-transparent pointer-events-none z-0" style={{ WebkitTextStroke: '20px rgb(247, 216, 13)' }}>HOW WE</span>
               <span className="relative z-10" style={{ color: 'rgb(21, 107, 54)' }}>HOW WE</span>
@@ -880,7 +951,7 @@ export default function Home() {
             </SlideIn>
 
             {/* process2 - Middle Left */}
-            <SlideIn direction="left" className="absolute top-[19%] -left-[10%] w-[320px] md:w-[1050px] z-10">
+            <SlideIn direction="left" className="absolute top-[19%] -left-[6%] w-[320px] md:w-[1050px] z-10">
               <div className="relative w-full h-full">
                 <img src="/images/HomePage/process2.png" alt="Process 2" className="w-full h-auto drop-shadow-xl" />
                 {/* Text Overlay */}
@@ -891,7 +962,7 @@ export default function Home() {
             </SlideIn>
 
             {/* process3 - Middle Right */}
-            <SlideIn direction="right" className="absolute top-[21%] right-[4%] w-[280px] md:w-[1100px] z-10">
+            <SlideIn direction="right" className="absolute top-[21%] right-[0%] w-[280px] md:w-[1100px] z-10">
               <div className="relative w-full h-full">
                 <img src="/images/HomePage/process3.png" alt="Process 3" className="w-full h-auto drop-shadow-xl" />
                 {/* Text Overlay */}
@@ -924,7 +995,7 @@ export default function Home() {
             </SlideIn>
 
             {/* process6 - Bottom Left */}
-            <SlideIn direction="left" className="absolute top-[76%] md:top-[75%] -left-[2%] w-[300px] md:w-[960px] z-10">
+            <SlideIn direction="left" className="absolute top-[74%] md:top-[73%] -left-[2%] w-[300px] md:w-[960px] z-10">
               <div className="relative w-full h-full">
                 <img src="/images/HomePage/process6.png" alt="Process 6" className="w-full h-auto drop-shadow-xl" />
                 {/* Text Overlay */}
@@ -935,11 +1006,11 @@ export default function Home() {
             </SlideIn>
           </div>
           
-          <div className="absolute bottom-0 w-full h-[50px] bg-[#C30128] -z-10" style={{ WebkitMaskImage: "url('/images/HomePage/red bg.png')", WebkitMaskSize: '100% 100%' }}></div>
+
         </section>
 
         {/* WHAT PEOPLE ARE SAYING SECTION */}
-        <section className="relative w-full bg-[#C30128] pt-10 pb-40 overflow-hidden font-arpona">
+        <section className="relative w-full bg-[#FBF5E1] pt-[150px] md:pt-[200px] pb-40 overflow-hidden font-arpona bg-cover bg-center bg-no-repeat z-10 -mt-[100px] md:-mt-[150px]" style={{ backgroundImage: "url('/images/HomePage/red2%20bg.png')" }}>
           {/* Top text */}
           <div className="max-w-[1920px] mx-auto px-4 md:px-[90px] pt-6 flex justify-between text-white text-xl md:text-3xl font-medium mb-12" style={{ letterSpacing: '-0.05em' }}>
             <span>Our GrabV</span>
@@ -1021,20 +1092,20 @@ export default function Home() {
         </section>
 
         {/* READY TO COOK SECTION */}
-        <section className="relative w-full h-[150vh] bg-[#FDFBF2] pt-24 overflow-hidden font-arpona flex flex-col items-center">
+        <section className="relative w-full h-[150vh] bg-[#FBF5E1] pt-24 overflow-hidden font-arpona flex flex-col items-center">
           
           {/* Order Now Button */}
-          <button className="bg-[#F7D80C] text-black font-arpona font-medium text-[18px] md:text-[26px] px-20 md:px-32 py-3 md:py-4 rounded-xl mb-16 shadow-md hover:bg-yellow-400 transition-colors z-40">
+          <button className="bg-[#F7D80C] text-black font-arpona font-medium text-[16px] md:text-[20px] px-10 md:px-14 py-2 md:py-3 rounded-xl mb-16 shadow-md hover:bg-yellow-400 transition-colors z-40">
             Order now
           </button>
 
           {/* Main Heading */}
-          <div className="relative w-full flex flex-col items-center justify-center text-center px-4 mt-4">
+          <div className="relative w-full flex flex-col items-center justify-center text-center mt-4">
             
             <div className="relative z-10 font-kura uppercase leading-[0.85] flex flex-col items-center w-full drop-shadow-xl" style={{ letterSpacing: '-0.02em' }}>
               
               {/* READY TO COOK */}
-              <div className="relative text-[100px] md:text-[300px] w-full flex justify-center whitespace-nowrap">
+              <div className="relative text-[80px] md:text-[270px] w-full flex justify-center whitespace-nowrap">
                 <span className="absolute text-transparent pointer-events-none z-0" style={{ WebkitTextStroke: '20px rgb(247, 216, 13)' }}>READY TO COOK</span>
                 <span className="relative z-10" style={{ color: 'rgb(21, 107, 54)' }}>READY TO COOK</span>
                 
@@ -1047,13 +1118,13 @@ export default function Home() {
               </div>
               
               {/* SMART SMRTER */}
-              <div className="relative text-[100px] md:text-[300px] w-full flex justify-center whitespace-nowrap">
+              <div className="relative text-[80px] md:text-[270px] w-full flex justify-center whitespace-nowrap">
                 <span className="absolute text-transparent pointer-events-none z-0" style={{ WebkitTextStroke: '20px rgb(247, 216, 13)' }}>SMART SMRTER</span>
                 <span className="relative z-10" style={{ color: 'rgb(21, 107, 54)' }}>SMART SMRTER</span>
               </div>
 
               {/* EVERY ERDAY? */}
-              <div className="relative text-[100px] md:text-[300px] w-full flex justify-center whitespace-nowrap">
+              <div className="relative text-[80px] md:text-[270px] w-full flex justify-center whitespace-nowrap">
                 <span className="absolute text-transparent pointer-events-none z-0" style={{ WebkitTextStroke: '20px rgb(247, 216, 13)' }}>EVERY ERDAY?</span>
                 <span className="relative z-10" style={{ color: 'rgb(21, 107, 54)' }}>EVERY ERDAY?</span>
               </div>
@@ -1061,19 +1132,24 @@ export default function Home() {
             </div>
 
             {/* Product Image */}
-            <div className="absolute top-[15%] md:top-[5%] left-[57%] -translate-x-1/2 z-20 w-[95%] md:w-[1300px]">
+            <div className="absolute top-[15%] md:top-[5%] left-[57%] -translate-x-1/2 z-20 w-[95%] md:w-[1100px]">
               <img src="/images/HomePage/product%20package%203.png" alt="Smoked Makhani Gravy" className="w-full h-auto drop-shadow-2xl" />
             </div>
 
           </div>
           
-          {/* Footer Wavy Transition */}
-          <div className="absolute bottom-0 w-full h-[150px] md:h-[250px] bg-[#156B37]" style={{ WebkitMaskImage: "url('/images/HomePage/red bg.png')", WebkitMaskSize: '100% 100%', WebkitMaskRepeat: 'no-repeat', WebkitMaskPosition: 'bottom' }}></div>
+          {/* Footer Wavy Transition removed as footer now uses background image */}
         </section>
 
         {/* FOOTER SECTION */}
-        <section className="relative w-full bg-[#156B37] pt-16 pb-24 font-arpona">
-          <div className="w-full mx-auto px-8 md:px-[110px] flex flex-col md:flex-row md:justify-between items-start gap-12 md:gap-0">
+        <section className="relative w-full bg-[#156B37] pt-[80px] md:pt-[150px] pb-24 font-arpona">
+          {/* Yellow fill for the transparent top wavy part */}
+          <div className="absolute top-0 left-0 w-full h-[150px] md:h-[300px] bg-[#FBF5E1] z-0"></div>
+          
+          {/* The green wavy background image */}
+          <div className="absolute inset-0 bg-no-repeat bg-top z-0" style={{ backgroundImage: "url('/images/HomePage/green%20bg.png')", backgroundSize: "100% auto" }}></div>
+          
+          <div className="relative z-10 w-full mx-auto px-8 md:px-[110px] flex flex-col md:flex-row md:justify-between items-start gap-12 md:gap-0">
             
             {/* Column 1: Logo & Copyright */}
             <div className="flex flex-col items-start">
