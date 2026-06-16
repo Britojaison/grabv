@@ -379,36 +379,36 @@ export default function Home() {
             </div>
 
             {/* Logo */}
-            <div className="flex items-center">
+            <div className="flex items-center md:-ml-4">
               <Image
                 src="/images/logo.svg"
                 alt="GrabV Logo"
                 width={200}
                 height={80}
-                className="w-[120px] md:w-[180px] h-auto object-contain"
+                className="w-[90px] md:w-[125px] h-auto object-contain"
                 priority
               />
             </div>
           </div>
 
           {/* Desktop Nav - Hidden on Mobile and Tablet */}
-          <nav className="hidden lg:flex flex-1 justify-center items-center gap-12 xl:gap-[110px] text-white font-medium px-12">
-            <Link href="/" className="hover:text-[rgb(247,216,13)] transition-colors text-[26px]">Home</Link>
-            <Link href="/recipes" className="hover:text-[rgb(247,216,13)] transition-colors text-[26px]">Recipes</Link>
-            <Link href="/products" className="hover:text-[rgb(247,216,13)] transition-colors text-[26px]">Products</Link>
-            <Link href="/ourstory" className="hover:text-[rgb(247,216,13)] transition-colors text-[26px] whitespace-nowrap">Our Story</Link>
-            <Link href="/contact" className="hover:text-[rgb(247,216,13)] transition-colors text-[26px] whitespace-nowrap">Contact Us</Link>
-            <Link href="/faq" className="hover:text-[rgb(247,216,13)] transition-colors text-[26px]">FAQ</Link>
+          <nav className="hidden lg:flex flex-1 justify-center items-center gap-12 xl:gap-[80px] text-white font-medium px-12 lg:ml-12">
+            <Link href="/" className="hover:text-[rgb(247,216,13)] transition-colors text-[22px]">Home</Link>
+            <Link href="/recipes" className="hover:text-[rgb(247,216,13)] transition-colors text-[22px]">Recipes</Link>
+            <Link href="/products" className="hover:text-[rgb(247,216,13)] transition-colors text-[22px]">Products</Link>
+            <Link href="/ourstory" className="hover:text-[rgb(247,216,13)] transition-colors text-[22px] whitespace-nowrap">Our Story</Link>
+            <Link href="/contact" className="hover:text-[rgb(247,216,13)] transition-colors text-[22px] whitespace-nowrap">Contact Us</Link>
+            <Link href="/faq" className="hover:text-[rgb(247,216,13)] transition-colors text-[22px]">FAQ</Link>
           </nav>
 
           <button
             style={{
               borderRadius: '5px',
               backgroundColor: 'rgb(247, 216, 13)',
-              color: 'rgb(12, 61, 27)',
-              letterSpacing: '0.05em'
+              color: '#0D3D1B',
+              letterSpacing: '-0.06em'
             }}
-            className="font-arpona font-medium flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0 text-[12px] md:text-[22px] w-[110px] md:w-[240px] h-[30px] md:h-[48px]"
+            className="font-medium flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0 text-[12px] md:text-[22px] w-[110px] md:w-[180px] h-[30px] md:h-[48px]"
           >
             Order Now
           </button>
