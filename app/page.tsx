@@ -796,7 +796,7 @@ export default function Home() {
             <div className="absolute inset-0 w-full h-full flex items-center justify-center z-20 pointer-events-none">
               
               {/* Center Product */}
-              <div className="absolute top-[50%] md:top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-[250px] md:w-[800px]">
+              <div className="absolute top-[50%] md:top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-[200px] md:w-[600px]">
                 <img src="/images/HomePage/product package 2.png" alt="Smoked Makhani Gravy" className="w-full h-auto drop-shadow-2xl" />
                 <p className="absolute -bottom-[220px] left-1/2 -translate-x-1/2 w-max text-black font-arpona font-medium text-[14px] md:text-[28px] text-center leading-tight tracking-[-0.05em]">
                   Just switch your ingredients and<br/>create a whole new dish each time.
@@ -1013,33 +1013,34 @@ export default function Home() {
         {/* WHAT PEOPLE ARE SAYING SECTION */}
         <section className="relative w-full bg-[#FBF5E1] pt-[150px] md:pt-[200px] pb-40 overflow-hidden font-arpona bg-cover bg-center bg-no-repeat z-10 -mt-[100px] md:-mt-[150px]" style={{ backgroundImage: "url('/images/HomePage/red2%20bg.png')" }}>
           {/* Top text */}
-          <div className="max-w-[1920px] mx-auto px-4 md:px-[90px] pt-6 flex justify-between text-white text-xl md:text-3xl font-medium mb-12" style={{ letterSpacing: '-0.05em' }}>
-            <span>Our GrabV</span>
-            <span>Your review</span>
+          <div className="max-w-[1920px] mx-auto px-4 md:px-[90px] pt-12 flex justify-between text-white text-base md:text-xl font-medium mb-12" style={{ letterSpacing: '-0.05em' }}>
+            <span className="translate-x-[50px] md:translate-x-[140px] translate-y-[20px] md:translate-y-[60px]">Our GrabV</span>
+            <span className="-translate-x-[50px] md:-translate-x-[120px] translate-y-[30px] md:translate-y-[60px]">Your review</span>
           </div>
 
           {/* Main Heading */}
-          <div className="relative w-full flex flex-col items-center justify-center text-center px-4 mt-8 md:mt-16">
+          <div className="relative w-full flex flex-col items-center justify-center text-center px-4 mt-8 md:mt-16 z-10">
             
-            <div className="relative z-10 font-kura uppercase leading-[0.85] flex flex-col items-center w-full drop-shadow-xl" style={{ letterSpacing: '-0.02em' }}>
+            <div className="relative z-10 font-kura uppercase leading-[0.85] tracking-[-0.02em] text-center flex flex-col items-center w-full">
               
-              {/* WHAT PEOPLE */}
-              <div className="relative text-[100px] md:text-[300px]">
-                <span className="absolute inset-0 text-transparent pointer-events-none z-0" style={{ WebkitTextStroke: '20px rgb(21, 107, 54)' }}>WHAT PEOPLE</span>
-                <span className="relative z-10" style={{ color: 'rgb(247, 216, 13)' }}>WHAT PEOPLE</span>
+              {/* Shadow layer */}
+              <div className="absolute inset-0 flex flex-col items-center z-0 pointer-events-none translate-y-[5px] translate-x-[8px] md:translate-y-[10px] md:translate-x-[16px]" style={{ color: '#156B37' }}>
+                <div className="text-[90px] md:text-[250px]">WHAT PEOPLE</div>
+                <div className="text-[90px] md:text-[250px]">ARE SAYING</div>
               </div>
-              
-              {/* ARE SAYING */}
-              <div className="relative text-[100px] md:text-[300px]">
-                <span className="absolute inset-0 text-transparent pointer-events-none z-0" style={{ WebkitTextStroke: '20px rgb(21, 107, 54)' }}>ARE SAYING</span>
-                <span className="relative z-10" style={{ color: 'rgb(247, 216, 13)' }}>ARE SAYING</span>
-                
-                {/* Stir Simmer Sticker */}
-                <img 
-                  src="/images/HomePage/stir simmer sticker.png" 
-                  alt="Stir Simmer Sticker" 
-                  className="absolute left-[-10%] md:left-[-13%] -bottom-[10%] md:-bottom-[35%] w-[120px] md:w-[280px] rotate-3 z-30"
-                />
+
+              {/* Fill layer */}
+              <div className="relative z-10 flex flex-col items-center w-full" style={{ color: '#F7D80C' }}>
+                <div className="text-[90px] md:text-[250px]">WHAT PEOPLE</div>
+                <div className="relative text-[90px] md:text-[250px]">
+                  ARE SAYING
+                  {/* Stir Simmer Sticker */}
+                  <img 
+                    src="/images/HomePage/stir simmer sticker.png" 
+                    alt="Stir Simmer Sticker" 
+                    className="absolute left-[-10%] md:left-[-13%] -bottom-[10%] md:-bottom-[35%] w-[100px] md:w-[230px] rotate-3 z-30 pointer-events-none"
+                  />
+                </div>
               </div>
 
             </div>
@@ -1050,10 +1051,14 @@ export default function Home() {
           <div className="w-full max-w-[3000px] mx-auto mt-24 md:mt-32 px-0 flex flex-col md:flex-row justify-center items-center gap-12 md:gap-2 relative z-30">
             
             {/* Review 1 */}
-            <div className="relative w-[95%] md:w-[33%] max-w-[1400px] mx-auto">
+            <div className="relative w-[95%] md:w-[33%] max-w-[1400px] mx-auto md:translate-x-[60px]">
               <img src="/images/HomePage/review1.png" alt="Review 1" className="w-full h-auto drop-shadow-2xl" />
+              <div className="absolute top-[49%] right-[24%] flex flex-col items-end rotate-[8deg]">
+                <span className="font-bold text-[16px] md:text-[24px] text-black leading-none tracking-tight">-Sneha Mehta</span>
+                <span className="font-medium text-[12px] md:text-[18px] text-black leading-tight pr-1 tracking-tighter">Bengaluru</span>
+              </div>
               <div className="absolute bottom-[5%] left-[18%] right-[10%] h-[40%] flex items-start px-2">
-                <p className="text-black font-arpona font-normal tracking-[-0.02em] text-[16px] md:text-[26px] leading-[1.21] md:leading-[1.21] underline decoration-2 underline-offset-4 decoration-[#99B1FA]">
+                <p className="text-black font-arpona font-normal tracking-[-0.02em] text-[14px] md:text-[24px] leading-[1.21] md:leading-[1.21] underline decoration-2 underline-offset-4 decoration-[#99B1FA]">
                   I recently<br />
                   shifted to Bengaluru, and I was<br />
                   craving for the home cooked<br />
@@ -1065,10 +1070,14 @@ export default function Home() {
             </div>
 
             {/* Review 2 */}
-            <div className="relative w-[95%] md:w-[33%] max-w-[1400px] mx-auto">
+            <div className="relative w-[95%] md:w-[33%] max-w-[1400px] mx-auto md:-translate-y-[20px]">
               <img src="/images/HomePage/review2.png" alt="Review 2" className="w-full h-auto drop-shadow-2xl" />
+              <div className="absolute top-[48%] right-[18%] flex flex-col items-end rotate-[-12deg]">
+                <span className="font-bold text-[16px] md:text-[24px] text-black leading-none tracking-tight">-Harshith</span>
+                <span className="font-medium text-[12px] md:text-[18px] text-black leading-tight pr-1 tracking-tighter">Bengaluru</span>
+              </div>
               <div className="absolute bottom-[0%] left-[18%] right-[10%] h-[40%] flex items-start px-2">
-                <p className="text-black font-arpona font-normal tracking-[-0.02em] text-[16px] md:text-[26px] leading-[1.21] md:leading-[1.21] underline decoration-2 underline-offset-4 decoration-[#99B1FA]">
+                <p className="text-black font-arpona font-normal tracking-[-0.02em] text-[14px] md:text-[24px] leading-[1.21] md:leading-[1.21] underline decoration-2 underline-offset-4 decoration-[#99B1FA]">
                   Oh mahn!!<br />
                   What a flavourrr... made me feel<br />
                   like a real chef!!
@@ -1077,10 +1086,16 @@ export default function Home() {
             </div>
 
             {/* Review 3 */}
-            <div className="relative w-[95%] md:w-[33%] max-w-[1400px] mx-auto">
+            <div className="relative w-[95%] md:w-[33%] max-w-[1400px] mx-auto md:-translate-x-[60px]">
               <img src="/images/HomePage/review3.png" alt="Review 3" className="w-full h-auto drop-shadow-2xl" />
+              <div className="absolute top-[49%] right-[24%] flex flex-col items-end rotate-[6deg]">
+                <span className="font-bold text-[16px] md:text-[24px] text-black leading-none tracking-tight">-Chetana Gowda</span>
+                <span className="font-medium text-[12px] md:text-[18px] text-black leading-tight pr-1 tracking-tighter">Bengaluru</span>
+              </div>
+              {/* Tasty Sticker */}
+              <img src="/images/HomePage/tasty.png" alt="Tasty" className="absolute bottom-[5%] md:bottom-[2%] left-[6%] md:-left-[1%] w-[100px] md:w-[180px] -rotate-6 drop-shadow-xl z-40 pointer-events-none" />
               <div className="absolute bottom-[0%] left-[18%] right-[10%] h-[40%] flex items-start px-2">
-                <p className="text-black font-arpona font-normal tracking-[-0.02em] text-[16px] md:text-[26px] leading-[1.21] md:leading-[1.21] underline decoration-2 underline-offset-4 decoration-[#99B1FA]">
+                <p className="text-black font-arpona font-normal tracking-[-0.02em] text-[14px] md:text-[24px] leading-[1.21] md:leading-[1.21] underline decoration-2 underline-offset-4 decoration-[#99B1FA]">
                   Oh It is an absolute saviour to my<br />
                   busy days, so quick and so easy.<br />
                   Am stocking this up<br />
