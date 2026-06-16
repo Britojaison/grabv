@@ -474,7 +474,7 @@ export default function Home() {
           </div>
 
           {/* Product Image */}
-          <div className="relative z-10 w-[850px] max-w-[85vw] h-[82vh] max-h-[860px] translate-y-4">
+          <div className="relative z-10 w-[1600px] max-w-[110vw] h-[110vh] max-h-[1600px] translate-y-10">
             <Image
               src="/images/HomePage/product package 1.png"
               alt="GrabV Product Package"
@@ -626,19 +626,19 @@ export default function Home() {
             
             {/* Horizontal Scrolling Track */}
             <div className="relative w-full z-30">
-              <div ref={productsTrackRef} className="flex items-center gap-[80px] md:gap-[200px] pl-[40px] md:pl-[120px] pr-[40px] md:pr-[120px] will-change-transform" style={{ width: 'max-content' }}>
+              <div ref={productsTrackRef} className="flex items-center gap-[80px] md:gap-[100px] pl-[40px] md:pl-[120px] pr-[40px] md:pr-[120px] will-change-transform" style={{ width: 'max-content' }}>
                 
                 {/* Product 1 */}
                 <div className="relative inline-block flex-shrink-0 flex flex-col items-end">
                   <div className="relative">
-                    <img src="/images/HomePage/product1.png" className="h-[580px] md:h-[1020px] w-auto object-contain block drop-shadow-2xl" alt="Product 1" />
+                    <img src="/images/HomePage/product1.png" className="h-[540px] md:h-[950px] w-auto object-contain block drop-shadow-2xl" alt="Product 1" />
                     
                     <div className="absolute top-[34%] left-[64%] w-[36%] flex flex-col items-start text-black font-arpona">
-                      <h3 className="text-[34px] md:text-[55px] leading-[0.98] tracking-[-0.05em] font-bold">
+                      <h3 className="text-[34px] md:text-[50px] leading-[0.98] tracking-[-0.05em] font-bold">
                         ONION<br/>TOMATO<br/>GRAVY
                       </h3>
                       
-                      <div className="mt-4 md:mt-7 flex flex-col gap-1 md:gap-1 text-[15px] md:text-[26px] font-medium tracking-tight">
+                      <div className="mt-4 md:mt-7 flex flex-col gap-1 md:gap-1 text-[15px] md:text-[24px] font-medium tracking-tight">
                         <p>Zero Added Preservatives</p>
                         <p>All Purpose Gravy</p>
                         <p>Slow Cooked</p>
@@ -663,10 +663,10 @@ export default function Home() {
 
                 {/* Product 2 */}
                 <div className="relative inline-block flex-shrink-0 group">
-                  <img src="/images/HomePage/product2.png" className="h-[450px] md:h-[820px] w-auto object-contain block drop-shadow-2xl grayscale-[0.8] opacity-80 translate-y-[10px] md:translate-y-[30px]" alt="Product 2" />
+                  <img src="/images/HomePage/product2.png" className="h-[540px] md:h-[950px] w-auto object-contain block drop-shadow-2xl grayscale-[0.8] opacity-80" alt="Product 2" />
                   
                   {/* Coming Soon Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none translate-y-[10px] md:translate-y-[30px]">
+                  <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
                     <div className="bg-black/40 backdrop-blur-md px-8 py-3 md:px-12 md:py-4 rounded-full border border-white/20 shadow-xl">
                       <p className="text-white font-arpona font-medium text-[14px] md:text-[22px] uppercase tracking-[0.25em] text-center">
                         Coming Soon
