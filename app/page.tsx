@@ -462,33 +462,19 @@ export default function Home() {
         {/* Freshly Made Product Section */}
         <section className="relative w-full h-[100vh] flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
           {/* Background Text Overlay */}
-          <div className="absolute left-[120px] right-[120px] inset-y-0 flex flex-col justify-center pointer-events-none select-none z-0 overflow-hidden font-kura uppercase tracking-[-0.08em] drop-shadow-[0_4px_12px_rgba(0,0,0,0.25)]" style={{ color: 'rgb(21, 107, 54)' }}>
-            <div className="relative w-full h-[138px] mb-4 whitespace-nowrap text-[138px] leading-[1.0]">
+          <div className="absolute left-[120px] right-[120px] inset-y-0 flex flex-col justify-center pointer-events-none select-none z-0 overflow-hidden font-kura uppercase tracking-[-0.07em] translate-y-16" style={{ color: '#146A36' }}>
+            <div className="relative w-full h-[128px] mb-4 whitespace-nowrap text-[128px] leading-[1.0]">
               <span className="absolute left-0">FRESHLY MADE</span>
               <span className="absolute right-0">FRESHLY MADE</span>
             </div>
-            <div className="relative w-full h-[138px] mb-4 whitespace-nowrap text-[138px] leading-[1.0]">
-              <img src="/images/HomePage/onion.png" alt="" className="absolute top-1/2 left-[11.5%] -translate-y-1/2 w-[140px] md:w-[240px] -rotate-12 opacity-90 pointer-events-none z-[-1]" />
-              <span className="absolute left-0">100 % VEG</span>
-              <span className="absolute right-[80px]">100 % VEG</span>
-            </div>
-            <div className="relative w-full h-[138px] mb-4 whitespace-nowrap text-[138px] leading-[1.0]">
-              <span className="absolute left-0">FSSAI CERTIFIED</span>
-              <span className="absolute right-[40px]">FSSAI CERTIFIED</span>
-            </div>
-            <div className="relative w-full h-[138px] mb-4 whitespace-nowrap text-[138px] leading-[1.0]">
+            <div className="relative w-full h-[128px] whitespace-nowrap text-[128px] leading-[1.0]">
               <span className="absolute left-0">READY IN 10 MINS</span>
               <span className="absolute right-[40px]">READY IN 10 MINS</span>
-            </div>
-            <div className="relative w-full h-[138px] whitespace-nowrap text-[138px] leading-[1.0]">
-              <img src="/images/HomePage/tomato.png" alt="" className="absolute top-[20%] left-[63%] -translate-y-1/2 w-[180px] md:w-[320px] rotate-12 opacity-90 pointer-events-none z-[-1]" />
-              <span className="absolute left-0">REAL INGREDIENTS</span>
-              <span className="absolute right-0">REAL INGREDIENTS</span>
             </div>
           </div>
 
           {/* Product Image */}
-          <div className="relative z-10 w-[900px] h-[913px] translate-y-6">
+          <div className="relative z-10 w-[850px] max-w-[85vw] h-[82vh] max-h-[860px] translate-y-4">
             <Image
               src="/images/HomePage/product package 1.png"
               alt="GrabV Product Package"
@@ -499,13 +485,13 @@ export default function Home() {
           </div>
 
           {/* Bottom Left Text */}
-          <div className="absolute bottom-20 left-[120px] z-20 flex flex-col font-arpona text-[28px] leading-[1.0] tracking-[-0.05em] font-medium text-black">
+          <div className="absolute bottom-16 left-[120px] z-20 flex flex-col font-arpona text-[28px] leading-[1.0] tracking-[-0.05em] font-medium text-black">
             <span>Veg or non-veg</span>
             <span>Possibilities are endless</span>
           </div>
 
           {/* Bottom Right Text */}
-          <div className="absolute bottom-20 right-[120px] z-20 flex flex-col font-arpona text-[28px] leading-[1.0] tracking-[-0.05em] font-medium text-black text-right">
+          <div className="absolute bottom-16 right-[120px] z-20 flex flex-col font-arpona text-[28px] leading-[1.0] tracking-[-0.05em] font-medium text-black text-right">
             <span>Just add in the gravy</span>
             <span>And enjoy your meal</span>
           </div>
