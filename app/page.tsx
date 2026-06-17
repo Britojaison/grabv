@@ -483,7 +483,7 @@ export default function Home() {
       </header>
 
       {/* Main Container - Full Width */}
-      <main className="w-full relative flex flex-col">
+      <main className="w-full relative flex flex-col bg-[#FBF5E1]">
 
         <section
           ref={heroRef}
@@ -999,47 +999,44 @@ export default function Home() {
         </section>
 
         {/* READY TO COOK SECTION */}
-        <section className="relative w-full h-[150vh] bg-[#FBF5E1] pt-24 overflow-hidden font-arpona flex flex-col items-center">
+        <section className="relative w-full h-[160vh] bg-[#FBF5E1] pt-12 md:pt-24 overflow-hidden font-arpona flex flex-col items-center">
           
           {/* Order Now Button */}
-          <button className="bg-[#F7D80C] text-black font-arpona font-medium text-[16px] md:text-[20px] px-10 md:px-14 py-2 md:py-3 rounded-xl mb-16 shadow-md hover:bg-yellow-400 transition-colors z-40">
+          <button className="bg-[#F7D80C] text-black font-arpona font-medium text-[20px] md:text-[32px] leading-tight px-8 md:px-12 py-3 md:py-3 rounded-xl mb-12 shadow-md hover:bg-yellow-400 transition-colors z-40">
             Order now
           </button>
 
           {/* Main Heading */}
           <div className="relative w-full flex flex-col items-center justify-center text-center mt-4">
             
-            <div className="relative z-10 font-kura uppercase leading-[0.85] flex flex-col items-center w-full drop-shadow-xl" style={{ letterSpacing: '-0.02em' }}>
+            <div className="relative z-10 font-kura uppercase leading-[0.85] tracking-[-0.02em] text-center flex flex-col items-center w-full">
               
-              {/* READY TO COOK */}
-              <div className="relative text-[80px] md:text-[270px] w-full flex justify-center whitespace-nowrap">
-                <span className="absolute text-transparent pointer-events-none z-0" style={{ WebkitTextStroke: '20px rgb(247, 216, 13)' }}>READY TO COOK</span>
-                <span className="relative z-10" style={{ color: 'rgb(21, 107, 54)' }}>READY TO COOK</span>
-                
-                {/* Chef Effort Sticker */}
-                <img 
-                  src="/images/HomePage/chef effort sticker.png" 
-                  alt="Chef Effort Sticker" 
-                  className="absolute left-[-5%] md:left-[5%] -top-[20%] md:-top-[60%] w-[120px] md:w-[300px] -rotate-3 z-30"
-                />
-              </div>
-              
-              {/* SMART SMRTER */}
-              <div className="relative text-[80px] md:text-[270px] w-full flex justify-center whitespace-nowrap">
-                <span className="absolute text-transparent pointer-events-none z-0" style={{ WebkitTextStroke: '20px rgb(247, 216, 13)' }}>SMART SMRTER</span>
-                <span className="relative z-10" style={{ color: 'rgb(21, 107, 54)' }}>SMART SMRTER</span>
+              {/* Shadow layer */}
+              <div className="absolute inset-0 flex flex-col items-center z-0 pointer-events-none translate-y-[5px] translate-x-[8px] md:translate-y-[10px] md:translate-x-[16px]" style={{ color: '#F7D80C' }}>
+                <div className="text-[80px] md:text-[270px] whitespace-nowrap">READY TO COOK</div>
+                <div className="text-[80px] md:text-[270px] whitespace-nowrap">SMARTSMRTER</div>
+                <div className="text-[80px] md:text-[270px] whitespace-nowrap" style={{ letterSpacing: '0.04em', marginLeft: '0.04em' }}>EVERY ERDAY?</div>
               </div>
 
-              {/* EVERY ERDAY? */}
-              <div className="relative text-[80px] md:text-[270px] w-full flex justify-center whitespace-nowrap">
-                <span className="absolute text-transparent pointer-events-none z-0" style={{ WebkitTextStroke: '20px rgb(247, 216, 13)' }}>EVERY ERDAY?</span>
-                <span className="relative z-10" style={{ color: 'rgb(21, 107, 54)' }}>EVERY ERDAY?</span>
+              {/* Fill layer */}
+              <div className="relative z-10 flex flex-col items-center w-full" style={{ color: '#156B37' }}>
+                <div className="relative text-[80px] md:text-[270px] w-full flex justify-center whitespace-nowrap">
+                  READY TO COOK
+                  {/* Chef Effort Sticker */}
+                  <img 
+                    src="/images/HomePage/chef effort sticker.png" 
+                    alt="Chef Effort Sticker" 
+                    className="absolute left-[-5%] md:left-[5%] -top-[20%] md:-top-[60%] w-[120px] md:w-[300px] -rotate-3 z-30 pointer-events-none"
+                  />
+                </div>
+                <div className="text-[80px] md:text-[270px] whitespace-nowrap">SMARTSMRTER</div>
+                <div className="text-[80px] md:text-[270px] whitespace-nowrap" style={{ letterSpacing: '0.04em', marginLeft: '0.04em' }}>EVERY ERDAY?</div>
               </div>
 
             </div>
 
             {/* Product Image */}
-            <div className="absolute top-[15%] md:top-[5%] left-[57%] -translate-x-1/2 z-20 w-[95%] md:w-[1100px]">
+            <div className="absolute top-[35%] md:-top-[10%] left-[50%] md:left-[58%] -translate-x-1/2 z-20 w-[95%] md:w-[1200px]">
               <img src="/images/HomePage/product%20package%203.png" alt="Smoked Makhani Gravy" className="w-full h-auto drop-shadow-2xl" />
             </div>
 
@@ -1084,7 +1081,7 @@ export default function Home() {
             <div className="flex flex-col items-start">
               <h3 className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] font-normal mb-6">Product</h3>
               <ul className="flex flex-col space-y-2">
-                <li><a href="#" className="text-white text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-[#F7D80C] transition-colors">All Purpose Gravy</a></li>
+                <li><a href="#" className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-white transition-colors">All Purpose Gravy</a></li>
                 <li><a href="#" className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-white transition-colors">Ingredients</a></li>
                 <li><a href="#" className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-white transition-colors">How to Use</a></li>
                 <li><a href="#" className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-white transition-colors">Recipes</a></li>
