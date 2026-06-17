@@ -781,7 +781,7 @@ export default function Home() {
             <div className="absolute inset-0 w-full h-full flex items-center justify-center z-20 pointer-events-none">
               
               {/* Center Product */}
-              <div className="absolute top-[50%] md:top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-[200px] md:w-[680px]">
+              <div className="absolute top-[52%] md:top-[57%] left-[52%] -translate-x-1/2 -translate-y-1/2 z-30 w-[200px] md:w-[680px]">
                 <img src="/images/HomePage/product package 2.png" alt="Smoked Makhani Gravy" className="w-full h-auto drop-shadow-2xl" />
               </div>
 
@@ -818,31 +818,21 @@ export default function Home() {
               </div>
 
               {/* --- ARROWS --- */}
-              <svg className="absolute inset-0 w-full h-full z-10 hidden md:block" viewBox="0 0 1920 1080" fill="none">
+              <div className="absolute inset-0 w-full h-full z-10 pointer-events-none hidden md:block">
                 {/* To Bhindi Masala (Top Left) */}
-                <path d="M620,450 Q550,350 450,300" stroke="#E3002B" strokeWidth="8" strokeDasharray="16 16" strokeLinecap="round"/>
-                <path d="M480,280 L450,300 L470,330" stroke="#E3002B" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/>
-                
+                <img src="/images/HomePage/arrow2.png" className="absolute top-[38%] left-[30%] w-[200px] lg:w-[280px]" alt="" />
                 {/* To Aloo Gobhi (Middle Left) */}
-                <path d="M600,650 Q525,600 450,650" stroke="#E3002B" strokeWidth="8" strokeDasharray="16 16" strokeLinecap="round"/>
-                <path d="M480,630 L450,650 L470,680" stroke="#E3002B" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/>
-
-                {/* To Mutter Paneer (Bottom Left) - loops from below */}
-                <path d="M800,950 Q750,1050 500,950" stroke="#E3002B" strokeWidth="8" strokeDasharray="16 16" strokeLinecap="round"/>
-                <path d="M530,930 L500,950 L530,970" stroke="#E3002B" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/>
-
+                <img src="/images/HomePage/arrow4.png" className="absolute top-[52%] left-[29%] w-[140px] lg:w-[180px]" alt="" />
+                {/* To Mutter Paneer (Bottom Left) */}
+                <img src="/images/HomePage/arrow6.png" className="absolute bottom-[22%] left-[27%] w-[160px] lg:w-[220px]" alt="" />
+                
                 {/* To Egg Curry (Top Right) */}
-                <path d="M1300,450 Q1370,350 1470,300" stroke="#E3002B" strokeWidth="8" strokeDasharray="16 16" strokeLinecap="round"/>
-                <path d="M1440,280 L1470,300 L1450,330" stroke="#E3002B" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/>
-
+                <img src="/images/HomePage/arrow1.png" className="absolute top-[38%] right-[24%] w-[160px] lg:w-[220px]" alt="" />
                 {/* To Chicken Curry (Middle Right) */}
-                <path d="M1320,650 Q1395,600 1470,650" stroke="#E3002B" strokeWidth="8" strokeDasharray="16 16" strokeLinecap="round"/>
-                <path d="M1440,630 L1470,650 L1450,680" stroke="#E3002B" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/>
-
-                {/* To Mutton Sukka (Bottom Right) - loops from below */}
-                <path d="M1120,950 Q1170,1050 1420,950" stroke="#E3002B" strokeWidth="8" strokeDasharray="16 16" strokeLinecap="round"/>
-                <path d="M1390,930 L1420,950 L1390,970" stroke="#E3002B" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+                <img src="/images/HomePage/arrow3.png" className="absolute top-[52%] right-[22%] w-[140px] lg:w-[180px]" alt="" />
+                {/* To Mutton Sukka (Bottom Right) */}
+                <img src="/images/HomePage/arrow5.png" className="absolute bottom-[21%] right-[24%] w-[140px] lg:w-[180px]" alt="" />
+              </div>
 
             </div>
           </div>
