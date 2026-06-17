@@ -162,7 +162,7 @@ export default function Home() {
       ([entry]) => {
         setIsReadyToCookVisible(entry.isIntersecting);
       },
-      { threshold: 0.3 }
+      { threshold: 0.45 }
     );
     if (readyToCookSectionRef.current) observer.observe(readyToCookSectionRef.current);
     return () => observer.disconnect();
@@ -518,45 +518,45 @@ export default function Home() {
           <section className="sticky top-[70px] md:top-[110px] w-full h-[calc(100vh-70px)] md:h-[calc(100vh-110px)] flex flex-col justify-center overflow-hidden bg-[#FBF5E1]">
             
             {/* Horizontal Scrolling Track */}
-            <div className="relative w-full z-30">
-              <div ref={stepsTrackRef} className="flex items-center gap-[50px] pl-[40px] md:pl-[120px] pr-[40px] md:pr-[120px] will-change-transform" style={{ width: 'max-content' }}>
+            <div className="relative w-full z-30 h-full flex items-center">
+              <div ref={stepsTrackRef} className="flex items-end gap-[50px] pl-[40px] md:pl-[120px] pr-[40px] md:pr-[120px] will-change-transform" style={{ width: 'max-content' }}>
                 
                 {/* Step 1 */}
-                <div className="w-[80vw] md:w-[880px] flex-shrink-0 flex flex-col">
-                  <img src="/images/HomePage/cooking img1.png" className="w-full h-auto block drop-shadow-2xl" alt="Step 1" />
-                  <p className="mt-4 md:mt-6 ml-2 md:ml-4 font-arpona text-[20px] md:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg">
+                <div className="w-[80vw] md:w-[880px] flex-shrink-0 flex flex-col justify-end">
+                  <img src="/images/HomePage/cooking img1.png" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[60vh]" alt="Step 1" />
+                  <p className="mt-4 md:mt-6 ml-2 md:ml-4 font-arpona text-[20px] md:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10">
                     Add your tempering (tadka) in oil.
                   </p>
                 </div>
 
                 {/* Step 2 */}
-                <div className="w-[80vw] md:w-[880px] flex-shrink-0 flex flex-col">
-                  <img src="/images/HomePage/cooking img2.png" className="w-full h-auto block drop-shadow-2xl" alt="Step 2" />
-                  <p className="mt-4 md:mt-6 ml-2 md:ml-4 font-arpona text-[20px] md:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg">
+                <div className="w-[80vw] md:w-[880px] flex-shrink-0 flex flex-col justify-end">
+                  <img src="/images/HomePage/cooking img2.png" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[60vh]" alt="Step 2" />
+                  <p className="mt-4 md:mt-6 ml-2 md:ml-4 font-arpona text-[20px] md:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10">
                     Sauté veggies or protein of your choice.
                   </p>
                 </div>
 
                 {/* Step 3 */}
-                <div className="w-[80vw] md:w-[880px] flex-shrink-0 flex flex-col">
-                  <img src="/images/HomePage/cooking img3.png" className="w-full h-auto block drop-shadow-2xl" alt="Step 3" />
-                  <p className="mt-4 md:mt-6 ml-2 md:ml-4 font-arpona text-[20px] md:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg">
-                    Pour in the GrabV gravy and mix well.
+                <div className="w-[80vw] md:w-[880px] flex-shrink-0 flex flex-col justify-end">
+                  <img src="/images/HomePage/cooking img3.png" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[60vh]" alt="Step 3" />
+                  <p className="mt-4 md:mt-6 ml-2 md:ml-4 font-arpona text-[20px] md:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10">
+                    Pour GrabV & adjust consistency
                   </p>
                 </div>
 
                 {/* Step 4 */}
-                <div className="w-[80vw] md:w-[880px] flex-shrink-0 flex flex-col">
-                  <img src="/images/HomePage/cooking img4.png" className="w-full h-auto block drop-shadow-2xl" alt="Step 4" />
-                  <p className="mt-4 md:mt-6 ml-2 md:ml-4 font-arpona text-[20px] md:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg">
+                <div className="w-[80vw] md:w-[880px] flex-shrink-0 flex flex-col justify-end">
+                  <img src="/images/HomePage/cooking img4.png" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[60vh]" alt="Step 4" />
+                  <p className="mt-4 md:mt-6 ml-2 md:ml-4 font-arpona text-[20px] md:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10">
                     Add water as needed and let it simmer.
                   </p>
                 </div>
 
                 {/* Step 5 */}
-                <div className="w-[80vw] md:w-[880px] flex-shrink-0 flex flex-col">
-                  <img src="/images/HomePage/cooking img5.png" className="w-full h-auto block drop-shadow-2xl" alt="Step 5" />
-                  <p className="mt-4 md:mt-6 ml-2 md:ml-4 font-arpona text-[20px] md:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg">
+                <div className="w-[80vw] md:w-[880px] flex-shrink-0 flex flex-col justify-end">
+                  <img src="/images/HomePage/cooking img5.png" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[60vh]" alt="Step 5" />
+                  <p className="mt-4 md:mt-6 ml-2 md:ml-4 font-arpona text-[20px] md:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10">
                     Garnish, serve hot, and show off!
                   </p>
                 </div>
@@ -854,8 +854,8 @@ export default function Home() {
         <section className="relative w-full bg-[#FBF5E1] pt-[150px] md:pt-[200px] pb-40 overflow-hidden font-arpona bg-cover bg-center bg-no-repeat z-10 -mt-[100px] md:-mt-[150px]" style={{ backgroundImage: "url('/images/HomePage/red2%20bg.png')" }}>
           {/* Top text */}
           <div className="max-w-[1920px] mx-auto px-4 md:px-[90px] pt-12 flex justify-between text-white text-base md:text-xl font-medium mb-12" style={{ letterSpacing: '-0.05em' }}>
-            <span className="translate-x-[50px] md:translate-x-[140px] translate-y-[20px] md:translate-y-[60px]">Our GrabV</span>
-            <span className="-translate-x-[50px] md:-translate-x-[120px] translate-y-[30px] md:translate-y-[60px]">Your review</span>
+            <span className="translate-x-[50px] md:translate-x-[60px] translate-y-[20px] md:translate-y-[60px]">Our GrabV</span>
+            <span className="-translate-x-[50px] md:-translate-x-[40px] translate-y-[30px] md:translate-y-[60px]">Your review</span>
           </div>
 
           {/* Main Heading */}
@@ -895,7 +895,7 @@ export default function Home() {
               <img src="/images/HomePage/review1.png" alt="Review 1" className="w-full h-auto drop-shadow-2xl" />
               <div className="absolute top-[49%] right-[24%] flex flex-col items-end rotate-[8deg]">
                 <span className="font-bold text-[16px] md:text-[24px] text-black leading-none tracking-tight">-Sneha Mehta</span>
-                <span className="font-medium text-[12px] md:text-[18px] text-black leading-tight pr-1 tracking-tighter">Bengaluru</span>
+                <span className="font-medium text-[12px] md:text-[18px] text-black leading-tight pr-1 tracking-tighter">Bengaluru, Copywriter</span>
               </div>
               <div className="absolute bottom-[5%] left-[18%] right-[10%] h-[40%] flex items-start px-2">
                 <p className="text-black font-arpona font-normal tracking-[-0.02em] text-[14px] md:text-[24px] leading-[1.21] md:leading-[1.21] underline decoration-2 underline-offset-4 decoration-[#99B1FA]">
@@ -910,17 +910,19 @@ export default function Home() {
             </div>
 
             {/* Review 2 */}
-            <div className="relative w-[95%] md:w-[33%] max-w-[1400px] mx-auto md:-translate-y-[20px]">
+            <div className="relative w-[85%] md:w-[28%] max-w-[1400px] mx-auto md:-translate-y-[20px]">
               <img src="/images/HomePage/review2.png" alt="Review 2" className="w-full h-auto drop-shadow-2xl" />
               <div className="absolute top-[48%] right-[18%] flex flex-col items-end rotate-[-12deg]">
-                <span className="font-bold text-[16px] md:text-[24px] text-black leading-none tracking-tight">-Harshith</span>
-                <span className="font-medium text-[12px] md:text-[18px] text-black leading-tight pr-1 tracking-tighter">Bengaluru</span>
+                <span className="font-bold text-[16px] md:text-[24px] text-black leading-none tracking-tight">-Ananya & Rohan</span>
+                <span className="font-medium text-[12px] md:text-[18px] text-black leading-tight pr-1 tracking-tighter">Bengaluru, Consultants</span>
               </div>
-              <div className="absolute bottom-[0%] left-[18%] right-[10%] h-[40%] flex items-start px-2">
-                <p className="text-black font-arpona font-normal tracking-[-0.02em] text-[14px] md:text-[24px] leading-[1.21] md:leading-[1.21] underline decoration-2 underline-offset-4 decoration-[#99B1FA]">
-                  Oh mahn!!<br />
-                  What a flavourrr... made me feel<br />
-                  like a real chef!!
+              <div className="absolute bottom-[0%] left-[14%] right-[10%] h-[40%] flex items-start px-2">
+                <p className="text-black font-arpona font-normal tracking-[-0.02em] text-[14px] md:text-[22px] xl:text-[24px] leading-[1.21] md:leading-[1.21] underline decoration-2 underline-offset-4 decoration-[#99B1FA]">
+                  After office,<br />
+                  full curry prep is too much .<br />
+                  GrabV with chicken or paneer<br />
+                  tastes really good proper home<br />
+                  food vibes. Total weekday save.
                 </p>
               </div>
             </div>
@@ -929,17 +931,17 @@ export default function Home() {
             <div className="relative w-[95%] md:w-[33%] max-w-[1400px] mx-auto md:-translate-x-[60px]">
               <img src="/images/HomePage/review3.png" alt="Review 3" className="w-full h-auto drop-shadow-2xl" />
               <div className="absolute top-[49%] right-[24%] flex flex-col items-end rotate-[6deg]">
-                <span className="font-bold text-[16px] md:text-[24px] text-black leading-none tracking-tight">-Chetana Gowda</span>
-                <span className="font-medium text-[12px] md:text-[18px] text-black leading-tight pr-1 tracking-tighter">Bengaluru</span>
+                <span className="font-bold text-[16px] md:text-[24px] text-black leading-none tracking-tight">-Rekha Nair</span>
+                <span className="font-medium text-[12px] md:text-[18px] text-black leading-tight pr-1 tracking-tighter">Bengaluru, Housewife</span>
               </div>
               {/* Tasty Sticker */}
               <img src="/images/HomePage/tasty.png" alt="Tasty" className="absolute bottom-[5%] md:bottom-[2%] left-[6%] md:-left-[1%] w-[100px] md:w-[180px] -rotate-6 drop-shadow-xl z-40 pointer-events-none" />
               <div className="absolute bottom-[0%] left-[18%] right-[10%] h-[40%] flex items-start px-2">
                 <p className="text-black font-arpona font-normal tracking-[-0.02em] text-[14px] md:text-[24px] leading-[1.21] md:leading-[1.21] underline decoration-2 underline-offset-4 decoration-[#99B1FA]">
-                  Oh It is an absolute saviour to my<br />
-                  busy days, so quick and so easy.<br />
-                  Am stocking this up<br />
-                  again for sure!!
+                  GrabV is very useful at home.<br />
+                  Same gravy works for paneer,<br />
+                  mixed veg and chicken also.<br />
+                  Taste is nice, work is less.
                 </p>
               </div>
             </div>
