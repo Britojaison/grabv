@@ -41,6 +41,84 @@ const SlideIn = ({ children, className, direction }: { children: React.ReactNode
   );
 };
 
+const AnimatedDottedLine = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const pathRef = useRef<SVGPathElement>(null);
+  const maskPathRef = useRef<SVGPathElement>(null);
+  const ballRef = useRef<HTMLDivElement>(null);
+  const [pathLen, setPathLen] = useState(0);
+
+  useEffect(() => {
+    if (pathRef.current) {
+      setPathLen(pathRef.current.getTotalLength());
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!containerRef.current || !pathRef.current || !ballRef.current || !maskPathRef.current || pathLen === 0) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      const scrolled = (windowHeight / 2) - rect.top;
+      const end = rect.height;
+      
+      let p = scrolled / end;
+      if (p < 0) p = 0;
+      if (p > 1) p = 1;
+      
+      const drawLength = p * pathLen;
+      const pt = pathRef.current.getPointAtLength(drawLength);
+      
+      ballRef.current.style.left = `${pt.x}%`;
+      ballRef.current.style.top = `${pt.y}%`;
+
+      maskPathRef.current.style.strokeDasharray = `${pathLen} ${pathLen}`;
+      maskPathRef.current.style.strokeDashoffset = `${pathLen - drawLength}`;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Run once on mount to set initial position
+    setTimeout(handleScroll, 100); 
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [pathLen]);
+
+  return (
+    <div ref={containerRef} className="absolute top-[400px] md:top-[850px] left-0 w-full h-[1500px] md:h-[2200px] pointer-events-none z-0">
+      <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100" fill="none">
+        <defs>
+          <mask id="line-mask">
+            <path 
+              ref={maskPathRef}
+              d="M75,0 C 75,10 25,10 25,20 C 25,30 75,30 75,40 C 75,50 25,50 25,60 C 25,70 75,70 75,80 C 75,90 25,90 25,100" 
+              stroke="white" 
+              strokeWidth="5" 
+              fill="none"
+              strokeLinecap="round" 
+              style={{ transition: 'stroke-dashoffset 0.1s ease-out' }}
+            />
+          </mask>
+        </defs>
+        <path 
+          ref={pathRef} 
+          d="M75,0 C 75,10 25,10 25,20 C 25,30 75,30 75,40 C 75,50 25,50 25,60 C 25,70 75,70 75,80 C 75,90 25,90 25,100" 
+          stroke="#E3002B" 
+          strokeWidth="4" 
+          strokeDasharray="8 12" 
+          strokeLinecap="round" 
+          vectorEffect="non-scaling-stroke" 
+          mask="url(#line-mask)"
+        />
+      </svg>
+      <div 
+        ref={ballRef} 
+        className="absolute w-[30px] h-[30px] bg-[#E3002B] rounded-full -translate-x-1/2 -translate-y-1/2 z-20 shadow-md border-2 border-white"
+        style={{ left: '75%', top: '0%', transition: 'left 0.1s ease-out, top 0.1s ease-out' }}
+      />
+    </div>
+  );
+};
+
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const heroRef = useRef<HTMLElement | null>(null);
@@ -53,10 +131,7 @@ export default function Home() {
     { text: "Zero Preservatives", icon: "Zero Preservatives (1).svg" },
   ];
 
-  const processSectionRef = useRef<HTMLElement | null>(null);
-  const processPathRef = useRef<SVGPathElement | null>(null);
-  const ballPathRef = useRef<SVGPathElement | null>(null);
-  const coverPathRef = useRef<SVGPathElement | null>(null);
+
 
   const stepsContainerRef = useRef<HTMLDivElement | null>(null);
   const stepsTrackRef = useRef<HTMLDivElement | null>(null);
@@ -65,43 +140,6 @@ export default function Home() {
   const productsTrackRef = useRef<HTMLDivElement | null>(null);
   const stepsInnerRef = useRef<HTMLElement | null>(null);
 
-  useEffect(() => {
-    let pathLength = 0;
-    
-    setTimeout(() => {
-      if (processPathRef.current && ballPathRef.current && coverPathRef.current) {
-        pathLength = processPathRef.current.getTotalLength();
-        ballPathRef.current.style.strokeDasharray = `0.1 ${pathLength + 100}`;
-        coverPathRef.current.style.strokeDasharray = `${pathLength} 100000`;
-      }
-    }, 100);
-
-    const handleScroll = () => {
-      if (!processSectionRef.current || !ballPathRef.current || !coverPathRef.current || pathLength === 0) return;
-      const rect = processSectionRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      
-      const pathStartPx = rect.height * 0.22;
-      const pathEndPx = rect.height * 0.83;
-      const currentScrollCenter = -rect.top + (windowHeight / 2);
-      
-      let progress = (currentScrollCenter - pathStartPx) / (pathEndPx - pathStartPx);
-      progress = Math.max(0, Math.min(1, progress));
-      
-      requestAnimationFrame(() => {
-        if (ballPathRef.current && coverPathRef.current) {
-          const offset = -(progress * pathLength);
-          ballPathRef.current.style.strokeDashoffset = `${offset}`;
-          coverPathRef.current.style.strokeDashoffset = `${offset}`;
-        }
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    setTimeout(handleScroll, 150);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     const hero = heroRef.current;
@@ -581,7 +619,7 @@ export default function Home() {
         </div>
 
         {/* Our Products Section */}
-        <div className="relative w-full bg-[#FBF5E1] z-10 pb-[60px] md:pb-[120px]">
+        <div className="relative w-full bg-transparent z-10 pb-[60px] md:pb-[120px]">
           
           {/* Full-height background image spanning both heading and products */}
           <div className="absolute top-0 left-0 right-0 bottom-0 w-full pointer-events-none z-0 flex flex-col">
@@ -697,96 +735,87 @@ export default function Home() {
         {/* End of Entire Red Section Wrapper */}
         </div>
 
-        {/* How We Do It Section */}
-        <section className="relative w-full flex flex-col items-center pt-24 pb-48 overflow-visible z-0" style={{ backgroundColor: '#FBF5E1' }}>
+        {/* HOW WE MAKE IT Section */}
+        <section className="relative w-full bg-[#FBF5E1] pt-12 md:pt-24 pb-32 md:pb-48 overflow-visible z-0">
           
-          {/* Huge Heading (In Front) */}
-          <div className="relative z-10 font-kura uppercase leading-[0.85] tracking-[-0.02em] text-center flex flex-col items-center w-full">
-            <div className="relative text-[#156B36] text-[100px] md:text-[300px]" style={{ WebkitTextStroke: '20px #F7D80C', paintOrder: 'stroke fill' }}>
-              HOW
+          {/* Top Heading Area */}
+          <div className="relative w-full max-w-[1400px] mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-center z-20">
+            
+            {/* Left: Gravy Pouring Image */}
+            <div className="w-full md:w-[50%] relative flex justify-center md:justify-end z-20 md:-mt-[420px] md:-translate-x-[720px]">
+              <img src="/images/HomePage/Gravy pouring.png" alt="Gravy Pouring" className="w-[110%] md:w-[105%] max-w-[400px] md:max-w-[800px] object-contain drop-shadow-2xl" />
             </div>
-            <div className="relative text-[#156B36] text-[100px] md:text-[300px]" style={{ WebkitTextStroke: '20px #F7D80C', paintOrder: 'stroke fill' }}>
-              WE DO IT
-            </div>
-          </div>
 
-          {/* Gravy Pouring Image (Behind Text) */}
-          <div className="relative w-full max-w-[1150px] flex justify-center mt-[-100px] md:mt-[-650px] z-0 pointer-events-none">
-            <img src="/images/HomePage/Gravy pouring.svg" className="w-[120%] md:w-full max-w-none md:max-w-full h-auto object-contain drop-shadow-2xl translate-x-[10%] md:translate-x-[45%]" alt="Gravy Pouring" />
-
-            {/* Cards Overlay */}
-            <div className="absolute inset-0 pointer-events-auto flex justify-center">
-              <div className="relative w-full max-w-[1150px] h-full translate-x-[10%] md:translate-x-[20%]">
+            {/* Right: Text and Star */}
+            <div className="w-full md:w-[55%] flex flex-col items-center md:items-start relative z-10 mt-[-40px] md:-mt-[260px] md:-ml-[910px] z-30">
+              {/* Star Image */}
+              <img src="/images/HomePage/star.png" alt="Star" className="absolute top-[-30px] right-[-10%] md:top-[-40px] md:-right-[430px] w-[120px] md:w-[280px] -rotate-[6deg] z-0" />
+              
+              <div className="relative font-kura uppercase leading-[0.85] tracking-[-0.02em] text-center md:text-left z-10">
+                {/* Shadow layer (Yellow) */}
+                <div className="absolute inset-0 z-0 translate-y-[5px] translate-x-[5px] md:translate-y-[10px] md:translate-x-[15px]" style={{ color: '#F7D80C' }}>
+                  <div className="text-[80px] md:text-[260px] whitespace-nowrap md:-ml-[40px]">HOW WE</div>
+                  <div className="text-[80px] md:text-[260px] whitespace-nowrap">MAKE IT</div>
+                </div>
                 
-                {/* Card 1: Fresh Onions & Tomatoes (Top Left, near stream) */}
-                <div className="absolute top-[48%] left-[40%] md:top-[36%] md:left-[38%] w-[200px] md:w-[600px] -translate-x-1/2 -rotate-[2deg]">
-                  <img src="/images/HomePage/card.png" className="w-full h-auto drop-shadow-xl" alt="Card Background" />
-                  <div className="absolute inset-0 px-[15%] pt-[14%] pb-[12%] flex flex-col justify-center items-center text-center text-black font-arpona -rotate-[4deg]">
-                    <h4 className="font-bold text-[16px] md:text-[34px] tracking-[-0.05em] leading-tight mb-3">Fresh Onions<br/>& Tomatoes</h4>
-                    <p className="font-medium text-[11px] md:text-[24px] tracking-[-0.05em] leading-snug underline decoration-2 underline-offset-4 decoration-blue-600 text-center">Slow cooked to<br/>perfection for a rich &<br/>robust base.</p>
-                  </div>
-                  <svg className="absolute -bottom-8 right-[40%] w-12 h-12 md:w-24 md:h-24 overflow-visible pointer-events-none" viewBox="0 0 100 100" fill="none">
-                    <path d="M20,10 Q40,50 60,80 M35,75 Q45,78 60,80 M50,55 Q55,65 60,80" stroke="#E3002B" strokeWidth="6" strokeDasharray="12 12" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                {/* Fill layer (Green) */}
+                <div className="relative z-10" style={{ color: '#156B36' }}>
+                  <div className="text-[80px] md:text-[260px] whitespace-nowrap md:-ml-[40px]">HOW WE</div>
+                  <div className="text-[80px] md:text-[260px] whitespace-nowrap">MAKE IT</div>
                 </div>
-
-                {/* Card 2: The Creamy Secret (Top Right) */}
-                <div className="absolute top-[45%] right-[20%] md:top-[38%] md:right-[2%] w-[200px] md:w-[600px] translate-x-1/2 rotate-[12deg]">
-                  <img src="/images/HomePage/card.png" className="w-full h-auto drop-shadow-xl" alt="Card Background" />
-                  <div className="absolute inset-0 px-[15%] pt-[14%] pb-[12%] flex flex-col justify-center items-center text-center text-black font-arpona -rotate-[4deg]">
-                    <h4 className="font-bold text-[16px] md:text-[34px] tracking-[-0.05em] leading-tight mb-3">The Creamy Secret</h4>
-                    <p className="font-medium text-[11px] md:text-[24px] tracking-[-0.05em] leading-snug underline decoration-2 underline-offset-4 decoration-blue-600 text-center">A dash of cashew for that<br/>restaurant-style velvet<br/>finish & texture</p>
-                  </div>
-                  <svg className="absolute -bottom-8 left-[30%] w-12 h-12 md:w-24 md:h-24 overflow-visible pointer-events-none" viewBox="0 0 100 100" fill="none">
-                    <path d="M80,10 Q60,40 40,80 M65,75 Q55,78 40,80 M50,55 Q45,65 40,80" stroke="#E3002B" strokeWidth="6" strokeDasharray="12 12" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-
-                {/* Card 3: The Whole Spice Bloom (Middle Left) */}
-                <div className="absolute top-[60%] left-[20%] md:top-[55%] md:left-[-6%] w-[200px] md:w-[600px] -translate-x-1/2 -rotate-[5deg]">
-                  <img src="/images/HomePage/card.png" className="w-full h-auto drop-shadow-xl" alt="Card Background" />
-                  <div className="absolute inset-0 px-[15%] pt-[14%] pb-[12%] flex flex-col justify-center items-center text-center text-black font-arpona -rotate-[4deg]">
-                    <h4 className="font-bold text-[16px] md:text-[34px] tracking-[-0.05em] leading-tight mb-3">The Whole<br/>Spice Bloom</h4>
-                    <p className="font-medium text-[11px] md:text-[24px] tracking-[-0.05em] leading-snug underline decoration-2 underline-offset-4 decoration-blue-600 text-center">Cumin, cinnamon, clove<br/>& bay leaves roasted &<br/>grounded for deep aroma</p>
-                  </div>
-                  <svg className="absolute top-[40%] -right-16 md:-right-32 w-16 h-12 md:w-24 md:h-24 overflow-visible pointer-events-none" viewBox="0 0 100 100" fill="none">
-                    <path d="M10,20 Q50,30 90,60 M65,45 Q75,50 90,60 M75,75 Q82,68 90,60" stroke="#E3002B" strokeWidth="6" strokeDasharray="12 12" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-
-                {/* Card 4: The Special Blend (Bottom Left) */}
-                <div className="absolute top-[75%] left-[25%] md:top-[75%] md:left-[10%] w-[200px] md:w-[600px] -translate-x-1/2 -rotate-[3deg]">
-                  <img src="/images/HomePage/card.png" className="w-full h-auto drop-shadow-xl" alt="Card Background" />
-                  <div className="absolute inset-0 px-[15%] pt-[14%] pb-[12%] flex flex-col justify-center items-center text-center text-black font-arpona -rotate-[4deg]">
-                    <h4 className="font-bold text-[16px] md:text-[34px] tracking-[-0.05em] leading-tight mb-3">The Special<br/>Blend</h4>
-                    <p className="font-medium text-[11px] md:text-[24px] tracking-[-0.05em] leading-snug underline decoration-2 underline-offset-4 decoration-blue-600 text-center">Chilli, turmeric, coriander<br/>& pepper for the taste &<br/>feel of home</p>
-                  </div>
-                  <svg className="absolute top-1/4 -right-10 md:-right-20 w-12 h-12 md:w-24 md:h-24 overflow-visible pointer-events-none" viewBox="0 0 100 100" fill="none">
-                    <path d="M10,80 Q40,50 80,20 M55,25 Q65,22 80,20 M70,45 Q75,32 80,20" stroke="#E3002B" strokeWidth="6" strokeDasharray="12 12" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-
-                {/* Card 5: Zero Additives (Bottom Center) */}
-                <div className="absolute top-[83%] left-[50%] md:top-[83%] md:left-[68%] w-[200px] md:w-[600px] -translate-x-1/2 -rotate-[12deg]">
-                  <img src="/images/HomePage/card.png" className="w-full h-auto drop-shadow-xl" alt="Card Background" />
-                  <div className="absolute inset-0 px-[15%] pt-[14%] pb-[12%] flex flex-col justify-center items-center text-center text-black font-arpona -rotate-[4deg]">
-                    <h4 className="font-bold text-[16px] md:text-[34px] tracking-[-0.05em] leading-tight mb-3">Zero Additives</h4>
-                    <p className="font-medium text-[11px] md:text-[24px] tracking-[-0.05em] leading-snug underline decoration-2 underline-offset-4 decoration-blue-600 text-center">100% preservative-free<br/>and freshly made and<br/>chilled to lock in<br/>natural flavor.</p>
-                  </div>
-                  <svg className="absolute -top-4 left-[30%] w-12 h-12 md:w-24 md:h-24 overflow-visible pointer-events-none" viewBox="0 0 100 100" fill="none">
-                    <path d="M80,90 Q50,60 20,20 M45,25 Q35,22 20,20 M30,45 Q25,32 20,20" stroke="#E3002B" strokeWidth="6" strokeDasharray="12 12" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-
-                {/* Curry In Motion Sticker */}
-                <div className="absolute top-[85%] left-[85%] md:top-[85%] md:left-[96%] w-[120px] md:w-[280px] -translate-x-1/2 rotate-[12deg] z-20 pointer-events-none">
-                  <img src="/images/HomePage/curry in motion.png" className="w-full h-auto drop-shadow-xl" alt="Curry In Motion" />
-                </div>
-
               </div>
             </div>
           </div>
 
+          {/* Dotted Line SVG (Background) */}
+          <AnimatedDottedLine />
+
+          {/* Process Steps Container */}
+          <div className="relative w-full max-w-[1200px] mx-auto mt-10 md:-mt-20 px-4 md:px-8 flex flex-col gap-32 md:gap-40 z-10 md:-mb-[3000px]">
+            
+            {/* Step 1: Chefs (Right) */}
+            <div className="flex justify-end w-full relative md:top-[-200px] md:right-[-340px]">
+              <SlideIn direction="right" className="relative w-[100%] md:w-[80%]">
+                <img src="/images/HomePage/process1.png" alt="Chefs" className="w-full h-auto drop-shadow-2xl" />
+              </SlideIn>
+            </div>
+
+            {/* Step 2: Stove with 3 pots (Left) */}
+            <div className="flex justify-start w-full relative mt-10 md:top-[-880px] md:left-[-370px] md:scale-[2] origin-left">
+              <SlideIn direction="left" className="relative w-[100%] md:w-[70%]">
+                <img src="/images/HomePage/process2.png" alt="Stove" className="w-full h-auto drop-shadow-2xl" />
+              </SlideIn>
+            </div>
+
+            {/* Step 3: Lady Tasting (Right) */}
+            <div className="flex justify-end w-full relative mt-10 md:top-[-1380px] md:right-[-280px]">
+              <SlideIn direction="right" className="relative w-[90%] md:w-[65%]">
+                <img src="/images/HomePage/process3.png" alt="Quality Check" className="w-full h-auto drop-shadow-2xl" />
+              </SlideIn>
+            </div>
+
+            {/* Step 4: Single Pot (Left) */}
+            <div className="flex justify-start w-full relative mt-10 md:top-[-1800px] md:left-[-250px]">
+              <SlideIn direction="left" className="relative w-[100%] md:w-[55%]">
+                <img src="/images/HomePage/process4.png" alt="Single Pot" className="w-full h-auto drop-shadow-2xl" />
+              </SlideIn>
+            </div>
+
+            {/* Step 5: Bowl of Gravy (Right) */}
+            <div className="flex justify-end w-full relative mt-10 md:top-[-2150px] md:right-[-350px]">
+              <SlideIn direction="right" className="relative w-[100%] md:w-[85%]">
+                <img src="/images/HomePage/process5.png" alt="Gravy Bowl" className="w-full h-auto drop-shadow-2xl" />
+              </SlideIn>
+            </div>
+
+            {/* Step 6: Cold Storage (Left) */}
+            <div className="flex justify-start w-full relative mt-10 md:top-[-2900px] md:left-[-450px]">
+              <SlideIn direction="left" className="relative w-[100%] md:w-[90%]">
+                <img src="/images/HomePage/process6.png" alt="Cold Storage" className="w-full h-auto drop-shadow-2xl" />
+              </SlideIn>
+            </div>
+
+          </div>
         </section>
 
         {/* 20+ RECIPES Section */}
@@ -795,227 +824,82 @@ export default function Home() {
             
             {/* Heading */}
             <div className="relative z-10 flex flex-col items-center -mt-4 md:-mt-10 font-kura leading-none text-center pointer-events-none">
-              <h2 className="relative z-10 text-[#156B37] text-[120px] md:text-[350px] tracking-[-0.02em]" style={{ WebkitTextStroke: '24px #F7D80C', paintOrder: 'stroke fill' }}>20+</h2>
-              <h2 className="relative z-20 text-[#156B37] text-[70px] md:text-[280px] tracking-[-0.02em] -mt-10 md:-mt-[60px]" style={{ WebkitTextStroke: '24px #F7D80C', paintOrder: 'stroke fill' }}>RECIPES</h2>
+              <h2 className="relative z-10 text-[#156B37] text-[120px] md:text-[300px] tracking-[-0.02em]" style={{ textShadow: '1px 1px 0 #F7D80C, 2px 2px 0 #F7D80C, 3px 3px 0 #F7D80C, 4px 4px 0 #F7D80C, 5px 5px 0 #F7D80C, 6px 6px 0 #F7D80C, 7px 7px 0 #F7D80C, 8px 8px 0 #F7D80C, 9px 9px 0 #F7D80C, 10px 10px 0 #F7D80C, 11px 11px 0 #F7D80C, 12px 12px 0 #F7D80C, 13px 13px 0 #F7D80C, 14px 14px 0 #F7D80C, 15px 15px 0 #F7D80C, 16px 16px 0 #F7D80C, 17px 17px 0 #F7D80C, 18px 18px 0 #F7D80C, 19px 19px 0 #F7D80C, 20px 20px 0 #F7D80C' }}>20+</h2>
+              <h2 className="relative z-20 text-[#156B37] text-[70px] md:text-[240px] tracking-[-0.02em] -mt-10 md:-mt-[50px]" style={{ textShadow: '1px 1px 0 #F7D80C, 2px 2px 0 #F7D80C, 3px 3px 0 #F7D80C, 4px 4px 0 #F7D80C, 5px 5px 0 #F7D80C, 6px 6px 0 #F7D80C, 7px 7px 0 #F7D80C, 8px 8px 0 #F7D80C, 9px 9px 0 #F7D80C, 10px 10px 0 #F7D80C, 11px 11px 0 #F7D80C, 12px 12px 0 #F7D80C, 13px 13px 0 #F7D80C, 14px 14px 0 #F7D80C, 15px 15px 0 #F7D80C, 16px 16px 0 #F7D80C, 17px 17px 0 #F7D80C, 18px 18px 0 #F7D80C, 19px 19px 0 #F7D80C, 20px 20px 0 #F7D80C' }}>RECIPES</h2>
             </div>
             
             {/* Center Container for Product and Dishes */}
             <div className="absolute inset-0 w-full h-full flex items-center justify-center z-20 pointer-events-none">
               
               {/* Center Product */}
-              <div className="absolute top-[50%] md:top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-[200px] md:w-[600px]">
+              <div className="absolute top-[50%] md:top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-[200px] md:w-[680px]">
                 <img src="/images/HomePage/product package 2.png" alt="Smoked Makhani Gravy" className="w-full h-auto drop-shadow-2xl" />
-                <p className="absolute -bottom-[220px] left-1/2 -translate-x-1/2 w-max text-black font-arpona font-medium text-[14px] md:text-[28px] text-center leading-tight tracking-[-0.05em]">
-                  Just switch your ingredients and<br/>create a whole new dish each time.
-                </p>
               </div>
 
               {/* --- VEG DISHES (LEFT) --- */}
               {/* Dish 1: Bhindi Masala (Top Left) */}
-              <div className="absolute top-[8%] left-[-40%] md:top-[8%] md:left-[-16%] w-[370px] md:w-[890px] z-30">
+              <div className="absolute top-[4%] left-[-40%] md:top-[8%] md:left-[-8%] w-[370px] md:w-[700px] z-30">
                 <img src="/images/HomePage/bhindi.png" alt="Bhindi Masala" className="w-full h-auto drop-shadow-xl" />
-                <div className="absolute top-[19%] left-[58%] md:top-[19%] md:left-[58%] text-white font-arpona font-bold text-[14px] md:text-[30px] transform -rotate-[10deg] pointer-events-none">
-                  Bhindi Masala
-                </div>
               </div>
 
               {/* Dish 2: Aloo Gobhi (Middle Left) */}
-              <div className="absolute top-[55%] left-[-35%] md:top-[55%] md:left-[-12%] w-[350px] md:w-[850px] -translate-y-1/2 z-20">
+              <div className="absolute top-[55%] left-[-35%] md:top-[50%] md:left-[-12%] w-[350px] md:w-[900px] -translate-y-1/2 z-20">
                 <img src="/images/HomePage/aloo.png" alt="Aloo Gobhi" className="w-full h-auto drop-shadow-xl" />
-                <div className="absolute top-[61%] left-[60%] md:top-[61%] md:left-[60%] text-white font-arpona font-bold text-[14px] md:text-[30px] transform -rotate-[10deg] pointer-events-none">
-                  Aloo Gobhi
-                </div>
               </div>
 
               {/* Dish 3: Mutter Paneer (Bottom Left) */}
-              <div className="absolute bottom-[0%] left-[-30%] md:bottom-[0%] md:left-[-12%] w-[390px] md:w-[920px] z-30">
+              <div className="absolute bottom-[0%] left-[-30%] md:bottom-[-2%] md:left-[-18%] w-[390px] md:w-[1000px] z-10">
                 <img src="/images/HomePage/panner.png" alt="Mutter Paneer" className="w-full h-auto drop-shadow-xl" />
-                <div className="absolute top-[74%] left-[42%] md:top-[74%] md:left-[42%] text-white font-arpona font-bold text-[14px] md:text-[30px] transform rotate-[2deg] pointer-events-none">
-                  Mutter Paneer
-                </div>
               </div>
 
               {/* --- NON-VEG DISHES (RIGHT) --- */}
               {/* Dish 4: Egg Curry (Top Right) */}
-              <div className="absolute top-[8%] right-[-35%] md:top-[8%] md:right-[-16%] w-[420px] md:w-[950px] z-30">
+              <div className="absolute top-[4%] right-[-35%] md:top-[0%] md:right-[-16%] w-[420px] md:w-[950px] z-30">
                 <img src="/images/HomePage/egg.png" alt="Egg Curry" className="w-full h-auto drop-shadow-xl" />
-                <div className="absolute top-[21%] left-[31%] md:top-[21%] md:left-[31%] text-white font-arpona font-bold text-[14px] md:text-[30px] transform rotate-[12deg] pointer-events-none">
-                  Egg Curry
-                </div>
               </div>
 
               {/* Dish 5: Chicken Curry (Middle Right) */}
-              <div className="absolute top-[45%] right-[-35%] md:top-[55%] md:right-[-12%] w-[320px] md:w-[750px] -translate-y-1/2 z-20">
+              <div className="absolute top-[45%] right-[-35%] md:top-[50%] md:right-[-24%] w-[320px] md:w-[850px] -translate-y-1/2 z-40">
                 <img src="/images/HomePage/chicken.png" alt="Chicken Curry" className="w-full h-auto drop-shadow-xl" />
-                <div className="absolute top-[62%] left-[7%] md:top-[62%] md:left-[7%] text-white font-arpona font-bold text-[14px] md:text-[30px] transform rotate-[4deg] pointer-events-none">
-                  Chicken Curry
-                </div>
               </div>
 
               {/* Dish 6: Mutton Sukka (Bottom Right) */}
-              <div className="absolute bottom-[2%] right-[-30%] md:bottom-[2%] md:right-[-12%] w-[280px] md:w-[660px] z-30">
+              <div className="absolute bottom-[2%] right-[-30%] md:bottom-[10%] md:right-[-18%] w-[280px] md:w-[950px] z-30">
                 <img src="/images/HomePage/mutton.png" alt="Mutton Sukka" className="w-full h-auto drop-shadow-xl" />
-                <div className="absolute top-[80%] left-[14%] md:top-[80%] md:left-[14%] text-white font-arpona font-bold text-[14px] md:text-[30px] transform -rotate-[5deg] pointer-events-none">
-                  Mutton Sukka
-                </div>
               </div>
 
               {/* --- ARROWS --- */}
               <svg className="absolute inset-0 w-full h-full z-10 hidden md:block" viewBox="0 0 1920 1080" fill="none">
-                {/* Product center is around (960, 594) since it's top 55% */}
-                
                 {/* To Bhindi Masala (Top Left) */}
-                <path d="M780,480 Q650,420 590,350" stroke="#E3002B" strokeWidth="8" strokeDasharray="16 16" strokeLinecap="round"/>
-                <path d="M620,340 L590,350 L600,380" stroke="#E3002B" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M620,450 Q550,350 450,300" stroke="#E3002B" strokeWidth="8" strokeDasharray="16 16" strokeLinecap="round"/>
+                <path d="M480,280 L450,300 L470,330" stroke="#E3002B" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/>
                 
                 {/* To Aloo Gobhi (Middle Left) */}
-                <path d="M700,594 Q580,600 520,660" stroke="#E3002B" strokeWidth="8" strokeDasharray="16 16" strokeLinecap="round"/>
-                <path d="M540,630 L520,660 L555,670" stroke="#E3002B" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M600,650 Q525,600 450,650" stroke="#E3002B" strokeWidth="8" strokeDasharray="16 16" strokeLinecap="round"/>
+                <path d="M480,630 L450,650 L470,680" stroke="#E3002B" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/>
 
-                {/* To Mutter Paneer (Bottom Left) */}
-                <path d="M780,720 Q650,780 520,880" stroke="#E3002B" strokeWidth="8" strokeDasharray="16 16" strokeLinecap="round"/>
-                <path d="M550,850 L520,880 L555,890" stroke="#E3002B" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/>
+                {/* To Mutter Paneer (Bottom Left) - loops from below */}
+                <path d="M800,950 Q750,1050 500,950" stroke="#E3002B" strokeWidth="8" strokeDasharray="16 16" strokeLinecap="round"/>
+                <path d="M530,930 L500,950 L530,970" stroke="#E3002B" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/>
 
                 {/* To Egg Curry (Top Right) */}
-                <path d="M1140,480 Q1270,420 1330,350" stroke="#E3002B" strokeWidth="8" strokeDasharray="16 16" strokeLinecap="round"/>
-                <path d="M1300,340 L1330,350 L1320,380" stroke="#E3002B" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M1300,450 Q1370,350 1470,300" stroke="#E3002B" strokeWidth="8" strokeDasharray="16 16" strokeLinecap="round"/>
+                <path d="M1440,280 L1470,300 L1450,330" stroke="#E3002B" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/>
 
                 {/* To Chicken Curry (Middle Right) */}
-                <path d="M1220,594 Q1340,600 1400,660" stroke="#E3002B" strokeWidth="8" strokeDasharray="16 16" strokeLinecap="round"/>
-                <path d="M1365,670 L1400,660 L1380,630" stroke="#E3002B" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M1320,650 Q1395,600 1470,650" stroke="#E3002B" strokeWidth="8" strokeDasharray="16 16" strokeLinecap="round"/>
+                <path d="M1440,630 L1470,650 L1450,680" stroke="#E3002B" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/>
 
-                {/* To Mutton Sukka (Bottom Right) */}
-                <path d="M1140,720 Q1270,780 1400,880" stroke="#E3002B" strokeWidth="8" strokeDasharray="16 16" strokeLinecap="round"/>
-                <path d="M1365,890 L1400,880 L1370,850" stroke="#E3002B" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/>
+                {/* To Mutton Sukka (Bottom Right) - loops from below */}
+                <path d="M1120,950 Q1170,1050 1420,950" stroke="#E3002B" strokeWidth="8" strokeDasharray="16 16" strokeLinecap="round"/>
+                <path d="M1390,930 L1420,950 L1390,970" stroke="#E3002B" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
 
             </div>
           </div>
         </section>
 
-        {/* HOW WE MAKE IT Section */}
-        <section ref={processSectionRef} className="relative w-full flex flex-col items-center overflow-hidden z-0 -mt-[100px] md:-mt-[200px]" style={{ backgroundColor: '#FBF5E1', height: '350vh' }}>
-          
-          {/* Huge Heading */}
-          <div className="relative z-10 font-kura uppercase leading-[0.85] text-left flex flex-col items-start w-full px-4 md:px-[120px] pt-[150px] md:pt-[300px] drop-shadow-xl" style={{ letterSpacing: '-0.02em' }}>
-            <div className="relative text-[100px] md:text-[300px]">
-              <span className="absolute inset-0 text-transparent pointer-events-none z-0" style={{ WebkitTextStroke: '20px rgb(247, 216, 13)' }}>HOW WE</span>
-              <span className="relative z-10" style={{ color: 'rgb(21, 107, 54)' }}>HOW WE</span>
-            </div>
-            <div className="relative text-[100px] md:text-[300px]">
-              <span className="absolute inset-0 text-transparent pointer-events-none z-0" style={{ WebkitTextStroke: '20px rgb(247, 216, 13)' }}>MAKE IT</span>
-              <span className="relative z-10" style={{ color: 'rgb(21, 107, 54)' }}>MAKE IT</span>
-            </div>
-          </div>
 
-          {/* Process Images */}
-          <div className="absolute top-[60px] md:top-[140px] left-0 right-0 w-full h-full max-w-[1920px] mx-auto pointer-events-none">
-            {/* SVG Connecting Lines */}
-            <svg className="absolute inset-0 w-full h-full z-0 hidden md:block" viewBox="0 0 1920 3500" preserveAspectRatio="none">
-              <path 
-                ref={processPathRef}
-                d="M 1520 780 
-                   Q 970 1000, 250 1200 
-                   C 150 1400, 1000 1550, 1400 1500 
-                   C 1800 1450, 2000 1900, 400 1900 
-                   C -100 1900, -100 2400, 1400 2400 
-                   C 1900 2400, 1900 2900, 500 2930" 
-                fill="none" 
-                stroke="#E3002B" 
-                strokeWidth="6" 
-                strokeDasharray="12 12" 
-                strokeLinecap="round" 
-                vectorEffect="non-scaling-stroke"
-              />
-              <path 
-                ref={coverPathRef}
-                d="M 1520 780 Q 970 1000, 250 1200 C 150 1400, 1000 1550, 1400 1500 C 1800 1450, 2000 1900, 400 1900 C -100 1900, -100 2400, 1400 2400 C 1900 2400, 1900 2900, 500 2930" 
-                fill="none" 
-                stroke="#FBF5E1" 
-                strokeWidth="12" 
-                strokeLinecap="round" 
-              />
-              <path 
-                ref={ballPathRef}
-                d="M 1520 780 Q 970 1000, 250 1200 C 150 1400, 1000 1550, 1400 1500 C 1800 1450, 2000 1900, 400 1900 C -100 1900, -100 2400, 1400 2400 C 1900 2400, 1900 2900, 500 2930" 
-                fill="none" 
-                stroke="#E3002B" 
-                strokeWidth="36" 
-                strokeLinecap="round" 
-              />
-            </svg>
-
-            {/* process1 - Top Right */}
-            <SlideIn direction="right" className="absolute top-[8%] md:top-[12%] right-[2%] w-[240px] md:w-[600px] z-10">
-              <div className="relative w-full h-full">
-                {/* Text Overlay */}
-                <div className="absolute top-2 md:top-8 right-0 md:-right-4 w-[240px] md:w-[410px] h-[190px] md:h-[310px] z-20 flex items-center justify-center rotate-[16deg]">
-                  <h3 className="relative z-10 font-bold text-black text-[22px] md:text-[32px] text-center leading-tight tracking-tight px-4 mt-1 -rotate-[6deg]">
-                    Cooked in<br/>small batches
-                  </h3>
-                </div>
-                <img src="/images/HomePage/process1.png" alt="Process 1" className="w-full h-auto drop-shadow-xl relative z-10" />
-              </div>
-            </SlideIn>
-
-            {/* process2 - Middle Left */}
-            <SlideIn direction="left" className="absolute top-[19%] -left-[6%] w-[320px] md:w-[1050px] z-10">
-              <div className="relative w-full h-full">
-                <img src="/images/HomePage/process2.png" alt="Process 2" className="w-full h-auto drop-shadow-xl" />
-                {/* Text Overlay */}
-                <h3 className="absolute z-20 font-bold text-black text-base md:text-[32px] text-center leading-tight tracking-tight bottom-[18%] left-[24%] -rotate-[8deg]">
-                  Clean and hygienic<br/>preparation
-                </h3>
-              </div>
-            </SlideIn>
-
-            {/* process3 - Middle Right */}
-            <SlideIn direction="right" className="absolute top-[21%] right-[0%] w-[280px] md:w-[1100px] z-10">
-              <div className="relative w-full h-full">
-                <img src="/images/HomePage/process3.png" alt="Process 3" className="w-full h-auto drop-shadow-xl" />
-                {/* Text Overlay */}
-                <h3 className="absolute z-20 font-bold text-black text-[22px] md:text-[32px] text-center leading-tight tracking-tight bottom-[18%] right-[21%] -rotate-[6deg]">
-                  Quality checked at<br/>every stage
-                </h3>
-              </div>
-            </SlideIn>
-
-            {/* process4 - Bottom Left */}
-            <SlideIn direction="left" className="absolute top-[55%] left-[5%] w-[300px] md:w-[750px] z-10">
-              <div className="relative w-full h-full">
-                <img src="/images/HomePage/process4.png" alt="Process 4" className="w-full h-auto drop-shadow-xl" />
-                {/* Text Overlay */}
-                <h3 className="absolute z-20 font-bold text-black text-[22px] md:text-[32px] text-center leading-tight tracking-tight bottom-[14%] left-[35%] rotate-[10deg]">
-                  Stored and delivered<br/>through cold chain
-                </h3>
-              </div>
-            </SlideIn>
-
-            {/* process5 - Bottom Right */}
-            <SlideIn direction="right" className="absolute top-[68%] right-[1%] w-[300px] md:w-[730px] z-10">
-              <div className="relative w-full h-full">
-                <img src="/images/HomePage/process5.png" alt="Process 5" className="w-full h-auto drop-shadow-xl" />
-                {/* Text Overlay */}
-                <h3 className="absolute z-20 font-bold text-black text-[22px] md:text-[32px] text-center leading-tight tracking-tight bottom-[12%] right-[14%] rotate-[8deg]">
-                  No preservatives<br/>added
-                </h3>
-              </div>
-            </SlideIn>
-
-            {/* process6 - Bottom Left */}
-            <SlideIn direction="left" className="absolute top-[74%] md:top-[73%] -left-[2%] w-[300px] md:w-[960px] z-10">
-              <div className="relative w-full h-full">
-                <img src="/images/HomePage/process6.png" alt="Process 6" className="w-full h-auto drop-shadow-xl" />
-                {/* Text Overlay */}
-                <h3 className="absolute z-20 font-bold text-black text-[22px] md:text-[32px] text-center leading-tight tracking-tight top-[24%] left-[14%] -rotate-[8deg]">
-                  100% veg base<br/>gravy
-                </h3>
-              </div>
-            </SlideIn>
-          </div>
-          
-
-        </section>
 
         {/* WHAT PEOPLE ARE SAYING SECTION */}
         <section className="relative w-full bg-[#FBF5E1] pt-[150px] md:pt-[200px] pb-40 overflow-hidden font-arpona bg-cover bg-center bg-no-repeat z-10 -mt-[100px] md:-mt-[150px]" style={{ backgroundImage: "url('/images/HomePage/red2%20bg.png')" }}>
@@ -1032,14 +916,14 @@ export default function Home() {
               
               {/* Shadow layer */}
               <div className="absolute inset-0 flex flex-col items-center z-0 pointer-events-none translate-y-[5px] translate-x-[8px] md:translate-y-[10px] md:translate-x-[16px]" style={{ color: '#156B37' }}>
-                <div className="text-[90px] md:text-[250px]">WHAT PEOPLE</div>
-                <div className="text-[90px] md:text-[250px]">ARE SAYING</div>
+                <div className="text-[90px] md:text-[280px]">WHAT PEOPLE</div>
+                <div className="text-[90px] md:text-[280px]">ARE SAYING</div>
               </div>
 
               {/* Fill layer */}
               <div className="relative z-10 flex flex-col items-center w-full" style={{ color: '#F7D80C' }}>
-                <div className="text-[90px] md:text-[250px]">WHAT PEOPLE</div>
-                <div className="relative text-[90px] md:text-[250px]">
+                <div className="text-[90px] md:text-[280px]">WHAT PEOPLE</div>
+                <div className="relative text-[90px] md:text-[280px]">
                   ARE SAYING
                   {/* Stir Simmer Sticker */}
                   <img 
