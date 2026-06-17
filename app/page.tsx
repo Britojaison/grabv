@@ -139,6 +139,34 @@ export default function Home() {
   const productsContainerRef = useRef<HTMLDivElement | null>(null);
   const productsTrackRef = useRef<HTMLDivElement | null>(null);
   const stepsInnerRef = useRef<HTMLElement | null>(null);
+  
+  const textSectionRef = useRef<HTMLElement | null>(null);
+  const [isTextVisible, setIsTextVisible] = useState(false);
+
+  const readyToCookSectionRef = useRef<HTMLElement | null>(null);
+  const [isReadyToCookVisible, setIsReadyToCookVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsTextVisible(entry.isIntersecting);
+      },
+      { threshold: 0.5 }
+    );
+    if (textSectionRef.current) observer.observe(textSectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsReadyToCookVisible(entry.isIntersecting);
+      },
+      { threshold: 0.3 }
+    );
+    if (readyToCookSectionRef.current) observer.observe(readyToCookSectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
 
   useEffect(() => {
@@ -413,14 +441,20 @@ export default function Home() {
         </section>
 
         {/* Freshly Made Product Section */}
-        <section className="relative w-full h-[100vh] flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
+        <section ref={textSectionRef} className="relative w-full h-[100vh] flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
           {/* Background Text Overlay */}
           <div className="absolute left-0 right-0 inset-y-0 flex flex-col justify-center items-center pointer-events-none select-none z-0 overflow-hidden font-kura uppercase tracking-[-0.07em] translate-y-8 px-[120px]" style={{ color: '#146A36' }}>
-            <div className="w-full flex justify-between h-[230px] mb-4 text-[230px] leading-[1.0]">
+            <div 
+              className="w-full flex justify-between h-[230px] mb-4 text-[230px] leading-[1.0] transition-transform duration-1000 ease-out"
+              style={{ transform: isTextVisible ? 'translateX(0)' : 'translateX(100vw)' }}
+            >
               <span>FRESHLY</span>
               <span>MADE</span>
             </div>
-            <div className="w-full flex justify-between h-[165px] text-[165px] leading-[1.0] mt-2">
+            <div 
+              className="w-full flex justify-between h-[165px] text-[165px] leading-[1.0] mt-2 transition-transform duration-1000 ease-out"
+              style={{ transform: isTextVisible ? 'translateX(0)' : 'translateX(-100vw)' }}
+            >
               <span>READY</span>
               <span className="translate-x-[20px]">IN 10 MIN</span>
             </div>
@@ -914,7 +948,7 @@ export default function Home() {
         </section>
 
         {/* READY TO COOK SECTION */}
-        <section className="relative w-full h-[160vh] bg-[#FBF5E1] pt-12 md:pt-24 overflow-hidden font-arpona flex flex-col items-center">
+        <section ref={readyToCookSectionRef} className="relative w-full h-[160vh] bg-[#FBF5E1] pt-12 md:pt-24 overflow-hidden font-arpona flex flex-col items-center">
           
           {/* Order Now Button */}
           <button className="bg-[#F7D80C] text-black font-arpona font-medium text-[20px] md:text-[32px] leading-tight px-8 md:px-12 py-3 md:py-3 rounded-xl mb-12 shadow-md hover:bg-yellow-400 transition-colors z-40">
@@ -928,14 +962,32 @@ export default function Home() {
               
               {/* Shadow layer */}
               <div className="absolute inset-0 flex flex-col items-center z-0 pointer-events-none translate-y-[5px] translate-x-[8px] md:translate-y-[10px] md:translate-x-[16px]" style={{ color: '#F7D80C' }}>
-                <div className="text-[80px] md:text-[270px] whitespace-nowrap">READY TO COOK</div>
-                <div className="text-[80px] md:text-[270px] whitespace-nowrap">SMARTSMRTER</div>
-                <div className="text-[80px] md:text-[270px] whitespace-nowrap" style={{ letterSpacing: '0.04em', marginLeft: '0.04em' }}>EVERY ERDAY?</div>
+                <div 
+                  className="text-[80px] md:text-[270px] whitespace-nowrap transition-transform duration-1000 ease-out"
+                  style={{ transform: isReadyToCookVisible ? 'translateX(0)' : 'translateX(-100vw)' }}
+                >
+                  READY TO COOK
+                </div>
+                <div 
+                  className="text-[80px] md:text-[270px] whitespace-nowrap transition-transform duration-1000 ease-out"
+                  style={{ transform: isReadyToCookVisible ? 'translateX(0)' : 'translateX(100vw)' }}
+                >
+                  SMARTSMRTER
+                </div>
+                <div 
+                  className="text-[80px] md:text-[270px] whitespace-nowrap transition-transform duration-1000 ease-out" 
+                  style={{ letterSpacing: '0.04em', marginLeft: '0.04em', transform: isReadyToCookVisible ? 'translateX(0)' : 'translateX(-100vw)' }}
+                >
+                  EVERY ERDAY?
+                </div>
               </div>
 
               {/* Fill layer */}
               <div className="relative z-10 flex flex-col items-center w-full" style={{ color: '#156B37' }}>
-                <div className="relative text-[80px] md:text-[270px] w-full flex justify-center whitespace-nowrap">
+                <div 
+                  className="relative text-[80px] md:text-[270px] w-full flex justify-center whitespace-nowrap transition-transform duration-1000 ease-out"
+                  style={{ transform: isReadyToCookVisible ? 'translateX(0)' : 'translateX(-100vw)' }}
+                >
                   READY TO COOK
                   {/* Chef Effort Sticker */}
                   <img 
@@ -944,8 +996,18 @@ export default function Home() {
                     className="absolute left-[-5%] md:left-[5%] -top-[20%] md:-top-[60%] w-[120px] md:w-[300px] -rotate-3 z-30 pointer-events-none"
                   />
                 </div>
-                <div className="text-[80px] md:text-[270px] whitespace-nowrap">SMARTSMRTER</div>
-                <div className="text-[80px] md:text-[270px] whitespace-nowrap" style={{ letterSpacing: '0.04em', marginLeft: '0.04em' }}>EVERY ERDAY?</div>
+                <div 
+                  className="text-[80px] md:text-[270px] whitespace-nowrap transition-transform duration-1000 ease-out"
+                  style={{ transform: isReadyToCookVisible ? 'translateX(0)' : 'translateX(100vw)' }}
+                >
+                  SMARTSMRTER
+                </div>
+                <div 
+                  className="text-[80px] md:text-[270px] whitespace-nowrap transition-transform duration-1000 ease-out" 
+                  style={{ letterSpacing: '0.04em', marginLeft: '0.04em', transform: isReadyToCookVisible ? 'translateX(0)' : 'translateX(-100vw)' }}
+                >
+                  EVERY ERDAY?
+                </div>
               </div>
 
             </div>
