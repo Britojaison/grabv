@@ -395,92 +395,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen w-full font-arpona overflow-x-clip" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
 
-      {/* Navbar Section */}
-      <header
-        style={{ backgroundColor: 'rgb(12, 61, 27)' }}
-        className="fixed top-0 z-[100] w-full flex-shrink-0 shadow-md"
-      >
-        <div className="w-full px-4 md:px-[120px] h-[70px] md:h-[110px] flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            {/* Hamburger Menu - Mobile and Tablet */}
-            <div className="lg:hidden flex items-center">
-              <button
-                className="text-white focus:outline-none p-2"
-                onClick={() => setIsMenuOpen(true)}
-              >
-                <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <line x1="0" y1="2" x2="24" y2="2" stroke="white" strokeWidth="2.5" />
-                  <line x1="0" y1="8" x2="24" y2="8" stroke="white" strokeWidth="2.5" />
-                  <line x1="0" y1="14" x2="24" y2="14" stroke="white" strokeWidth="2.5" />
-                </svg>
-              </button>
-            </div>
-
-            {/* Logo */}
-            <div className="flex items-center md:-ml-4">
-              <Image
-                src="/images/logo.svg"
-                alt="GrabV Logo"
-                width={200}
-                height={80}
-                className="w-[90px] md:w-[125px] h-auto object-contain"
-                priority
-              />
-            </div>
-          </div>
-
-          {/* Desktop Nav - Hidden on Mobile and Tablet */}
-          <nav className="hidden lg:flex flex-1 justify-center items-center gap-12 xl:gap-[80px] text-white font-medium px-12 lg:ml-12">
-            <Link href="/" className="hover:text-[rgb(247,216,13)] transition-colors text-[22px]">Home</Link>
-            <Link href="/recipes" className="hover:text-[rgb(247,216,13)] transition-colors text-[22px]">Recipes</Link>
-            <Link href="/products" className="hover:text-[rgb(247,216,13)] transition-colors text-[22px]">Products</Link>
-            <Link href="/ourstory" className="hover:text-[rgb(247,216,13)] transition-colors text-[22px] whitespace-nowrap">Our Story</Link>
-            <Link href="/contact" className="hover:text-[rgb(247,216,13)] transition-colors text-[22px] whitespace-nowrap">Contact Us</Link>
-            <Link href="/faq" className="hover:text-[rgb(247,216,13)] transition-colors text-[22px]">FAQ</Link>
-          </nav>
-
-          <button
-            style={{
-              borderRadius: '5px',
-              backgroundColor: 'rgb(247, 216, 13)',
-              color: '#0D3D1B',
-              letterSpacing: '-0.06em'
-            }}
-            className="font-medium flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0 text-[12px] md:text-[22px] w-[110px] md:w-[180px] h-[30px] md:h-[48px]"
-          >
-            Order Now
-          </button>
-        </div>
-
-        {/* Mobile Menu Overlay */}
-        {isMenuOpen && (
-          <div className="fixed inset-0 z-[200] bg-[rgb(12,61,27)] flex flex-col items-center justify-center animate-in fade-in duration-300">
-            <button
-              className="absolute top-6 right-8 text-white p-2 hover:scale-110 transition-transform"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 5L25 25M25 5L5 25" stroke="white" strokeWidth="3" />
-              </svg>
-            </button>
-            <nav className="flex flex-col items-center gap-8 text-white font-arpona font-medium text-[24px]">
-              <Link href="/" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Home</Link>
-              <Link href="/recipes" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Recipes</Link>
-              <Link href="/products" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Products</Link>
-              <Link href="/ourstory" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Our Story</Link>
-              <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Contact Us</Link>
-              <Link href="/faq" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">FAQ</Link>
-              <button
-                style={{ backgroundColor: 'rgb(247, 216, 13)', color: 'rgb(12, 61, 27)' }}
-                className="mt-4 px-14 py-3 rounded-full font-arpona font-medium text-[18px] hover:bg-yellow-400 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Order Now
-              </button>
-            </nav>
-          </div>
-        )}
-      </header>
+      {/* Navbar Section removed and added to layout.tsx */}
 
       {/* Main Container - Full Width */}
       <main className="w-full relative flex flex-col bg-[#FBF5E1]">
@@ -505,7 +420,7 @@ export default function Home() {
               <span>FRESHLY</span>
               <span>MADE</span>
             </div>
-            <div className="w-full flex justify-between h-[158px] text-[158px] leading-[1.0]">
+            <div className="w-full flex justify-between h-[165px] text-[165px] leading-[1.0] mt-2">
               <span>READY</span>
               <span className="translate-x-[20px]">IN 10 MIN</span>
             </div>
@@ -1045,74 +960,7 @@ export default function Home() {
           {/* Footer Wavy Transition removed as footer now uses background image */}
         </section>
 
-        {/* FOOTER SECTION */}
-        <section className="relative w-full bg-[#156B37] pt-[80px] md:pt-[150px] pb-24 font-arpona">
-          {/* Yellow fill for the transparent top wavy part */}
-          <div className="absolute top-0 left-0 w-full h-[150px] md:h-[300px] bg-[#FBF5E1] z-0"></div>
-          
-          {/* The green wavy background image */}
-          <div className="absolute inset-0 bg-no-repeat z-0" style={{ backgroundImage: "url('/images/HomePage/green%20bg.png')", backgroundSize: "105% auto", backgroundPosition: "center top" }}></div>
-          
-          <div className="relative z-10 w-full mx-auto px-8 md:px-[110px] flex flex-col md:flex-row md:justify-between items-start gap-12 md:gap-0">
-            
-            {/* Column 1: Logo & Copyright */}
-            <div className="flex flex-col items-start">
-              <img src="/images/logo.svg" alt="GrabV" className="w-[180px] mb-8" />
-              <p className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] leading-[1.3] font-normal">
-                © 2026 GrabV. All rights<br/>
-                reserved. 88gb Digital<br/>
-                Mraketing & Technology<br/>
-                Company
-              </p>
-            </div>
-
-            {/* Column 2: Company */}
-            <div className="flex flex-col items-start">
-              <h3 className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] font-normal mb-6">Company</h3>
-              <ul className="flex flex-col space-y-0 leading-[1.1] md:leading-[1.2]">
-                <li><a href="#" className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-white transition-colors block py-1 md:py-0">Our Story</a></li>
-                <li><a href="#" className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-white transition-colors block py-1 md:py-0">Process</a></li>
-                <li><a href="#" className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-white transition-colors block py-1 md:py-0">Quality Promise</a></li>
-                <li><a href="#" className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-white transition-colors block py-1 md:py-0">Contact Us</a></li>
-              </ul>
-            </div>
-
-            {/* Column 3: Product */}
-            <div className="flex flex-col items-start">
-              <h3 className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] font-normal mb-6">Product</h3>
-              <ul className="flex flex-col space-y-0 leading-[1.1] md:leading-[1.2]">
-                <li><a href="#" className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-white transition-colors block py-1 md:py-0">All Purpose Gravy</a></li>
-                <li><a href="#" className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-white transition-colors block py-1 md:py-0">Ingredients</a></li>
-                <li><a href="#" className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-white transition-colors block py-1 md:py-0">How to Use</a></li>
-                <li><a href="#" className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-white transition-colors block py-1 md:py-0">Recipes</a></li>
-              </ul>
-            </div>
-
-            {/* Column 4: Order & Policies & Follow Us */}
-            <div className="flex flex-col items-start">
-              <h3 className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] font-normal mb-6">Order & Policies</h3>
-              <ul className="flex flex-col space-y-0 leading-[1.1] md:leading-[1.2] mb-10">
-                <li><a href="#" className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-white transition-colors block py-1 md:py-0">WhatsApp Order</a></li>
-                <li><a href="#" className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-white transition-colors block py-1 md:py-0">Exchange Order</a></li>
-                <li><a href="#" className="text-[#F7D80C] text-[16px] md:text-[26px] tracking-[-0.03em] hover:text-white transition-colors block py-1 md:py-0">Privacy Policy</a></li>
-              </ul>
-              
-              <h3 className="text-white text-[16px] md:text-[26px] tracking-[-0.03em] font-normal mb-4">Follow Us</h3>
-              <div className="flex items-center space-x-3">
-                <a href="#" className="hover:opacity-80 transition-opacity">
-                  <img src="/images/facebook.svg" alt="Facebook" className="w-6 h-6 md:w-7 md:h-7 brightness-0 invert" />
-                </a>
-                <a href="#" className="hover:opacity-80 transition-opacity">
-                  <img src="/images/whatsapp.svg" alt="WhatsApp" className="w-6 h-6 md:w-7 md:h-7 brightness-0 invert" />
-                </a>
-                <a href="#" className="hover:opacity-80 transition-opacity">
-                  <img src="/images/insta.svg" alt="Instagram" className="w-6 h-6 md:w-7 md:h-7 brightness-0 invert" />
-                </a>
-              </div>
-            </div>
-
-          </div>
-        </section>
+        {/* FOOTER SECTION REMOVED */}
 
       </main>
     </div>

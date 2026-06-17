@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import ImageDownloadProtection from "./ImageDownloadProtection";
 import SmoothScroll from "./SmoothScroll";
 import TextPopAnimator from "./TextPopAnimator";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const kuraDisplay = localFont({
@@ -58,7 +60,9 @@ export default function RootLayout({
         <ImageDownloadProtection />
         <SmoothScroll />
         <TextPopAnimator />
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

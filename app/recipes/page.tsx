@@ -147,62 +147,7 @@ export default function RecipesPage() {
 
   return (
     <div className="flex flex-col min-h-screen w-full font-arpona overflow-x-hidden" style={{ backgroundColor: "rgb(239, 238, 230)" }}>
-      <header style={{ backgroundColor: "rgb(12, 61, 27)" }} className="sticky top-0 z-[100] w-full flex-shrink-0 shadow-md">
-        <div className="max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 h-[70px] md:h-[80px] flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="lg:hidden flex items-center">
-              <button className="text-white focus:outline-none p-2" onClick={() => setIsMenuOpen(true)} aria-label="Open menu">
-                <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <line x1="0" y1="2" x2="24" y2="2" stroke="white" strokeWidth="2.5" />
-                  <line x1="0" y1="8" x2="24" y2="8" stroke="white" strokeWidth="2.5" />
-                  <line x1="0" y1="14" x2="24" y2="14" stroke="white" strokeWidth="2.5" />
-                </svg>
-              </button>
-            </div>
-
-            <Link href="/" className="flex items-center">
-              <Image src="/images/logo.svg" alt="GrabV Logo" width={110} height={40} className="w-auto h-8 md:h-12" priority />
-            </Link>
-          </div>
-
-          <nav className="hidden lg:flex items-center gap-8 xl:gap-12 text-white font-medium">
-            <Link href="/" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Home</Link>
-            <Link href="/recipes" className="text-[rgb(247,216,13)] transition-colors text-[18px]">Recipes</Link>
-            <Link href="/products" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">Products</Link>
-            <Link href="/ourstory" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Our Story</Link>
-            <Link href="/contact" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px] whitespace-nowrap">Contact Us</Link>
-            <Link href="/faq" className="hover:text-[rgb(247,216,13)] transition-colors text-[18px]">FAQ</Link>
-          </nav>
-
-          <button
-            style={{ borderRadius: "5px", backgroundColor: "rgb(247, 216, 13)", color: "rgb(12, 61, 27)", letterSpacing: "0.05em" }}
-            className="font-arpona font-medium flex items-center justify-center hover:bg-yellow-400 transition-colors shrink-0 text-[12px] md:text-[18px] w-[85px] md:w-[142px] h-[30px] md:h-[37px]"
-          >
-            Order Now
-          </button>
-        </div>
-
-        {isMenuOpen && (
-          <div className="fixed inset-0 z-[200] bg-[rgb(12,61,27)] flex flex-col items-center justify-center animate-in fade-in duration-300">
-            <button className="absolute top-6 right-8 text-white p-2 hover:scale-110 transition-transform" onClick={() => setIsMenuOpen(false)} aria-label="Close menu">
-              <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 5L25 25M25 5L5 25" stroke="white" strokeWidth="3" />
-              </svg>
-            </button>
-            <nav className="flex flex-col items-center gap-8 text-white font-arpona font-medium text-[24px]">
-              <Link href="/" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Home</Link>
-              <Link href="/recipes" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors text-[rgb(247,216,13)]">Recipes</Link>
-              <Link href="/products" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Products</Link>
-              <Link href="/ourstory" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Our Story</Link>
-              <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Contact Us</Link>
-              <Link href="/faq" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">FAQ</Link>
-              <button style={{ backgroundColor: "rgb(247, 216, 13)", color: "rgb(12, 61, 27)" }} className="mt-4 px-10 py-3 rounded-full font-bold text-[18px] hover:bg-yellow-400 transition-colors" onClick={() => setIsMenuOpen(false)}>
-                Order Now
-              </button>
-            </nav>
-          </div>
-        )}
-      </header>
+      {/* Header removed, now in layout.tsx */}
 
       <main className="w-full relative flex flex-col items-center">
         <section className="w-full relative overflow-hidden pt-10 md:pt-16 pb-12 md:pb-20" style={{ backgroundColor: "rgb(21, 107, 54)" }}>
@@ -338,43 +283,7 @@ export default function RecipesPage() {
         </section>
       </main>
 
-      <footer className="w-full py-12 md:py-16 pl-3 pr-6 md:pl-4 md:pr-8" style={{ backgroundColor: "rgb(21, 107, 54)" }}>
-        <div className="max-w-[1600px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-0 flex flex-col w-full md:w-[299px] h-auto md:h-[234px] justify-between">
-              <div>
-                <div className="w-[110px] h-[55px] relative mb-4">
-                  <Image src="/images/logo.svg" alt="GrabV Logo" fill className="object-contain object-left" />
-                </div>
-                <p className="text-[16px] font-medium leading-[1.2] font-arpona text-[rgb(247,216,13)]">&copy; 2026 GrabV. All rights reserved.</p>
-              </div>
-              <div className="flex flex-col items-start gap-1.5 mt-8 md:mt-auto">
-                <span className="text-[14px] font-bold font-arpona text-white">Follow Us</span>
-                <div className="flex items-center gap-3">
-                  <Link href="#" className="w-6 h-6 relative hover:scale-110 transition-transform brightness-0 invert"><Image src="/images/facebook.svg" alt="Facebook" fill className="object-contain" /></Link>
-                  <Link href="#" className="w-6 h-6 relative hover:scale-110 transition-transform brightness-0 invert"><Image src="/images/whatsapp1.svg" alt="WhatsApp" fill className="object-contain" /></Link>
-                  <Link href="#" className="w-6 h-6 relative hover:scale-110 transition-transform brightness-0 invert"><Image src="/images/insta.svg" alt="Instagram" fill className="object-contain" /></Link>
-                </div>
-              </div>
-            </div>
-
-            {[
-              { title: "Company", links: [{ label: "Our Story", href: "/ourstory" }, { label: "Process", href: "/#process" }, { label: "Quality Promise", href: "/#quality" }, { label: "Contact Us", href: "/contact" }] },
-              { title: "Product", links: [{ label: "All Purpose Gravy", href: "/all-purposegravy" }, { label: "Ingredients", href: "/all-purposegravy#ingredients" }, { label: "How to Use", href: "/all-purposegravy#how-to-use" }, { label: "Recipes", href: "/recipes" }] },
-              { title: "Order & Policies", links: [{ label: "WhatsApp Order", href: "#" }, { label: "Exchange Order", href: "#" }, { label: "Privacy Policy", href: "#" }] },
-            ].map((column) => (
-              <div key={column.title} className="rounded-[30px] p-6 flex flex-col w-full md:w-[299px] h-auto md:h-[234px]" style={{ backgroundColor: "rgb(55, 122, 49)" }}>
-                <h3 className="text-[22px] font-bold mb-2 text-[rgb(247,216,13)]">{column.title}</h3>
-                <div className="flex flex-col gap-1 text-[18px] font-medium font-arpona leading-tight text-[rgb(247,216,13)]">
-                  {column.links.map((link) => (
-                    <Link key={link.label} href={link.href} className="hover:opacity-80 transition-opacity">{link.label}</Link>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </footer>
+      {/* Footer removed, now in layout.tsx */}
     </div>
   );
 }
