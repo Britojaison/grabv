@@ -462,38 +462,38 @@ export default function Home() {
         {/* Freshly Made Product Section */}
         <section className="relative w-full h-[100vh] flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
           {/* Background Text Overlay */}
-          <div className="absolute left-[120px] right-[120px] inset-y-0 flex flex-col justify-center pointer-events-none select-none z-0 overflow-hidden font-kura uppercase tracking-[-0.07em] translate-y-16" style={{ color: '#146A36' }}>
-            <div className="relative w-full h-[128px] mb-4 whitespace-nowrap text-[128px] leading-[1.0]">
-              <span className="absolute left-0">FRESHLY MADE</span>
-              <span className="absolute right-0">FRESHLY MADE</span>
+          <div className="absolute left-0 right-0 inset-y-0 flex flex-col justify-center items-center pointer-events-none select-none z-0 overflow-hidden font-kura uppercase tracking-[-0.07em] translate-y-8 px-[120px]" style={{ color: '#146A36' }}>
+            <div className="w-full flex justify-between h-[230px] mb-4 text-[230px] leading-[1.0]">
+              <span>FRESHLY</span>
+              <span>MADE</span>
             </div>
-            <div className="relative w-full h-[128px] whitespace-nowrap text-[128px] leading-[1.0]">
-              <span className="absolute left-0">READY IN 10 MINS</span>
-              <span className="absolute right-[40px]">READY IN 10 MINS</span>
+            <div className="w-full flex justify-between h-[158px] text-[158px] leading-[1.0]">
+              <span>READY</span>
+              <span className="translate-x-[20px]">IN 10 MIN</span>
             </div>
           </div>
 
           {/* Product Image */}
-          <div className="relative z-10 w-[1600px] max-w-[110vw] h-[110vh] max-h-[1600px] translate-y-10">
+          <div className="relative z-10 w-[1500px] max-w-[110vw] h-[105vh] max-h-[1600px] translate-y-20">
             <Image
               src="/images/HomePage/product package 1.png"
               alt="GrabV Product Package"
               fill
-              className="object-contain drop-shadow-2xl"
+              className="object-contain"
               priority
             />
           </div>
 
           {/* Bottom Left Text */}
-          <div className="absolute bottom-16 left-[120px] z-20 flex flex-col font-arpona text-[28px] leading-[1.0] tracking-[-0.05em] font-medium text-black">
-            <span>Veg or non-veg</span>
-            <span>Possibilities are endless</span>
+          <div className="absolute bottom-8 left-[120px] z-20 flex flex-col tracking-[-0.05em] text-black">
+            <span className="font-arpona font-medium text-[28px] leading-[1.0]">Veg or non-veg</span>
+            <span className="font-arpona font-medium text-[28px] leading-[1.0]">Possibilities are endless</span>
           </div>
 
           {/* Bottom Right Text */}
-          <div className="absolute bottom-16 right-[120px] z-20 flex flex-col font-arpona text-[28px] leading-[1.0] tracking-[-0.05em] font-medium text-black text-right">
-            <span>Just add in the gravy</span>
-            <span>And enjoy your meal</span>
+          <div className="absolute bottom-8 right-[120px] z-20 flex flex-col tracking-[-0.05em] text-black text-right">
+            <span className="font-arpona font-medium text-[28px] leading-[1.0]">Just add in the gravy</span>
+            <span className="font-arpona font-medium text-[28px] leading-[1.0]">And enjoy your meal</span>
           </div>
         </section>
 
