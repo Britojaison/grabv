@@ -501,26 +501,26 @@ export default function Home() {
         <section className="relative w-full flex flex-col items-center pt-24 pb-12 overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
           
           {/* Top text */}
-          <p className="font-arpona text-[24px] md:text-[30px] leading-[1.0] tracking-[-0.05em] font-medium text-black mb-10 text-center z-10">
+          <p className="font-arpona text-[22px] md:text-[28px] leading-[1.0] tracking-[-0.05em] font-medium text-black mb-10 text-center z-10">
             No Chopping. No Stress. Just Real Food.
           </p>
 
           {/* Huge Heading */}
           <div className="relative font-kura uppercase text-[110px] md:text-[260px] leading-[0.85] tracking-[-0.02em] text-center w-full flex justify-center drop-shadow-xl z-10">
             {/* Vegetables Behind Text */}
+            <img src="/images/HomePage/tomato.png" alt="" className="absolute top-[-9%] left-[17%] md:left-[25%] w-[105px] md:w-[265px] z-0 pointer-events-none" />
             <img src="/images/HomePage/onion.png" alt="" className="absolute top-[-8%] left-[12%] md:left-[18%] w-[60px] md:w-[200px] -rotate-[15deg] z-0 pointer-events-none opacity-90" />
-            <img src="/images/HomePage/tomato.png" alt="" className="absolute top-[-5%] left-[18%] md:left-[26%] w-[70px] md:w-[190px] z-0 pointer-events-none" />
 
             {/* Shadow layer */}
             <div className="absolute inset-0 flex justify-center z-0 pointer-events-none translate-y-[5px] translate-x-[8px] md:translate-y-[10px] md:translate-x-[16px]" style={{ color: '#F7D80C' }}>
-              <div>POUCH TO<br/>PLATE IN 5<br/>STEPS</div>
+              <div>POUCH TO<br/>PLATE IN<br/>5 STEPS</div>
             </div>
             
             {/* Fill layer */}
             <div className="relative z-10" style={{ color: '#156B37' }}>
-              <div>POUCH TO<br/>PLATE IN 5<br/>STEPS</div>
+              <div>POUCH TO<br/>PLATE IN<br/>5 STEPS</div>
               {/* Homemade Sticker */}
-              <img src="/images/HomePage/homemade.png" alt="Homemade-ish" className="absolute bottom-[18%] right-[-5%] md:right-[-3%] w-[130px] md:w-[290px] rotate-2 drop-shadow-xl z-20 pointer-events-none" />
+              <img src="/images/HomePage/homemade.png" alt="Homemade-ish" className="absolute bottom-[25%] right-[-11%] md:right-[-10%] w-[130px] md:w-[290px] rotate-2 drop-shadow-xl z-20 pointer-events-none" />
             </div>
           </div>
         </section>
