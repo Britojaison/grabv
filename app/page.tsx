@@ -581,38 +581,45 @@ export default function Home() {
         </div>
 
         {/* Our Products Section */}
-        {/* Entire Red Section Wrapper (Heading + Scrolljacking) */}
-        <div className="relative w-full bg-[#FBF5E1] z-10 pb-[100px] md:pb-[300px]">
+        <div className="relative w-full bg-[#FBF5E1] z-10 pb-[60px] md:pb-[120px]">
           
           {/* Full-height background image spanning both heading and products */}
-          <div className="absolute top-0 left-0 right-0 bottom-0 w-full overflow-hidden pointer-events-none z-0">
-            <img src="/images/HomePage/red2%20bg.png" alt="Red torn background" className="w-full h-full object-cover object-top" />
+          <div className="absolute top-0 left-0 right-0 bottom-0 w-full pointer-events-none z-0 flex flex-col">
+            {/* Top curve */}
+            <img src="/images/HomePage/red2%20bg.png" alt="Red torn background top" className="w-full h-[150px] md:h-[250px] object-cover object-top shrink-0" />
+            
+            {/* Middle fill (stretched vertically to fill space) */}
+            <div className="flex-1 w-full overflow-hidden relative">
+              <img src="/images/HomePage/red2%20bg.png" alt="" className="absolute inset-0 w-full h-full object-cover object-center scale-y-[100]" />
+            </div>
+
+            {/* Bottom curve */}
+            <img src="/images/HomePage/red2%20bg.png" alt="Red torn background bottom" className="w-full h-[150px] md:h-[250px] object-cover object-bottom shrink-0" />
           </div>
 
-          {/* Our Products Section - Heading (Normal Scroll) */}
-          <section className="relative w-full flex flex-col items-center pt-[140px] md:pt-[330px] pb-12 z-10">
+          <section className="relative w-full flex flex-col items-center pt-[40px] md:pt-[100px] pb-12 z-10">
             {/* Huge Heading */}
             <div className="relative z-10 font-kura uppercase leading-[0.8] tracking-[-0.02em] text-center flex flex-col items-center w-full">
               
               {/* Onion Image Behind Text */}
-              <img src="/images/HomePage/onion.png" className="absolute left-[3%] md:left-[9%] top-[20%] md:top-[20%] w-[110px] md:w-[280px] object-contain z-[-1] pointer-events-none -rotate-12" alt="" />
+              <img src="/images/HomePage/onion.png" className="absolute left-[5%] md:left-[11%] top-[15%] md:top-[15%] w-[110px] md:w-[290px] object-contain z-[-1] pointer-events-none -rotate-12" alt="" />
 
-              {/* Shadow layer */}
-              <div className="absolute inset-0 flex flex-col items-center z-0 pointer-events-none translate-y-[5px] translate-x-[8px] md:translate-y-[10px] md:translate-x-[16px]" style={{ color: '#F7D80C' }}>
-                <div className="text-[130px] md:text-[280px]">OUR</div>
-                <div className="text-[130px] md:text-[280px]">PRODUCTS</div>
+              {/* Shadow layer (Green) */}
+              <div className="absolute inset-0 flex flex-col items-center z-0 pointer-events-none translate-y-[5px] translate-x-[8px] md:translate-y-[10px] md:translate-x-[16px]" style={{ color: '#156B37' }}>
+                <div className="text-[115px] md:text-[260px]">OUR</div>
+                <div className="text-[115px] md:text-[260px]">PRODUCTS</div>
               </div>
 
-              {/* Fill layer */}
-              <div className="relative z-10 flex flex-col items-center w-full" style={{ color: '#156B37' }}>
-                <div className="relative w-full flex justify-center text-[130px] md:text-[280px]">
+              {/* Fill layer (Yellow) */}
+              <div className="relative z-10 flex flex-col items-center w-full" style={{ color: '#F7D80C' }}>
+                <div className="relative w-full flex justify-center text-[115px] md:text-[260px]">
                   OUR
                   {/* Grab Your Packs text */}
-                  <div className="absolute top-[85%] -translate-y-1/2 right-[10%] md:right-[15%] font-arpona text-[16px] md:text-[24px] tracking-tight font-medium text-white normal-case drop-shadow-none pointer-events-none">
+                  <div className="absolute top-[82%] -translate-y-1/2 right-[15%] md:right-[19%] font-arpona text-[16px] md:text-[24px] tracking-tight font-medium text-white normal-case drop-shadow-none pointer-events-none">
                     Grab Your Packs
                   </div>
                 </div>
-                <div className="text-[130px] md:text-[280px]">
+                <div className="text-[115px] md:text-[260px]">
                   PRODUCTS
                 </div>
               </div>
@@ -679,7 +686,7 @@ export default function Home() {
             </div>
 
             {/* See more button - Absolute bottom right */}
-            <div className="absolute bottom-[2%] md:bottom-[5%] right-[5%] md:right-[10%] z-40 pointer-events-auto">
+            <div className="absolute bottom-[1%] md:bottom-[2%] right-[5%] md:right-[10%] z-40 pointer-events-auto">
               <Link href="/products" className="inline-block bg-[#F7D80C] text-black font-arpona font-medium text-[18px] md:text-[20px] tracking-[-0.05em] px-6 py-1 md:px-8 md:py-2 rounded-[5px] shadow-lg hover:scale-105 transition-transform duration-300">
                 See more
               </Link>
