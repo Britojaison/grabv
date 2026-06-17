@@ -953,7 +953,7 @@ export default function Home() {
         <section ref={readyToCookSectionRef} className="relative w-full h-[160vh] bg-[#FBF5E1] pt-12 md:pt-24 overflow-hidden font-arpona flex flex-col items-center">
           
           {/* Order Now Button */}
-          <button className="bg-[#F7D80C] text-black font-arpona font-medium text-[20px] md:text-[32px] leading-tight px-8 md:px-12 py-3 md:py-3 rounded-xl mb-12 shadow-md hover:bg-yellow-400 transition-colors z-40">
+          <button className="bg-[#F7D80C] text-black font-arpona font-medium text-[18px] md:text-[30px] tracking-[-0.05em] leading-tight px-7 md:px-[44px] py-[10px] md:py-[10px] rounded-xl mb-12 shadow-md hover:bg-yellow-400 transition-colors z-40">
             Order now
           </button>
 
