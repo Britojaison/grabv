@@ -16,7 +16,7 @@ export default function ProductsPage() {
             <main className="w-full relative flex flex-col items-center">
 
                 {/* Content Wrapper for Product Info */}
-                <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 pt-8 md:pt-16 pb-12 md:pb-20">
+                <div className="w-full max-w-[1600px] mx-auto px-5 sm:px-8 md:pl-4 md:pr-8 pt-8 md:pt-16 pb-12 md:pb-20">
 
 
                     {/* Main Product Info Section */}
@@ -213,14 +213,14 @@ export default function ProductsPage() {
                         </div>
 
                         {/* Explore More Products Section */}
-                        <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] px-4 md:pl-4 md:pr-8 pt-10 pb-8 md:pb-4 mb-4" style={{ backgroundColor: 'rgb(239, 239, 231)' }}>
+                        <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] px-5 sm:px-8 md:pl-4 md:pr-8 pt-10 pb-8 md:pb-4 mb-4" style={{ backgroundColor: 'rgb(239, 239, 231)' }}>
                             <div className="max-w-[1600px] mx-auto flex flex-col items-center md:items-start">
                                 <h2 className="font-kura leading-none mb-10 md:mb-12 uppercase text-[32px] md:text-[50px] lg:text-[65px] text-center md:text-left lg:whitespace-nowrap">
                                     <span style={{ color: 'rgb(21, 107, 54)' }}>Explore </span>
                                     <span style={{ color: 'rgb(247, 0, 52)' }}>More Products</span>
                                 </h2>
 
-                                <div className="w-full flex lg:grid lg:grid-cols-3 overflow-x-auto lg:overflow-visible gap-4 md:gap-10 pb-4 lg:pb-0 no-scrollbar px-4 md:px-0">
+                                <div className="w-full flex lg:grid lg:grid-cols-3 overflow-x-auto lg:overflow-visible gap-4 md:gap-10 pb-4 lg:pb-0 no-scrollbar px-5 sm:px-8 md:px-0">
                                     {[
                                         { status: 'active', title: 'Onion Tomato Gravy', image: '/images/APGArtboard-1 (3).png' },
                                         { status: 'coming_soon', title: 'Smoked Makhani Gravy', image: '/images/smoked makani.png' },
@@ -304,7 +304,7 @@ export default function ProductsPage() {
                                 <div className="absolute inset-0 -z-10" style={{ backgroundColor: 'rgb(239, 238, 230)' }} />
                             </div>
 
-                            <div className="relative z-10 flex flex-col items-center px-4">
+                            <div className="relative z-10 flex flex-col items-center px-5 sm:px-8">
                                 {/* What people are saying Pill - Mobile */}
                                 <div className="md:hidden relative w-[210px] h-[55px] mb-6">
                                     <div className="absolute top-[6px] bottom-[6px] left-[4px] right-[4px] rounded-full bg-[rgb(247,216,13)]" />
@@ -333,7 +333,7 @@ export default function ProductsPage() {
 
                         {/* Review Cards - Horizontal scroll on mobile and tablet */}
                         <div className="w-full flex flex-col items-center">
-                            <div className="w-full max-w-[1600px] mx-auto px-4 md:pl-4 md:pr-8 pt-4 md:py-8 lg:py-20 flex overflow-x-auto no-scrollbar lg:grid lg:grid-cols-3 gap-6 md:gap-8 pb-8 md:pb-16">
+                            <div className="w-full max-w-[1600px] mx-auto px-5 sm:px-8 md:pl-4 md:pr-8 pt-4 md:py-8 lg:py-20 flex overflow-x-auto no-scrollbar lg:grid lg:grid-cols-3 gap-6 md:gap-8 pb-8 md:pb-16">
                             {[
                                 {
                                     name: "Sneha Mehta",
@@ -411,7 +411,7 @@ export default function ProductsPage() {
                     {/* Ready to Cook Section */}
                     <div className="w-full flex flex-col items-center">
                         <div
-                            className="w-[calc(100%-32px)] md:w-full max-w-[1600px] mx-auto min-h-[280px] md:min-h-[450px] lg:h-[550px] rounded-[8px] px-4 md:px-12 lg:px-24 py-8 md:py-16 lg:py-24 flex flex-col items-center justify-center text-center relative overflow-hidden mb-10 shadow-xl"
+                            className="w-[calc(100%-40px)] sm:w-[calc(100%-64px)] md:w-full max-w-[1600px] mx-auto min-h-[280px] md:min-h-[450px] lg:h-[550px] rounded-[8px] px-5 sm:px-8 md:px-12 lg:px-24 py-8 md:py-16 lg:py-24 flex flex-col items-center justify-center text-center relative overflow-hidden mb-10 shadow-xl"
                             style={{ backgroundColor: 'rgb(21, 106, 55)' }}
                         >
 
