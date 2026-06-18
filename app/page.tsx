@@ -946,9 +946,9 @@ export default function Home() {
 
 
             {/* Review 2 */}
-            <div className="relative w-[85%] shrink-0 md:shrink md:w-[28%] max-w-[1400px] snap-center md:-translate-y-[20px]">
+            <div className="relative w-[85%] shrink-0 md:shrink md:w-[28%] max-w-[1400px] snap-center md:translate-y-[10px]">
               <img src="/images/HomePage/review2.png" alt="Review 2" className="w-full h-auto drop-shadow-2xl" />
-              <div className="absolute top-[44%] md:top-[49%] right-[13%] flex flex-col items-end rotate-[-10deg]">
+              <div className="absolute top-[44%] md:top-[43%] right-[13%] flex flex-col items-end rotate-[-10deg]">
                 <span className="font-bold text-[16px] md:text-[24px] text-black leading-none tracking-tight">-Ananya & Rohan</span>
                 <span className="font-medium text-[12px] md:text-[18px] text-black leading-tight pr-1 tracking-tighter">Bengaluru, Consultants</span>
               </div>
