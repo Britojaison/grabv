@@ -1,11 +1,11 @@
 export default function Footer() {
   return (
-    <footer className="relative w-full bg-[#156B37] pt-[80px] md:pt-[150px] pb-24 font-arpona mt-auto">
-      {/* Yellow fill for the transparent top wavy part */}
-      <div className="absolute top-0 left-0 w-full h-[150px] md:h-[300px] bg-[#FBF5E1] z-0 pointer-events-none"></div>
+    <footer className="relative w-full pt-[80px] md:pt-[150px] pb-24 font-arpona mt-auto z-10">
+      {/* Solid green background starting far enough below the wave so the straight edge is hidden */}
+      <div className="absolute top-[80px] md:top-[200px] bottom-0 left-0 w-full bg-[#156B37] -z-10 pointer-events-none"></div>
       
       {/* The green wavy background image */}
-      <div className="absolute inset-0 bg-no-repeat z-0 pointer-events-none" style={{ backgroundImage: "url('/images/HomePage/green%20bg.png')", backgroundSize: "105% auto", backgroundPosition: "center top" }}></div>
+      <div className="absolute inset-0 bg-no-repeat -z-10 pointer-events-none" style={{ backgroundImage: "url('/images/HomePage/green%20bg.png')", backgroundSize: "105% auto", backgroundPosition: "center top" }}></div>
       
       <div className="relative z-10 w-full mx-auto px-8 md:px-[110px] flex flex-col md:flex-row md:justify-between items-start gap-12 md:gap-0">
         

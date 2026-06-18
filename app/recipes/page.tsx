@@ -150,7 +150,7 @@ export default function RecipesPage() {
       {/* Header removed, now in layout.tsx */}
 
       <main className="w-full relative flex flex-col items-center">
-        <section className="w-full relative overflow-hidden pt-10 md:pt-16 pb-12 md:pb-20" style={{ backgroundColor: "rgb(21, 107, 54)" }}>
+        <section className="w-full relative overflow-hidden pt-24 md:pt-32 pb-12 md:pb-20" style={{ backgroundColor: "rgb(21, 107, 54)" }}>
           <div className="absolute inset-0 opacity-25">
             <Image src="/images/bg green2.svg" alt="" fill className="object-cover object-bottom" priority />
           </div>

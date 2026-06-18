@@ -32,7 +32,7 @@ export default function OurStoryPage() {
     }, []);
 
     return (
-        <div className="flex flex-col min-h-screen w-full font-arpona overflow-x-hidden" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
+        <div className="flex flex-col min-h-screen w-full font-arpona" style={{ backgroundColor: 'rgb(239, 238, 230)' }}>
 
             {/* Header removed, now in layout.tsx */}
 
@@ -41,7 +41,7 @@ export default function OurStoryPage() {
 
 
                 {/* Hero Section - How it started */}
-                <section className="w-full relative pt-12 md:pt-20 pb-24 md:pb-48 flex flex-col items-center overflow-visible">
+                <section className="w-full relative pt-24 md:pt-32 pb-24 md:pb-48 flex flex-col items-center overflow-visible">
                     {/* Background Layer */}
                     <div className="absolute inset-0 z-0 overflow-hidden">
                         <Image
@@ -241,7 +241,7 @@ export default function OurStoryPage() {
                 </section>
 
                 {/* Features Bar - Redesigned for Mobile */}
-                <section className="w-full relative flex flex-col items-center overflow-visible mt-8">
+                <section className="w-full relative flex flex-col items-center overflow-visible mt-8 z-0">
                     <div className="w-full min-h-[60px] md:min-h-0 md:py-0 relative flex items-center justify-center">
                         {/* Mobile Background - Green Paper with Torn Edge */}
                         <div className="md:hidden absolute inset-0 z-0">
@@ -255,7 +255,7 @@ export default function OurStoryPage() {
                         </div>
                         
                         {/* Mobile Bar Content - Infinite Scrolling Marquee */}
-                        <div className="lg:hidden relative z-10 w-full overflow-hidden py-4">
+                        <div className="lg:hidden relative z-10 w-full overflow-hidden py-4 pb-[100px]">
                             <div className="flex flex-row animate-marquee whitespace-nowrap gap-8 w-max">
                                 {[
                                     { icon: "/images/timer2.svg", text: "Ready in 7 mins" },
@@ -280,11 +280,13 @@ export default function OurStoryPage() {
                         </div>
 
                         {/* Desktop Background Layer (Unchanged) */}
-                        <div className="hidden lg:block w-full relative pt-24 pb-16 flex flex-col items-center text-center overflow-hidden">
+                        <div className="hidden lg:block w-full relative pt-24 pb-[160px] md:pb-[200px] flex flex-col items-center text-center">
                             <div className="absolute inset-0 z-0 overflow-hidden">
                                 <Image src="/images/bg green2.svg" alt="" fill className="object-cover object-top scale-x-[-1]" priority />
-                                <div className="absolute inset-0 -z-10" style={{ backgroundColor: 'rgb(239, 238, 230)' }} />
+                                <div className="absolute inset-0 -z-10" style={{ backgroundColor: 'rgb(21, 107, 54)' }} />
                             </div>
+                            {/* Bleed div to extend the solid green behind the footer */}
+                            <div className="absolute top-full left-0 w-full h-[500px] -mt-[2px] z-0 pointer-events-none" style={{ backgroundColor: 'rgb(21, 107, 54)' }} />
                             <div className="relative z-10 flex flex-col items-center gap-6 mt-4">
                                 <div className="flex flex-wrap justify-center items-center gap-6">
                                     {[
