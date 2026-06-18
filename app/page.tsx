@@ -902,7 +902,7 @@ export default function Home() {
             {/* Review 2 */}
             <div className="relative w-[85%] md:w-[28%] max-w-[1400px] mx-auto md:-translate-y-[20px]">
               <img src="/images/HomePage/review2.png" alt="Review 2" className="w-full h-auto drop-shadow-2xl" />
-              <div className="absolute top-[48%] right-[18%] flex flex-col items-end rotate-[-12deg]">
+              <div className="absolute top-[49%] right-[13%] flex flex-col items-end rotate-[-10deg]">
                 <span className="font-bold text-[16px] md:text-[24px] text-black leading-none tracking-tight">-Ananya & Rohan</span>
                 <span className="font-medium text-[12px] md:text-[18px] text-black leading-tight pr-1 tracking-tighter">Bengaluru, Consultants</span>
               </div>
@@ -920,7 +920,7 @@ export default function Home() {
             {/* Review 3 */}
             <div className="relative w-[95%] md:w-[33%] max-w-[1400px] mx-auto md:-translate-x-[60px]">
               <img src="/images/HomePage/review3.png" alt="Review 3" className="w-full h-auto drop-shadow-2xl" />
-              <div className="absolute top-[49%] right-[24%] flex flex-col items-end rotate-[6deg]">
+              <div className="absolute top-[46%] right-[22%] flex flex-col items-end rotate-[6deg]">
                 <span className="font-bold text-[16px] md:text-[24px] text-black leading-none tracking-tight">-Rekha Nair</span>
                 <span className="font-medium text-[12px] md:text-[18px] text-black leading-tight pr-1 tracking-tighter">Bengaluru, Housewife</span>
               </div>
