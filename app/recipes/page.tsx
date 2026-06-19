@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 type RecipeType = "veg" | "nonveg";
 
@@ -114,7 +113,6 @@ const recipes = {
 };
 
 export default function RecipesPage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeType, setActiveType] = useState<RecipeType>("veg");
   const activeRecipes = recipes[activeType];
   const isVeg = activeType === "veg";
@@ -150,39 +148,39 @@ export default function RecipesPage() {
       {/* Header removed, now in layout.tsx */}
 
       <main className="w-full relative flex flex-col items-center">
-        <section className="w-full relative overflow-hidden pt-24 md:pt-32 pb-12 md:pb-20" style={{ backgroundColor: "rgb(21, 107, 54)" }}>
+        <section className="relative w-full overflow-hidden pt-24 pb-12 sm:pt-28 lg:pt-32 lg:pb-20" style={{ backgroundColor: "rgb(21, 107, 54)" }}>
           <div className="absolute inset-0 opacity-25">
             <Image src="/images/bg green2.svg" alt="" fill className="object-cover object-bottom" priority />
           </div>
-          <div className="relative w-full max-w-[1600px] mx-auto pl-4 pr-4 md:pl-16 md:pr-8 flex flex-col md:flex-row items-center gap-8 md:gap-14">
-            <div className="w-full md:w-[58%] text-center md:text-left">
+          <div className="relative mx-auto flex w-full max-w-[100rem] flex-col items-center gap-8 px-4 sm:px-6 lg:flex-row lg:gap-12 lg:px-10 xl:px-14 2xl:px-20">
+            <div className="w-full text-center lg:w-[58%] lg:text-left">
               <div className="relative inline-flex mb-5 md:mb-8">
                 <div className="relative z-10 flex items-center gap-2 px-5 md:px-8 py-2 md:py-3 rounded-full bg-[rgb(247,216,13)]">
                   <Image src="/images/leaf.svg" alt="" width={20} height={20} className="w-4 md:w-6 h-4 md:h-6" />
-                  <span className="font-arpona font-semibold text-[14px] md:text-[22px] uppercase tracking-wide text-[rgb(21,107,54)]">GrabV Recipes</span>
+                  <span className="font-arpona text-[0.875rem] font-semibold uppercase tracking-wide text-[rgb(21,107,54)] sm:text-[1.125rem] lg:text-[1.375rem]">GrabV Recipes</span>
                 </div>
                 <Image src="/images/border2.svg" alt="" fill className="z-20 object-fill pointer-events-none scale-110" />
               </div>
 
               <h1 className="font-kura uppercase leading-[0.9] mb-4 md:mb-6">
-                <span className="block text-[42px] md:text-[68px] lg:text-[92px] text-[rgb(247,216,13)]">Recipes</span>
-                <span className="block text-[34px] md:text-[52px] lg:text-[72px] text-white">GrabV</span>
+                <span className="block text-[2.625rem] text-[rgb(247,216,13)] sm:text-[3.625rem] lg:text-[4.75rem] xl:text-[5.75rem]">Recipes</span>
+                <span className="block text-[2.125rem] text-white sm:text-[2.875rem] lg:text-[3.75rem] xl:text-[4.5rem]">GrabV</span>
               </h1>
-              <p className="text-white/90 text-[16px] md:text-[24px] leading-[1.35] max-w-[640px] mx-auto md:mx-0">
+              <p className="mx-auto max-w-[40rem] text-[1rem] leading-[1.35] text-white/90 sm:text-[1.25rem] lg:mx-0 lg:text-[1.375rem] xl:text-[1.5rem]">
                 Switch the ingredients, keep the flavour. Make everyday curries faster with GrabV onion tomato gravy.
               </p>
             </div>
 
-            <div className="relative w-full md:w-[42%] max-w-[520px] aspect-[5/4]">
-              <Image src={isVeg ? "/images/mutter panner.png" : "/images/home style chicken.png"} alt={isVeg ? "Mutter Paneer" : "Home Style Chicken Curry"} fill className="object-cover rounded-[18px] md:rounded-[28px] border-[6px] md:border-[10px] border-[rgb(247,216,13)] shadow-2xl" priority />
+            <div className="relative aspect-[5/4] w-full max-w-[32.5rem] lg:w-[42%]">
+              <Image src={isVeg ? "/images/mutter panner.png" : "/images/home style chicken.png"} alt={isVeg ? "Mutter Paneer" : "Home Style Chicken Curry"} fill className="object-cover rounded-[1.125rem] md:rounded-[1.75rem] border-[0.375rem] md:border-[0.625rem] border-[rgb(247,216,13)] shadow-2xl" priority />
             </div>
           </div>
         </section>
 
-        <section className="w-full pt-8 md:pt-14 pb-16 md:pb-24" style={{ backgroundColor: "rgb(239, 238, 230)" }}>
-          <div className="w-full max-w-[1600px] mx-auto pl-4 pr-4 md:pl-16 md:pr-8">
+        <section className="w-full pt-8 pb-16 sm:pt-10 lg:pt-14 lg:pb-24" style={{ backgroundColor: "rgb(239, 238, 230)" }}>
+          <div className="mx-auto w-full max-w-[100rem] px-4 sm:px-6 lg:px-10 xl:px-14 2xl:px-20">
             <div className="flex flex-col items-center gap-5 md:gap-8 mb-8 md:mb-14">
-              <div className="grid grid-cols-2 w-full max-w-[520px] rounded-full p-1.5 md:p-2 bg-white shadow-md border border-[rgba(21,107,54,0.18)]">
+              <div className="grid grid-cols-2 w-full max-w-[32.5rem] rounded-full p-1.5 md:p-2 bg-white shadow-md border border-[rgba(21,107,54,0.18)]">
                 {[
                   { key: "veg" as RecipeType, label: "Veg" },
                   { key: "nonveg" as RecipeType, label: "Non Veg" },
@@ -193,7 +191,7 @@ export default function RecipesPage() {
                       key={option.key}
                       type="button"
                       onClick={() => setActiveType(option.key)}
-                      className="relative h-[46px] md:h-[58px] rounded-full font-arpona font-bold text-[16px] md:text-[22px] transition-all"
+                      className="relative h-[2.875rem] md:h-[3.625rem] rounded-full font-arpona font-bold text-[1rem] md:text-[1.375rem] transition-all"
                       style={{
                         backgroundColor: isActive ? (option.key === "veg" ? "rgb(21, 107, 54)" : "rgb(247, 0, 52)") : "transparent",
                         color: isActive ? "white" : "rgb(21, 107, 54)",
@@ -206,15 +204,15 @@ export default function RecipesPage() {
                 })}
               </div>
 
-              <div className="w-full flex items-center gap-3 md:gap-8">
-                <div className="flex-1 h-[1px] md:h-[2px]" style={{ backgroundColor: isVeg ? "rgb(21, 107, 54)" : "rgb(247, 0, 52)" }} />
-                <div className="flex items-center gap-2 md:gap-3 px-4 md:px-8 py-2 md:py-3 rounded-full shrink-0" style={{ backgroundColor: isVeg ? "rgb(207, 219, 204)" : "rgba(247, 0, 52, 0.15)" }}>
+              <div className="flex w-full items-center gap-2 sm:gap-4 lg:gap-8">
+                <div className="h-[0.0625rem] flex-1 md:h-[0.125rem]" style={{ backgroundColor: isVeg ? "rgb(21, 107, 54)" : "rgb(247, 0, 52)" }} />
+                <div className="flex shrink-0 items-center gap-2 rounded-full px-3 py-2 sm:px-5 lg:gap-3 lg:px-8 lg:py-3" style={{ backgroundColor: isVeg ? "rgb(207, 219, 204)" : "rgba(247, 0, 52, 0.15)" }}>
                   <div className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 rounded-full" style={{ backgroundColor: isVeg ? "rgb(21, 107, 54)" : "rgb(247, 0, 52)" }} />
-                  <span className="font-bold text-[13px] md:text-[22px] tracking-[0.1em]" style={{ color: isVeg ? "rgb(21, 107, 54)" : "rgb(247, 0, 52)" }}>
+                  <span className="text-[0.75rem] font-bold tracking-[0.08em] sm:text-[0.9375rem] lg:text-[1.375rem] lg:tracking-[0.1em]" style={{ color: isVeg ? "rgb(21, 107, 54)" : "rgb(247, 0, 52)" }}>
                     {isVeg ? "VEGETARIAN" : "NON-VEGETARIAN"}
                   </span>
                 </div>
-                <div className="flex-1 h-[1px] md:h-[2px]" style={{ backgroundColor: isVeg ? "rgb(21, 107, 54)" : "rgb(247, 0, 52)" }} />
+                <div className="flex-1 h-[0.0625rem] md:h-[0.125rem]" style={{ backgroundColor: isVeg ? "rgb(21, 107, 54)" : "rgb(247, 0, 52)" }} />
               </div>
             </div>
 
@@ -222,44 +220,41 @@ export default function RecipesPage() {
               {activeRecipes.map((item, index) => {
                 const textFirst = index % 2 === 0;
                 const textBlock = (
-                  <div className={`min-w-0 p-5 md:p-7 lg:p-9 ${textFirst ? "order-1" : "order-1 md:order-2"}`}>
-                    <h2 className="font-kura uppercase text-[32px] md:text-[46px] lg:text-[52px] leading-[0.95] mb-4 text-[rgb(247,0,52)]">{item.title}</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-5">
+                  <div className={`min-w-0 p-5 sm:p-6 lg:p-8 xl:p-9 ${textFirst ? "order-1" : "order-1 lg:order-2"}`}>
+                    <h2 className="mb-4 font-kura text-[2rem] leading-[0.95] text-[rgb(247,0,52)] uppercase sm:text-[2.5rem] lg:text-[2.875rem] xl:text-[3.25rem]">{item.title}</h2>
+                    <div className="mb-5 grid grid-cols-1 gap-2 sm:grid-cols-3">
                       {[
                         ["Serves", item.serves],
                         ["Cook time", item.cookTime],
                         ["Time saved", item.timeSaved],
                       ].map(([label, value]) => (
-                        <div key={label} className="rounded-[12px] bg-[rgb(239,238,230)] px-4 py-3">
-                          <p className="text-[12px] uppercase font-bold tracking-wide text-[rgb(21,107,54)]">{label}</p>
-                          <p className="text-[15px] md:text-[17px] font-semibold leading-tight text-[rgb(12,61,27)]">{value}</p>
+                        <div key={label} className="rounded-[0.75rem] bg-[rgb(239,238,230)] px-3 py-3 sm:px-4">
+                          <p className="text-[0.75rem] uppercase font-bold tracking-wide text-[rgb(21,107,54)]">{label}</p>
+                          <p className="text-[0.9375rem] md:text-[1.0625rem] font-semibold leading-tight text-[rgb(12,61,27)]">{value}</p>
                         </div>
                       ))}
                     </div>
-                    <h3 className="text-[18px] md:text-[22px] font-bold mb-2 text-[rgb(21,107,54)]">Ingredients</h3>
-                    <ul className="grid grid-cols-1 lg:grid-cols-2 gap-x-5 gap-y-1.5 mb-5 text-[15px] md:text-[17px] leading-snug text-[rgb(21,107,54)]">
+                    <h3 className="text-[1.125rem] md:text-[1.375rem] font-bold mb-2 text-[rgb(21,107,54)]">Ingredients</h3>
+                    <ul className="mb-5 grid grid-cols-1 gap-x-5 gap-y-1.5 text-[0.9375rem] leading-snug text-[rgb(21,107,54)] xl:grid-cols-2 xl:text-[1.0625rem]">
                       {item.ingredients.map((ingredient) => (
                         <li key={ingredient}>{ingredient}</li>
                       ))}
                     </ul>
-                    <h3 className="text-[18px] md:text-[22px] font-bold mb-2 text-[rgb(21,107,54)]">Instructions</h3>
-                    <p className="text-[15px] md:text-[18px] leading-relaxed text-[rgb(21,107,54)]">{item.instructions}</p>
+                    <h3 className="text-[1.125rem] md:text-[1.375rem] font-bold mb-2 text-[rgb(21,107,54)]">Instructions</h3>
+                    <p className="text-[0.9375rem] md:text-[1.125rem] leading-relaxed text-[rgb(21,107,54)]">{item.instructions}</p>
                   </div>
                 );
                 const imageBlock = (
-                  <div className={`relative min-h-[280px] md:min-h-full aspect-[4/3] md:aspect-auto overflow-hidden bg-white ${textFirst ? "order-2" : "order-2 md:order-1"}`}>
-                    <Image src={item.image} alt={item.title} fill className="object-cover" sizes="(min-width: 768px) 44vw, 92vw" />
+                  <div className={`relative aspect-[4/3] min-h-[15rem] overflow-hidden bg-white sm:min-h-[20rem] lg:aspect-auto lg:min-h-full ${textFirst ? "order-2" : "order-2 lg:order-1"}`}>
+                    <Image src={item.image} alt={item.title} fill className="object-cover" sizes="(min-width: 1024px) 44vw, 92vw" />
                   </div>
                 );
-                const articleColumns = textFirst
-                  ? "md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]"
-                  : "md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]";
 
                 return (
                   <article
                     id={item.slug}
                     key={item.title}
-                    className={`scroll-mt-24 grid grid-cols-1 ${articleColumns} gap-0 overflow-hidden rounded-[18px] md:rounded-[28px] bg-white shadow-lg border border-[rgba(21,107,54,0.12)]`}
+                    className="grid scroll-mt-24 grid-cols-1 gap-0 overflow-hidden rounded-[1.125rem] border border-[rgba(21,107,54,0.12)] bg-white shadow-lg lg:grid-cols-2 lg:rounded-[1.75rem]"
                   >
                     {textFirst ? (
                       <>
@@ -275,7 +270,7 @@ export default function RecipesPage() {
                   </article>
                 );
               })}
-              <p className="text-center text-[14px] md:text-[18px] leading-relaxed font-medium text-[rgb(21,107,54)]">
+              <p className="text-center text-[0.875rem] md:text-[1.125rem] leading-relaxed font-medium text-[rgb(21,107,54)]">
                 Note: For more servings, multiply all ingredients based on the serving size.
               </p>
             </div>

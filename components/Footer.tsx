@@ -1,18 +1,20 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
-    <footer className="relative w-full bg-[#FBF5E1] pt-[80px] md:pt-[150px] pb-28 md:pb-24 font-arpona mt-auto z-10">
+    <footer className="relative z-10 mt-auto w-full bg-[#FBF5E1] pt-20 pb-16 font-arpona md:pt-32 md:pb-20">
       {/* Solid green background starting far enough below the wave so the straight edge is hidden */}
-      <div className="absolute top-[80px] md:top-[200px] bottom-0 left-0 w-full bg-[#156B37] -z-10 pointer-events-none"></div>
+      <div className="absolute top-20 bottom-0 left-0 -z-10 w-full bg-[#156B37] pointer-events-none md:top-44"></div>
       
       {/* The green wavy background image */}
       <div className="absolute inset-0 bg-no-repeat -z-10 pointer-events-none" style={{ backgroundImage: "url('/images/HomePage/green%20bg.png')", backgroundSize: "105% auto", backgroundPosition: "center top" }}></div>
       
-      <div className="relative z-10 w-full mx-auto px-4 md:px-[110px] flex flex-row justify-between items-start gap-2 md:gap-0 -mt-8 md:-mt-20">
+      <div className="relative z-10 mx-auto grid w-full max-w-[100rem] grid-cols-1 gap-10 px-4 sm:grid-cols-2 sm:px-6 md:-mt-12 lg:grid-cols-[1.1fr_1fr_1fr] lg:px-10 xl:px-14 2xl:px-20">
         
         {/* Column 1: Logo & Copyright */}
-        <div className="flex flex-col items-start w-[30%] md:w-auto">
-          <img src="/images/logo.svg" alt="GrabV" className="w-[140px] md:w-[350px] mb-4 md:mb-12" />
-          <p className="text-white text-[8px] md:text-[34px] tracking-[-0.03em] leading-[1.3] font-normal">
+        <div className="flex flex-col items-start sm:col-span-2 lg:col-span-1">
+          <Image src="/images/logo.svg" alt="GrabV" width={350} height={140} className="mb-5 h-auto w-[9.375rem] sm:w-[13.125rem] lg:mb-8 lg:w-[17.5rem] xl:w-[20.625rem]" />
+          <p className="text-[0.875rem] leading-[1.35] text-white sm:text-[1rem] lg:text-[1.375rem] xl:text-[1.625rem] 2xl:text-[1.875rem]">
             © 2026 GrabV. All rights reserved.<br/>
             88gb Digital Mraketing &<br/>
             Technology Company
@@ -20,42 +22,42 @@ export default function Footer() {
         </div>
 
         {/* Column 2: Product & Order */}
-        <div className="flex flex-col items-start w-[30%] md:w-auto mt-2 md:mt-6">
-          <div className="mb-6 md:mb-10">
-            <h3 className="text-[#F7D80C] font-kura uppercase text-[22px] md:text-[70px] tracking-[0.02em] font-normal mb-2 md:mb-6">PRODUCT</h3>
-            <ul className="flex flex-col space-y-0 leading-[1.2] md:leading-[1.3]">
-              <li><a href="/all-purposegravy" className="text-white text-[12px] md:text-[35px] tracking-[-0.03em] hover:text-[#F7D80C] transition-colors block py-[2px] md:py-0">All Purpose Gravy</a></li>
-              <li><a href="/all-purposegravy#ingredients" className="text-white text-[12px] md:text-[35px] tracking-[-0.03em] hover:text-[#F7D80C] transition-colors block py-[2px] md:py-0">Ingredients</a></li>
-              <li><a href="/all-purposegravy#how-to-use" className="text-white text-[12px] md:text-[35px] tracking-[-0.03em] hover:text-[#F7D80C] transition-colors block py-[2px] md:py-0">How to Use</a></li>
-              <li><a href="/recipes" className="text-white text-[12px] md:text-[35px] tracking-[-0.03em] hover:text-[#F7D80C] transition-colors block py-[2px] md:py-0">Recipes</a></li>
+        <div className="flex flex-col items-start gap-8">
+          <div>
+            <h3 className="mb-3 font-kura text-[2rem] font-normal uppercase tracking-[0.02em] text-[#F7D80C] sm:text-[2.5rem] lg:text-[3rem] xl:text-[3.5rem]">PRODUCT</h3>
+            <ul className="flex flex-col gap-1 leading-[1.25]">
+              <li><a href="/all-purposegravy" className="block text-[1.0625rem] text-white transition-colors hover:text-[#F7D80C] sm:text-[1.1875rem] lg:text-[1.375rem] xl:text-[1.625rem]">All Purpose Gravy</a></li>
+              <li><a href="/all-purposegravy#ingredients" className="block text-[1.0625rem] text-white transition-colors hover:text-[#F7D80C] sm:text-[1.1875rem] lg:text-[1.375rem] xl:text-[1.625rem]">Ingredients</a></li>
+              <li><a href="/all-purposegravy#how-to-use" className="block text-[1.0625rem] text-white transition-colors hover:text-[#F7D80C] sm:text-[1.1875rem] lg:text-[1.375rem] xl:text-[1.625rem]">How to Use</a></li>
+              <li><a href="/recipes" className="block text-[1.0625rem] text-white transition-colors hover:text-[#F7D80C] sm:text-[1.1875rem] lg:text-[1.375rem] xl:text-[1.625rem]">Recipes</a></li>
             </ul>
           </div>
           <div>
-            <h3 className="text-[#F7D80C] font-kura uppercase text-[22px] md:text-[70px] tracking-[0.02em] font-normal mb-2 md:mb-6">ORDER & POLICIES</h3>
-            <ul className="flex flex-col space-y-0 leading-[1.2] md:leading-[1.3]">
-              <li><a href="#" className="text-white text-[12px] md:text-[35px] tracking-[-0.03em] hover:text-[#F7D80C] transition-colors block py-[2px] md:py-0">WhatsApp Order</a></li>
-              <li><a href="#" className="text-white text-[12px] md:text-[35px] tracking-[-0.03em] hover:text-[#F7D80C] transition-colors block py-[2px] md:py-0">Exchange Order</a></li>
-              <li><a href="#" className="text-white text-[12px] md:text-[35px] tracking-[-0.03em] hover:text-[#F7D80C] transition-colors block py-[2px] md:py-0">Privacy Policy</a></li>
+            <h3 className="mb-3 font-kura text-[2rem] font-normal uppercase tracking-[0.02em] text-[#F7D80C] sm:text-[2.5rem] lg:text-[3rem] xl:text-[3.5rem]">ORDER & POLICIES</h3>
+            <ul className="flex flex-col gap-1 leading-[1.25]">
+              <li><a href="#" className="block text-[1.0625rem] text-white transition-colors hover:text-[#F7D80C] sm:text-[1.1875rem] lg:text-[1.375rem] xl:text-[1.625rem]">WhatsApp Order</a></li>
+              <li><a href="#" className="block text-[1.0625rem] text-white transition-colors hover:text-[#F7D80C] sm:text-[1.1875rem] lg:text-[1.375rem] xl:text-[1.625rem]">Exchange Order</a></li>
+              <li><a href="#" className="block text-[1.0625rem] text-white transition-colors hover:text-[#F7D80C] sm:text-[1.1875rem] lg:text-[1.375rem] xl:text-[1.625rem]">Privacy Policy</a></li>
             </ul>
           </div>
         </div>
 
         {/* Column 3: Follow Us & Company */}
-        <div className="flex flex-col items-start w-[30%] md:w-auto mt-2 md:mt-6">
-          <div className="mb-10 md:mb-16">
-            <h3 className="text-[#F7D80C] font-kura uppercase text-[22px] md:text-[70px] tracking-[0.02em] font-normal mb-2 md:mb-6">COMPANY</h3>
-            <ul className="flex flex-col space-y-0 leading-[1.2] md:leading-[1.3]">
-              <li><a href="/ourstory" className="text-white text-[12px] md:text-[35px] tracking-[-0.03em] hover:text-[#F7D80C] transition-colors block py-[2px] md:py-0">Our Story</a></li>
-              <li><a href="#" className="text-white text-[12px] md:text-[35px] tracking-[-0.03em] hover:text-[#F7D80C] transition-colors block py-[2px] md:py-0">Process</a></li>
-              <li><a href="#" className="text-white text-[12px] md:text-[35px] tracking-[-0.03em] hover:text-[#F7D80C] transition-colors block py-[2px] md:py-0">Quality Promise</a></li>
-              <li><a href="/contact" className="text-white text-[12px] md:text-[35px] tracking-[-0.03em] hover:text-[#F7D80C] transition-colors block py-[2px] md:py-0">Contact Us</a></li>
+        <div className="flex flex-col items-start gap-8">
+          <div>
+            <h3 className="mb-3 font-kura text-[2rem] font-normal uppercase tracking-[0.02em] text-[#F7D80C] sm:text-[2.5rem] lg:text-[3rem] xl:text-[3.5rem]">COMPANY</h3>
+            <ul className="flex flex-col gap-1 leading-[1.25]">
+              <li><a href="/ourstory" className="block text-[1.0625rem] text-white transition-colors hover:text-[#F7D80C] sm:text-[1.1875rem] lg:text-[1.375rem] xl:text-[1.625rem]">Our Story</a></li>
+              <li><a href="#" className="block text-[1.0625rem] text-white transition-colors hover:text-[#F7D80C] sm:text-[1.1875rem] lg:text-[1.375rem] xl:text-[1.625rem]">Process</a></li>
+              <li><a href="#" className="block text-[1.0625rem] text-white transition-colors hover:text-[#F7D80C] sm:text-[1.1875rem] lg:text-[1.375rem] xl:text-[1.625rem]">Quality Promise</a></li>
+              <li><a href="/contact" className="block text-[1.0625rem] text-white transition-colors hover:text-[#F7D80C] sm:text-[1.1875rem] lg:text-[1.375rem] xl:text-[1.625rem]">Contact Us</a></li>
             </ul>
           </div>
-          <div className="mt-2 md:mt-4">
-            <h3 className="text-white font-kura text-[18px] md:text-[50px] tracking-[0.02em] font-normal mb-2 md:mb-4">Follow Us</h3>
+          <div>
+            <h3 className="mb-3 font-kura text-[1.875rem] font-normal tracking-[0.02em] text-white sm:text-[2.25rem] lg:text-[2.625rem] xl:text-[3rem]">Follow Us</h3>
             <div className="flex items-center">
               <a href="#" className="hover:opacity-80 transition-opacity">
-                <img src="/images/HomePage/footer%20logo.png" alt="Social Links" className="w-[110px] md:w-[280px]" />
+                <Image src="/images/HomePage/footer%20logo.png" alt="Social Links" width={280} height={70} className="h-auto w-[9.375rem] sm:w-[11.875rem] lg:w-[14.375rem] xl:w-[16.875rem]" />
               </a>
             </div>
           </div>
