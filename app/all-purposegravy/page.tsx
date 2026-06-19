@@ -22,17 +22,17 @@ export default function ProductsPage() {
                     {/* Main Product Info Section */}
                     <div className="w-full flex flex-col pt-4 md:pt-2">
 
-                        <div className="w-full flex flex-row md:flex-row gap-2 md:gap-24">
+                        <div className="w-full flex flex-col md:flex-row gap-6 md:gap-24">
 
                             {/* Left: Product Image */}
-                            <div className="w-[50%] md:w-[50%] flex flex-col items-center md:items-start pt-0 md:pt-4">
+                            <div className="w-full md:w-[50%] flex flex-col items-center md:items-start pt-0 md:pt-4">
                                 <div className="relative w-full aspect-[1/1.1] md:aspect-square rounded-[20px] md:rounded-[12px] overflow-hidden bg-[#e5e5e5]/40 md:bg-transparent flex items-center justify-center p-2 md:p-6 md:max-w-[640px]">
                                     <div className="relative w-full h-full">
                                         <Image
                                             src="/images/APGArtboard-1 (3).png"
                                             alt="Product Main"
                                             fill
-                                            className="object-cover object-center scale-[1.34] md:scale-[1.24] rounded-[10px]"
+                                            className="object-cover object-center scale-110 md:scale-[1.24] rounded-[10px]"
                                             priority
                                         />
                                         {/* Pagination dots inside image area on desktop */}
@@ -46,7 +46,7 @@ export default function ProductsPage() {
                             </div>
 
                             {/* Right: Product Details */}
-                            <div className="w-[55%] md:w-[50%] flex flex-col items-start pt-0 md:pt-4">
+                            <div className="w-full md:w-[50%] flex flex-col items-start pt-4 md:pt-4">
 
                                 {/* Fresh & Flavorful Pill */}
                                 <div className="relative w-[130px] md:w-[240px] h-[35px] md:h-[65px] mb-4 md:mb-8">
@@ -75,10 +75,10 @@ export default function ProductsPage() {
                                 {/* Title */}
                                 <div className="mb-3 md:mb-4 uppercase">
                                     <div className="md:hidden">
-                                        <h1 className="font-kura leading-[0.95] text-[20px] uppercase whitespace-nowrap" style={{ color: 'rgb(21, 107, 54)' }}>
+                                        <h1 className="font-kura leading-[0.95] text-[28px] uppercase" style={{ color: 'rgb(21, 107, 54)' }}>
                                             Onion Tomato
                                         </h1>
-                                        <h1 className="font-kura leading-[0.95] text-[20px] uppercase whitespace-nowrap" style={{ color: 'rgb(247, 0, 52)' }}>
+                                        <h1 className="font-kura leading-[0.95] text-[28px] uppercase" style={{ color: 'rgb(247, 0, 52)' }}>
                                             Gravy
                                         </h1>
                                     </div>
