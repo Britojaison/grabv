@@ -349,8 +349,13 @@ export default function Home() {
           const wrapper = stepsContainerRef.current;
           const track = stepsTrackRef.current;
           
+          if (window.innerWidth < 1280) {
+            track.style.transform = `translate3d(0, 0, 0)`;
+            return;
+          }
+
           const rect = wrapper.getBoundingClientRect();
-          const stickyOffset = window.innerWidth >= 768 ? 110 : 70;
+          const stickyOffset = 110;
           const scrollableHeight = stickyOffset + rect.height - window.innerHeight;
           const scrolled = stickyOffset - rect.top;
           
@@ -389,8 +394,13 @@ export default function Home() {
           const wrapper = productsContainerRef.current;
           const track = productsTrackRef.current;
           
+          if (window.innerWidth < 1280) {
+            track.style.transform = `translate3d(0, 0, 0)`;
+            return;
+          }
+
           const rect = wrapper.getBoundingClientRect();
-          const stickyOffset = window.innerWidth >= 768 ? 110 : 70;
+          const stickyOffset = 110;
           const scrollableHeight = stickyOffset + rect.height - window.innerHeight;
           const scrolled = stickyOffset - rect.top;
           
@@ -442,27 +452,27 @@ export default function Home() {
         </section>
 
         {/* Freshly Made Product Section */}
-        <section ref={textSectionRef} className="relative w-full h-[30vh] sm:h-[54vh] md:h-[72vh] lg:h-[86vh] xl:h-[100vh] flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
+        <section ref={textSectionRef} className="relative w-full h-[65vw] xl:h-[100vh] flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
           {/* Background Text Overlay */}
-          <div className="absolute left-0 right-0 inset-y-0 flex flex-col justify-center items-center pointer-events-none select-none z-0 overflow-hidden font-kura uppercase tracking-[-0.07em] translate-y-0 sm:translate-y-3 md:translate-y-4 xl:translate-y-8 px-4 sm:px-8 md:px-12 lg:px-20 xl:px-[120px]" style={{ color: '#146A36' }}>
+          <div className="absolute left-0 right-0 inset-y-0 flex flex-col justify-center items-center pointer-events-none select-none z-0 overflow-hidden font-kura uppercase tracking-[-0.07em] translate-y-0 xl:translate-y-8 px-[4vw] xl:px-[120px]" style={{ color: '#146A36' }}>
             <div 
-              className="w-full flex justify-between h-[42px] sm:h-[76px] md:h-[104px] lg:h-[130px] xl:h-[230px] mb-2 sm:mb-3 xl:mb-4 text-[52px] sm:text-[76px] md:text-[104px] lg:text-[130px] xl:text-[230px] leading-[1.0] transition-transform duration-1000 ease-out"
+              className="w-full flex justify-between h-[13vw] xl:h-[230px] mb-[1.5vw] xl:mb-4 text-[13vw] xl:text-[230px] leading-[1.0] transition-transform duration-1000 ease-out"
               style={{ transform: isTextVisible ? 'translateX(0)' : 'translateX(100vw)' }}
             >
               <span>FRESHLY</span>
               <span>MADE</span>
             </div>
             <div 
-              className="w-full flex justify-between h-[35px] sm:h-[56px] md:h-[72px] lg:h-[90px] xl:h-[165px] text-[42px] sm:text-[56px] md:text-[72px] lg:text-[90px] xl:text-[165px] leading-[1.0] mt-1 md:mt-2 transition-transform duration-1000 ease-out"
+              className="w-full flex justify-between h-[10.5vw] xl:h-[165px] text-[10.5vw] xl:text-[165px] leading-[1.0] mt-[0.5vw] xl:mt-2 transition-transform duration-1000 ease-out"
               style={{ transform: isTextVisible ? 'translateX(0)' : 'translateX(-100vw)' }}
             >
               <span>READY</span>
-              <span className="translate-x-[5px] md:translate-x-0 xl:translate-x-[20px]">IN 10 MIN</span>
+              <span className="translate-x-[1vw] xl:translate-x-[20px]">IN 10 MIN</span>
             </div>
           </div>
 
           {/* Product Image */}
-          <div className="relative z-10 w-[80vw] sm:w-[38rem] md:w-[62rem] lg:w-[78rem] xl:w-[1500px] max-w-[110vw] h-[25vh] sm:h-[42vh] md:h-[68vh] lg:h-[86vh] xl:h-[105vh] max-h-[1600px] translate-y-0 sm:translate-y-6 md:translate-y-10 xl:translate-y-20">
+          <div className="relative z-10 w-[80vw] xl:w-[1500px] max-w-[110vw] h-[55vw] xl:h-[105vh] max-h-[1600px] translate-y-[2vw] xl:translate-y-20">
             <Image
               src="/images/HomePage/product package 1.png"
               alt="GrabV Product Package"
@@ -473,34 +483,34 @@ export default function Home() {
           </div>
 
           {/* Bottom Left Text */}
-          <div className="absolute bottom-10 sm:bottom-5 md:bottom-0 lg:bottom-1 xl:bottom-8 left-4 sm:left-8 md:left-12 lg:left-20 xl:left-[120px] z-20 flex flex-col gap-[2px] md:gap-0 tracking-[-0.05em] text-black">
-            <span className="font-arpona font-medium text-[10px] sm:text-[16px] md:text-[20px] lg:text-[24px] xl:text-[28px] leading-[1.1]">Veg or non-veg</span>
-            <span className="font-arpona font-medium text-[10px] sm:text-[16px] md:text-[20px] lg:text-[24px] xl:text-[28px] leading-[1.1]">Possibilities are endless</span>
+          <div className="absolute bottom-[4vw] xl:bottom-8 left-[4vw] xl:left-[120px] z-20 flex flex-col gap-[2px] md:gap-0 tracking-[-0.05em] text-black">
+            <span className="font-arpona font-medium text-[2.5vw] xl:text-[28px] leading-[1.1]">Veg or non-veg</span>
+            <span className="font-arpona font-medium text-[2.5vw] xl:text-[28px] leading-[1.1]">Possibilities are endless</span>
           </div>
 
           {/* Bottom Right Text */}
-          <div className="absolute bottom-10 sm:bottom-5 md:bottom-0 lg:bottom-1 xl:bottom-8 right-4 sm:right-8 md:right-12 lg:right-20 xl:right-[120px] z-20 flex flex-col gap-[2px] md:gap-0 tracking-[-0.05em] text-black text-right">
-            <span className="font-arpona font-medium text-[10px] sm:text-[16px] md:text-[20px] lg:text-[24px] xl:text-[28px] leading-[1.1]">Just add in the gravy</span>
-            <span className="font-arpona font-medium text-[10px] sm:text-[16px] md:text-[20px] lg:text-[24px] xl:text-[28px] leading-[1.1]">And enjoy your meal</span>
+          <div className="absolute bottom-[4vw] xl:bottom-8 right-[4vw] xl:right-[120px] z-20 flex flex-col gap-[2px] md:gap-0 tracking-[-0.05em] text-black text-right">
+            <span className="font-arpona font-medium text-[2.5vw] xl:text-[28px] leading-[1.1]">Just add in the gravy</span>
+            <span className="font-arpona font-medium text-[2.5vw] xl:text-[28px] leading-[1.1]">And enjoy your meal</span>
           </div>
         </section>
 
         {/* Pouch to Plate Section - Heading */}
-        <section className="relative w-full flex flex-col items-center pt-8 md:pt-24 pb-0 md:pb-12 overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
+        <section className="relative w-full flex flex-col items-center pt-[8vw] xl:pt-24 pb-0 xl:pb-12 overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
           
           {/* Top text */}
-          <p className="font-arpona text-[14px] sm:text-[18px] md:text-[22px] lg:text-[25px] xl:text-[28px] leading-[1.0] tracking-[-0.05em] font-medium text-black mb-4 md:mb-8 xl:mb-10 text-center z-10">
+          <p className="font-arpona text-[3.8vw] xl:text-[28px] leading-[1.0] tracking-[-0.05em] font-medium text-black mb-[4vw] xl:mb-10 text-center z-10">
             No Chopping. No Stress. Just Real Food.
           </p>
 
           {/* Huge Heading */}
-          <div className="relative font-kura uppercase text-[50px] sm:text-[70px] md:text-[132px] lg:text-[190px] xl:text-[260px] leading-[0.85] tracking-[-0.02em] text-center w-full flex justify-center md:drop-shadow-xl z-10">
+          <div className="relative font-kura uppercase text-[14vw] xl:text-[260px] leading-[0.85] tracking-[-0.02em] text-center w-full flex justify-center drop-shadow-lg xl:drop-shadow-xl z-10">
             {/* Vegetables Behind Text */}
-            <img src="/images/HomePage/tomato.png" alt="" className="absolute top-[-6%] md:top-[-9%] left-[26%] md:left-[25%] w-[55px] md:w-[140px] lg:w-[200px] xl:w-[265px] z-0 pointer-events-none" />
-            <img src="/images/HomePage/onion.png" alt="" className="absolute top-[-6%] md:top-[-8%] left-[20%] md:left-[18%] w-[45px] md:w-[110px] lg:w-[155px] xl:w-[200px] -rotate-[15deg] z-[1] md:z-0 pointer-events-none opacity-90" />
+            <img src="/images/HomePage/tomato.png" alt="" className="absolute top-[-6%] xl:top-[-9%] left-[26%] xl:left-[25%] w-[15vw] xl:w-[265px] z-0 pointer-events-none" />
+            <img src="/images/HomePage/onion.png" alt="" className="absolute top-[-6%] xl:top-[-8%] left-[20%] xl:left-[18%] w-[12.5vw] xl:w-[200px] -rotate-[15deg] z-[1] xl:z-0 pointer-events-none opacity-90" />
 
             {/* Shadow layer */}
-            <div className="absolute inset-0 flex justify-center z-0 pointer-events-none translate-y-[5px] translate-x-[8px] md:translate-y-[8px] md:translate-x-[12px] xl:translate-y-[10px] xl:translate-x-[16px]" style={{ color: '#F7D80C' }}>
+            <div className="absolute inset-0 flex justify-center z-0 pointer-events-none translate-y-[1.5vw] translate-x-[2.2vw] xl:translate-y-[10px] xl:translate-x-[16px]" style={{ color: '#F7D80C' }}>
               <div>POUCH TO<br/>PLATE IN<br/>5 STEPS</div>
             </div>
             
@@ -508,66 +518,65 @@ export default function Home() {
             <div className="relative z-10" style={{ color: '#156B37' }}>
               <div>POUCH TO<br/>PLATE IN<br/>5 STEPS</div>
               {/* Homemade Sticker */}
-              <img src="/images/HomePage/homemade.png" alt="Homemade-ish" className="absolute bottom-[20%] md:bottom-[25%] right-[-25%] md:right-[-8%] xl:right-[-10%] w-[85px] md:w-[150px] lg:w-[220px] xl:w-[290px] rotate-2 drop-shadow-xl z-20 pointer-events-none" />
+              <img src="/images/HomePage/homemade.png" alt="Homemade-ish" className="absolute bottom-[20%] xl:bottom-[25%] right-[-25%] xl:right-[-10%] w-[24vw] xl:w-[290px] rotate-2 drop-shadow-xl z-20 pointer-events-none" />
             </div>
           </div>
         </section>
 
         {/* Pouch to Plate Wrapper for Scrolljacking */}
-        <div ref={stepsContainerRef} className="relative w-full h-auto md:h-[400vh] pb-20 md:pb-0" style={{ backgroundColor: '#FBF5E1' }}>
+        <div ref={stepsContainerRef} className="relative w-full h-auto xl:h-[400vh] pb-20 xl:pb-0" style={{ backgroundColor: '#FBF5E1' }}>
           {/* Pouch to Plate Sticky Section */}
-          <section className="relative md:sticky top-[70px] md:top-[110px] w-full h-auto md:h-[calc(100vh-110px)] flex flex-col justify-start pt-0 md:pt-0 mt-[-15px] md:mt-0 md:justify-center overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
-            
+          <section className="relative xl:sticky top-[70px] xl:top-[110px] w-full h-auto xl:h-[calc(100vh-110px)] flex flex-col justify-start pt-0 xl:pt-0 mt-[-15px] xl:mt-0 xl:justify-center overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
             {/* Horizontal Scrolling Track */}
-            <div className="relative w-full z-30 h-auto md:h-full flex items-start pt-0 md:items-center overflow-x-auto overflow-y-hidden md:overflow-visible snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-              <div ref={stepsTrackRef} className="flex items-start md:items-end gap-[20px] md:gap-[32px] xl:gap-[50px] pl-5 sm:pl-[40px] md:pl-12 lg:pl-20 xl:pl-[120px] pr-5 sm:pr-[40px] md:pr-12 lg:pr-20 xl:pr-[120px] pb-4 md:pb-0 will-change-transform w-max md:w-[max-content]">
+            <div className="relative w-full z-30 h-auto xl:h-full flex items-start pt-0 xl:items-center overflow-x-auto overflow-y-hidden xl:overflow-visible snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+              <div ref={stepsTrackRef} className="flex items-start xl:items-end gap-[20px] md:gap-[32px] xl:gap-[50px] pl-[5vw] xl:pl-[120px] pr-[5vw] xl:pr-[120px] pb-[4vw] xl:pb-0 will-change-transform w-max xl:w-[max-content]">
                 
                 {/* Step 1 */}
-                <div className="w-[80vw] md:w-[520px] lg:w-[680px] xl:w-[880px] flex-shrink-0 flex flex-col justify-end snap-center">
+                <div className="w-[80vw] md:w-[65vw] lg:w-[55vw] xl:w-[880px] flex-shrink-0 flex flex-col justify-end snap-center">
                   <div className="relative">
-                    <img src="/images/HomePage/cooking img1.png" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[30vh] md:max-h-[48vh] lg:max-h-[54vh] xl:max-h-[60vh]" alt="Step 1" />
+                    <img src="/images/HomePage/cooking img1.png" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[30vh] md:max-h-[45vh] xl:max-h-[60vh]" alt="Step 1" />
                   </div>
-                  <p className="mt-4 md:mt-5 xl:mt-6 ml-0 md:ml-4 font-arpona text-[16px] sm:text-[20px] md:text-[22px] lg:text-[26px] xl:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center md:text-left">
+                  <p className="mt-[4vw] md:mt-[3vw] lg:mt-[2vw] xl:mt-6 ml-0 xl:ml-4 font-arpona text-[4vw] md:text-[3.5vw] lg:text-[2.5vw] xl:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center xl:text-left">
                     Add your tempering (tadka) in oil.
                   </p>
                 </div>
 
                 {/* Step 2 */}
-                <div className="w-[80vw] md:w-[520px] lg:w-[680px] xl:w-[880px] flex-shrink-0 flex flex-col justify-end snap-center">
+                <div className="w-[80vw] md:w-[65vw] lg:w-[55vw] xl:w-[880px] flex-shrink-0 flex flex-col justify-end snap-center">
                   <div className="relative">
-                    <img src="/images/HomePage/cooking img2.png" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[30vh] md:max-h-[48vh] lg:max-h-[54vh] xl:max-h-[60vh]" alt="Step 2" />
+                    <img src="/images/HomePage/cooking img2.png" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[30vh] md:max-h-[45vh] xl:max-h-[60vh]" alt="Step 2" />
                   </div>
-                  <p className="mt-4 md:mt-5 xl:mt-6 ml-0 md:ml-4 font-arpona text-[16px] sm:text-[20px] md:text-[22px] lg:text-[26px] xl:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center md:text-left">
+                  <p className="mt-[4vw] md:mt-[3vw] lg:mt-[2vw] xl:mt-6 ml-0 xl:ml-4 font-arpona text-[4vw] md:text-[3.5vw] lg:text-[2.5vw] xl:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center xl:text-left">
                     Sauté veggies or protein of your choice.
                   </p>
                 </div>
 
                 {/* Step 3 */}
-                <div className="w-[80vw] md:w-[520px] lg:w-[680px] xl:w-[880px] flex-shrink-0 flex flex-col justify-end snap-center">
+                <div className="w-[80vw] md:w-[65vw] lg:w-[55vw] xl:w-[880px] flex-shrink-0 flex flex-col justify-end snap-center">
                   <div className="relative">
-                    <img src="/images/HomePage/cooking img3.png" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[30vh] md:max-h-[48vh] lg:max-h-[54vh] xl:max-h-[60vh]" alt="Step 3" />
+                    <img src="/images/HomePage/cooking img3.png" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[30vh] md:max-h-[45vh] xl:max-h-[60vh]" alt="Step 3" />
                   </div>
-                  <p className="mt-4 md:mt-5 xl:mt-6 ml-0 md:ml-4 font-arpona text-[16px] sm:text-[20px] md:text-[22px] lg:text-[26px] xl:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center md:text-left">
+                  <p className="mt-[4vw] md:mt-[3vw] lg:mt-[2vw] xl:mt-6 ml-0 xl:ml-4 font-arpona text-[4vw] md:text-[3.5vw] lg:text-[2.5vw] xl:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center xl:text-left">
                     Pour GrabV & adjust consistency
                   </p>
                 </div>
 
                 {/* Step 4 */}
-                <div className="w-[80vw] md:w-[520px] lg:w-[680px] xl:w-[880px] flex-shrink-0 flex flex-col justify-end snap-center">
+                <div className="w-[80vw] md:w-[65vw] lg:w-[55vw] xl:w-[880px] flex-shrink-0 flex flex-col justify-end snap-center">
                   <div className="relative">
-                    <img src="/images/HomePage/cooking img4.png" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[30vh] md:max-h-[48vh] lg:max-h-[54vh] xl:max-h-[60vh]" alt="Step 4" />
+                    <img src="/images/HomePage/cooking img4.png" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[30vh] md:max-h-[45vh] xl:max-h-[60vh]" alt="Step 4" />
                   </div>
-                  <p className="mt-4 md:mt-5 xl:mt-6 ml-0 md:ml-4 font-arpona text-[16px] sm:text-[20px] md:text-[22px] lg:text-[26px] xl:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center md:text-left">
+                  <p className="mt-[4vw] md:mt-[3vw] lg:mt-[2vw] xl:mt-6 ml-0 xl:ml-4 font-arpona text-[4vw] md:text-[3.5vw] lg:text-[2.5vw] xl:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center xl:text-left">
                     Add water as needed and let it simmer.
                   </p>
                 </div>
 
                 {/* Step 5 */}
-                <div className="w-[80vw] md:w-[520px] lg:w-[680px] xl:w-[880px] flex-shrink-0 flex flex-col justify-end snap-center">
+                <div className="w-[80vw] md:w-[65vw] lg:w-[55vw] xl:w-[880px] flex-shrink-0 flex flex-col justify-end snap-center">
                   <div className="relative">
-                    <img src="/images/HomePage/cooking img5.png" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[30vh] md:max-h-[48vh] lg:max-h-[54vh] xl:max-h-[60vh]" alt="Step 5" />
+                    <img src="/images/HomePage/cooking img5.png" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[30vh] md:max-h-[45vh] xl:max-h-[60vh]" alt="Step 5" />
                   </div>
-                  <p className="mt-4 md:mt-5 xl:mt-6 ml-0 md:ml-4 font-arpona text-[16px] sm:text-[20px] md:text-[22px] lg:text-[26px] xl:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center md:text-left">
+                  <p className="mt-[4vw] md:mt-[3vw] lg:mt-[2vw] xl:mt-6 ml-0 xl:ml-4 font-arpona text-[4vw] md:text-[3.5vw] lg:text-[2.5vw] xl:text-[30px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center xl:text-left">
                     Garnish, serve hot, and show off!
                   </p>
                 </div>
@@ -596,29 +605,29 @@ export default function Home() {
             <img src="/images/HomePage/red2%20bg.png" alt="Red torn background bottom" className="w-full h-[150px] md:h-[190px] xl:h-[250px] object-cover object-bottom shrink-0" />
           </div>
 
-          <section className="relative w-full flex flex-col items-center pt-[40px] md:pt-[70px] xl:pt-[100px] pb-0 md:pb-12 z-10">
+          <section className="relative w-full flex flex-col items-center pt-[11vw] xl:pt-[100px] pb-0 xl:pb-12 z-10">
             {/* Huge Heading */}
             <div className="relative z-10 font-kura uppercase leading-[0.8] tracking-[-0.02em] text-center flex flex-col items-center w-full">
               
               {/* Onion Image Behind Text */}
-              <img src="/images/HomePage/onion.png" className="absolute left-[8%] md:left-[11%] top-[12%] md:top-[15%] w-[70px] md:w-[150px] lg:w-[220px] xl:w-[290px] object-contain z-[-1] pointer-events-none -rotate-12" alt="" />
+              <img src="/images/HomePage/onion.png" className="absolute left-[8%] xl:left-[11%] top-[12%] xl:top-[15%] w-[19.5vw] xl:w-[290px] object-contain z-[-1] pointer-events-none -rotate-12" alt="" />
 
               {/* Shadow layer (Green) */}
-              <div className="absolute inset-0 flex flex-col items-center z-0 pointer-events-none translate-y-[5px] translate-x-[8px] md:translate-y-[8px] md:translate-x-[12px] xl:translate-y-[10px] xl:translate-x-[16px]" style={{ color: '#156B37' }}>
-                <div className="text-[65px] md:text-[132px] lg:text-[190px] xl:text-[260px]">OUR</div>
-                <div className="text-[65px] md:text-[132px] lg:text-[190px] xl:text-[260px]">PRODUCTS</div>
+              <div className="absolute inset-0 flex flex-col items-center z-0 pointer-events-none translate-y-[1.4vw] translate-x-[2.2vw] xl:translate-y-[10px] xl:translate-x-[16px]" style={{ color: '#156B37' }}>
+                <div className="text-[18vw] xl:text-[260px]">OUR</div>
+                <div className="text-[18vw] xl:text-[260px]">PRODUCTS</div>
               </div>
 
               {/* Fill layer (Yellow) */}
               <div className="relative z-10 flex flex-col items-center w-full" style={{ color: '#F7D80C' }}>
-                <div className="relative w-full flex justify-center text-[65px] md:text-[132px] lg:text-[190px] xl:text-[260px]">
+                <div className="relative w-full flex justify-center text-[18vw] xl:text-[260px]">
                   OUR
                   {/* Grab Your Packs text */}
-                  <div className="absolute top-[81%] md:top-[82%] -translate-y-1/2 max-[360px]:right-[5%] right-[12%] min-[410px]:right-[16%] md:right-[19%] font-arpona text-[10px] md:text-[16px] lg:text-[20px] xl:text-[24px] tracking-tight font-medium text-white normal-case drop-shadow-none pointer-events-none">
+                  <div className="absolute top-[81%] xl:top-[82%] -translate-y-1/2 right-[12%] md:right-[9%] lg:right-[7%] xl:right-[19%] font-arpona text-[2.8vw] xl:text-[24px] tracking-tight font-medium text-white normal-case drop-shadow-none pointer-events-none">
                     Grab Your Packs
                   </div>
                 </div>
-                <div className="text-[65px] md:text-[132px] lg:text-[190px] xl:text-[260px]">
+                <div className="text-[18vw] xl:text-[260px]">
                   PRODUCTS
                 </div>
               </div>
@@ -627,13 +636,14 @@ export default function Home() {
           </section>
 
           {/* Our Products Wrapper for Scrolljacking */}
-          <div ref={productsContainerRef} className="relative w-full h-auto md:h-[250vh] z-10 mt-[-60px] md:mt-0">
+          {/* Our Products Wrapper for Scrolljacking */}
+          <div ref={productsContainerRef} className="relative w-full h-auto xl:h-[250vh] z-10 mt-[-60px] xl:mt-0">
             {/* Our Products Sticky Section */}
-            <section className="relative md:sticky top-[70px] md:top-[110px] w-full h-auto md:h-[calc(100vh-110px)] flex flex-col justify-start md:justify-center overflow-hidden">
+            <section className="relative xl:sticky top-[70px] xl:top-[110px] w-full h-auto xl:h-[calc(100vh-110px)] flex flex-col justify-start xl:justify-center overflow-hidden">
             
             {/* Horizontal Scrolling Track */}
             <div 
-              className="relative w-full z-30 overflow-x-auto md:overflow-visible snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+              className="relative w-full z-30 overflow-x-auto xl:overflow-visible snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
               onScroll={(e) => {
                 const scrollLeft = e.currentTarget.scrollLeft;
                 const width = e.currentTarget.clientWidth;
@@ -641,27 +651,27 @@ export default function Home() {
                 setActiveProductMobile(index);
               }}
             >
-              <div ref={productsTrackRef} className="flex items-start md:items-center gap-0 md:gap-[56px] lg:gap-[76px] xl:gap-[100px] pl-5 sm:pl-[40px] md:pl-12 lg:pl-20 xl:pl-[120px] pr-0 sm:pr-[40px] md:pr-12 lg:pr-20 xl:pr-[120px] pb-8 md:pb-0 will-change-transform w-max md:w-[max-content]">
+              <div ref={productsTrackRef} className="flex items-start xl:items-center gap-0 xl:gap-[100px] pl-[5vw] xl:pl-[120px] pr-[5vw] xl:pr-[120px] pb-8 xl:pb-0 will-change-transform w-max xl:w-[max-content]">
                 
                 {/* Product 1 */}
-                <div className="relative inline-block flex-shrink-0 flex flex-col items-center md:items-end w-auto snap-center">
-                  <div className="relative w-[100vw] md:w-auto">
-                    <img src="/images/HomePage/product1.png" className="w-[100vw] md:w-auto h-auto md:h-[560px] lg:h-[720px] xl:h-[950px] object-contain block drop-shadow-2xl" alt="Product 1" />
+                <div className="relative inline-block flex-shrink-0 flex flex-col items-center xl:items-end w-auto snap-center">
+                  <div className="relative w-[100vw] xl:w-auto">
+                    <img src="/images/HomePage/product1.png" className="w-[100vw] xl:w-auto h-auto xl:h-[950px] object-contain block drop-shadow-2xl" alt="Product 1" />
                     
                     <div className="absolute top-[34%] left-[64%] w-[36%] flex flex-col items-start text-black font-arpona">
-                      <h3 className="text-[14px] sm:text-[18px] md:text-[28px] lg:text-[38px] xl:text-[50px] leading-[1.0] tracking-[-0.05em] font-bold">
+                      <h3 className="text-[3.9vw] xl:text-[50px] leading-[1.0] tracking-[-0.05em] font-bold">
                         ONION<br/>TOMATO<br/>GRAVY
                       </h3>
                       
-                      <div className="mt-1 md:mt-4 lg:mt-6 xl:mt-7 flex flex-col gap-0 md:gap-1 text-[7px] sm:text-[10px] md:text-[14px] lg:text-[18px] xl:text-[24px] font-medium tracking-tight">
+                      <div className="mt-[1vw] xl:mt-7 flex flex-col gap-0 xl:gap-1 text-[2vw] xl:text-[24px] font-medium tracking-tight">
                         <p>Zero Added Preservatives</p>
                         <p>All Purpose Gravy</p>
                         <p>Slow Cooked</p>
                       </div>
                       
-                      <button className="mt-2 md:mt-5 lg:mt-8 xl:mt-10 bg-[rgb(247,216,13)] text-black px-2 py-0.5 md:px-4 lg:px-6 xl:px-7 md:py-1.5 xl:py-2 rounded-[3px] md:rounded-[6px] font-medium text-[8px] sm:text-[10px] md:text-[13px] lg:text-[16px] xl:text-[20px] hover:bg-yellow-400 transition-colors flex items-center justify-center gap-1 md:gap-2 shadow-sm whitespace-nowrap">
+                      <button className="mt-[2vw] xl:mt-10 bg-[rgb(247,216,13)] text-black px-[2.2vw] xl:px-7 py-[0.5vw] xl:py-2 rounded-[0.8vw] xl:rounded-[6px] font-medium text-[2.2vw] xl:text-[20px] hover:bg-yellow-400 transition-colors flex items-center justify-center gap-[1vw] xl:gap-2 shadow-sm whitespace-nowrap">
                         View Product
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-2 h-2 md:w-5 md:h-5 ml-0 md:ml-1">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[2vw] h-[2vw] xl:w-5 xl:h-5 ml-[0.5vw] xl:ml-1">
                           <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                       </button>
@@ -669,7 +679,7 @@ export default function Home() {
                   </div>
                   
                   {/* See more button */}
-                  <div className="mt-[-20px] md:mt-[-30px] xl:mt-[-40px] z-20 hidden md:block">
+                  <div className="mt-[-20px] xl:mt-[-40px] z-20 hidden xl:block">
                     <button className="bg-[rgb(247,216,13)] text-black px-8 xl:px-10 py-2 xl:py-3 rounded-[6px] font-bold text-[18px] xl:text-[24px] hover:bg-yellow-400 transition-colors shadow-sm tracking-tight font-arpona">
                       See more
                     </button>
@@ -677,14 +687,14 @@ export default function Home() {
                 </div>
 
                 {/* Product 2 */}
-                <div className="relative inline-block flex-shrink-0 flex flex-col items-center md:items-end w-auto snap-center group">
-                  <div className="relative w-[100vw] md:w-auto">
-                    <img src="/images/HomePage/product2.png" className="w-[100vw] md:w-auto h-auto md:h-[560px] lg:h-[720px] xl:h-[950px] object-contain block drop-shadow-2xl grayscale-[0.8] opacity-80" alt="Product 2" />
+                <div className="relative inline-block flex-shrink-0 flex flex-col items-center xl:items-end w-auto snap-center group">
+                  <div className="relative w-[100vw] xl:w-auto">
+                    <img src="/images/HomePage/product2.png" className="w-[100vw] xl:w-auto h-auto xl:h-[950px] object-contain block drop-shadow-2xl grayscale-[0.8] opacity-80" alt="Product 2" />
                     
                     {/* Coming Soon Overlay */}
                     <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-                      <div className="bg-black/40 backdrop-blur-md px-6 py-2 md:px-12 md:py-4 rounded-full border border-white/20 shadow-xl">
-                        <p className="text-white font-arpona font-medium text-[12px] md:text-[16px] lg:text-[19px] xl:text-[22px] uppercase tracking-[0.25em] text-center">
+                      <div className="bg-black/40 backdrop-blur-md px-[6vw] md:px-[4vw] lg:px-[3vw] xl:px-12 py-[2vw] md:py-[1.5vw] lg:py-[1vw] xl:py-4 rounded-full border border-white/20 shadow-xl">
+                        <p className="text-white font-arpona font-medium text-[3.3vw] md:text-[2.2vw] lg:text-[1.8vw] xl:text-[22px] uppercase tracking-[0.25em] text-center">
                           Coming Soon
                         </p>
                       </div>
@@ -696,18 +706,18 @@ export default function Home() {
             </div>
 
             {/* Mobile Shared Fixed Indicators & Button */}
-            <div className="flex flex-col items-center mt-[-20px] pb-6 md:hidden w-full relative z-40">
-              <div className="flex justify-center gap-2 mb-4">
-                <div className={`w-5 h-1.5 rounded-full transition-colors ${activeProductMobile === 0 ? 'bg-[#F7D80C]' : 'bg-white/80'}`} />
-                <div className={`w-5 h-1.5 rounded-full transition-colors ${activeProductMobile === 1 ? 'bg-[#F7D80C]' : 'bg-white/80'}`} />
+            <div className="flex flex-col items-center mt-[-5vw] md:mt-[-3vw] pb-[6vw] md:pb-[4vw] xl:hidden w-full relative z-40">
+              <div className="flex justify-center gap-[2vw] md:gap-[1.5vw] mb-[4vw] md:mb-[2.5vw]">
+                <div className={`w-[5vw] md:w-[3vw] lg:w-[2.5vw] h-[1.5vw] md:h-[0.8vw] lg:h-[0.6vw] rounded-full transition-colors ${activeProductMobile === 0 ? 'bg-[#F7D80C]' : 'bg-white/80'}`} />
+                <div className={`w-[5vw] md:w-[3vw] lg:w-[2.5vw] h-[1.5vw] md:h-[0.8vw] lg:h-[0.6vw] rounded-full transition-colors ${activeProductMobile === 1 ? 'bg-[#F7D80C]' : 'bg-white/80'}`} />
               </div>
-              <button className={`bg-[#F7D80C] text-black px-6 py-1.5 rounded-[6px] font-bold text-[12px] shadow-sm tracking-tight font-arpona transition-opacity ${activeProductMobile === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}>
+              <button className={`bg-[#F7D80C] text-black px-[6vw] md:px-[4vw] lg:px-[3vw] py-[1.5vw] md:py-[1vw] lg:py-[0.8vw] rounded-[1.5vw] md:rounded-[1vw] lg:rounded-[0.8vw] font-bold text-[3.3vw] md:text-[2.2vw] lg:text-[1.8vw] shadow-sm tracking-tight font-arpona transition-opacity ${activeProductMobile === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}>
                 See more
               </button>
             </div>
             {/* See more button - Absolute bottom right */}
-            <div className="absolute bottom-[1%] md:bottom-[2%] right-[5%] md:right-[10%] z-40 pointer-events-auto hidden md:block">
-              <Link href="/products" className="inline-block bg-[#F7D80C] text-black font-arpona font-medium text-[18px] md:text-[20px] tracking-[-0.05em] px-6 py-1 md:px-8 md:py-2 rounded-[5px] shadow-lg hover:scale-105 transition-transform duration-300">
+            <div className="absolute bottom-[1%] xl:bottom-[2%] right-[5%] xl:right-[10%] z-40 pointer-events-auto hidden xl:block">
+              <Link href="/products" className="inline-block bg-[#F7D80C] text-black font-arpona font-medium text-[18px] xl:text-[20px] tracking-[-0.05em] px-6 py-1 xl:px-8 xl:py-2 rounded-[5px] shadow-lg hover:scale-105 transition-transform duration-300">
                 See more
               </Link>
             </div>
@@ -721,29 +731,30 @@ export default function Home() {
         <section className="relative w-full bg-[#FBF5E1] pt-12 md:pt-16 xl:pt-24 pb-32 md:pb-40 xl:pb-48 overflow-visible z-0">
           
           {/* Top Heading Area */}
-          <div className="relative w-full max-w-[1400px] mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center md:items-start justify-start md:justify-between min-h-[300px] md:min-h-[400px] lg:min-h-[550px] xl:min-h-[700px] z-20">
+          {/* Top Heading Area */}
+          <div className="relative w-full max-w-[1400px] mx-auto px-4 md:px-8 flex flex-col xl:flex-row items-center xl:items-start justify-start xl:justify-between min-h-[300px] md:min-h-[400px] lg:min-h-[550px] xl:min-h-[700px] z-20">
             
             {/* Left: Gravy Pouring Image */}
-            <div className="w-[65%] md:w-[45%] lg:w-[48%] relative flex justify-center md:justify-end z-20 -mt-[145px] md:-mt-[160px] lg:-mt-[220px] xl:-mt-[320px] -translate-x-[75px] min-[361px]:max-[399px]:-translate-x-[95px] min-[400px]:max-[450px]:-translate-x-[115px] sm:-translate-x-[50px] md:-translate-x-12 lg:-translate-x-16 xl:-translate-x-24">
+            <div className="w-[65%] md:w-[60%] lg:w-[50%] relative flex justify-center xl:justify-end z-20 -mt-[145px] md:-mt-[220px] lg:-mt-[300px] xl:-mt-[320px] -translate-x-[75px] min-[361px]:max-[399px]:-translate-x-[95px] min-[400px]:max-[450px]:-translate-x-[115px] sm:-translate-x-[50px] md:-translate-x-[260px] lg:-translate-x-[360px] xl:-translate-x-24">
               <img src="/images/HomePage/Gravy pouring.png" alt="Gravy Pouring" className="w-[100%] md:w-[105%] max-w-[220px] md:max-w-[420px] lg:max-w-[600px] xl:max-w-[800px] object-contain drop-shadow-2xl" />
             </div>
 
             {/* Right: Text and Star */}
-            <div className="w-full md:w-[55%] lg:w-[52%] flex flex-col items-center md:items-start relative z-10 -mt-[180px] sm:-mt-[100px] md:mt-0 max-[360px]:ml-[40px] min-[361px]:max-[450px]:ml-[20px] md:-ml-8 lg:-ml-12 xl:-ml-16 z-30">
+            <div className="w-full xl:w-[52%] flex flex-col items-center xl:items-start relative z-10 -mt-[180px] sm:-mt-[100px] md:-mt-[300px] lg:-mt-[420px] xl:mt-0 max-[360px]:ml-[40px] min-[361px]:max-[450px]:ml-[20px] md:ml-[30px] lg:ml-[40px] xl:-ml-16 z-30">
               {/* Star Image */}
-              <img src="/images/HomePage/star.png" alt="Star" className="absolute top-[-38px] right-[8%] md:w-[110px] md:top-[-20px] md:-right-[40px] lg:w-[160px] lg:top-[-30px] lg:-right-[60px] xl:w-[220px] xl:top-[-40px] xl:-right-[100px] 2xl:w-[280px] 2xl:top-[-50px] 2xl:-right-[180px] w-[70px] -rotate-[6deg] z-0" />
+              <img src="/images/HomePage/star.png" alt="Star" className="absolute top-[-38px] right-[8%] md:w-[110px] md:top-[-20px] md:right-[15%] lg:w-[160px] lg:top-[-30px] lg:right-[18%] xl:w-[220px] xl:top-[-40px] xl:-right-[100px] w-[70px] -rotate-[6deg] z-0" />
               
-              <div className="relative font-kura uppercase leading-[0.85] tracking-[-0.02em] text-center md:text-left z-10">
+              <div className="relative font-kura uppercase leading-[0.85] tracking-[-0.02em] text-center xl:text-left z-10">
                 {/* Shadow layer (Yellow) */}
                 <div className="absolute inset-0 z-0 translate-y-[5px] translate-x-[5px] md:translate-y-[8px] md:translate-x-[10px] xl:translate-y-[10px] xl:translate-x-[15px]" style={{ color: '#F7D80C' }}>
-                  <div className="text-[45px] min-[361px]:max-[450px]:text-[55px] sm:text-[65px] md:text-[90px] lg:text-[130px] xl:text-[180px] 2xl:text-[240px] whitespace-nowrap md:-ml-[16px] lg:-ml-[24px] xl:-ml-[40px]">HOW WE</div>
-                  <div className="text-[45px] min-[361px]:max-[450px]:text-[55px] sm:text-[65px] md:text-[90px] lg:text-[130px] xl:text-[180px] 2xl:text-[240px] whitespace-nowrap">MAKE IT</div>
+                  <div className="text-[45px] min-[361px]:max-[450px]:text-[55px] sm:text-[65px] md:text-[90px] lg:text-[110px] xl:text-[180px] whitespace-nowrap xl:-ml-[40px]">HOW WE</div>
+                  <div className="text-[45px] min-[361px]:max-[450px]:text-[55px] sm:text-[65px] md:text-[90px] lg:text-[110px] xl:text-[180px] whitespace-nowrap">MAKE IT</div>
                 </div>
                 
                 {/* Fill layer (Green) */}
                 <div className="relative z-10" style={{ color: '#156B36' }}>
-                  <div className="text-[45px] min-[361px]:max-[450px]:text-[55px] sm:text-[65px] md:text-[90px] lg:text-[130px] xl:text-[180px] 2xl:text-[240px] whitespace-nowrap md:-ml-[16px] lg:-ml-[24px] xl:-ml-[40px]">HOW WE</div>
-                  <div className="text-[45px] min-[361px]:max-[450px]:text-[55px] sm:text-[65px] md:text-[90px] lg:text-[130px] xl:text-[180px] 2xl:text-[240px] whitespace-nowrap">MAKE IT</div>
+                  <div className="text-[45px] min-[361px]:max-[450px]:text-[55px] sm:text-[65px] md:text-[90px] lg:text-[110px] xl:text-[180px] whitespace-nowrap xl:-ml-[40px]">HOW WE</div>
+                  <div className="text-[45px] min-[361px]:max-[450px]:text-[55px] sm:text-[65px] md:text-[90px] lg:text-[110px] xl:text-[180px] whitespace-nowrap">MAKE IT</div>
                 </div>
               </div>
             </div>
@@ -751,49 +762,49 @@ export default function Home() {
           </div>
 
           {/* Process Steps Container */}
-          <div className="relative w-full max-w-[1200px] mx-auto max-[450px]:-mt-[160px] mt-10 md:mt-16 lg:mt-24 px-4 md:px-8 h-auto md:h-[1800px] lg:h-[2200px] xl:h-[2600px] flex flex-col md:block max-[450px]:gap-2 gap-12 md:gap-0 z-10 max-[450px]:translate-x-[25px]">
+          <div className="relative w-full max-w-[1200px] mx-auto max-[450px]:-mt-[160px] mt-10 md:mt-16 lg:mt-24 px-4 md:px-8 h-auto xl:h-[2600px] flex flex-col xl:block max-[450px]:gap-2 gap-12 xl:gap-0 z-10 max-[450px]:translate-x-[25px]">
             
             {/* Dotted Line SVG (Background) */}
             <AnimatedDottedLine className="absolute top-[8%] sm:inset-0 left-0 w-full h-[84%] sm:h-full pointer-events-none z-0" />
 
             {/* Step 1: Chefs (Right) */}
-            <div className="relative w-full flex justify-end md:absolute md:top-[0%] md:-translate-y-1/2 md:right-[2%] md:w-[45%] order-1">
-              <SlideIn direction="right" className="relative max-[450px]:w-[115%] w-[85%] md:w-full flex-shrink-0">
+            <div className="relative w-full flex justify-end xl:absolute xl:top-[0%] xl:-translate-y-1/2 xl:right-[2%] xl:w-[45%] order-1">
+              <SlideIn direction="right" className="relative max-[450px]:w-[115%] w-[85%] md:w-[75%] lg:w-[65%] xl:w-full flex-shrink-0">
                 <img src="/images/HomePage/process1.png" alt="Chefs" className="w-full h-auto drop-shadow-2xl max-[360px]:translate-x-[15px] min-[361px]:max-[450px]:translate-x-[55px] min-[361px]:max-[450px]:translate-y-[40px]" />
               </SlideIn>
             </div>
 
             {/* Step 2: Stove with 3 pots (Left) */}
-            <div className="relative w-full flex justify-start -mt-8 md:mt-0 md:absolute md:top-[20%] md:-translate-y-1/2 md:left-[2%] md:w-[45%] order-2">
-              <SlideIn direction="left" className="relative max-[450px]:w-[160%] max-[450px]:-ml-[5%] w-[115%] -ml-[7%] md:-ml-0 md:w-full flex-shrink-0">
+            <div className="relative w-full flex justify-start -mt-8 md:mt-0 xl:absolute xl:top-[20%] xl:-translate-y-1/2 xl:left-[2%] xl:w-[45%] order-2">
+              <SlideIn direction="left" className="relative max-[450px]:w-[160%] max-[450px]:-ml-[5%] w-[115%] md:w-[90%] lg:w-[80%] -ml-[7%] md:-ml-0 xl:w-full flex-shrink-0">
                 <img src="/images/HomePage/process2.png" alt="Stove" className="w-full h-auto drop-shadow-2xl max-[450px]:translate-x-[15px]" />
               </SlideIn>
             </div>
 
             {/* Step 3: Lady Tasting (Right) */}
-            <div className="relative w-full flex justify-end md:absolute md:top-[40%] md:-translate-y-1/2 md:right-[2%] md:w-[45%] order-3">
-              <SlideIn direction="right" className="relative max-[450px]:w-[115%] w-[85%] md:w-full flex-shrink-0">
+            <div className="relative w-full flex justify-end xl:absolute xl:top-[40%] xl:-translate-y-1/2 xl:right-[2%] xl:w-[45%] order-3">
+              <SlideIn direction="right" className="relative max-[450px]:w-[115%] w-[85%] md:w-[75%] lg:w-[65%] xl:w-full flex-shrink-0">
                 <img src="/images/HomePage/process3.png" alt="Quality Check" className="w-full h-auto drop-shadow-2xl" />
               </SlideIn>
             </div>
 
             {/* Step 4: Single Pot (Left) */}
-            <div className="relative w-full flex justify-start md:absolute md:top-[60%] md:-translate-y-1/2 md:left-[2%] md:w-[45%] order-4">
-              <SlideIn direction="left" className="relative max-[450px]:w-[85%] w-[75%] md:w-full flex-shrink-0">
+            <div className="relative w-full flex justify-start xl:absolute xl:top-[60%] xl:-translate-y-1/2 xl:left-[2%] xl:w-[45%] order-4">
+              <SlideIn direction="left" className="relative max-[450px]:w-[85%] w-[75%] md:w-[65%] lg:w-[55%] xl:w-full flex-shrink-0">
                 <img src="/images/HomePage/process4.png" alt="Single Pot" className="w-full h-auto drop-shadow-2xl" />
               </SlideIn>
             </div>
 
             {/* Step 5: Bowl of Gravy (Right) - Remains 5th on mobile */}
-            <div className="relative w-full flex justify-end md:absolute md:top-[80%] md:-translate-y-1/2 md:right-[2%] md:w-[45%] order-5">
-              <SlideIn direction="right" className="relative max-[360px]:w-[125%] min-[361px]:max-[450px]:w-[110%] w-[95%] md:w-full flex-shrink-0">
+            <div className="relative w-full flex justify-end xl:absolute xl:top-[80%] xl:-translate-y-1/2 xl:right-[2%] xl:w-[45%] order-5">
+              <SlideIn direction="right" className="relative max-[360px]:w-[125%] min-[361px]:max-[450px]:w-[110%] w-[95%] md:w-[85%] lg:w-[75%] xl:w-full flex-shrink-0">
                 <img src="/images/HomePage/process5.png" alt="Gravy Bowl" className="w-full h-auto drop-shadow-2xl min-[361px]:max-[450px]:translate-x-[20px]" />
               </SlideIn>
             </div>
 
             {/* Step 6: Cold Storage (Left) */}
-            <div className="relative w-full flex justify-start -mt-8 md:mt-0 md:absolute md:top-[100%] md:-translate-y-1/2 md:left-[2%] md:w-[45%] order-6">
-              <SlideIn direction="left" className="relative max-[450px]:-mt-[10px] max-[450px]:w-[120%] max-[450px]:-ml-[10%] w-full flex-shrink-0">
+            <div className="relative w-full flex justify-start -mt-8 md:mt-0 xl:absolute xl:top-[100%] xl:-translate-y-1/2 xl:left-[2%] xl:w-[45%] order-6">
+              <SlideIn direction="left" className="relative max-[450px]:-mt-[10px] max-[450px]:w-[120%] max-[450px]:-ml-[10%] w-[100%] md:w-[85%] lg:w-[75%] xl:w-full flex-shrink-0">
                 <img src="/images/HomePage/process6.png" alt="Cold Storage" className="w-full h-auto drop-shadow-2xl max-[450px]:-translate-x-[50px]" />
               </SlideIn>
             </div>
