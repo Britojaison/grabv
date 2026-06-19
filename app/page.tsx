@@ -41,7 +41,7 @@ const SlideIn = ({ children, className, direction }: { children: React.ReactNode
   );
 };
 
-const AnimatedDottedLine = () => {
+const AnimatedDottedLine = ({ className = "absolute top-[400px] md:top-[850px] left-0 w-full h-[1500px] md:h-[2200px] pointer-events-none z-0" }: { className?: string }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
   const maskPathRef = useRef<SVGPathElement>(null);
@@ -84,7 +84,7 @@ const AnimatedDottedLine = () => {
   }, [pathLen]);
 
   return (
-    <div ref={containerRef} className="absolute top-[400px] md:top-[850px] left-0 w-full h-[1500px] md:h-[2200px] pointer-events-none z-0">
+    <div ref={containerRef} className={className}>
       <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100" fill="none">
         <defs>
           <mask id="line-mask">
@@ -721,79 +721,79 @@ export default function Home() {
         <section className="relative w-full bg-[#FBF5E1] pt-12 md:pt-16 xl:pt-24 pb-32 md:pb-40 xl:pb-48 overflow-visible z-0">
           
           {/* Top Heading Area */}
-          <div className="relative w-full max-w-[1400px] mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-center z-20">
+          <div className="relative w-full max-w-[1400px] mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center md:items-start justify-between min-h-[300px] md:min-h-[400px] lg:min-h-[550px] xl:min-h-[700px] z-20">
             
             {/* Left: Gravy Pouring Image */}
-            <div className="w-full md:w-[50%] relative flex justify-center md:justify-end z-20 -mt-[145px] -translate-x-[140px] md:-mt-[220px] md:-translate-x-[360px] lg:-mt-[320px] lg:-translate-x-[540px] xl:-mt-[420px] xl:-translate-x-[720px]">
-              <img src="/images/HomePage/Gravy pouring.png" alt="Gravy Pouring" className="w-[65%] md:w-[105%] max-w-[220px] md:max-w-[420px] lg:max-w-[600px] xl:max-w-[800px] object-contain drop-shadow-2xl" />
+            <div className="w-[65%] md:w-[45%] lg:w-[48%] relative flex justify-center md:justify-end z-20 -mt-[145px] md:-mt-[160px] lg:-mt-[220px] xl:-mt-[320px] -translate-x-[50px] md:-translate-x-12 lg:-translate-x-16 xl:-translate-x-24">
+              <img src="/images/HomePage/Gravy pouring.png" alt="Gravy Pouring" className="w-[100%] md:w-[105%] max-w-[220px] md:max-w-[420px] lg:max-w-[600px] xl:max-w-[800px] object-contain drop-shadow-2xl" />
             </div>
 
             {/* Right: Text and Star */}
-            <div className="w-full md:w-[55%] flex flex-col items-center md:items-start relative z-10 mt-[-215px] translate-x-[30px] md:translate-x-0 md:-mt-[120px] md:-ml-[420px] lg:-mt-[180px] lg:-ml-[620px] xl:-mt-[260px] xl:-ml-[910px] z-30">
+            <div className="w-full md:w-[55%] lg:w-[52%] flex flex-col items-center md:items-start relative z-10 mt-[-100px] md:mt-0 md:-ml-8 lg:-ml-12 xl:-ml-16 z-30">
               {/* Star Image */}
-              <img src="/images/HomePage/star.png" alt="Star" className="absolute top-[-38px] right-[8%] md:top-[-28px] md:-right-[180px] lg:top-[-34px] lg:-right-[280px] xl:top-[-40px] xl:-right-[430px] w-[70px] md:w-[140px] lg:w-[200px] xl:w-[280px] -rotate-[6deg] z-0" />
+              <img src="/images/HomePage/star.png" alt="Star" className="absolute top-[-38px] right-[8%] md:w-[110px] md:top-[-20px] md:-right-[40px] lg:w-[160px] lg:top-[-30px] lg:-right-[60px] xl:w-[220px] xl:top-[-40px] xl:-right-[100px] 2xl:w-[280px] 2xl:top-[-50px] 2xl:-right-[180px] w-[70px] -rotate-[6deg] z-0" />
               
               <div className="relative font-kura uppercase leading-[0.85] tracking-[-0.02em] text-center md:text-left z-10">
                 {/* Shadow layer (Yellow) */}
                 <div className="absolute inset-0 z-0 translate-y-[5px] translate-x-[5px] md:translate-y-[8px] md:translate-x-[10px] xl:translate-y-[10px] xl:translate-x-[15px]" style={{ color: '#F7D80C' }}>
-                  <div className="text-[65px] sm:text-[70px] md:text-[120px] lg:text-[170px] xl:text-[260px] whitespace-nowrap md:-ml-[16px] lg:-ml-[24px] xl:-ml-[40px]">HOW WE</div>
-                  <div className="text-[65px] sm:text-[70px] md:text-[120px] lg:text-[170px] xl:text-[260px] whitespace-nowrap">MAKE IT</div>
+                  <div className="text-[65px] sm:text-[70px] md:text-[90px] lg:text-[130px] xl:text-[180px] 2xl:text-[240px] whitespace-nowrap md:-ml-[16px] lg:-ml-[24px] xl:-ml-[40px]">HOW WE</div>
+                  <div className="text-[65px] sm:text-[70px] md:text-[90px] lg:text-[130px] xl:text-[180px] 2xl:text-[240px] whitespace-nowrap">MAKE IT</div>
                 </div>
                 
                 {/* Fill layer (Green) */}
                 <div className="relative z-10" style={{ color: '#156B36' }}>
-                  <div className="text-[65px] sm:text-[70px] md:text-[120px] lg:text-[170px] xl:text-[260px] whitespace-nowrap md:-ml-[16px] lg:-ml-[24px] xl:-ml-[40px]">HOW WE</div>
-                  <div className="text-[65px] sm:text-[70px] md:text-[120px] lg:text-[170px] xl:text-[260px] whitespace-nowrap">MAKE IT</div>
+                  <div className="text-[65px] sm:text-[70px] md:text-[90px] lg:text-[130px] xl:text-[180px] 2xl:text-[240px] whitespace-nowrap md:-ml-[16px] lg:-ml-[24px] xl:-ml-[40px]">HOW WE</div>
+                  <div className="text-[65px] sm:text-[70px] md:text-[90px] lg:text-[130px] xl:text-[180px] 2xl:text-[240px] whitespace-nowrap">MAKE IT</div>
                 </div>
               </div>
             </div>
 
           </div>
 
-          {/* Dotted Line SVG (Background) */}
-          <AnimatedDottedLine />
-
           {/* Process Steps Container */}
-          <div className="relative w-full max-w-[1200px] mx-auto mt-10 md:-mt-12 xl:-mt-20 px-4 md:px-8 flex flex-col gap-12 md:gap-24 lg:gap-32 xl:gap-40 z-10 md:-mb-[1700px] lg:-mb-[2300px] xl:-mb-[3000px]">
+          <div className="relative w-full max-w-[1200px] mx-auto mt-10 md:mt-16 lg:mt-24 px-4 md:px-8 h-auto md:h-[1800px] lg:h-[2200px] xl:h-[2600px] flex flex-col md:block gap-12 md:gap-0 z-10">
             
+            {/* Dotted Line SVG (Background) */}
+            <AnimatedDottedLine className="absolute inset-0 w-full h-full pointer-events-none z-0" />
+
             {/* Step 1: Chefs (Right) */}
-            <div className="flex justify-end w-full relative translate-x-[30px] md:translate-x-0 md:top-[-120px] md:right-[-160px] lg:top-[-160px] lg:right-[-240px] xl:top-[-200px] xl:right-[-340px] order-1 md:order-1">
-              <SlideIn direction="right" className="relative w-[85%] md:w-[64%] lg:w-[72%] xl:w-[80%]">
+            <div className="relative w-full flex justify-end md:absolute md:top-[0%] md:-translate-y-1/2 md:right-[2%] md:w-[45%] order-1">
+              <SlideIn direction="right" className="relative w-[85%] md:w-full">
                 <img src="/images/HomePage/process1.png" alt="Chefs" className="w-full h-auto drop-shadow-2xl" />
               </SlideIn>
             </div>
 
             {/* Step 2: Stove with 3 pots (Left) */}
-            <div className="flex justify-start w-full relative -mt-[90px] md:mt-10 md:top-[-520px] md:left-[-170px] md:scale-[1.45] lg:top-[-700px] lg:left-[-260px] lg:scale-[1.7] xl:top-[-880px] xl:left-[-370px] xl:scale-[2] origin-left order-2 md:order-2">
-              <SlideIn direction="left" className="relative w-full md:w-[60%] lg:w-[64%] xl:w-[70%] scale-[1.5] md:scale-100 origin-left">
+            <div className="relative w-full flex justify-start -mt-8 md:mt-0 md:absolute md:top-[20%] md:-translate-y-1/2 md:left-[2%] md:w-[45%] order-2">
+              <SlideIn direction="left" className="relative w-full">
                 <img src="/images/HomePage/process2.png" alt="Stove" className="w-full h-auto drop-shadow-2xl" />
               </SlideIn>
             </div>
 
             {/* Step 3: Lady Tasting (Right) */}
-            <div className="flex justify-end w-full relative -mt-4 md:mt-10 translate-x-[35px] md:translate-x-0 md:top-[-820px] md:right-[-130px] lg:top-[-1100px] lg:right-[-210px] xl:top-[-1380px] xl:right-[-280px] order-3 md:order-3">
-              <SlideIn direction="right" className="relative w-[85%] md:w-[52%] lg:w-[58%] xl:w-[65%]">
+            <div className="relative w-full flex justify-end md:absolute md:top-[40%] md:-translate-y-1/2 md:right-[2%] md:w-[45%] order-3">
+              <SlideIn direction="right" className="relative w-[85%] md:w-full">
                 <img src="/images/HomePage/process3.png" alt="Quality Check" className="w-full h-auto drop-shadow-2xl" />
               </SlideIn>
             </div>
 
             {/* Step 4: Single Pot (Left) */}
-            <div className="flex justify-start w-full relative -mt-4 md:mt-10 md:top-[-1080px] md:left-[-120px] lg:top-[-1440px] lg:left-[-190px] xl:top-[-1800px] xl:left-[-250px] order-4 md:order-4">
-              <SlideIn direction="left" className="relative w-[75%] md:w-[44%] lg:w-[50%] xl:w-[55%]">
+            <div className="relative w-full flex justify-start md:absolute md:top-[60%] md:-translate-y-1/2 md:left-[2%] md:w-[45%] order-4">
+              <SlideIn direction="left" className="relative w-[75%] md:w-full">
                 <img src="/images/HomePage/process4.png" alt="Single Pot" className="w-full h-auto drop-shadow-2xl" />
               </SlideIn>
             </div>
 
             {/* Step 5: Bowl of Gravy (Right) - Remains 5th on mobile */}
-            <div className="flex justify-end w-full relative -mt-4 md:mt-10 translate-x-[30px] md:translate-x-0 md:top-[-1290px] md:right-[-170px] lg:top-[-1720px] lg:right-[-260px] xl:top-[-2150px] xl:right-[-350px] order-5 md:order-5">
-              <SlideIn direction="right" className="relative w-[95%] md:w-[68%] lg:w-[76%] xl:w-[85%]">
+            <div className="relative w-full flex justify-end md:absolute md:top-[80%] md:-translate-y-1/2 md:right-[2%] md:w-[45%] order-5">
+              <SlideIn direction="right" className="relative w-[95%] md:w-full">
                 <img src="/images/HomePage/process5.png" alt="Gravy Bowl" className="w-full h-auto drop-shadow-2xl" />
               </SlideIn>
             </div>
 
             {/* Step 6: Cold Storage (Left) */}
-            <div className="flex justify-start w-full relative -mt-[80px] md:mt-10 -translate-x-[50px] md:translate-x-0 md:top-[-1740px] md:left-[-210px] lg:top-[-2320px] lg:left-[-330px] xl:top-[-2900px] xl:left-[-450px] order-6 md:order-6">
-              <SlideIn direction="left" className="relative w-[100%] md:w-[72%] lg:w-[82%] xl:w-[90%]">
+            <div className="relative w-full flex justify-start -mt-8 md:mt-0 md:absolute md:top-[100%] md:-translate-y-1/2 md:left-[2%] md:w-[45%] order-6">
+              <SlideIn direction="left" className="relative w-full">
                 <img src="/images/HomePage/process6.png" alt="Cold Storage" className="w-full h-auto drop-shadow-2xl" />
               </SlideIn>
             </div>
