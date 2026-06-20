@@ -1036,7 +1036,7 @@ export default function Home() {
                   <img 
                     src="/images/HomePage/chef effort sticker.png" 
                     alt="Chef Effort Sticker" 
-                    className="absolute left-[-5%] xl:left-[5%] -top-[130%] max-[380px]:-translate-y-[15px] xl:-top-[60%] w-[100px] xl:w-[300px] -rotate-3 z-30 pointer-events-none"
+                    className="absolute left-[-5%] xl:left-[5%] -top-[130%] max-[380px]:-translate-y-[15px] xl:-top-[60%] w-[100px] md:w-[180px] lg:w-[220px] xl:w-[300px] md:translate-x-[20px] lg:translate-x-[30px] md:translate-y-[10px] lg:translate-y-[20px] xl:translate-x-0 xl:translate-y-0 -rotate-3 z-30 pointer-events-none"
                   />
                 </div>
                 <div 
