@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const HERO_FRAME_COUNT = 490;
+const HERO_FRAME_COUNT = 313;
 const HERO_SCROLL_DISTANCE = 2200;
 const HERO_PRELOAD_RADIUS = 8;
 const HERO_FRAME_EASE = 0.18;

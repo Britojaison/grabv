@@ -91,7 +91,7 @@ export default function OurStoryPage() {
                 </section>
 
                 {/* Made with love & slow heat sections */}
-                <section className="w-full py-8 md:py-4 flex flex-col items-center gap-2 md:gap-0">
+                <section className="w-full py-8 md:py-4 flex flex-col items-center gap-2 md:gap-0 xl:pb-[200px] 2xl:pb-[260px]">
 
                     {/* Top Sub-section: Side-by-side on Mobile too */}
                     {/* Mobile Heading & Para 1 */}
@@ -240,85 +240,7 @@ export default function OurStoryPage() {
                     </div>
                 </section>
 
-                {/* Features Bar - Redesigned for Mobile */}
-                <section className="w-full relative flex flex-col items-center overflow-visible mt-8 z-0">
-                    <div className="w-full min-h-[60px] md:min-h-0 md:py-0 relative flex items-center justify-center">
-                        {/* Mobile Background - Green Paper with Torn Edge */}
-                        <div className="md:hidden absolute inset-0 z-0">
-                            <Image 
-                                src="/images/green paper mobile.svg" 
-                                alt="" 
-                                fill 
-                                className="object-cover object-top"
-                                priority
-                            />
-                        </div>
-                        
-                        {/* Mobile Bar Content - Infinite Scrolling Marquee */}
-                        <div className="lg:hidden relative z-10 w-full overflow-hidden py-4 pb-[100px]">
-                            <div className="flex flex-row animate-marquee whitespace-nowrap gap-8 w-max">
-                                {[
-                                    { icon: "/images/timer2.svg", text: "Ready in 7 mins" },
-                                    { icon: "/images/slow.svg", text: "Slow cooked" },
-                                    { icon: "/images/objects.svg", text: "FSSAI Certified" },
-                                    { icon: "/images/tick2.svg", text: "Zero Preservatives" },
-                                    { icon: "/images/cold.svg", text: "Cold Chain Packed" },
-                                    { icon: "/images/timer2.svg", text: "Ready in 7 mins" },
-                                    { icon: "/images/slow.svg", text: "Slow cooked" },
-                                    { icon: "/images/objects.svg", text: "FSSAI Certified" },
-                                    { icon: "/images/tick2.svg", text: "Zero Preservatives" },
-                                    { icon: "/images/cold.svg", text: "Cold Chain Packed" },
-                                ].map((item, idx) => (
-                                    <div key={idx} className="flex items-center gap-2 shrink-0">
-                                        <div className="w-5 h-5 relative" style={{ filter: 'brightness(0) saturate(100%) invert(87%) sepia(74%) saturate(1629%) hue-rotate(345deg) brightness(102%) contrast(104%)' }}>
-                                            <Image src={item.icon} alt="" fill className="object-contain" />
-                                        </div>
-                                        <span className="font-arpona font-normal text-[12px] uppercase tracking-wide" style={{ color: 'rgb(247, 216, 13)' }}>{item.text}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
 
-                        {/* Desktop Background Layer (Unchanged) */}
-                        <div className="hidden lg:block w-full relative pt-24 pb-[160px] md:pb-[200px] flex flex-col items-center text-center">
-                            <div className="absolute inset-0 z-0 overflow-hidden">
-                                <Image src="/images/bg green2.svg" alt="" fill className="object-cover object-top scale-x-[-1]" priority />
-                                <div className="absolute inset-0 -z-10" style={{ backgroundColor: 'rgb(21, 107, 54)' }} />
-                            </div>
-                            {/* Bleed div to extend the solid green behind the footer */}
-                            <div className="absolute top-full left-0 w-full h-[500px] -mt-[2px] z-0 pointer-events-none" style={{ backgroundColor: 'rgb(21, 107, 54)' }} />
-                            <div className="relative z-10 flex flex-col items-center gap-6 mt-4">
-                                <div className="flex flex-wrap justify-center items-center gap-6">
-                                    {[
-                                        { icon: "/images/timer2.svg", text: "Ready in 7 mins" },
-                                        { icon: "/images/slow.svg", text: "Slow cooked" },
-                                        { icon: "/images/objects.svg", text: "FSSAI Certified" },
-                                    ].map((item, idx) => (
-                                        <div key={idx} className="bg-[rgb(239,238,230)] rounded-full px-8 py-3.5 flex items-center gap-3 text-[rgb(21,107,54)]">
-                                            <div className="relative w-8 h-8 shrink-0">
-                                                <Image src={item.icon} alt="" fill className="object-contain" />
-                                            </div>
-                                            <span className="font-arpona font-normal text-[21px] whitespace-nowrap">{item.text}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                                <div className="flex flex-wrap justify-center items-center gap-6">
-                                    {[
-                                        { icon: "/images/tick2.svg", text: "Zero Preservatives" },
-                                        { icon: "/images/cold.svg", text: "Cold Chain Packed" },
-                                    ].map((item, idx) => (
-                                        <div key={idx} className="bg-[rgb(239,238,230)] rounded-full px-8 py-3.5 flex items-center gap-3 text-[rgb(21,107,54)]">
-                                            <div className="relative w-8 h-8 shrink-0">
-                                                <Image src={item.icon} alt="" fill className="object-contain" />
-                                            </div>
-                                            <span className="font-arpona font-normal text-[21px] whitespace-nowrap">{item.text}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
                 {/* Amit Shah Section hidden by request. Keep this content in code for future restore. */}
                 {false && (

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="relative z-10 mt-auto w-full bg-[#FBF5E1] pt-24 pb-12 xl:pt-32 xl:pb-20 font-arpona xl:-mt-[160px] 2xl:-mt-[200px]">
+    <footer className="relative z-10 mt-auto w-full pt-24 pb-12 xl:pt-32 xl:pb-20 font-arpona xl:-mt-[160px] 2xl:-mt-[200px] bg-transparent">
       {/* Solid green background starting far enough below the wave so the straight edge is hidden */}
       <div className="absolute top-20 xl:top-44 bottom-[-20px] xl:bottom-[-50px] left-0 -z-10 w-full bg-[#156B37] pointer-events-none"></div>
       

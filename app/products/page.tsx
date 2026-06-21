@@ -1,100 +1,135 @@
 "use client";
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function ProductsListPage() {
-    return (
-        <div className="flex flex-col min-h-screen w-full font-arpona overflow-x-hidden" style={{ backgroundColor: 'rgb(239, 239, 231)' }}>
+  const [activeProductMobile, setActiveProductMobile] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    
+    const rect = container.getBoundingClientRect();
+    const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
+    const percentage = x / rect.width;
+    const maxScroll = container.scrollWidth - rect.width;
+    
+    container.scrollLeft = percentage * maxScroll;
+  };
 
-            {/* Header removed, now in layout.tsx */}
+  return (
+    <div className="flex flex-col w-full font-arpona overflow-x-hidden" style={{ backgroundColor: 'rgb(239, 239, 231)' }}>
+      {/* Main Content */}
+      <main className="w-full relative flex flex-col items-center pb-0 xl:pb-[200px] 2xl:pb-[260px] -mb-24 md:-mb-32 xl:mb-0" style={{ backgroundColor: 'rgb(239, 239, 231)' }}>
+        
+        {/* Our Products Section */}
+        <div className="relative w-full z-10 pb-0 mt-0 xl:mt-24">
+          
+          <section className="relative w-full flex flex-col items-center pt-[35vw] md:pt-[25vw] xl:pt-[11vw] 2xl:pt-[100px] pb-12 2xl:pb-24 z-10">
+            {/* Huge Heading */}
+            <div className="relative z-10 font-kura uppercase leading-[0.8] tracking-[-0.02em] text-center flex flex-col items-center w-full">
+              
+              {/* Tomato Image Behind Text */}
+              <img src="/images/HomePage/tomato.png" className="absolute left-[8%] 2xl:left-[11%] top-[12%] 2xl:top-[15%] w-[19.5vw] 2xl:w-[290px] object-contain z-[-1] pointer-events-none -rotate-12" alt="" />
 
-            {/* Main Content */}
-            <main className="w-full relative flex flex-col items-center" style={{ backgroundColor: 'rgb(239, 239, 231)' }}>
+              {/* Shadow layer (Yellow) */}
+              <div className="absolute inset-0 flex flex-col items-center z-0 pointer-events-none translate-y-[1.4vw] translate-x-[2.2vw] 2xl:translate-y-[10px] 2xl:translate-x-[16px]" style={{ color: '#F7D80C' }}>
+                <div className="text-[18vw] 2xl:text-[260px]">OUR</div>
+                <div className="text-[18vw] 2xl:text-[260px]">PRODUCTS</div>
+              </div>
 
+              {/* Fill layer (Green) */}
+              <div className="relative z-10 flex flex-col items-center w-full" style={{ color: '#156B37' }}>
+                <div className="relative w-full flex justify-center text-[18vw] 2xl:text-[260px]">
+                  OUR
+                </div>
+                <div className="text-[18vw] 2xl:text-[260px]">
+                  PRODUCTS
+                </div>
+              </div>
+            </div>
 
+          </section>
 
-                {/* Explore Products Section */}
-                <div className="mx-auto w-full max-w-[100rem] px-4 pt-24 pb-8 sm:px-6 sm:pt-28 lg:px-10 lg:pt-32 xl:px-14 2xl:px-20">
-                    <div className="w-full flex flex-col items-center mb-8 md:mb-20 px-4 text-center">
-                        <h2 className="font-kura leading-none mb-8 md:mb-12 uppercase text-center">
-                            <span className="text-[2rem] sm:text-[2.625rem] md:text-[3.125rem] lg:text-[4.0625rem] mr-2 md:mr-4 inline-block" style={{ color: 'rgb(21, 107, 54)' }}>OUR</span>
-                            <span className="text-[2rem] sm:text-[2.625rem] md:text-[3.125rem] lg:text-[4.0625rem] inline-block" style={{ color: 'rgb(247, 0, 52)' }}>PRODUCTS</span>
-                        </h2>
-
-                        <div className="no-scrollbar flex w-full gap-4 overflow-x-auto px-4 pb-4 sm:gap-6 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-3 lg:gap-8 xl:gap-10">
-                            {[
-                                { status: 'active', title: 'Onion Tomato Gravy', image: '/images/APGArtboard-1 (3).png' },
-                                { status: 'coming_soon', title: 'Smoked Makhani Gravy', image: '/images/smoked makani.png' },
-                                { status: 'coming_soon', title: 'Smoked Makhani Gravy', image: '/images/smoked makani.png' }
-                            ].map((item, idx) => (
-                                <div key={idx} className="group flex w-[11.875rem] shrink-0 flex-col items-center md:w-full">
-                                    {/* Image Container */}
-                                    <div className={`relative w-full aspect-[4/5] rounded-[1.25rem] overflow-hidden mb-5 bg-[#F5F5F5] ${item.status === 'active' ? 'cursor-pointer' : ''}`}>
-                                        <Image
-                                            src={item.image}
-                                            alt={item.title}
-                                            fill
-                                            className={`object-cover transition-transform duration-500 ${
-                                                item.status === 'coming_soon'
-                                                    ? 'object-bottom scale-[1.45] group-hover:scale-[1.48] grayscale opacity-60'
-                                                    : 'object-center scale-[1.36] -translate-y-[1rem] group-hover:scale-[1.38] md:object-bottom md:scale-[1.34] md:-translate-y-[1.75rem] md:group-hover:scale-[1.37]'
-                                                }`}
-                                        />
-                                        {/* Coming Soon Badge */}
-                                        {item.status === 'coming_soon' && (
-                                            <div className="absolute inset-0 flex items-center justify-center p-4">
-                                                <div className="bg-[rgb(247,0,52)] text-white px-3 md:px-6 py-1 md:py-2 rounded-[0.5rem] md:rounded-[0.625rem] text-[0.875rem] md:text-[1.125rem] font-arpona font-normal shadow-lg">
-                                                    Coming Soon
-                                                </div>
-                                            </div>
-                                        )}
-                                        {/* Clickable overlay for active products */}
-                                        {item.status === 'active' && (
-                                            <Link href="/all-purposegravy" className="absolute inset-0 z-10" aria-label="View product details" />
-                                        )}
-                                    </div>
-
-                                    {/* Product Pill */}
-                                    <div className="px-2 md:px-6 py-1.5 md:py-2 rounded-[0.5rem] md:rounded-[0.625rem] mb-3 w-full md:w-auto" style={{ backgroundColor: 'rgb(228, 233, 223)' }}>
-                                        <span className="text-[0.875rem] md:text-[1.25rem] font-arpona leading-snug text-center block" style={{ color: 'rgb(21, 106, 55)' }}>
-                                            {item.title}
-                                        </span>
-                                    </div>
-
-                                    {/* View Product Button */}
-                                    <Link
-                                        href="/all-purposegravy"
-                                        className="group/btn relative flex h-[3.75rem] w-full max-w-[22.0625rem] items-center justify-center transition-all hover:scale-[1.02] md:h-[4.5rem]"
-                                    >
-                                        <div
-                                            className="absolute top-[0.875rem] left-[0.3125rem] z-0 h-[calc(100%_-_1.75rem)] w-[calc(100%_-_0.625rem)] rounded-[0.5625rem] bg-[rgb(247,216,13)] md:left-[0.125rem] md:h-[3.75rem] md:w-[calc(100%_-_0.25rem)]"
-                                            style={{ transform: 'rotate(-0.8deg)' }}
-                                        />
-                                        <div className="absolute inset-0 z-10 w-full h-full">
-                                            <Image
-                                                src="/images/border7.svg"
-                                                alt="border"
-                                                fill
-                                                className="object-fill"
-                                            />
-                                        </div>
-                                        <span className="relative z-20 text-[1.25rem] md:text-[2rem] font-kura font-medium text-[rgb(247,0,52)] uppercase">
-                                            View Product
-                                        </span>
-                                    </Link>
-                                </div>
-                            ))}
-                        </div>
-
+          {/* Our Products Horizontal Scrolling Wrapper */}
+          <div className="relative w-full h-auto z-10 mt-[-60px] 2xl:mt-0 pb-12">
+            <section className="relative w-full h-auto flex flex-col justify-start 2xl:justify-center overflow-hidden">
+            
+            {/* Horizontal Scrolling Track */}
+            <div 
+              ref={scrollRef}
+              className="relative w-full z-30 overflow-x-auto overflow-y-hidden pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] cursor-default"
+              onMouseMove={handleMouseMove}
+              onScroll={(e) => {
+                const scrollLeft = e.currentTarget.scrollLeft;
+                const width = e.currentTarget.clientWidth;
+                const index = Math.round(scrollLeft / width);
+                setActiveProductMobile(index);
+              }}
+            >
+              <div className="flex items-start 2xl:items-center gap-0 2xl:gap-[100px] pl-[5vw] 2xl:pl-[120px] pr-[5vw] 2xl:pr-[120px] pb-8 2xl:pb-0 w-max 2xl:w-[max-content]">
+                
+                {/* Product 1 */}
+                <div className="relative inline-block flex-shrink-0 flex flex-col items-center 2xl:items-end w-auto">
+                  <div className="relative w-[100vw] 2xl:w-auto">
+                    <img src="/images/HomePage/product1.png" className="w-[100vw] 2xl:w-auto h-auto 2xl:h-[950px] object-contain block drop-shadow-2xl pointer-events-none" draggable={false} alt="Product 1" />
+                    
+                    <div className="absolute top-[34%] left-[64%] w-[36%] flex flex-col items-start text-black font-arpona">
+                      <h3 className="text-[3.9vw] 2xl:text-[50px] leading-[1.0] tracking-[-0.05em] font-bold">
+                        ONION<br/>TOMATO<br/>GRAVY
+                      </h3>
+                      
+                      <div className="mt-[1vw] 2xl:mt-7 flex flex-col gap-0 2xl:gap-1 text-[2vw] 2xl:text-[24px] font-medium tracking-tight">
+                        <p>Zero Added Preservatives</p>
+                        <p>All Purpose Gravy</p>
+                        <p>Slow Cooked</p>
+                      </div>
+                      
+                      <Link href="/all-purposegravy" className="mt-[2vw] 2xl:mt-14 2xl:ml-6 bg-[rgb(247,216,13)] text-black px-[2.2vw] 2xl:px-5 py-[0.5vw] 2xl:py-1.5 rounded-[0.8vw] 2xl:rounded-[6px] font-medium text-[2.2vw] 2xl:text-[16px] hover:bg-yellow-400 transition-colors flex items-center justify-center gap-[1vw] 2xl:gap-1.5 shadow-sm whitespace-nowrap inline-flex w-fit">
+                        View Product
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[2vw] h-[2vw] 2xl:w-4 2xl:h-4 ml-[0.5vw] 2xl:ml-1">
+                          <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </Link>
                     </div>
+                  </div>
                 </div>
 
+                {/* Product 2 */}
+                <div className="relative inline-block flex-shrink-0 flex flex-col items-center 2xl:items-end w-auto group">
+                  <div className="relative w-[100vw] 2xl:w-auto">
+                    <img src="/images/HomePage/product2.png" className="w-[100vw] 2xl:w-auto h-auto 2xl:h-[950px] object-contain block drop-shadow-2xl grayscale-[0.8] opacity-80 pointer-events-none" draggable={false} alt="Product 2" />
+                    
+                    {/* Coming Soon Overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                      <div className="bg-black/40 backdrop-blur-md px-[6vw] md:px-[4vw] lg:px-[3vw] 2xl:px-12 py-[2vw] md:py-[1.5vw] lg:py-[1vw] 2xl:py-4 rounded-full border border-white/20 shadow-xl">
+                        <p className="text-white font-arpona font-medium text-[3.3vw] md:text-[2.2vw] lg:text-[1.8vw] 2xl:text-[22px] uppercase tracking-[0.25em] text-center">
+                          Coming Soon
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-            </main>
+              </div>
+            </div>
 
+            {/* Mobile Shared Fixed Indicators & Button */}
+            <div className="flex flex-col items-center mt-[-5vw] md:mt-[-3vw] pb-4 2xl:hidden w-full relative z-40">
+              <div className="flex justify-center gap-[2vw] md:gap-[1.5vw] mb-[4vw] md:mb-[2.5vw]">
+                <div className={`w-[5vw] md:w-[3vw] lg:w-[2.5vw] h-[1.5vw] md:h-[0.8vw] lg:h-[0.6vw] rounded-full transition-colors ${activeProductMobile === 0 ? 'bg-[rgb(247,216,13)]' : 'bg-gray-300'}`} />
+                <div className={`w-[5vw] md:w-[3vw] lg:w-[2.5vw] h-[1.5vw] md:h-[0.8vw] lg:h-[0.6vw] rounded-full transition-colors ${activeProductMobile === 1 ? 'bg-[rgb(247,216,13)]' : 'bg-gray-300'}`} />
+              </div>
+              <Link href="/all-purposegravy" className={`bg-[rgb(247,216,13)] inline-block text-black px-[6vw] md:px-[4vw] lg:px-[3vw] py-[1.5vw] md:py-[1vw] lg:py-[0.8vw] rounded-[1.5vw] md:rounded-[1vw] lg:rounded-[0.8vw] font-bold text-[3.3vw] md:text-[2.2vw] lg:text-[1.8vw] shadow-sm tracking-tight font-arpona transition-opacity ${activeProductMobile === 1 ? 'opacity-50 pointer-events-none' : ''}`}>
+                See more
+              </Link>
+            </div>
 
-            {/* Footer removed, now in layout.tsx */}
+          </section>
         </div>
-    );
+      </div>
+      </main>
+    </div>
+  );
 }
