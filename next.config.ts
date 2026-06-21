@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   // @ts-ignore
-  allowedDevOrigins: ['192.168.0.191'],
+  allowedDevOrigins: ['192.168.0.191', '192.168.0.117'],
 };
 
 export default nextConfig;
