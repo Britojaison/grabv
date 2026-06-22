@@ -12,7 +12,7 @@ export default function Navbar() {
       style={{ backgroundColor: '#156B37' }}
       className="fixed top-0 z-[100] w-full flex-shrink-0 shadow-md font-arpona"
     >
-      <div className="mx-auto flex h-[4.375rem] w-full items-center justify-between px-4 sm:px-6 lg:h-[5.75rem] lg:px-10 xl:px-[100px] 2xl:px-[100px]">
+      <div className="mx-auto flex h-[4.375rem] w-full items-center justify-between px-4 sm:px-6 lg:h-[5.25rem] lg:px-10 xl:px-[100px] 2xl:px-[100px]">
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/">
@@ -21,7 +21,7 @@ export default function Navbar() {
               alt="GrabV Logo"
               width={200}
               height={80}
-              className="h-auto w-[5.625rem] cursor-pointer object-contain sm:w-[6.5625rem] lg:w-[7.375rem] xl:w-[9.5rem] 2xl:w-[9.5rem]"
+              className="h-auto w-[5.625rem] cursor-pointer object-contain sm:w-[6.5625rem] lg:w-[6.5rem] xl:w-[8.5rem] 2xl:w-[8.5rem]"
               priority
             />
           </Link>
@@ -29,12 +29,12 @@ export default function Navbar() {
 
         {/* Desktop Nav - Hidden on Mobile and Tablet */}
         <nav className="hidden flex-1 items-center justify-center gap-6 px-6 text-white font-medium lg:flex xl:gap-10 2xl:gap-14">
-          <Link href="/" className="text-[1.125rem] transition-colors hover:text-[rgb(247,216,13)] xl:text-[1.375rem] 2xl:text-[1.625rem]">Home</Link>
-          <Link href="/recipes" className="text-[1.125rem] transition-colors hover:text-[rgb(247,216,13)] xl:text-[1.375rem] 2xl:text-[1.625rem]">Recipes</Link>
-          <Link href="/products" className="text-[1.125rem] transition-colors hover:text-[rgb(247,216,13)] xl:text-[1.375rem] 2xl:text-[1.625rem]">Products</Link>
-          <Link href="/ourstory" className="whitespace-nowrap text-[1.125rem] transition-colors hover:text-[rgb(247,216,13)] xl:text-[1.375rem] 2xl:text-[1.625rem]">Our Story</Link>
-          <Link href="/contact" className="whitespace-nowrap text-[1.125rem] transition-colors hover:text-[rgb(247,216,13)] xl:text-[1.375rem] 2xl:text-[1.625rem]">Contact Us</Link>
-          <Link href="/faq" className="text-[1.125rem] transition-colors hover:text-[rgb(247,216,13)] xl:text-[1.375rem] 2xl:text-[1.625rem]">FAQ</Link>
+          <Link href="/" className="text-[1rem] transition-colors hover:text-[rgb(247,216,13)] xl:text-[1.15rem] 2xl:text-[1.4rem]">Home</Link>
+          <Link href="/recipes" className="text-[1rem] transition-colors hover:text-[rgb(247,216,13)] xl:text-[1.15rem] 2xl:text-[1.4rem]">Recipes</Link>
+          <Link href="/products" className="text-[1rem] transition-colors hover:text-[rgb(247,216,13)] xl:text-[1.15rem] 2xl:text-[1.4rem]">Products</Link>
+          <Link href="/ourstory" className="whitespace-nowrap text-[1rem] transition-colors hover:text-[rgb(247,216,13)] xl:text-[1.15rem] 2xl:text-[1.4rem]">Our Story</Link>
+          <Link href="/contact" className="whitespace-nowrap text-[1rem] transition-colors hover:text-[rgb(247,216,13)] xl:text-[1.15rem] 2xl:text-[1.4rem]">Contact Us</Link>
+          <Link href="/faq" className="text-[1rem] transition-colors hover:text-[rgb(247,216,13)] xl:text-[1.15rem] 2xl:text-[1.4rem]">FAQ</Link>
         </nav>
 
         <div className="flex items-center gap-4">
@@ -47,7 +47,7 @@ export default function Navbar() {
                 color: '#0D3D1B',
                 letterSpacing: '-0.06em'
               }}
-              className="flex h-10 w-[8.25rem] shrink-0 items-center justify-center font-medium text-[1.125rem] transition-colors hover:bg-yellow-400 xl:h-11 xl:w-[9.75rem] xl:text-[1.125rem] 2xl:h-12 2xl:w-[11.25rem] 2xl:text-[1.25rem]"
+              className="flex h-10 w-[8.25rem] shrink-0 items-center justify-center font-medium text-[1rem] transition-colors hover:bg-yellow-400 xl:h-11 xl:w-[9.75rem] xl:text-[1.05rem] 2xl:h-12 2xl:w-[11.25rem] 2xl:text-[1.1rem]"
             >
               Order Now
             </button>
