@@ -56,13 +56,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning={true} className={`h-full antialiased ${kuraDisplay.variable} ${arponaSans.variable}`}>
+      <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+        <script src="https://assets.codepen.io/16327/ScrollSmoother.min.js" defer></script>
+      </head>
       <body suppressHydrationWarning={true} className="min-h-full flex flex-col font-arpona">
         <ImageDownloadProtection />
-        <SmoothScroll />
         <TextPopAnimator />
         <Navbar />
-        {children}
-        <Footer />
+        <div id="smooth-wrapper">
+          <div id="smooth-content">
+            {children}
+            <Footer />
+          </div>
+        </div>
+        <SmoothScroll />
       </body>
     </html>
   );

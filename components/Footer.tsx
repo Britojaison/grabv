@@ -5,17 +5,17 @@ export default function Footer() {
     <footer className="relative z-10 mt-auto w-full pt-24 pb-12 xl:pt-32 xl:pb-20 2xl:pt-[8.8vw] font-arpona xl:-mt-[160px] 2xl:-mt-[11.1vw] bg-transparent">
       {/* Solid green background starting far enough below the wave so the straight edge is hidden */}
       <div className="absolute top-20 xl:top-44 bottom-[-20px] xl:bottom-[-50px] left-0 -z-10 w-full bg-[#156B37] pointer-events-none"></div>
-      
+
       {/* The green wavy background image */}
       <div className="absolute inset-0 bg-no-repeat -z-10 pointer-events-none" style={{ backgroundImage: "url('/images/HomePage/green%20bg.webp')", backgroundSize: "105% auto", backgroundPosition: "center top" }}></div>
       <div className="relative z-10 mx-auto grid w-full grid-cols-[1.3fr_1fr_1fr] gap-4 px-2 xl:gap-10 xl:px-[100px] xl:-mt-12">
-        
+
         {/* Column 1: Logo & Copyright */}
         <div className="flex flex-col items-start xl:col-span-1 md:translate-x-[18px] lg:translate-x-[30px] xl:translate-x-0">
           <Image src="/images/logo.svg" alt="GrabV" width={350} height={140} className="h-auto w-[90px] min-[400px]:w-[100px] md:w-[150px] lg:w-[200px] xl:w-[20.625rem] mb-8 xl:mb-8" />
           <p className="text-[9px] min-[400px]:text-[10px] md:text-[14px] lg:text-[18px] xl:text-[1.5rem] leading-[1.35] text-white">
-            © 2026 GrabV. All rights reserved.<br/>
-            88gb Digital Mraketing &<br/>
+            © 2026 GrabV. All rights reserved.<br />
+            88gb Digital Mraketing &<br />
             Technology Company
           </p>
         </div>

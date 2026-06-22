@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const HERO_FRAME_COUNT = 313;
-const HERO_SCROLL_DISTANCE = 2200;
+const HERO_SCROLL_DISTANCE = 4000;
 const HERO_PRELOAD_RADIUS = 8;
 const HERO_FRAME_EASE = 0.18;
 const HERO_FRAME_PATH = (frame: number) =>
@@ -55,32 +55,47 @@ const AnimatedDottedLine = ({ className = "absolute top-[400px] md:top-[850px] l
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (!containerRef.current || !pathRef.current || !ballRef.current || !maskPathRef.current || pathLen === 0) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      
-      const scrolled = (windowHeight / 2) - rect.top;
-      const end = rect.height;
-      
-      let p = scrolled / end;
-      if (p < 0) p = 0;
-      if (p > 1) p = 1;
-      
-      const drawLength = p * pathLen;
-      const pt = pathRef.current.getPointAtLength(drawLength);
-      
-      ballRef.current.style.left = `${pt.x}%`;
-      ballRef.current.style.top = `${pt.y}%`;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let st: any;
+    let timer: NodeJS.Timeout;
 
-      maskPathRef.current.style.strokeDasharray = `${pathLen} ${pathLen}`;
-      maskPathRef.current.style.strokeDashoffset = `${pathLen - drawLength}`;
+    const initGSAP = () => {
+      // @ts-expect-error
+      const gsap = window.gsap;
+      // @ts-expect-error
+      const ScrollTrigger = window.ScrollTrigger;
+
+      if (!gsap || !ScrollTrigger) {
+        timer = setTimeout(initGSAP, 50);
+        return;
+      }
+
+      if (!containerRef.current || !pathRef.current || !ballRef.current || !maskPathRef.current || pathLen === 0) return;
+
+      st = ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: "top center",
+        end: "bottom center",
+        onUpdate: (self: any) => {
+          const p = self.progress;
+          const drawLength = p * pathLen;
+          const pt = pathRef.current!.getPointAtLength(drawLength);
+          
+          ballRef.current!.style.left = `${pt.x}%`;
+          ballRef.current!.style.top = `${pt.y}%`;
+
+          maskPathRef.current!.style.strokeDasharray = `${pathLen} ${pathLen}`;
+          maskPathRef.current!.style.strokeDashoffset = `${pathLen - drawLength}`;
+        }
+      });
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    // Run once on mount to set initial position
-    setTimeout(handleScroll, 100); 
-    return () => window.removeEventListener('scroll', handleScroll);
+    initGSAP();
+
+    return () => {
+      clearTimeout(timer);
+      if (st) st.kill();
+    };
   }, [pathLen]);
 
   return (
@@ -258,16 +273,6 @@ export default function Home() {
     };
 
     const updateScrollState = () => {
-      const heroTop = hero.offsetTop;
-      const heroBottom = heroTop + hero.offsetHeight;
-      targetProgress = Math.min(1, Math.max(0, (window.scrollY - heroTop) / HERO_SCROLL_DISTANCE));
-      const releasePoint = heroBottom - window.innerHeight;
-      const isPinned = window.scrollY >= heroTop && window.scrollY < releasePoint;
-      const absoluteTop = window.scrollY < heroTop ? 0 : Math.max(0, hero.offsetHeight - window.innerHeight);
-
-      canvas.style.position = isPinned ? "fixed" : "absolute";
-      canvas.style.top = isPinned ? "0" : `${absoluteTop}px`;
-
       if (!hasSyncedInitialProgress) {
         currentProgress = targetProgress;
         hasSyncedInitialProgress = true;
@@ -327,7 +332,36 @@ export default function Home() {
     const resizeObserver = new ResizeObserver(handleResize);
     resizeObserver.observe(canvas);
 
-    window.addEventListener("scroll", requestRender, { passive: true });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let st: any;
+    let timer: NodeJS.Timeout;
+
+    const initGSAP = () => {
+      // @ts-expect-error
+      const gsap = window.gsap;
+      // @ts-expect-error
+      const ScrollTrigger = window.ScrollTrigger;
+
+      if (!gsap || !ScrollTrigger) {
+        timer = setTimeout(initGSAP, 50);
+        return;
+      }
+
+      st = ScrollTrigger.create({
+        trigger: hero,
+        start: "top top",
+        end: `+=${HERO_SCROLL_DISTANCE}`,
+        pin: canvas,
+        pinSpacing: false,
+        onUpdate: (self: any) => {
+          targetProgress = self.progress;
+          requestRender();
+        }
+      });
+    };
+
+    initGSAP();
+
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -336,98 +370,115 @@ export default function Home() {
         window.cancelAnimationFrame(animationFrame);
       }
       resizeObserver.disconnect();
-      window.removeEventListener("scroll", requestRender);
       window.removeEventListener("resize", handleResize);
+      clearTimeout(timer);
+      if (st) st.kill();
     };
   }, []);
 
   useEffect(() => {
-    let animationFrameId: number;
-    const handleScroll = () => {
-      animationFrameId = requestAnimationFrame(() => {
-        if (stepsContainerRef.current && stepsTrackRef.current) {
-          const wrapper = stepsContainerRef.current;
-          const track = stepsTrackRef.current;
-          
-          if (window.innerWidth < 1536) {
-            track.style.transform = `translate3d(0, 0, 0)`;
-            return;
-          }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let st: any;
+    let timer: NodeJS.Timeout;
 
-          const rect = wrapper.getBoundingClientRect();
-          const stickyOffset = 110;
-          const scrollableHeight = stickyOffset + rect.height - window.innerHeight;
-          const scrolled = stickyOffset - rect.top;
-          
-          let translate = 0;
-          if (scrollableHeight > 0) {
-            const maxTranslate = track.scrollWidth - window.innerWidth;
-            
-            if (scrolled >= 0 && scrolled <= scrollableHeight) {
-              const progress = scrolled / scrollableHeight;
-              translate = progress * maxTranslate;
-            } else if (scrolled < 0) {
-              translate = 0;
-            } else if (scrolled > scrollableHeight) {
-              translate = maxTranslate;
-            }
-            
-            track.style.transform = `translate3d(-${translate}px, 0, 0)`;
-          }
-        }
+    const initGSAP = () => {
+      // @ts-expect-error
+      const gsap = window.gsap;
+      // @ts-expect-error
+      const ScrollTrigger = window.ScrollTrigger;
+
+      if (!gsap || !ScrollTrigger) {
+        timer = setTimeout(initGSAP, 50);
+        return;
+      }
+
+      if (!stepsContainerRef.current || !stepsTrackRef.current) return;
+      
+      const wrapper = stepsContainerRef.current;
+      const track = stepsTrackRef.current;
+      const section = wrapper.querySelector('section');
+
+      if (window.innerWidth < 1536) {
+        track.style.transform = `translate3d(0, 0, 0)`;
+        if (section) section.style.transform = `translateY(0)`;
+        return;
+      }
+
+      // Reset manual transforms
+      track.style.transform = '';
+      if (section) section.style.transform = '';
+
+      const scrollableHeight = 110 + wrapper.offsetHeight - window.innerHeight;
+      
+      st = ScrollTrigger.create({
+        trigger: wrapper,
+        start: "top 110px",
+        end: `+=${scrollableHeight}`,
+        pin: section,
+        animation: gsap.fromTo(track, { x: 0 }, { x: -(track.scrollWidth - window.innerWidth), ease: "none" }),
+        scrub: true,
+        invalidateOnRefresh: true,
       });
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // initial state
+    initGSAP();
+
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      cancelAnimationFrame(animationFrameId);
+      clearTimeout(timer);
+      if (st) st.kill();
     };
   }, []);
 
   useEffect(() => {
-    let animationFrameId: number;
-    const handleScroll = () => {
-      animationFrameId = requestAnimationFrame(() => {
-        if (productsContainerRef.current && productsTrackRef.current) {
-          const wrapper = productsContainerRef.current;
-          const track = productsTrackRef.current;
-          
-          if (window.innerWidth < 1536) {
-            track.style.transform = `translate3d(0, 0, 0)`;
-            return;
-          }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let st: any;
+    let timer: NodeJS.Timeout;
 
-          const rect = wrapper.getBoundingClientRect();
-          const stickyOffset = 110;
-          const scrollableHeight = stickyOffset + rect.height - window.innerHeight;
-          const scrolled = stickyOffset - rect.top;
-          
-          let translate = 0;
-          if (scrollableHeight > 0) {
-            const maxTranslate = track.scrollWidth - window.innerWidth;
-            
-            if (scrolled >= 0 && scrolled <= scrollableHeight) {
-              const progress = scrolled / scrollableHeight;
-              translate = progress * maxTranslate;
-            } else if (scrolled < 0) {
-              translate = 0;
-            } else if (scrolled > scrollableHeight) {
-              translate = maxTranslate;
-            }
-            
-            track.style.transform = `translate3d(-${translate}px, 0, 0)`;
-          }
-        }
+    const initGSAP = () => {
+      // @ts-expect-error
+      const gsap = window.gsap;
+      // @ts-expect-error
+      const ScrollTrigger = window.ScrollTrigger;
+
+      if (!gsap || !ScrollTrigger) {
+        timer = setTimeout(initGSAP, 50);
+        return;
+      }
+
+      if (!productsContainerRef.current || !productsTrackRef.current) return;
+      
+      const wrapper = productsContainerRef.current;
+      const track = productsTrackRef.current;
+      const section = wrapper.querySelector('section');
+
+      if (window.innerWidth < 1536) {
+        track.style.transform = `translate3d(0, 0, 0)`;
+        if (section) section.style.transform = `translateY(0)`;
+        return;
+      }
+
+      // Reset manual transforms
+      track.style.transform = '';
+      if (section) section.style.transform = '';
+
+      const scrollableHeight = 110 + wrapper.offsetHeight - window.innerHeight;
+      
+      st = ScrollTrigger.create({
+        trigger: wrapper,
+        start: "top 110px",
+        end: `+=${scrollableHeight}`,
+        pin: section,
+        animation: gsap.fromTo(track, { x: 0 }, { x: -(track.scrollWidth - window.innerWidth), ease: "none" }),
+        scrub: true,
+        invalidateOnRefresh: true,
       });
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // initial state
+    initGSAP();
+
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      cancelAnimationFrame(animationFrameId);
+      clearTimeout(timer);
+      if (st) st.kill();
     };
   }, []);
 
@@ -523,7 +574,7 @@ export default function Home() {
         {/* Pouch to Plate Wrapper for Scrolljacking */}
         <div ref={stepsContainerRef} className="relative w-full h-auto 2xl:h-[400vh] pb-20 2xl:pb-0" style={{ backgroundColor: '#FBF5E1' }}>
           {/* Pouch to Plate Sticky Section */}
-          <section className="relative 2xl:sticky top-[70px] 2xl:top-[110px] w-full h-auto 2xl:h-[calc(100vh-110px)] flex flex-col justify-start pt-0 2xl:pt-0 mt-[-15px] 2xl:mt-0 2xl:justify-center overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
+          <section className="relative top-[70px] 2xl:top-0 w-full h-auto 2xl:h-[calc(100vh-110px)] flex flex-col justify-start pt-0 2xl:pt-0 mt-[-15px] 2xl:mt-0 2xl:justify-center overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
             {/* Horizontal Scrolling Track */}
             <div className="relative w-full z-30 h-auto 2xl:h-full flex items-start pt-0 2xl:items-center overflow-x-auto overflow-y-hidden 2xl:overflow-visible snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
               <div ref={stepsTrackRef} className="flex items-start 2xl:items-end gap-[20px] md:gap-[32px] lg:gap-[48px] 2xl:gap-[20px] pl-[5vw] 2xl:pl-[120px] pr-[5vw] 2xl:pr-[120px] pb-[4vw] 2xl:pb-0 will-change-transform w-max 2xl:w-[max-content]">
@@ -636,7 +687,7 @@ export default function Home() {
           {/* Our Products Wrapper for Scrolljacking */}
           <div ref={productsContainerRef} className="relative w-full h-auto 2xl:h-[250vh] z-10 mt-[-60px] 2xl:mt-0">
             {/* Our Products Sticky Section */}
-            <section className="relative 2xl:sticky top-[70px] 2xl:top-[110px] w-full h-auto 2xl:h-[calc(100vh-110px)] flex flex-col justify-start 2xl:justify-center overflow-hidden">
+            <section className="relative top-[70px] 2xl:top-0 w-full h-auto 2xl:h-[calc(100vh-110px)] flex flex-col justify-start 2xl:justify-center overflow-hidden">
             
             {/* Horizontal Scrolling Track */}
             <div 
