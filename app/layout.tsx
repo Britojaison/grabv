@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import ImageDownloadProtection from "./ImageDownloadProtection";
-import SmoothScroll from "./SmoothScroll";
 import TextPopAnimator from "./TextPopAnimator";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -65,13 +64,8 @@ export default function RootLayout({
         <ImageDownloadProtection />
         <TextPopAnimator />
         <Navbar />
-        <div id="smooth-wrapper">
-          <div id="smooth-content">
-            {children}
-            <Footer />
-          </div>
-        </div>
-        <SmoothScroll />
+        {children}
+        <Footer />
       </body>
     </html>
   );

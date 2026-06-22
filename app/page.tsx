@@ -135,7 +135,7 @@ const AnimatedDottedLine = ({ className = "absolute top-[400px] md:top-[850px] l
 };
 
 export default function Home() {
-  const [activeProductMobile, setActiveProductMobile] = useState(0);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const heroRef = useRef<HTMLElement | null>(null);
   const heroCanvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -576,7 +576,7 @@ export default function Home() {
           {/* Pouch to Plate Sticky Section */}
           <section className="relative top-[70px] 2xl:top-0 w-full h-auto 2xl:h-[calc(100vh-110px)] flex flex-col justify-start pt-0 2xl:pt-0 mt-[-15px] 2xl:mt-0 2xl:justify-center overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
             {/* Horizontal Scrolling Track */}
-            <div className="relative w-full z-30 h-auto 2xl:h-full flex items-start pt-0 2xl:items-center overflow-x-auto overflow-y-hidden 2xl:overflow-visible snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            <div className="relative w-full z-30 h-auto 2xl:h-full flex items-start pt-0 2xl:items-center overflow-x-auto overflow-y-hidden 2xl:overflow-visible snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] touch-pan-x">
               <div ref={stepsTrackRef} className="flex items-start 2xl:items-end gap-[20px] md:gap-[32px] lg:gap-[48px] 2xl:gap-[20px] pl-[5vw] 2xl:pl-[120px] pr-[5vw] 2xl:pr-[120px] pb-[4vw] 2xl:pb-0 will-change-transform w-max 2xl:w-[max-content]">
                 
                 {/* Step 1 */}
@@ -690,15 +690,7 @@ export default function Home() {
             <section className="relative top-[70px] 2xl:top-0 w-full h-auto 2xl:h-[calc(100vh-110px)] flex flex-col justify-start 2xl:justify-center overflow-hidden">
             
             {/* Horizontal Scrolling Track */}
-            <div 
-              className="relative w-full z-30 overflow-x-auto 2xl:overflow-visible snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-              onScroll={(e) => {
-                const scrollLeft = e.currentTarget.scrollLeft;
-                const width = e.currentTarget.clientWidth;
-                const index = Math.round(scrollLeft / width);
-                setActiveProductMobile(index);
-              }}
-            >
+            <div className="relative w-full z-30 overflow-x-auto overflow-y-hidden 2xl:overflow-visible snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] touch-pan-x pb-4">
               <div ref={productsTrackRef} className="flex items-start 2xl:items-center gap-0 2xl:gap-[100px] pl-[5vw] 2xl:pl-[120px] pr-[5vw] 2xl:pr-[120px] pb-8 2xl:pb-0 will-change-transform w-max 2xl:w-[max-content]">
                 
                 {/* Product 1 */}
@@ -753,16 +745,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Mobile Shared Fixed Indicators & Button */}
-            <div className="flex flex-col items-center mt-[-5vw] md:mt-[-3vw] pb-[6vw] md:pb-[4vw] 2xl:hidden w-full relative z-40">
-              <div className="flex justify-center gap-[2vw] md:gap-[1.5vw] mb-[4vw] md:mb-[2.5vw]">
-                <div className={`w-[5vw] md:w-[3vw] lg:w-[2.5vw] h-[1.5vw] md:h-[0.8vw] lg:h-[0.6vw] rounded-full transition-colors ${activeProductMobile === 0 ? 'bg-[#F7D80C]' : 'bg-white/80'}`} />
-                <div className={`w-[5vw] md:w-[3vw] lg:w-[2.5vw] h-[1.5vw] md:h-[0.8vw] lg:h-[0.6vw] rounded-full transition-colors ${activeProductMobile === 1 ? 'bg-[#F7D80C]' : 'bg-white/80'}`} />
-              </div>
-              <button className={`bg-[#F7D80C] text-black px-[6vw] md:px-[4vw] lg:px-[3vw] py-[1.5vw] md:py-[1vw] lg:py-[0.8vw] rounded-[1.5vw] md:rounded-[1vw] lg:rounded-[0.8vw] font-bold text-[3.3vw] md:text-[2.2vw] lg:text-[1.8vw] shadow-sm tracking-tight font-arpona transition-opacity ${activeProductMobile === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}>
-                See more
-              </button>
-            </div>
+
             {/* See more button - Absolute bottom right */}
             <div className="absolute bottom-[1%] 2xl:bottom-[2%] right-[5%] 2xl:right-[10%] z-40 pointer-events-auto hidden 2xl:block">
               <Link href="/products" className="inline-block bg-[#F7D80C] text-black font-arpona font-medium text-[18px] 2xl:text-[20px] tracking-[-0.05em] px-6 py-1 2xl:px-8 2xl:py-2 rounded-[5px] shadow-lg hover:scale-105 transition-transform duration-300">
