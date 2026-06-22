@@ -177,7 +177,7 @@ export default function RecipesPage() {
           </div>
         </section>
 
-        <section className="w-full pt-8 pb-16 sm:pt-10 lg:pt-14 lg:pb-24" style={{ backgroundColor: "rgb(239, 238, 230)" }}>
+        <section className="w-full pt-8 pb-16 sm:pt-10 lg:pt-14 lg:pb-24 2xl:pb-[18vw]" style={{ backgroundColor: "rgb(239, 238, 230)" }}>
           <div className="mx-auto w-full max-w-[100rem] px-4 sm:px-6 lg:px-10 xl:px-14 2xl:px-20">
             <div className="flex flex-col items-center gap-5 md:gap-8 mb-8 md:mb-14">
               <div className="grid grid-cols-2 w-full max-w-[32.5rem] rounded-full p-1.5 md:p-2 bg-white shadow-md border border-[rgba(21,107,54,0.18)]">

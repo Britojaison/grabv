@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function ProductsListPage() {
-  const [activeProductMobile, setActiveProductMobile] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!scrollRef.current) return;
@@ -21,7 +20,7 @@ export default function ProductsListPage() {
   return (
     <div className="flex flex-col w-full font-arpona overflow-x-hidden" style={{ backgroundColor: 'rgb(239, 239, 231)' }}>
       {/* Main Content */}
-      <main className="w-full relative flex flex-col items-center pb-0 xl:pb-[200px] 2xl:pb-[260px] -mb-24 md:-mb-32 xl:mb-0" style={{ backgroundColor: 'rgb(239, 239, 231)' }}>
+      <main className="w-full relative flex flex-col items-center pb-0 xl:pb-[200px] 2xl:pb-[18vw] -mb-24 md:-mb-32 xl:mb-0" style={{ backgroundColor: 'rgb(239, 239, 231)' }}>
         
         {/* Our Products Section */}
         <div className="relative w-full z-10 pb-0 mt-0 xl:mt-24">
@@ -61,12 +60,6 @@ export default function ProductsListPage() {
               ref={scrollRef}
               className="relative w-full z-30 overflow-x-auto overflow-y-hidden pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] cursor-default"
               onMouseMove={handleMouseMove}
-              onScroll={(e) => {
-                const scrollLeft = e.currentTarget.scrollLeft;
-                const width = e.currentTarget.clientWidth;
-                const index = Math.round(scrollLeft / width);
-                setActiveProductMobile(index);
-              }}
             >
               <div className="flex items-start 2xl:items-center gap-0 2xl:gap-[100px] pl-[5vw] 2xl:pl-[120px] pr-[5vw] 2xl:pr-[120px] pb-8 2xl:pb-0 w-max 2xl:w-[max-content]">
                 
@@ -115,16 +108,7 @@ export default function ProductsListPage() {
               </div>
             </div>
 
-            {/* Mobile Shared Fixed Indicators & Button */}
-            <div className="flex flex-col items-center mt-[-5vw] md:mt-[-3vw] pb-4 2xl:hidden w-full relative z-40">
-              <div className="flex justify-center gap-[2vw] md:gap-[1.5vw] mb-[4vw] md:mb-[2.5vw]">
-                <div className={`w-[5vw] md:w-[3vw] lg:w-[2.5vw] h-[1.5vw] md:h-[0.8vw] lg:h-[0.6vw] rounded-full transition-colors ${activeProductMobile === 0 ? 'bg-[rgb(247,216,13)]' : 'bg-gray-300'}`} />
-                <div className={`w-[5vw] md:w-[3vw] lg:w-[2.5vw] h-[1.5vw] md:h-[0.8vw] lg:h-[0.6vw] rounded-full transition-colors ${activeProductMobile === 1 ? 'bg-[rgb(247,216,13)]' : 'bg-gray-300'}`} />
-              </div>
-              <Link href="/all-purposegravy" className={`bg-[rgb(247,216,13)] inline-block text-black px-[6vw] md:px-[4vw] lg:px-[3vw] py-[1.5vw] md:py-[1vw] lg:py-[0.8vw] rounded-[1.5vw] md:rounded-[1vw] lg:rounded-[0.8vw] font-bold text-[3.3vw] md:text-[2.2vw] lg:text-[1.8vw] shadow-sm tracking-tight font-arpona transition-opacity ${activeProductMobile === 1 ? 'opacity-50 pointer-events-none' : ''}`}>
-                See more
-              </Link>
-            </div>
+
 
           </section>
         </div>
