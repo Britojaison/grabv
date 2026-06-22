@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="absolute top-20 xl:top-44 bottom-[-20px] xl:bottom-[-50px] left-0 -z-10 w-full bg-[#156B37] pointer-events-none"></div>
       
       {/* The green wavy background image */}
-      <div className="absolute inset-0 bg-no-repeat -z-10 pointer-events-none" style={{ backgroundImage: "url('/images/HomePage/green%20bg.png')", backgroundSize: "105% auto", backgroundPosition: "center top" }}></div>
+      <div className="absolute inset-0 bg-no-repeat -z-10 pointer-events-none" style={{ backgroundImage: "url('/images/HomePage/green%20bg.webp')", backgroundSize: "105% auto", backgroundPosition: "center top" }}></div>
       <div className="relative z-10 mx-auto grid w-full grid-cols-[1.3fr_1fr_1fr] gap-4 px-2 xl:gap-10 xl:px-[100px] xl:-mt-12">
         
         {/* Column 1: Logo & Copyright */}
@@ -56,7 +56,7 @@ export default function Footer() {
             <h3 className="mb-2 xl:mb-3 font-kura text-[12px] min-[400px]:text-[14px] md:text-[20px] lg:text-[26px] xl:text-[3rem] font-normal tracking-[0.02em] text-white">Follow Us</h3>
             <div className="flex items-center">
               <a href="#" className="hover:opacity-80 transition-opacity">
-                <Image src="/images/HomePage/footer%20logo.png" alt="Social Links" width={280} height={70} className="h-auto w-[90px] min-[400px]:w-[100px] md:w-[150px] lg:w-[180px] xl:w-[16.875rem]" />
+                <Image src="/images/HomePage/footer%20logo.webp" alt="Social Links" width={280} height={70} className="h-auto w-[90px] min-[400px]:w-[100px] md:w-[150px] lg:w-[180px] xl:w-[16.875rem]" />
               </a>
             </div>
           </div>

@@ -78,7 +78,7 @@ export default function OurStoryPage() {
                         <div className="w-[50%] md:w-[40%] flex justify-center md:justify-end">
                             <div className="story-reveal-image relative w-full aspect-[4/5] md:aspect-[581/424] max-w-[320px] md:max-w-[581px] rounded-[15px] md:rounded-[20px] overflow-hidden border-t-[6px] md:border-t-[10px] border-r-[6px] md:border-r-[10px] border-[rgb(247,0,52)] md:-mt-4 shadow-lg">
                                 <Image
-                                    src="/images/ourstory1.png"
+                                    src="/images/ourstory1.webp"
                                     alt="How it started"
                                     fill
                                     className="object-cover"

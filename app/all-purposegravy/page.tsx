@@ -29,7 +29,7 @@ export default function ProductsPage() {
                                 <div className="relative w-full aspect-[1/1.1] md:aspect-square rounded-[20px] md:rounded-[12px] overflow-hidden bg-[#e5e5e5]/40 md:bg-transparent flex items-center justify-center p-2 md:p-6 md:max-w-[640px]">
                                     <div className="relative w-full h-full">
                                         <Image
-                                            src="/images/APGArtboard-1 (3).png"
+                                            src="/images/APGArtboard-1 (3).webp"
                                             alt="Product Main"
                                             fill
                                             className="object-cover object-center scale-110 md:scale-[1.24] rounded-[10px]"
@@ -222,9 +222,9 @@ export default function ProductsPage() {
 
                                 <div className="w-full flex lg:grid lg:grid-cols-3 overflow-x-auto lg:overflow-visible gap-4 md:gap-10 pb-4 lg:pb-0 no-scrollbar px-5 sm:px-8 md:px-0">
                                     {[
-                                        { status: 'active', title: 'Onion Tomato Gravy', image: '/images/APGArtboard-1 (3).png' },
-                                        { status: 'coming_soon', title: 'Smoked Makhani Gravy', image: '/images/smoked makani.png' },
-                                        { status: 'coming_soon', title: 'Smoked Makhani Gravy', image: '/images/smoked makani.png' }
+                                        { status: 'active', title: 'Onion Tomato Gravy', image: '/images/APGArtboard-1 (3).webp' },
+                                        { status: 'coming_soon', title: 'Smoked Makhani Gravy', image: '/images/smoked makani.webp' },
+                                        { status: 'coming_soon', title: 'Smoked Makhani Gravy', image: '/images/smoked makani.webp' }
                                     ].map((item, idx) => (
                                         <div key={idx} className="flex flex-col items-center group shrink-0 w-[190px] md:w-[300px] lg:w-auto">
                                             {/* Image Container */}
@@ -340,21 +340,21 @@ export default function ProductsPage() {
                                     location: "Bengaluru",
                                     text: "I recently shifted to Bengaluru, and I was craving for the home cooked flavour and that's when GrabV’s onion tomato gravy saved me!!! It was absolutely delicious.",
                                     rating: 5,
-                                    image: "/images/cheerful-traditional-indian-woman-white-background-studio-shot.jpg"
+                                    image: "/images/cheerful-traditional-indian-woman-white-background-studio-shot.webp"
                                 },
                                 {
                                     name: "Harshitha",
                                     location: "Bengaluru",
                                     text: "Oh mahn!! What a flavourrr… made me feel like a real chef!!",
                                     rating: 4.5,
-                                    image: "/images/indian-woman-posing-cute-stylish-outfit-camera-smiling.jpg"
+                                    image: "/images/indian-woman-posing-cute-stylish-outfit-camera-smiling.webp"
                                 },
                                 {
                                     name: "Chetana Gowda",
                                     location: "Bengaluru",
                                     text: "It is an absolute saviour to my busy days, so quick and so easy. Am stocking this up again for sure!!",
                                     rating: 4,
-                                    image: "/images/stylish-indian-beard-model-man-casual-clothes-posed-outdoor-street-india.jpg"
+                                    image: "/images/stylish-indian-beard-model-man-casual-clothes-posed-outdoor-street-india.webp"
                                 }
                             ].map((item, idx) => (
                                 <div key={idx} className="relative p-4 md:p-6 rounded-[20px] bg-white flex flex-col gap-2 md:gap-4 shrink-0 w-[211px] md:w-[350px] lg:w-auto min-h-[150px] h-auto pb-4 lg:h-auto shadow-sm">

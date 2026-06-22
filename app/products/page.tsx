@@ -31,7 +31,7 @@ export default function ProductsListPage() {
             <div className="relative z-10 font-kura uppercase leading-[0.8] tracking-[-0.02em] text-center flex flex-col items-center w-full">
               
               {/* Tomato Image Behind Text */}
-              <img src="/images/HomePage/tomato.png" className="absolute left-[8%] 2xl:left-[11%] top-[12%] 2xl:top-[15%] w-[19.5vw] 2xl:w-[290px] object-contain z-[-1] pointer-events-none -rotate-12" alt="" />
+              <img src="/images/HomePage/tomato.webp" className="absolute left-[8%] 2xl:left-[11%] top-[12%] 2xl:top-[15%] w-[19.5vw] 2xl:w-[290px] object-contain z-[-1] pointer-events-none -rotate-12" alt="" />
 
               {/* Shadow layer (Yellow) */}
               <div className="absolute inset-0 flex flex-col items-center z-0 pointer-events-none translate-y-[1.4vw] translate-x-[2.2vw] 2xl:translate-y-[10px] 2xl:translate-x-[16px]" style={{ color: '#F7D80C' }}>
@@ -73,7 +73,7 @@ export default function ProductsListPage() {
                 {/* Product 1 */}
                 <div className="relative inline-block flex-shrink-0 flex flex-col items-center 2xl:items-end w-auto">
                   <div className="relative w-[100vw] 2xl:w-auto">
-                    <img src="/images/HomePage/product1.png" className="w-[100vw] 2xl:w-auto h-auto 2xl:h-[950px] object-contain block drop-shadow-2xl pointer-events-none" draggable={false} alt="Product 1" />
+                    <img src="/images/HomePage/product1.webp" className="w-[100vw] 2xl:w-auto h-auto 2xl:h-[950px] object-contain block drop-shadow-2xl pointer-events-none" draggable={false} alt="Product 1" />
                     
                     <div className="absolute top-[34%] left-[64%] w-[36%] flex flex-col items-start text-black font-arpona">
                       <h3 className="text-[3.9vw] 2xl:text-[50px] leading-[1.0] tracking-[-0.05em] font-bold">
@@ -99,7 +99,7 @@ export default function ProductsListPage() {
                 {/* Product 2 */}
                 <div className="relative inline-block flex-shrink-0 flex flex-col items-center 2xl:items-end w-auto group">
                   <div className="relative w-[100vw] 2xl:w-auto">
-                    <img src="/images/HomePage/product2.png" className="w-[100vw] 2xl:w-auto h-auto 2xl:h-[950px] object-contain block drop-shadow-2xl grayscale-[0.8] opacity-80 pointer-events-none" draggable={false} alt="Product 2" />
+                    <img src="/images/HomePage/product2.webp" className="w-[100vw] 2xl:w-auto h-auto 2xl:h-[950px] object-contain block drop-shadow-2xl grayscale-[0.8] opacity-80 pointer-events-none" draggable={false} alt="Product 2" />
                     
                     {/* Coming Soon Overlay */}
                     <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
