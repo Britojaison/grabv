@@ -9,12 +9,12 @@ export default function Footer() {
       {/* The green wavy background image */}
       <div className="absolute inset-0 bg-no-repeat -z-10 pointer-events-none" style={{ backgroundImage: "url('/images/HomePage/green%20bg.png')", backgroundSize: "105% auto", backgroundPosition: "center top" }}></div>
       
-      <div className="relative z-10 mx-auto grid w-full grid-cols-[1.3fr_1fr_1fr] gap-4 px-2 xl:gap-10 xl:px-[120px] 2xl:px-[120px] xl:-mt-12">
+      <div className="relative z-10 mx-auto grid w-full grid-cols-[1.3fr_1fr_1fr] gap-4 px-2 xl:gap-10 xl:px-[100px] 2xl:px-[100px] xl:-mt-12">
         
         {/* Column 1: Logo & Copyright */}
         <div className="flex flex-col items-start xl:col-span-1 md:translate-x-[18px] lg:translate-x-[30px] xl:translate-x-0">
           <Image src="/images/logo.svg" alt="GrabV" width={350} height={140} className="h-auto w-[90px] min-[400px]:w-[100px] md:w-[150px] lg:w-[200px] xl:w-[20.625rem] mb-8 xl:mb-8" />
-          <p className="text-[9px] min-[400px]:text-[10px] md:text-[14px] lg:text-[18px] xl:text-[1.625rem] 2xl:text-[1.875rem] leading-[1.35] text-white">
+          <p className="text-[9px] min-[400px]:text-[10px] md:text-[14px] lg:text-[18px] xl:text-[1.5rem] 2xl:text-[1.75rem] leading-[1.35] text-white">
             © 2026 GrabV. All rights reserved.<br/>
             88gb Digital Mraketing &<br/>
             Technology Company
@@ -26,18 +26,18 @@ export default function Footer() {
           <div>
             <h3 className="mb-2 xl:mb-3 font-kura text-[13px] min-[400px]:text-[15px] md:text-[20px] lg:text-[26px] xl:text-[3.5rem] font-normal uppercase tracking-[0.02em] text-[#F7D80C]">PRODUCT</h3>
             <ul className="flex flex-col gap-1 xl:gap-1 leading-[1.25]">
-              <li><a href="/all-purposegravy" className="block text-[11px] min-[400px]:text-[12px] md:text-[16px] lg:text-[20px] xl:text-[1.625rem] text-white transition-colors hover:text-[#F7D80C]">All Purpose Gravy</a></li>
-              <li><a href="/all-purposegravy#ingredients" className="block text-[11px] min-[400px]:text-[12px] md:text-[16px] lg:text-[20px] xl:text-[1.625rem] text-white transition-colors hover:text-[#F7D80C]">Ingredients</a></li>
-              <li><a href="/all-purposegravy#how-to-use" className="block text-[11px] min-[400px]:text-[12px] md:text-[16px] lg:text-[20px] xl:text-[1.625rem] text-white transition-colors hover:text-[#F7D80C]">How to Use</a></li>
-              <li><a href="/recipes" className="block text-[11px] min-[400px]:text-[12px] md:text-[16px] lg:text-[20px] xl:text-[1.625rem] text-white transition-colors hover:text-[#F7D80C]">Recipes</a></li>
+              <li><a href="/all-purposegravy" className="block text-[11px] min-[400px]:text-[12px] md:text-[16px] lg:text-[20px] xl:text-[1.5rem] text-white transition-colors hover:text-[#F7D80C]">All Purpose Gravy</a></li>
+              <li><a href="/all-purposegravy#ingredients" className="block text-[11px] min-[400px]:text-[12px] md:text-[16px] lg:text-[20px] xl:text-[1.5rem] text-white transition-colors hover:text-[#F7D80C]">Ingredients</a></li>
+              <li><a href="/all-purposegravy#how-to-use" className="block text-[11px] min-[400px]:text-[12px] md:text-[16px] lg:text-[20px] xl:text-[1.5rem] text-white transition-colors hover:text-[#F7D80C]">How to Use</a></li>
+              <li><a href="/recipes" className="block text-[11px] min-[400px]:text-[12px] md:text-[16px] lg:text-[20px] xl:text-[1.5rem] text-white transition-colors hover:text-[#F7D80C]">Recipes</a></li>
             </ul>
           </div>
           <div>
             <h3 className="mb-2 xl:mb-3 font-kura text-[10px] min-[400px]:text-[12px] md:text-[16px] lg:text-[22px] xl:text-[3.5rem] font-normal uppercase tracking-[0.02em] text-[#F7D80C] whitespace-nowrap">ORDER & POLICIES</h3>
             <ul className="flex flex-col gap-1 xl:gap-1 leading-[1.25]">
-              <li><a href="#" className="block text-[11px] min-[400px]:text-[12px] md:text-[16px] lg:text-[20px] xl:text-[1.625rem] text-white transition-colors hover:text-[#F7D80C]">WhatsApp Order</a></li>
-              <li><a href="#" className="block text-[11px] min-[400px]:text-[12px] md:text-[16px] lg:text-[20px] xl:text-[1.625rem] text-white transition-colors hover:text-[#F7D80C]">Exchange Order</a></li>
-              <li><a href="#" className="block text-[11px] min-[400px]:text-[12px] md:text-[16px] lg:text-[20px] xl:text-[1.625rem] text-white transition-colors hover:text-[#F7D80C]">Privacy Policy</a></li>
+              <li><a href="#" className="block text-[11px] min-[400px]:text-[12px] md:text-[16px] lg:text-[20px] xl:text-[1.5rem] text-white transition-colors hover:text-[#F7D80C]">WhatsApp Order</a></li>
+              <li><a href="#" className="block text-[11px] min-[400px]:text-[12px] md:text-[16px] lg:text-[20px] xl:text-[1.5rem] text-white transition-colors hover:text-[#F7D80C]">Exchange Order</a></li>
+              <li><a href="#" className="block text-[11px] min-[400px]:text-[12px] md:text-[16px] lg:text-[20px] xl:text-[1.5rem] text-white transition-colors hover:text-[#F7D80C]">Privacy Policy</a></li>
             </ul>
           </div>
         </div>
@@ -47,10 +47,10 @@ export default function Footer() {
           <div>
             <h3 className="mb-2 xl:mb-3 font-kura text-[13px] min-[400px]:text-[15px] md:text-[20px] lg:text-[26px] xl:text-[3.5rem] font-normal uppercase tracking-[0.02em] text-[#F7D80C]">COMPANY</h3>
             <ul className="flex flex-col gap-1 xl:gap-1 leading-[1.25]">
-              <li><a href="/ourstory" className="block text-[11px] min-[400px]:text-[12px] md:text-[16px] lg:text-[20px] xl:text-[1.625rem] text-white transition-colors hover:text-[#F7D80C]">Our Story</a></li>
-              <li><a href="#" className="block text-[11px] min-[400px]:text-[12px] md:text-[16px] lg:text-[20px] xl:text-[1.625rem] text-white transition-colors hover:text-[#F7D80C]">Process</a></li>
-              <li><a href="#" className="block text-[11px] min-[400px]:text-[12px] md:text-[16px] lg:text-[20px] xl:text-[1.625rem] text-white transition-colors hover:text-[#F7D80C]">Quality Promise</a></li>
-              <li><a href="/contact" className="block text-[11px] min-[400px]:text-[12px] md:text-[16px] lg:text-[20px] xl:text-[1.625rem] text-white transition-colors hover:text-[#F7D80C]">Contact Us</a></li>
+              <li><a href="/ourstory" className="block text-[11px] min-[400px]:text-[12px] md:text-[16px] lg:text-[20px] xl:text-[1.5rem] text-white transition-colors hover:text-[#F7D80C]">Our Story</a></li>
+              <li><a href="#" className="block text-[11px] min-[400px]:text-[12px] md:text-[16px] lg:text-[20px] xl:text-[1.5rem] text-white transition-colors hover:text-[#F7D80C]">Process</a></li>
+              <li><a href="#" className="block text-[11px] min-[400px]:text-[12px] md:text-[16px] lg:text-[20px] xl:text-[1.5rem] text-white transition-colors hover:text-[#F7D80C]">Quality Promise</a></li>
+              <li><a href="/contact" className="block text-[11px] min-[400px]:text-[12px] md:text-[16px] lg:text-[20px] xl:text-[1.5rem] text-white transition-colors hover:text-[#F7D80C]">Contact Us</a></li>
             </ul>
           </div>
           <div className="mt-6 xl:mt-0">

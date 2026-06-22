@@ -452,27 +452,27 @@ export default function Home() {
         </section>
 
         {/* Freshly Made Product Section */}
-        <section ref={textSectionRef} className="relative w-full h-[65vw] 2xl:h-[100vh] flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
+        <section ref={textSectionRef} className="relative w-full h-[65vw] flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
           {/* Background Text Overlay */}
-          <div className="absolute left-0 right-0 inset-y-0 flex flex-col justify-center items-center pointer-events-none select-none z-0 overflow-hidden font-kura uppercase tracking-[-0.07em] translate-y-0 2xl:translate-y-8 px-[4vw] 2xl:px-[120px]" style={{ color: '#146A36' }}>
+          <div className="absolute left-0 right-0 inset-y-0 flex flex-col justify-center items-center pointer-events-none select-none z-0 overflow-hidden font-kura uppercase tracking-[-0.07em] translate-y-0 px-[4vw]" style={{ color: '#146A36' }}>
             <div 
-              className="w-full flex justify-between h-[13vw] 2xl:h-[230px] mb-[1.5vw] 2xl:mb-4 text-[13vw] 2xl:text-[230px] leading-[1.0] transition-transform duration-1000 ease-out"
+              className="w-full flex justify-between h-[13vw] xl:h-[12vw] mb-[1.5vw] text-[13vw] xl:text-[12vw] leading-[1.0] transition-transform duration-1000 ease-out"
               style={{ transform: isTextVisible ? 'translateX(0)' : 'translateX(100vw)' }}
             >
               <span>FRESHLY</span>
               <span>MADE</span>
             </div>
             <div 
-              className="w-full flex justify-between h-[10.5vw] 2xl:h-[165px] text-[10.5vw] 2xl:text-[165px] leading-[1.0] mt-[0.5vw] 2xl:mt-2 transition-transform duration-1000 ease-out"
+              className="w-full flex justify-between h-[9.8vw] xl:h-[9vw] text-[9.8vw] xl:text-[9vw] leading-[1.0] mt-[0.5vw] transition-transform duration-1000 ease-out"
               style={{ transform: isTextVisible ? 'translateX(0)' : 'translateX(-100vw)' }}
             >
               <span>READY</span>
-              <span className="translate-x-[1vw] 2xl:translate-x-[20px]">IN 10 MIN</span>
+              <span className="translate-x-[1vw]">IN 10 MIN</span>
             </div>
           </div>
 
           {/* Product Image */}
-          <div className="relative z-10 w-[80vw] 2xl:w-[1500px] max-w-[110vw] h-[55vw] 2xl:h-[105vh] max-h-[1600px] translate-y-[2vw] 2xl:translate-y-20">
+          <div className="relative z-10 w-[80vw] max-w-[110vw] h-[55vw] max-h-[1600px] translate-y-[2vw]">
             <Image
               src="/images/HomePage/product package 1.png"
               alt="GrabV Product Package"
@@ -483,15 +483,15 @@ export default function Home() {
           </div>
 
           {/* Bottom Left Text */}
-          <div className="absolute bottom-[4vw] 2xl:bottom-8 left-[4vw] 2xl:left-[120px] z-20 flex flex-col gap-[2px] md:gap-0 tracking-[-0.05em] text-black">
-            <span className="font-arpona font-medium text-[2.5vw] 2xl:text-[28px] leading-[1.1]">Veg or non-veg</span>
-            <span className="font-arpona font-medium text-[2.5vw] 2xl:text-[28px] leading-[1.1]">Possibilities are endless</span>
+          <div className="absolute bottom-[4vw] xl:bottom-[7vw] left-[4vw] z-20 flex flex-col gap-[2px] md:gap-0 tracking-[-0.05em] text-black">
+            <span className="font-arpona font-medium text-[2.5vw] lg:text-[1.8vw] xl:text-[1.8vw] leading-[1.1]">Veg or non-veg</span>
+            <span className="font-arpona font-medium text-[2.5vw] lg:text-[1.8vw] xl:text-[1.8vw] leading-[1.1]">Possibilities are endless</span>
           </div>
 
           {/* Bottom Right Text */}
-          <div className="absolute bottom-[4vw] 2xl:bottom-8 right-[4vw] 2xl:right-[120px] z-20 flex flex-col gap-[2px] md:gap-0 tracking-[-0.05em] text-black text-right">
-            <span className="font-arpona font-medium text-[2.5vw] 2xl:text-[28px] leading-[1.1]">Just add in the gravy</span>
-            <span className="font-arpona font-medium text-[2.5vw] 2xl:text-[28px] leading-[1.1]">And enjoy your meal</span>
+          <div className="absolute bottom-[4vw] xl:bottom-[7vw] right-[4vw] z-20 flex flex-col gap-[2px] md:gap-0 tracking-[-0.05em] text-black text-right">
+            <span className="font-arpona font-medium text-[2.5vw] lg:text-[1.8vw] xl:text-[1.8vw] leading-[1.1]">Just add in the gravy</span>
+            <span className="font-arpona font-medium text-[2.5vw] lg:text-[1.8vw] xl:text-[1.8vw] leading-[1.1]">And enjoy your meal</span>
           </div>
         </section>
 
@@ -499,24 +499,21 @@ export default function Home() {
         <section className="relative w-full flex flex-col items-center pt-[8vw] 2xl:pt-24 pb-0 2xl:pb-12 overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
           
           {/* Top text */}
-          <p className="font-arpona text-[3.8vw] md:text-[1.8vw] lg:text-[2vw] 2xl:text-[28px] leading-[1.0] tracking-[-0.05em] font-medium text-black mb-[4vw] 2xl:mb-10 text-center z-10">
+          <p className="font-arpona text-[3vw] md:text-[1.8vw] lg:text-[2vw] 2xl:text-[28px] leading-[1.0] tracking-[-0.05em] font-medium text-black mb-[4vw] 2xl:mb-10 text-center z-10">
             No Chopping. No Stress. Just Real Food.
           </p>
 
           {/* Huge Heading */}
           <div className="relative font-kura uppercase text-[14vw] 2xl:text-[260px] leading-[0.85] tracking-[-0.02em] text-center w-full flex justify-center drop-shadow-lg 2xl:drop-shadow-xl z-10">
             {/* Vegetables Behind Text */}
-            <img src="/images/HomePage/tomato.png" alt="" className="absolute top-[-6%] 2xl:top-[-9%] left-[26%] 2xl:left-[25%] w-[15vw] 2xl:w-[265px] z-0 pointer-events-none" />
-            <img src="/images/HomePage/onion.png" alt="" className="absolute top-[-6%] 2xl:top-[-8%] left-[20%] 2xl:left-[18%] w-[12.5vw] 2xl:w-[200px] -rotate-[15deg] z-[1] 2xl:z-0 pointer-events-none opacity-90" />
+            <img src="/images/HomePage/tomato.png" alt="" className="absolute top-[-6%] 2xl:top-[-5%] left-[26%] xl:left-[24%] 2xl:left-[25%] w-[15vw] xl:w-[13vw] 2xl:w-[220px] z-0 pointer-events-none" />
+            <img src="/images/HomePage/onion.png" alt="" className="absolute top-[-6%] 2xl:top-[-4%] left-[20%] xl:left-[21%] 2xl:left-[22%] w-[12.5vw] xl:w-[10.5vw] 2xl:w-[170px] -rotate-[15deg] z-[1] 2xl:z-0 pointer-events-none opacity-90" />
 
-            {/* Shadow layer */}
-            <div className="absolute inset-0 flex justify-center z-0 pointer-events-none translate-y-[1.5vw] translate-x-[2.2vw] 2xl:translate-y-[10px] 2xl:translate-x-[16px]" style={{ color: '#F7D80C' }}>
-              <div>POUCH TO<br/>PLATE IN<br/>5 STEPS</div>
-            </div>
-            
-            {/* Fill layer */}
+            {/* Fill layer with integrated text-shadow */}
             <div className="relative z-10" style={{ color: '#156B37' }}>
-              <div>POUCH TO<br/>PLATE IN<br/>5 STEPS</div>
+              <div className="[text-shadow:1vw_0.8vw_0_#F7D80C] md:[text-shadow:0.8vw_0.6vw_0_#F7D80C] xl:[text-shadow:9px_6px_0_#F7D80C] 2xl:[text-shadow:11px_6px_0_#F7D80C]">
+                POUCH TO<br/>PLATE IN<br/>5 STEPS
+              </div>
               {/* Homemade Sticker */}
               <img src="/images/HomePage/homemade.png" alt="Homemade-ish" className="absolute bottom-[20%] 2xl:bottom-[25%] right-[-25%] 2xl:right-[-10%] w-[24vw] 2xl:w-[290px] rotate-2 drop-shadow-xl z-20 pointer-events-none" />
             </div>
@@ -536,7 +533,7 @@ export default function Home() {
                   <div className="relative">
                     <img src="/images/HomePage/cooking img1.png" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[30vh] sm:max-h-[55vh] md:max-h-[60vh] lg:max-h-[55vh] 2xl:max-h-[60vh] scale-[0.95] origin-bottom -translate-y-3" alt="Step 1" />
                   </div>
-                  <p className="mt-[4vw] md:mt-[3vw] lg:mt-[2vw] xl:mt-4 2xl:mt-6 ml-0 xl:ml-2 2xl:ml-4 font-arpona text-[4vw] sm:text-xl md:text-[3.5vw] lg:text-2xl xl:text-[28px] 2xl:text-[34px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center xl:text-left -translate-y-3">
+                  <p className="mt-[4vw] md:mt-[3vw] lg:mt-[2vw] xl:mt-4 2xl:mt-6 ml-0 xl:ml-12 2xl:ml-16 font-arpona text-[4vw] sm:text-xl md:text-[3.5vw] lg:text-2xl xl:text-[28px] 2xl:text-[34px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center xl:text-left -translate-y-3">
                     Add your tempering (tadka) in oil.
                   </p>
                 </div>
@@ -546,7 +543,7 @@ export default function Home() {
                   <div className="relative">
                     <img src="/images/HomePage/cooking img2.png" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[30vh] sm:max-h-[55vh] md:max-h-[60vh] lg:max-h-[55vh] 2xl:max-h-[60vh]" alt="Step 2" />
                   </div>
-                  <p className="mt-[4vw] md:mt-[3vw] lg:mt-[2vw] xl:mt-4 2xl:mt-6 ml-0 xl:ml-2 2xl:ml-4 font-arpona text-[4vw] sm:text-xl md:text-[3.5vw] lg:text-2xl xl:text-[28px] 2xl:text-[34px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center xl:text-left">
+                  <p className="mt-[4vw] md:mt-[3vw] lg:mt-[2vw] xl:mt-4 2xl:mt-6 ml-0 xl:ml-12 2xl:ml-16 font-arpona text-[4vw] sm:text-xl md:text-[3.5vw] lg:text-2xl xl:text-[28px] 2xl:text-[34px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center xl:text-left">
                     Sauté veggies or protein of your choice.
                   </p>
                 </div>
@@ -556,7 +553,7 @@ export default function Home() {
                   <div className="relative">
                     <img src="/images/HomePage/cooking img3.png" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[30vh] sm:max-h-[55vh] md:max-h-[60vh] lg:max-h-[55vh] 2xl:max-h-[60vh]" alt="Step 3" />
                   </div>
-                  <p className="mt-[4vw] md:mt-[3vw] lg:mt-[2vw] xl:mt-4 2xl:mt-6 ml-0 xl:ml-2 2xl:ml-4 font-arpona text-[4vw] sm:text-xl md:text-[3.5vw] lg:text-2xl xl:text-[28px] 2xl:text-[34px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center xl:text-left">
+                  <p className="mt-[4vw] md:mt-[3vw] lg:mt-[2vw] xl:mt-4 2xl:mt-6 ml-0 xl:ml-12 2xl:ml-16 font-arpona text-[4vw] sm:text-xl md:text-[3.5vw] lg:text-2xl xl:text-[28px] 2xl:text-[34px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center xl:text-left">
                     Pour GrabV & adjust consistency
                   </p>
                 </div>
@@ -566,7 +563,7 @@ export default function Home() {
                   <div className="relative">
                     <img src="/images/HomePage/cooking img4.png" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[30vh] sm:max-h-[55vh] md:max-h-[60vh] lg:max-h-[55vh] 2xl:max-h-[60vh]" alt="Step 4" />
                   </div>
-                  <p className="mt-[4vw] md:mt-[3vw] lg:mt-[2vw] xl:mt-4 2xl:mt-6 ml-0 xl:ml-2 2xl:ml-4 font-arpona text-[4vw] sm:text-xl md:text-[3.5vw] lg:text-2xl xl:text-[28px] 2xl:text-[34px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center xl:text-left">
+                  <p className="mt-[4vw] md:mt-[3vw] lg:mt-[2vw] xl:mt-4 2xl:mt-6 ml-0 xl:ml-12 2xl:ml-16 font-arpona text-[4vw] sm:text-xl md:text-[3.5vw] lg:text-2xl xl:text-[28px] 2xl:text-[34px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center xl:text-left">
                     Add water as needed and let it simmer.
                   </p>
                 </div>
@@ -576,7 +573,7 @@ export default function Home() {
                   <div className="relative">
                     <img src="/images/HomePage/cooking img5.png" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[30vh] sm:max-h-[55vh] md:max-h-[60vh] lg:max-h-[55vh] 2xl:max-h-[60vh]" alt="Step 5" />
                   </div>
-                  <p className="mt-[4vw] md:mt-[3vw] lg:mt-[2vw] xl:mt-4 2xl:mt-6 ml-0 xl:ml-2 2xl:ml-4 font-arpona text-[4vw] sm:text-xl md:text-[3.5vw] lg:text-2xl xl:text-[28px] 2xl:text-[34px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center xl:text-left">
+                  <p className="mt-[4vw] md:mt-[3vw] lg:mt-[2vw] xl:mt-4 2xl:mt-6 ml-0 xl:ml-12 2xl:ml-16 font-arpona text-[4vw] sm:text-xl md:text-[3.5vw] lg:text-2xl xl:text-[28px] 2xl:text-[34px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center xl:text-left">
                     Garnish, serve hot, and show off!
                   </p>
                 </div>
@@ -813,78 +810,74 @@ export default function Home() {
 
         {/* 20+ RECIPES Section */}
         <section className="relative w-full bg-transparent flex flex-col items-center overflow-hidden -mt-[160px] md:-mt-[580px] lg:-mt-[650px] xl:-mt-[800px] 2xl:-mt-[800px] z-20">
-          <div className="relative w-full h-[141vw] 2xl:h-auto 2xl:min-h-[200vh] flex flex-col items-center pt-[70px] 2xl:pt-[250px] pb-20 2xl:pb-32" style={{ backgroundImage: "url('/images/HomePage/yellow bg.png')", backgroundSize: '100% 100%', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+          <div className="relative w-full h-[141vw] flex flex-col items-center pt-[70px] pb-20" style={{ backgroundImage: "url('/images/HomePage/yellow bg.png')", backgroundSize: '100% 100%', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
             
             {/* Heading */}
-            <div className="relative z-10 flex flex-col items-center -mt-8 md:mt-2 lg:mt-6 2xl:-mt-10 font-kura leading-none text-center pointer-events-none">
-              {/* Mobile Heading */}
-              <h2 className="relative z-10 text-[#156B37] text-[18vw] tracking-[-0.02em] leading-none 2xl:hidden" style={{ textShadow: '1px 1px 0 #F7D80C, 2px 2px 0 #F7D80C, 3px 3px 0 #F7D80C, 4px 4px 0 #F7D80C, 5px 5px 0 #F7D80C, 6px 6px 0 #F7D80C, 7px 7px 0 #F7D80C, 8px 8px 0 #F7D80C' }}>20+</h2>
-              <h2 className="relative z-20 text-[#156B37] text-[15vw] tracking-[-0.02em] -mt-2 lg:-mt-4 leading-none 2xl:hidden" style={{ textShadow: '1px 1px 0 #F7D80C, 2px 2px 0 #F7D80C, 3px 3px 0 #F7D80C, 4px 4px 0 #F7D80C, 5px 5px 0 #F7D80C' }}>RECIPES</h2>
-              
-              {/* Desktop Heading */}
-              <h2 className="relative z-10 text-[#156B37] text-[300px] tracking-[-0.02em] leading-none hidden 2xl:block" style={{ textShadow: '1px 1px 0 #F7D80C, 2px 2px 0 #F7D80C, 3px 3px 0 #F7D80C, 4px 4px 0 #F7D80C, 5px 5px 0 #F7D80C, 6px 6px 0 #F7D80C, 7px 7px 0 #F7D80C, 8px 8px 0 #F7D80C, 9px 9px 0 #F7D80C, 10px 10px 0 #F7D80C, 11px 11px 0 #F7D80C, 12px 12px 0 #F7D80C, 13px 13px 0 #F7D80C, 14px 14px 0 #F7D80C, 15px 15px 0 #F7D80C, 16px 16px 0 #F7D80C, 17px 17px 0 #F7D80C, 18px 18px 0 #F7D80C, 19px 19px 0 #F7D80C, 20px 20px 0 #F7D80C' }}>20+</h2>
-              <h2 className="relative z-20 text-[#156B37] text-[240px] tracking-[-0.02em] -mt-[50px] leading-none hidden 2xl:block" style={{ textShadow: '1px 1px 0 #F7D80C, 2px 2px 0 #F7D80C, 3px 3px 0 #F7D80C, 4px 4px 0 #F7D80C, 5px 5px 0 #F7D80C, 6px 6px 0 #F7D80C, 7px 7px 0 #F7D80C, 8px 8px 0 #F7D80C, 9px 9px 0 #F7D80C, 10px 10px 0 #F7D80C, 11px 11px 0 #F7D80C, 12px 12px 0 #F7D80C, 13px 13px 0 #F7D80C, 14px 14px 0 #F7D80C, 15px 15px 0 #F7D80C, 16px 16px 0 #F7D80C, 17px 17px 0 #F7D80C, 18px 18px 0 #F7D80C, 19px 19px 0 #F7D80C, 20px 20px 0 #F7D80C' }}>RECIPES</h2>
+            <div className="relative z-10 flex flex-col items-center -mt-8 md:mt-2 lg:mt-6 font-kura leading-none text-center pointer-events-none">
+              {/* Heading */}
+              <h2 className="relative z-10 text-[#156B37] text-[18vw] tracking-[-0.02em] leading-none" style={{ textShadow: '1px 1px 0 #F7D80C, 2px 2px 0 #F7D80C, 3px 3px 0 #F7D80C, 4px 4px 0 #F7D80C, 5px 5px 0 #F7D80C, 6px 6px 0 #F7D80C, 7px 7px 0 #F7D80C, 8px 8px 0 #F7D80C' }}>20+</h2>
+              <h2 className="relative z-20 text-[#156B37] text-[15vw] tracking-[-0.02em] -mt-2 lg:-mt-4 leading-none" style={{ textShadow: '1px 1px 0 #F7D80C, 2px 2px 0 #F7D80C, 3px 3px 0 #F7D80C, 4px 4px 0 #F7D80C, 5px 5px 0 #F7D80C' }}>RECIPES</h2>
             </div>
             
             {/* Center Container for Product and Dishes */}
             <div className="absolute inset-0 w-full h-full flex items-center justify-center z-20 pointer-events-none">
-                            {/* Center Product */}
-              <div className="absolute top-[74vw] md:top-[71vw] lg:top-[69vw] 2xl:top-[57%] left-[48%] 2xl:left-[50%] -translate-x-1/2 -translate-y-1/2 z-30 w-[36vw] 2xl:w-[680px]">
+              {/* Center Product */}
+              <div className="absolute top-[74vw] md:top-[71vw] lg:top-[69vw] left-[48%] -translate-x-1/2 -translate-y-1/2 z-30 w-[36vw]">
                 <img src="/images/HomePage/product package 2.png" alt="Smoked Makhani Gravy" className="w-full h-auto drop-shadow-2xl" />
               </div>
 
               {/* --- VEG DISHES (LEFT) --- */}
               {/* Dish 1: Bhindi Masala (Top Left) */}
-              <div className="absolute top-[17vw] left-[-18%] 2xl:top-[8%] 2xl:left-[-8%] w-[42vw] 2xl:w-[700px] z-30">
+              <div className="absolute top-[17vw] left-[-18%] w-[42vw] z-30">
                 <img src="/images/HomePage/bhindi.png" alt="Bhindi Masala" className="w-full h-auto drop-shadow-xl" />
               </div>
 
               {/* Dish 2: Aloo Gobhi (Middle Left) */}
-              <div className="absolute top-[70vw] left-[-22%] 2xl:top-[50%] 2xl:left-[-12%] w-[47vw] 2xl:w-[900px] -translate-y-1/2 z-20">
+              <div className="absolute top-[70vw] left-[-22%] w-[47vw] -translate-y-1/2 z-20">
                 <img src="/images/HomePage/aloo.png" alt="Aloo Gobhi" className="w-full h-auto drop-shadow-xl" />
               </div>
 
               {/* Dish 3: Mutter Paneer (Bottom Left) */}
-              <div className="absolute top-[71vw] left-[-28%] xl:top-auto xl:bottom-[-2%] xl:left-[-18%] 2xl:top-auto 2xl:bottom-[-2%] 2xl:left-[-18%] w-[61vw] xl:w-[1100px] 2xl:w-[1100px] z-10">
+              <div className="absolute top-[71vw] left-[-28%] w-[61vw] z-10">
                 <img src="/images/HomePage/panner.png" alt="Mutter Paneer" className="w-full h-auto drop-shadow-xl" />
               </div>
 
               {/* --- NON-VEG DISHES (RIGHT) --- */}
               {/* Dish 4: Egg Curry (Top Right) */}
-              <div className="absolute top-[4vw] right-[-28%] 2xl:top-[0%] 2xl:right-[-16%] w-[59vw] 2xl:w-[950px] z-30">
+              <div className="absolute top-[4vw] right-[-28%] w-[59vw] z-30">
                 <img src="/images/HomePage/egg.png" alt="Egg Curry" className="w-full h-auto drop-shadow-xl" />
               </div>
 
               {/* Dish 5: Chicken Curry (Middle Right) */}
-              <div className="absolute top-[67vw] right-[-26%] xl:top-[50%] xl:right-[-24%] 2xl:top-[50%] 2xl:right-[-24%] w-[49vw] xl:w-[950px] 2xl:w-[950px] -translate-y-1/2 z-40">
+              <div className="absolute top-[67vw] right-[-26%] w-[49vw] -translate-y-1/2 z-40">
                 <img src="/images/HomePage/chicken.png" alt="Chicken Curry" className="w-full h-auto drop-shadow-xl" />
               </div>
 
               {/* Dish 6: Mutton Sukka (Bottom Right) */}
-              <div className="absolute top-[73vw] right-[-28%] xl:top-auto xl:bottom-[10%] xl:right-[-18%] 2xl:top-auto 2xl:bottom-[10%] 2xl:right-[-18%] w-[66vw] xl:w-[1050px] 2xl:w-[1050px] z-30">
+              <div className="absolute top-[73vw] right-[-28%] w-[66vw] z-30">
                 <img src="/images/HomePage/mutton.png" alt="Mutton Sukka" className="w-full h-auto drop-shadow-xl" />
               </div>
 
               {/* --- ARROWS --- */}
               <div className="absolute inset-0 w-full h-full z-10 pointer-events-none block">
                 {/* To Bhindi Masala (Top Left) */}
-                <img src="/images/HomePage/arrow2.png" className="absolute top-[57vw] left-[25%] 2xl:top-[38%] 2xl:left-[30%] w-[12vw] 2xl:w-[280px]" alt="" />
+                <img src="/images/HomePage/arrow2.png" className="absolute top-[57vw] left-[25%] xl:top-[53vw] xl:left-[27%] w-[12vw]" alt="" />
                 {/* To Aloo Gobhi (Middle Left) */}
-                <img src="/images/HomePage/arrow4.png" className="absolute top-[70vw] left-[22%] 2xl:top-[52%] 2xl:left-[29%] w-[11vw] 2xl:w-[180px] -translate-y-1/2" alt="" />
+                <img src="/images/HomePage/arrow4.png" className="absolute top-[70vw] left-[22%] w-[11vw] -translate-y-1/2" alt="" />
                 {/* To Mutter Paneer (Bottom Left) */}
-                <img src="/images/HomePage/arrow6.png" className="absolute top-[87vw] left-[22%] 2xl:top-auto 2xl:bottom-[22%] 2xl:left-[27%] w-[13vw] 2xl:w-[220px]" alt="" />
+                <img src="/images/HomePage/arrow6.png" className="absolute top-[87vw] left-[22%] w-[13vw]" alt="" />
                 
                 {/* To Egg Curry (Top Right) */}
-                <img src="/images/HomePage/arrow1.png" className="absolute top-[53vw] right-[28%] 2xl:top-[38%] 2xl:right-[24%] w-[13vw] 2xl:w-[220px]" alt="" />
+                <img src="/images/HomePage/arrow1.png" className="absolute top-[53vw] right-[28%] w-[13vw]" alt="" />
                 {/* To Chicken Curry (Middle Right) */}
-                <img src="/images/HomePage/arrow3.png" className="absolute top-[69vw] right-[24%] 2xl:top-[52%] 2xl:right-[22%] w-[11vw] 2xl:w-[180px] -translate-y-1/2" alt="" />
+                <img src="/images/HomePage/arrow3.png" className="absolute top-[69vw] right-[24%] w-[11vw] -translate-y-1/2" alt="" />
                 {/* To Mutton Sukka (Bottom Right) */}
-                <img src="/images/HomePage/arrow5.png" className="absolute top-[87vw] right-[28%] 2xl:top-auto 2xl:bottom-[21%] 2xl:right-[24%] w-[12vw] 2xl:w-[180px]" alt="" />
+                <img src="/images/HomePage/arrow5.png" className="absolute top-[87vw] right-[28%] w-[12vw]" alt="" />
               </div>
 
               {/* Bottom Text */}
-              <div className="absolute top-[104vw] 2xl:top-auto 2xl:bottom-[12%] w-full flex justify-center z-30 px-6 text-center">
-                <p className="text-black font-semibold 2xl:font-medium text-[3.5vw] md:text-[2.5vw] 2xl:text-[26px] tracking-[-0.05em] 2xl:tracking-[-0.02em] leading-tight max-w-[55vw] 2xl:max-w-[500px] -translate-x-1 2xl:translate-x-0">
+              <div className="absolute top-[104vw] w-full flex justify-center z-30 px-6 text-center">
+                <p className="text-black font-semibold text-[3.5vw] md:text-[2.5vw] tracking-[-0.05em] leading-tight max-w-[55vw] -translate-x-1">
                   Just switch your ingredients and<br /> create a whole new dish each time.
                 </p>
               </div>
@@ -896,34 +889,34 @@ export default function Home() {
 
 
         {/* WHAT PEOPLE ARE SAYING SECTION */}
-        <section className="relative w-full bg-[#FBF5E1] pt-[180px] 2xl:pt-[200px] pb-0 md:pb-16 lg:pb-24 2xl:pb-32 overflow-hidden font-arpona bg-cover bg-center bg-no-repeat z-10 -mt-[200px] 2xl:-mt-[150px]" style={{ backgroundImage: "url('/images/HomePage/red2%20bg.png')" }}>
+        <section className="relative w-full bg-[#FBF5E1] pt-[180px] pb-0 md:pb-16 lg:pb-24 overflow-hidden font-arpona bg-cover bg-center bg-no-repeat z-10 -mt-[200px]" style={{ backgroundImage: "url('/images/HomePage/red2%20bg.png')" }}>
           {/* Top text */}
-          <div className="max-w-[1920px] mx-auto px-4 2xl:px-[90px] pt-16 flex justify-between text-white text-base xl:text-3xl 2xl:text-3xl font-medium mb-12" style={{ letterSpacing: '-0.05em' }}>
-            <span className="translate-x-[15px] 2xl:translate-x-[20px] translate-y-[20px] 2xl:translate-y-[60px]">Our GrabV</span>
-            <span className="-translate-x-[15px] 2xl:-translate-x-[20px] translate-y-[20px] 2xl:translate-y-[60px]">Your review</span>
+          <div className="max-w-[1920px] mx-auto px-4 pt-16 flex justify-between text-white text-base xl:text-3xl font-medium mb-12" style={{ letterSpacing: '-0.05em' }}>
+            <span className="translate-x-[15px] translate-y-[20px]">Our GrabV</span>
+            <span className="-translate-x-[15px] translate-y-[20px]">Your review</span>
           </div>
 
           {/* Main Heading */}
-          <div className="relative w-full flex flex-col items-center justify-center text-center px-4 mt-2 2xl:mt-16 z-10">
+          <div className="relative w-full flex flex-col items-center justify-center text-center px-4 mt-2 z-10">
             
             <div className="relative z-10 font-kura uppercase leading-[0.85] tracking-[-0.02em] text-center flex flex-col items-center w-full">
               
               {/* Shadow layer */}
-              <div className="absolute inset-0 flex flex-col items-center z-0 pointer-events-none translate-y-[5px] translate-x-[8px] 2xl:translate-y-[10px] 2xl:translate-x-[16px]" style={{ color: '#156B37' }}>
-                <div className="text-[14.5vw] 2xl:text-[280px] whitespace-nowrap">WHAT PEOPLE</div>
-                <div className="text-[14.5vw] 2xl:text-[280px] whitespace-nowrap">ARE SAYING</div>
+              <div className="absolute inset-0 flex flex-col items-center z-0 pointer-events-none translate-y-[5px] translate-x-[8px]" style={{ color: '#156B37' }}>
+                <div className="text-[14.5vw] xl:text-[11vw] whitespace-nowrap">WHAT PEOPLE</div>
+                <div className="text-[14.5vw] xl:text-[11vw] whitespace-nowrap">ARE SAYING</div>
               </div>
 
               {/* Fill layer */}
               <div className="relative z-10 flex flex-col items-center w-full" style={{ color: '#F7D80C' }}>
-                <div className="text-[14.5vw] 2xl:text-[280px] whitespace-nowrap">WHAT PEOPLE</div>
-                <div className="relative text-[14.5vw] 2xl:text-[280px] whitespace-nowrap">
+                <div className="text-[14.5vw] xl:text-[11vw] whitespace-nowrap">WHAT PEOPLE</div>
+                <div className="relative text-[14.5vw] xl:text-[11vw] whitespace-nowrap">
                   ARE SAYING
                   {/* Stir Simmer Sticker */}
                   <img 
                     src="/images/HomePage/stir simmer sticker.png" 
                     alt="Stir Simmer Sticker" 
-                    className="absolute left-[-10%] 2xl:left-[-13%] -bottom-[100%] 2xl:-bottom-[35%] w-[22vw] md:w-[130px] lg:w-[160px] 2xl:w-[230px] md:-translate-y-[40px] lg:-translate-y-[60px] rotate-3 z-30 pointer-events-none"
+                    className="absolute left-[-10%] -bottom-[100%] w-[22vw] md:w-[130px] lg:w-[160px] md:-translate-y-[40px] lg:-translate-y-[60px] rotate-3 z-30 pointer-events-none"
                   />
                 </div>
               </div>
@@ -933,22 +926,22 @@ export default function Home() {
           </div>
 
           {/* Reviews Grid */}
-          <div className="w-full max-w-[3000px] mx-auto mt-12 2xl:mt-32 px-4 2xl:px-0 flex md:items-center overflow-x-auto 2xl:overflow-x-visible snap-x snap-mandatory gap-6 2xl:gap-2 relative z-30 pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] -translate-y-[20px] md:-translate-y-[5px] lg:translate-y-[10px] 2xl:translate-y-0">
+          <div className="w-full max-w-[3000px] mx-auto mt-12 px-4 flex md:items-center xl:justify-center overflow-x-auto snap-x snap-mandatory gap-6 relative z-30 pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] -translate-y-[20px] md:-translate-y-[5px] lg:translate-y-[10px]">
             
             {/* Review 1 */}
-            <div className="relative w-[82vw] md:w-[350px] lg:w-[400px] shrink-0 2xl:shrink xl:w-[35%] 2xl:w-[35%] max-w-[1400px] snap-center 2xl:translate-x-[60px]">
+            <div className="relative w-[82vw] md:w-[350px] lg:w-[400px] xl:w-[500px] shrink-0 max-w-[1400px] snap-center">
               <img src="/images/HomePage/review1.png" alt="Review 1" className="w-full h-auto drop-shadow-2xl" />
-              <div className="absolute top-[48%] 2xl:top-[49%] right-[22%] 2xl:right-[24%] flex flex-col items-end rotate-[8deg]">
-                <span className="font-bold text-[3.6vw] md:text-[15px] lg:text-[17px] xl:text-[28px] 2xl:text-[28px] text-black leading-none tracking-tight">-Sneha Mehta</span>
-                <span className="font-medium text-[2.5vw] md:text-[10px] lg:text-[12px] xl:text-[22px] 2xl:text-[22px] text-black leading-tight pr-1 tracking-tighter">Bengaluru, Copywriter</span>
+              <div className="absolute top-[48%] right-[22%] flex flex-col items-end rotate-[8deg]">
+                <span className="font-bold text-[3.6vw] md:text-[15px] lg:text-[17px] xl:text-[21px] text-black leading-none tracking-tight">-Sneha Mehta</span>
+                <span className="font-medium text-[2.5vw] md:text-[10px] lg:text-[12px] xl:text-[15px] text-black leading-tight pr-1 tracking-tighter">Bengaluru, Copywriter</span>
               </div>
-              <div className="absolute bottom-[5%] left-[18%] right-[10%] h-[40%] flex items-start px-2 translate-y-[20px] -translate-x-[12px] xl:translate-y-[20px] xl:-translate-x-[15px] 2xl:translate-y-[20px] 2xl:-translate-x-[15px]">
-                <p className="text-black font-arpona font-normal tracking-[-0.02em] text-[2.9vw] md:text-[12px] lg:text-[14px] xl:text-[28px] 2xl:text-[28px] leading-[1.4] 2xl:leading-[1.21] underline decoration-2 underline-offset-4 decoration-[#99B1FA]">
-                  I recently <br className="hidden xl:inline" />
-                  shifted to Bengaluru, and I was <br className="hidden xl:inline" />
-                  craving for the home cooked <br className="hidden xl:inline" />
-                  flavour and that's when GrabV's <br className="hidden xl:inline" />
-                  onion tomato gravy saved me!!! <br className="hidden xl:inline" />
+              <div className="absolute bottom-[5%] left-[18%] right-[10%] h-[40%] flex items-start px-2 translate-y-[20px] -translate-x-[12px] xl:translate-y-[24px] xl:-translate-x-[14px]">
+                <p className="text-black font-arpona font-normal tracking-[-0.02em] text-[2.9vw] md:text-[12px] lg:text-[14px] xl:text-[18px] leading-[1.4] underline decoration-2 underline-offset-4 decoration-[#99B1FA]">
+                  I recently <br className="hidden" />
+                  shifted to Bengaluru, and I was <br className="hidden" />
+                  craving for the home cooked <br className="hidden" />
+                  flavour and that's when GrabV's <br className="hidden" />
+                  onion tomato gravy saved me!!! <br className="hidden" />
                   It was absolutely delicious.
                 </p>
               </div>
@@ -956,18 +949,18 @@ export default function Home() {
 
 
             {/* Review 2 */}
-            <div className="relative w-[68vw] md:w-[290px] lg:w-[330px] shrink-0 2xl:shrink 2xl:w-[28%] max-w-[1400px] snap-center translate-y-[12px] md:translate-y-0 2xl:translate-y-[10px]">
+            <div className="relative w-[68vw] md:w-[290px] lg:w-[330px] xl:w-[420px] shrink-0 max-w-[1400px] snap-center translate-y-[12px] md:translate-y-0">
               <img src="/images/HomePage/review2.png" alt="Review 2" className="w-full h-auto drop-shadow-2xl" />
-              <div className="absolute top-[44%] xl:top-[47%] 2xl:top-[47%] right-[13%] flex flex-col items-end rotate-[-10deg] -translate-y-[6px] md:translate-y-[12px] lg:translate-y-[16px] 2xl:-translate-y-0">
-                <span className="font-bold text-[3.2vw] md:text-[13px] lg:text-[15px] xl:text-[28px] 2xl:text-[28px] text-black leading-none tracking-tight">-Ananya & Rohan</span>
-                <span className="font-medium text-[2.3vw] md:text-[9px] lg:text-[11px] xl:text-[22px] 2xl:text-[22px] text-black leading-tight pr-1 tracking-tighter">Bengaluru, Consultants</span>
+              <div className="absolute top-[44%] right-[13%] flex flex-col items-end rotate-[-10deg] -translate-y-[6px] md:translate-y-[12px] lg:translate-y-[16px] xl:translate-y-[19px]">
+                <span className="font-bold text-[3.2vw] md:text-[13px] lg:text-[15px] xl:text-[19px] text-black leading-none tracking-tight">-Ananya & Rohan</span>
+                <span className="font-medium text-[2.3vw] md:text-[9px] lg:text-[11px] xl:text-[14px] text-black leading-tight pr-1 tracking-tighter">Bengaluru, Consultants</span>
               </div>
-              <div className="absolute bottom-[0%] left-[14%] right-[10%] h-[40%] flex items-start px-2 -translate-y-[4px] md:translate-y-[2px] lg:translate-y-[4px] -translate-x-[12px] xl:translate-y-[20px] xl:-translate-x-[15px] 2xl:translate-y-[20px] 2xl:-translate-x-[15px]">
-                <p className="text-black font-arpona font-normal tracking-[-0.02em] text-[2.8vw] md:text-[11px] lg:text-[13px] xl:text-[28px] 2xl:text-[28px] leading-[1.4] 2xl:leading-[1.21] underline decoration-2 underline-offset-4 decoration-[#99B1FA]">
-                  After office, <br className="hidden xl:inline" />
-                  full curry prep is too much . <br className="hidden xl:inline" />
-                  GrabV with chicken or paneer <br className="hidden xl:inline" />
-                  tastes really good proper home <br className="hidden xl:inline" />
+              <div className="absolute bottom-[0%] left-[14%] right-[10%] h-[40%] flex items-start px-2 -translate-y-[4px] md:translate-y-[2px] lg:translate-y-[4px] xl:translate-y-[5px] -translate-x-[12px] xl:-translate-x-[14px]">
+                <p className="text-black font-arpona font-normal tracking-[-0.02em] text-[2.8vw] md:text-[11px] lg:text-[13px] xl:text-[17px] leading-[1.4] underline decoration-2 underline-offset-4 decoration-[#99B1FA]">
+                  After office, <br className="hidden" />
+                  full curry prep is too much . <br className="hidden" />
+                  GrabV with chicken or paneer <br className="hidden" />
+                  tastes really good proper home <br className="hidden" />
                   food vibes. Total weekday save.
                 </p>
               </div>
@@ -975,19 +968,19 @@ export default function Home() {
 
 
             {/* Review 3 */}
-            <div className="relative w-[82vw] md:w-[350px] lg:w-[400px] shrink-0 2xl:shrink xl:w-[35%] 2xl:w-[35%] max-w-[1400px] snap-center 2xl:-translate-x-[60px]">
+            <div className="relative w-[82vw] md:w-[350px] lg:w-[400px] xl:w-[500px] shrink-0 max-w-[1400px] snap-center">
               <img src="/images/HomePage/review3.png" alt="Review 3" className="w-full h-auto drop-shadow-2xl" />
-              <div className="absolute top-[44%] 2xl:top-[46%] right-[22%] flex flex-col items-end rotate-[6deg] md:translate-y-[4px] lg:translate-y-[6px] 2xl:translate-y-0">
-                <span className="font-bold text-[3.6vw] md:text-[15px] lg:text-[17px] xl:text-[28px] 2xl:text-[28px] text-black leading-none tracking-tight">-Rekha Nair</span>
-                <span className="font-medium text-[2.5vw] md:text-[10px] lg:text-[12px] xl:text-[22px] 2xl:text-[22px] text-black leading-tight pr-1 tracking-tighter">Bengaluru, Housewife</span>
+              <div className="absolute top-[44%] right-[22%] flex flex-col items-end rotate-[6deg] md:translate-y-[4px] lg:translate-y-[6px] xl:translate-y-[7px]">
+                <span className="font-bold text-[3.6vw] md:text-[15px] lg:text-[17px] xl:text-[21px] text-black leading-none tracking-tight">-Rekha Nair</span>
+                <span className="font-medium text-[2.5vw] md:text-[10px] lg:text-[12px] xl:text-[15px] text-black leading-tight pr-1 tracking-tighter">Bengaluru, Housewife</span>
               </div>
               {/* Tasty Sticker */}
-              <img src="/images/HomePage/tasty.png" alt="Tasty" className="absolute bottom-[5%] 2xl:bottom-[2%] left-[6%] 2xl:-left-[1%] w-[25vw] md:w-[110px] lg:w-[130px] 2xl:w-[180px] -rotate-6 drop-shadow-xl z-40 pointer-events-none" />
-              <div className="absolute bottom-[0%] left-[18%] right-[10%] h-[40%] flex items-start px-2 -translate-y-[4px] -translate-x-[12px] xl:translate-y-[20px] xl:-translate-x-[15px] 2xl:translate-y-[20px] 2xl:-translate-x-[15px]">
-                <p className="text-black font-arpona font-normal tracking-[-0.02em] text-[2.9vw] md:text-[12px] lg:text-[14px] xl:text-[28px] 2xl:text-[28px] leading-[1.4] 2xl:leading-[1.21] underline decoration-2 underline-offset-4 decoration-[#99B1FA]">
-                  GrabV is very useful at home. <br className="hidden xl:inline" />
-                  Same gravy works for paneer, <br className="hidden xl:inline" />
-                  mixed veg and chicken also. <br className="hidden xl:inline" />
+              <img src="/images/HomePage/tasty.png" alt="Tasty" className="absolute bottom-[5%] left-[6%] w-[25vw] md:w-[110px] lg:w-[130px] xl:w-[160px] -rotate-6 drop-shadow-xl z-40 pointer-events-none" />
+              <div className="absolute bottom-[0%] left-[18%] right-[10%] h-[40%] flex items-start px-2 -translate-y-[4px] -translate-x-[12px] xl:-translate-y-[5px] xl:-translate-x-[14px]">
+                <p className="text-black font-arpona font-normal tracking-[-0.02em] text-[2.9vw] md:text-[12px] lg:text-[14px] xl:text-[18px] leading-[1.4] underline decoration-2 underline-offset-4 decoration-[#99B1FA]">
+                  GrabV is very useful at home. <br className="hidden" />
+                  Same gravy works for paneer, <br className="hidden" />
+                  mixed veg and chicken also. <br className="hidden" />
                   Taste is nice, work is less.
                 </p>
               </div>
@@ -998,10 +991,10 @@ export default function Home() {
         </section>
 
         {/* READY TO COOK SECTION */}
-        <section ref={readyToCookSectionRef} className="relative w-full h-[450px] md:h-[700px] lg:h-[900px] 2xl:h-[160vh] bg-[#FBF5E1] pt-12 2xl:pt-24 overflow-hidden font-arpona flex flex-col items-center">
+        <section ref={readyToCookSectionRef} className="relative w-full h-[450px] md:h-[700px] lg:h-[900px] xl:h-[1200px] bg-[#FBF5E1] pt-12 xl:pt-20 overflow-hidden font-arpona flex flex-col items-center">
           
           {/* Order Now Button */}
-          <button className="bg-[#F7D80C] text-black font-arpona font-medium text-[18px] 2xl:text-[30px] tracking-[-0.05em] leading-tight px-7 2xl:px-[44px] py-[10px] 2xl:py-[10px] rounded-xl mb-12 shadow-md hover:bg-yellow-400 transition-colors z-40">
+          <button className="bg-[#F7D80C] text-black font-arpona font-medium text-[18px] tracking-[-0.05em] leading-tight px-7 py-[10px] rounded-xl mb-12 shadow-md hover:bg-yellow-400 transition-colors z-40">
             Order now
           </button>
 
@@ -1011,65 +1004,59 @@ export default function Home() {
             <div className="relative z-10 font-kura uppercase leading-[0.85] tracking-[-0.02em] text-center flex flex-col items-center w-full">
               
               {/* Shadow layer */}
-              <div className="absolute inset-0 flex flex-col items-center z-0 pointer-events-none translate-y-[5px] translate-x-[8px] 2xl:translate-y-[10px] 2xl:translate-x-[16px]" style={{ color: '#F7D80C' }}>
+              <div className="absolute inset-0 flex flex-col items-center z-0 pointer-events-none translate-y-[5px] translate-x-[8px]" style={{ color: '#F7D80C' }}>
                 <div 
-                  className="text-[14vw] 2xl:text-[270px] w-[92vw] 2xl:w-auto whitespace-nowrap transition-transform duration-1000 ease-out"
+                  className="text-[14vw] w-[92vw] whitespace-nowrap transition-transform duration-1000 ease-out"
                   style={{ transform: isReadyToCookVisible ? 'translateX(0)' : 'translateX(-100vw)' }}
                 >
-                  <div className="flex justify-between w-full 2xl:hidden"><span>READY</span><span>TO</span><span>COOK</span></div>
-                  <span className="hidden 2xl:inline">READY TO COOK</span>
+                  <div className="flex justify-between w-full"><span>READY</span><span>TO</span><span>COOK</span></div>
                 </div>
                 <div 
-                  className="text-[14vw] 2xl:text-[270px] w-[92vw] 2xl:w-auto whitespace-nowrap transition-transform duration-1000 ease-out"
+                  className="text-[14vw] w-[92vw] whitespace-nowrap transition-transform duration-1000 ease-out"
                   style={{ transform: isReadyToCookVisible ? 'translateX(0)' : 'translateX(100vw)' }}
                 >
-                  <div className="flex justify-between w-full 2xl:hidden">{"SMARTSMRTER".split("").map((c, i) => <span key={i}>{c}</span>)}</div>
-                  <span className="hidden 2xl:inline">SMARTSMRTER</span>
+                  <div className="flex justify-between w-full">{"SMARTSMRTER".split("").map((c, i) => <span key={i}>{c}</span>)}</div>
                 </div>
                 <div 
-                  className="text-[14vw] 2xl:text-[270px] w-[92vw] 2xl:w-auto whitespace-nowrap transition-transform duration-1000 ease-out" 
+                  className="text-[14vw] w-[92vw] whitespace-nowrap transition-transform duration-1000 ease-out" 
                   style={{ transform: isReadyToCookVisible ? 'translateX(0)' : 'translateX(-100vw)' }}
                 >
-                  <div className="flex justify-between w-full 2xl:hidden" style={{ letterSpacing: 'normal' }}>{"EVERY  ERDAY?".split("").map((c, i) => <span key={i}>{c === ' ' ? '\u00A0' : c}</span>)}</div>
-                  <span className="hidden 2xl:inline ml-[0.04em]" style={{ letterSpacing: '0.04em' }}>EVERY ERDAY?</span>
+                  <div className="flex justify-between w-full" style={{ letterSpacing: 'normal' }}>{"EVERY  ERDAY?".split("").map((c, i) => <span key={i}>{c === ' ' ? '\u00A0' : c}</span>)}</div>
                 </div>
               </div>
 
               {/* Fill layer */}
               <div className="relative z-10 flex flex-col items-center w-full" style={{ color: '#156B37' }}>
                 <div 
-                  className="relative text-[14vw] 2xl:text-[270px] w-[92vw] 2xl:w-full flex flex-col 2xl:flex-row 2xl:justify-center whitespace-nowrap transition-transform duration-1000 ease-out"
+                  className="relative text-[14vw] w-[92vw] flex flex-col whitespace-nowrap transition-transform duration-1000 ease-out"
                   style={{ transform: isReadyToCookVisible ? 'translateX(0)' : 'translateX(-100vw)' }}
                 >
-                  <div className="flex justify-between w-full 2xl:hidden"><span>READY</span><span>TO</span><span>COOK</span></div>
-                  <span className="hidden 2xl:inline">READY TO COOK</span>
+                  <div className="flex justify-between w-full"><span>READY</span><span>TO</span><span>COOK</span></div>
                   {/* Chef Effort Sticker */}
                   <img 
                     src="/images/HomePage/chef effort sticker.png" 
                     alt="Chef Effort Sticker" 
-                    className="absolute left-[-5%] 2xl:left-[5%] -top-[130%] max-[380px]:-translate-y-[15px] 2xl:-top-[60%] w-[100px] md:w-[180px] lg:w-[220px] 2xl:w-[300px] md:translate-x-[20px] lg:translate-x-[30px] md:translate-y-[10px] lg:translate-y-[20px] 2xl:translate-x-0 2xl:translate-y-0 -rotate-3 z-30 pointer-events-none"
+                    className="absolute left-[-5%] -top-[130%] max-[380px]:-translate-y-[15px] w-[100px] md:w-[180px] lg:w-[220px] md:translate-x-[20px] lg:translate-x-[30px] md:translate-y-[10px] lg:translate-y-[20px] -rotate-3 z-30 pointer-events-none"
                   />
                 </div>
                 <div 
-                  className="text-[14vw] 2xl:text-[270px] w-[92vw] 2xl:w-auto whitespace-nowrap transition-transform duration-1000 ease-out"
+                  className="text-[14vw] w-[92vw] whitespace-nowrap transition-transform duration-1000 ease-out"
                   style={{ transform: isReadyToCookVisible ? 'translateX(0)' : 'translateX(100vw)' }}
                 >
-                  <div className="flex justify-between w-full 2xl:hidden">{"SMARTSMRTER".split("").map((c, i) => <span key={i}>{c}</span>)}</div>
-                  <span className="hidden 2xl:inline">SMARTSMRTER</span>
+                  <div className="flex justify-between w-full">{"SMARTSMRTER".split("").map((c, i) => <span key={i}>{c}</span>)}</div>
                 </div>
                 <div 
-                  className="text-[14vw] 2xl:text-[270px] w-[92vw] 2xl:w-auto whitespace-nowrap transition-transform duration-1000 ease-out" 
+                  className="text-[14vw] w-[92vw] whitespace-nowrap transition-transform duration-1000 ease-out" 
                   style={{ transform: isReadyToCookVisible ? 'translateX(0)' : 'translateX(-100vw)' }}
                 >
-                  <div className="flex justify-between w-full 2xl:hidden" style={{ letterSpacing: 'normal' }}>{"EVERY  ERDAY?".split("").map((c, i) => <span key={i}>{c === ' ' ? '\u00A0' : c}</span>)}</div>
-                  <span className="hidden 2xl:inline ml-[0.04em]" style={{ letterSpacing: '0.04em' }}>EVERY ERDAY?</span>
+                  <div className="flex justify-between w-full" style={{ letterSpacing: 'normal' }}>{"EVERY  ERDAY?".split("").map((c, i) => <span key={i}>{c === ' ' ? '\u00A0' : c}</span>)}</div>
                 </div>
               </div>
 
             </div>
 
             {/* Product Image */}
-            <div className="absolute -top-[12%] 2xl:-top-[10%] left-[55%] 2xl:left-[58%] -translate-x-1/2 z-20 w-[62%] 2xl:w-[1200px]">
+            <div className="absolute -top-[12%] left-[55%] -translate-x-1/2 z-20 w-[62%]">
               <img src="/images/HomePage/product%20package%203.png" alt="Smoked Makhani Gravy" className="w-full h-auto drop-shadow-2xl" />
             </div>
 
