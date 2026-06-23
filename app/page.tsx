@@ -77,15 +77,16 @@ const AnimatedDottedLine = ({ className = "absolute top-[400px] md:top-[850px] l
         start: "top center",
         end: "bottom center",
         onUpdate: (self: any) => {
+          if (!pathRef.current || !ballRef.current || !maskPathRef.current) return;
           const p = self.progress;
           const drawLength = p * pathLen;
-          const pt = pathRef.current!.getPointAtLength(drawLength);
+          const pt = pathRef.current.getPointAtLength(drawLength);
           
-          ballRef.current!.style.left = `${pt.x}%`;
-          ballRef.current!.style.top = `${pt.y}%`;
+          ballRef.current.style.left = `${pt.x}%`;
+          ballRef.current.style.top = `${pt.y}%`;
 
-          maskPathRef.current!.style.strokeDasharray = `${pathLen} ${pathLen}`;
-          maskPathRef.current!.style.strokeDashoffset = `${pathLen - drawLength}`;
+          maskPathRef.current.style.strokeDasharray = `${pathLen} ${pathLen}`;
+          maskPathRef.current.style.strokeDashoffset = `${pathLen - drawLength}`;
         }
       });
     };
@@ -110,7 +111,6 @@ const AnimatedDottedLine = ({ className = "absolute top-[400px] md:top-[850px] l
               strokeWidth="5" 
               fill="none"
               strokeLinecap="round" 
-              style={{ transition: 'stroke-dashoffset 0.1s ease-out' }}
             />
           </mask>
         </defs>
@@ -128,7 +128,7 @@ const AnimatedDottedLine = ({ className = "absolute top-[400px] md:top-[850px] l
       <div 
         ref={ballRef} 
         className="absolute w-[30px] h-[30px] bg-[#E3002B] rounded-full -translate-x-1/2 -translate-y-1/2 z-20 shadow-md border-2 border-white"
-        style={{ left: '75%', top: '0%', transition: 'left 0.1s ease-out, top 0.1s ease-out' }}
+        style={{ left: '75%', top: '0%' }}
       />
     </div>
   );
@@ -1120,9 +1120,19 @@ export default function Home() {
         <section ref={readyToCookSectionRef} className="relative w-full h-[450px] md:h-[700px] lg:h-[900px] xl:h-[1200px] 2xl:h-[83.3vw] bg-[#FBF5E1] pt-12 xl:pt-20 2xl:pt-[5.5vw] overflow-visible font-arpona flex flex-col items-center">
           
           {/* Order Now Button */}
-          <button className="bg-[#F7D80C] text-black font-arpona font-medium text-[18px] tracking-[-0.05em] leading-tight px-7 py-[10px] rounded-xl mb-12 shadow-md hover:bg-yellow-400 transition-colors z-40">
-            Order now
-          </button>
+          <Link href="/products" className="mb-12 z-40">
+            <button 
+              style={{
+                borderRadius: '0.3125rem',
+                backgroundColor: 'rgb(247, 216, 13)',
+                color: '#0D3D1B',
+                letterSpacing: '-0.06em'
+              }}
+              className="flex h-10 w-[8.25rem] shrink-0 items-center justify-center font-medium text-[1rem] transition-colors hover:bg-yellow-400 xl:h-11 xl:w-[9.75rem] xl:text-[1.05rem] 2xl:h-12 2xl:w-[11.25rem] 2xl:text-[1.1rem] shadow-md"
+            >
+              Order Now
+            </button>
+          </Link>
 
           {/* Main Heading */}
           <div className="relative w-full flex flex-col items-center justify-center text-center mt-4">
