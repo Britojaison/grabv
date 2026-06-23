@@ -77,7 +77,7 @@ export default function FAQPage() {
                     </div>
                 </section>
 
-                <section className="px-3 md:px-8 pt-10 md:pt-16 pb-12 md:pb-20">
+                <section className="px-3 md:px-8 pt-10 md:pt-16 pb-24 md:pb-32 xl:pb-[220px] 2xl:pb-[16vw]">
                     <div className="w-full max-w-[1380px] mx-auto">
                         <div className="grid grid-cols-1 gap-3 md:hidden">
                             {faqs.map((faq, index) => (

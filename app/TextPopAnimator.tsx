@@ -26,9 +26,6 @@ const textSelector = [
   "footer h5",
   "footer h6",
   "footer p",
-  "footer li",
-  "footer a",
-  "footer span",
 ].join(",");
 
 export default function TextPopAnimator() {

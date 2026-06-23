@@ -91,7 +91,7 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <section className="px-3 md:px-8 pt-10 md:pt-16 pb-12 md:pb-20">
+        <section className="px-3 md:px-8 pt-10 md:pt-16 pb-24 md:pb-32 xl:pb-[220px] 2xl:pb-[16vw]">
           <div className="w-full max-w-[1380px] mx-auto grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-6 md:gap-8 items-start">
             <div className="grid grid-cols-1 gap-4 md:gap-5">
               {contactCards.map((card, index) => (
