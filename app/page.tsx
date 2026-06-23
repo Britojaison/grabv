@@ -3,12 +3,13 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const HERO_FRAME_COUNT = 313;
-const HERO_SCROLL_DISTANCE = 4000;
-const HERO_PRELOAD_RADIUS = 20;
-const HERO_FRAME_EASE = 0.18;
-const HERO_FRAME_PATH = (frame: number) =>
-  `/images/hero video/frames/frame_${String(frame).padStart(4, "0")}.webp`;
+import dynamic from "next/dynamic";
+
+const ScrollyVideo = dynamic<any>(() => 
+  // @ts-expect-error: scrolly-video package lacks proper typescript definitions for its JSX exports
+  import("scrolly-video/dist/ScrollyVideo.cjs.jsx"), {
+  ssr: false,
+});
 const SlideIn = ({ children, className, direction }: { children: React.ReactNode, className?: string, direction: 'left' | 'right' }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -137,8 +138,16 @@ const AnimatedDottedLine = ({ className = "absolute top-[400px] md:top-[850px] l
 export default function Home() {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const heroRef = useRef<HTMLElement | null>(null);
-  const heroCanvasRef = useRef<HTMLCanvasElement | null>(null);
+  const [isClient, setIsClient] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+    const handleResize = () => setIsDesktop(window.innerWidth >= 768);
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   const qualityPromises = [
     { text: "100% Vegan", icon: "leaf.svg" },
     { text: "Batch Tested", icon: "Batch tested.svg" },
@@ -185,288 +194,7 @@ export default function Home() {
   }, []);
 
 
-  useEffect(() => {
-    if (window.innerWidth < 768) return; // Do not initialize on mobile
 
-    const hero = heroRef.current;
-    const canvas = heroCanvasRef.current;
-
-    if (!hero || !canvas) {
-      return;
-    }
-
-    const context = canvas.getContext("2d");
-    if (!context) {
-      return;
-    }
-
-    const images = new Map<number, ImageBitmap | HTMLImageElement>();
-    const loadingFrames = new Set<number>();
-    let currentFrame = -1;
-    let currentProgress = 0;
-    let targetProgress = 0;
-    let animationFrame: number | null = null;
-    let isCancelled = false;
-    let hasSyncedInitialProgress = false;
-
-    let drawCache = {
-      imageRatio: 0,
-      drawWidth: 0,
-      drawHeight: 0,
-      drawX: 0,
-      drawY: 0,
-      ready: false,
-    };
-
-    const updateDrawCache = (width: number, height: number) => {
-      if (!width || !height || !canvas.width || !canvas.height) return;
-      const canvasWidth = canvas.width;
-      const canvasHeight = canvas.height;
-      const imageRatio = width / height;
-      const canvasRatio = canvasWidth / canvasHeight;
-
-      let drawWidth = canvasWidth;
-      let drawHeight = canvasHeight;
-      let drawX = 0;
-      let drawY = 0;
-
-      if (imageRatio > canvasRatio) {
-        drawWidth = canvasHeight * imageRatio;
-        drawX = (canvasWidth - drawWidth) / 2;
-      } else {
-        drawHeight = canvasWidth / imageRatio;
-        drawY = (canvasHeight - drawHeight) / 2;
-      }
-
-      drawCache = {
-        imageRatio,
-        drawWidth,
-        drawHeight,
-        drawX,
-        drawY,
-        ready: true,
-      };
-    };
-
-    const drawFrame = (image: ImageBitmap | HTMLImageElement) => {
-      if (!drawCache.ready) {
-        const w = image instanceof window.HTMLImageElement ? image.naturalWidth : image.width;
-        const h = image instanceof window.HTMLImageElement ? image.naturalHeight : image.height;
-        if (w && h) {
-          updateDrawCache(w, h);
-        } else {
-          return;
-        }
-      }
-
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      context.drawImage(image, drawCache.drawX, drawCache.drawY, drawCache.drawWidth, drawCache.drawHeight);
-    };
-
-    const loadFrame = (frame: number) => {
-      const boundedFrame = Math.min(HERO_FRAME_COUNT, Math.max(1, frame));
-      
-      if (images.has(boundedFrame) || loadingFrames.has(boundedFrame)) {
-        return images.get(boundedFrame);
-      }
-
-      loadingFrames.add(boundedFrame);
-      const url = HERO_FRAME_PATH(boundedFrame);
-
-      if (typeof window.createImageBitmap === "function") {
-        fetch(url)
-          .then(res => res.blob())
-          .then(blob => window.createImageBitmap(blob))
-          .then(bitmap => {
-            if (isCancelled) return;
-            images.set(boundedFrame, bitmap);
-            loadingFrames.delete(boundedFrame);
-            if (boundedFrame === currentFrame) {
-              drawFrame(bitmap);
-              requestRender();
-            }
-          })
-          .catch(() => {
-            loadingFrames.delete(boundedFrame);
-          });
-      } else {
-        const image = new window.Image();
-        image.decoding = "async";
-        image.src = url;
-        image.onload = () => {
-          if (!isCancelled) {
-            images.set(boundedFrame, image);
-            loadingFrames.delete(boundedFrame);
-            if (boundedFrame === currentFrame) {
-              drawFrame(image);
-              requestRender();
-            }
-          }
-        };
-      }
-      return null;
-    };
-
-    const cleanupFrames = (currentBoundedFrame: number) => {
-      for (const [key, image] of images.entries()) {
-        if (Math.abs(key - currentBoundedFrame) > HERO_PRELOAD_RADIUS + 10) {
-          if (image instanceof ImageBitmap) {
-            image.close();
-          }
-          images.delete(key);
-        }
-      }
-    };
-
-    const preloadFramesAround = (frame: number) => {
-      cleanupFrames(frame);
-
-      const endFrame = Math.min(HERO_FRAME_COUNT, frame + HERO_PRELOAD_RADIUS);
-      const startFrame = Math.max(1, frame - 5); 
-
-      for (let f = startFrame; f <= endFrame; f++) {
-        loadFrame(f);
-      }
-    };
-
-    const resizeCanvas = () => {
-      const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
-      const { width, height } = canvas.getBoundingClientRect();
-
-      canvas.width = Math.round(width * pixelRatio);
-      canvas.height = Math.round(height * pixelRatio);
-      context.imageSmoothingEnabled = true;
-      
-      drawCache.ready = false;
-      const currentImg = images.get(currentFrame);
-      if (currentImg) {
-        const w = currentImg instanceof window.HTMLImageElement ? currentImg.naturalWidth : currentImg.width;
-        const h = currentImg instanceof window.HTMLImageElement ? currentImg.naturalHeight : currentImg.height;
-        if (w && h) updateDrawCache(w, h);
-      }
-    };
-
-    const updateScrollState = () => {
-      if (!hasSyncedInitialProgress) {
-        currentProgress = targetProgress;
-        hasSyncedInitialProgress = true;
-      }
-    };
-
-    const renderScrollFrame = () => {
-      if (isCancelled) return;
-      animationFrame = null;
-      currentProgress += (targetProgress - currentProgress) * HERO_FRAME_EASE;
-
-      if (Math.abs(targetProgress - currentProgress) < 0.001) {
-        currentProgress = targetProgress;
-      }
-
-      const nextFrame = Math.min(
-        HERO_FRAME_COUNT,
-        Math.max(1, Math.floor(currentProgress * (HERO_FRAME_COUNT - 1)) + 1),
-      );
-
-      if (nextFrame !== currentFrame) {
-        currentFrame = nextFrame;
-        const image = images.get(nextFrame);
-        if (!image) {
-          loadFrame(nextFrame);
-        } else {
-          drawFrame(image);
-        }
-        preloadFramesAround(nextFrame);
-      }
-
-      if (currentProgress !== targetProgress) {
-        animationFrame = window.requestAnimationFrame(renderScrollFrame);
-        return;
-      }
-    };
-
-    const requestRender = () => {
-      updateScrollState();
-
-      if (animationFrame !== null) {
-        return;
-      }
-
-      animationFrame = window.requestAnimationFrame(renderScrollFrame);
-    };
-
-    const handleResize = () => {
-      resizeCanvas();
-      hasSyncedInitialProgress = false;
-      requestRender();
-    };
-
-    resizeCanvas();
-    preloadFramesAround(1);
-    requestRender();
-
-    const resizeObserver = new ResizeObserver(handleResize);
-    resizeObserver.observe(canvas);
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    let st: any;
-    let timer: NodeJS.Timeout;
-
-    const initGSAP = () => {
-      // @ts-expect-error
-      const gsap = window.gsap;
-      // @ts-expect-error
-      const ScrollTrigger = window.ScrollTrigger;
-
-      if (!gsap || !ScrollTrigger) {
-        timer = setTimeout(initGSAP, 50);
-        return;
-      }
-
-      st = ScrollTrigger.create({
-        trigger: hero,
-        start: "top top",
-        end: `+=${HERO_SCROLL_DISTANCE}`,
-        pin: canvas,
-        pinSpacing: false,
-        onUpdate: (self: any) => {
-          targetProgress = self.progress;
-          requestRender();
-        }
-      });
-      
-      // Delay resize check slightly to let GSAP pinning and Next.js DOM apply
-      setTimeout(() => {
-        handleResize();
-        // Force the first frame to redraw if it was missed
-        currentFrame = -1;
-        requestRender();
-      }, 50);
-    };
-
-    initGSAP();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      isCancelled = true;
-      if (animationFrame) {
-        window.cancelAnimationFrame(animationFrame);
-      }
-      resizeObserver.disconnect();
-      window.removeEventListener("resize", handleResize);
-      clearTimeout(timer);
-      if (st) st.kill();
-      
-      // Cleanup loaded ImageBitmaps to free memory
-      for (const image of images.values()) {
-        if (image instanceof ImageBitmap) {
-          image.close();
-        }
-      }
-      images.clear();
-      loadingFrames.clear();
-    };
-  }, []);
 
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -582,17 +310,14 @@ export default function Home() {
       {/* Main Container - Full Width */}
       <main className="w-full relative flex flex-col bg-[#FBF5E1]">
 
-        <section
-          ref={heroRef}
-          className="relative z-10 w-full overflow-hidden bg-[rgb(12,61,27)] hidden md:block"
-          style={{ height: `calc(${HERO_SCROLL_DISTANCE}px + 100svh)` }}
-        >
-          <canvas
-            ref={heroCanvasRef}
-            className="left-0 z-10 block h-svh w-full bg-[rgb(12,61,27)]"
-            aria-label="GrabV hero video"
-          />
-        </section>
+        <div className="relative z-10 w-full hidden md:block bg-[rgb(12,61,27)] h-[4000px]">
+          {isClient && isDesktop && (
+            <ScrollyVideo 
+              src="/images/hero video/GrabV_WebsiteVideo.mp4" 
+              transitionSpeed={8}
+            />
+          )}
+        </div>
 
         {/* Freshly Made Product Section */}
         <section ref={textSectionRef} className="relative w-full h-[65vw] flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
@@ -664,9 +389,9 @@ export default function Home() {
         </section>
 
         {/* Pouch to Plate Wrapper for Scrolljacking */}
-        <div ref={stepsContainerRef} className="relative w-full h-auto 2xl:h-[400vh] pb-20 2xl:pb-0" style={{ backgroundColor: '#FBF5E1' }}>
+        <div ref={stepsContainerRef} className="relative w-full h-auto 2xl:h-[400vh] pb-32 2xl:pb-0" style={{ backgroundColor: '#FBF5E1' }}>
           {/* Pouch to Plate Sticky Section */}
-          <section className="relative top-[70px] 2xl:top-0 w-full h-auto 2xl:h-[calc(100vh-110px)] flex flex-col justify-start pt-0 2xl:pt-0 mt-[-15px] 2xl:mt-0 2xl:justify-center overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
+          <section className="relative mt-[70px] 2xl:mt-0 w-full h-auto 2xl:h-[calc(100vh-110px)] flex flex-col justify-start pt-0 2xl:pt-0 2xl:justify-center overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
             {/* Horizontal Scrolling Track */}
             <div className="relative w-full z-30 h-auto 2xl:h-full flex items-start pt-0 2xl:items-center overflow-x-auto overflow-y-hidden 2xl:overflow-visible snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] touch-pan-x">
               <div ref={stepsTrackRef} className="flex items-start 2xl:items-end gap-[20px] md:gap-[32px] lg:gap-[48px] 2xl:gap-[20px] pl-[5vw] 2xl:pl-[120px] pr-[5vw] 2xl:pr-[120px] pb-[4vw] 2xl:pb-0 will-change-transform w-max 2xl:w-[max-content]">
