@@ -186,6 +186,8 @@ export default function Home() {
 
 
   useEffect(() => {
+    if (window.innerWidth < 768) return; // Do not initialize on mobile
+
     const hero = heroRef.current;
     const canvas = heroCanvasRef.current;
 
@@ -582,7 +584,7 @@ export default function Home() {
 
         <section
           ref={heroRef}
-          className="relative z-10 w-full overflow-hidden bg-[rgb(12,61,27)]"
+          className="relative z-10 w-full overflow-hidden bg-[rgb(12,61,27)] hidden md:block"
           style={{ height: `calc(${HERO_SCROLL_DISTANCE}px + 100svh)` }}
         >
           <canvas
