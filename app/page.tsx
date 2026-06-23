@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const HERO_FRAME_COUNT = 313;
 const HERO_SCROLL_DISTANCE = 4000;
-const HERO_PRELOAD_RADIUS = 8;
+const HERO_PRELOAD_RADIUS = 20;
 const HERO_FRAME_EASE = 0.18;
 const HERO_FRAME_PATH = (frame: number) =>
   `/images/hero video/frames/frame_${String(frame).padStart(4, "0")}.webp`;
@@ -198,7 +198,8 @@ export default function Home() {
       return;
     }
 
-    const images = new Map<number, HTMLImageElement>();
+    const images = new Map<number, ImageBitmap | HTMLImageElement>();
+    const loadingFrames = new Set<number>();
     let currentFrame = -1;
     let currentProgress = 0;
     let targetProgress = 0;
@@ -206,14 +207,20 @@ export default function Home() {
     let isCancelled = false;
     let hasSyncedInitialProgress = false;
 
-    const drawFrame = (image: HTMLImageElement) => {
-      if (!image.naturalWidth || !image.naturalHeight) {
-        return;
-      }
+    let drawCache = {
+      imageRatio: 0,
+      drawWidth: 0,
+      drawHeight: 0,
+      drawX: 0,
+      drawY: 0,
+      ready: false,
+    };
 
+    const updateDrawCache = (width: number, height: number) => {
+      if (!width || !height || !canvas.width || !canvas.height) return;
       const canvasWidth = canvas.width;
       const canvasHeight = canvas.height;
-      const imageRatio = image.naturalWidth / image.naturalHeight;
+      const imageRatio = width / height;
       const canvasRatio = canvasWidth / canvasHeight;
 
       let drawWidth = canvasWidth;
@@ -229,36 +236,94 @@ export default function Home() {
         drawY = (canvasHeight - drawHeight) / 2;
       }
 
-      context.clearRect(0, 0, canvasWidth, canvasHeight);
-      context.drawImage(image, drawX, drawY, drawWidth, drawHeight);
+      drawCache = {
+        imageRatio,
+        drawWidth,
+        drawHeight,
+        drawX,
+        drawY,
+        ready: true,
+      };
+    };
+
+    const drawFrame = (image: ImageBitmap | HTMLImageElement) => {
+      if (!drawCache.ready) {
+        const w = image instanceof window.HTMLImageElement ? image.naturalWidth : image.width;
+        const h = image instanceof window.HTMLImageElement ? image.naturalHeight : image.height;
+        if (w && h) {
+          updateDrawCache(w, h);
+        } else {
+          return;
+        }
+      }
+
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(image, drawCache.drawX, drawCache.drawY, drawCache.drawWidth, drawCache.drawHeight);
     };
 
     const loadFrame = (frame: number) => {
       const boundedFrame = Math.min(HERO_FRAME_COUNT, Math.max(1, frame));
-      const existingImage = images.get(boundedFrame);
-
-      if (existingImage) {
-        return existingImage;
+      
+      if (images.has(boundedFrame) || loadingFrames.has(boundedFrame)) {
+        return images.get(boundedFrame);
       }
 
-      const image = new window.Image();
-      image.decoding = "async";
-      image.src = HERO_FRAME_PATH(boundedFrame);
-      image.onload = () => {
-        if (!isCancelled && boundedFrame === currentFrame) {
-          drawFrame(image);
-        }
-      };
-      images.set(boundedFrame, image);
+      loadingFrames.add(boundedFrame);
+      const url = HERO_FRAME_PATH(boundedFrame);
 
-      return image;
+      if (typeof window.createImageBitmap === "function") {
+        fetch(url)
+          .then(res => res.blob())
+          .then(blob => window.createImageBitmap(blob))
+          .then(bitmap => {
+            if (isCancelled) return;
+            images.set(boundedFrame, bitmap);
+            loadingFrames.delete(boundedFrame);
+            if (boundedFrame === currentFrame) {
+              drawFrame(bitmap);
+              requestRender();
+            }
+          })
+          .catch(() => {
+            loadingFrames.delete(boundedFrame);
+          });
+      } else {
+        const image = new window.Image();
+        image.decoding = "async";
+        image.src = url;
+        image.onload = () => {
+          if (!isCancelled) {
+            images.set(boundedFrame, image);
+            loadingFrames.delete(boundedFrame);
+            if (boundedFrame === currentFrame) {
+              drawFrame(image);
+              requestRender();
+            }
+          }
+        };
+      }
+      return null;
+    };
+
+    const cleanupFrames = (currentBoundedFrame: number) => {
+      for (const [key, image] of images.entries()) {
+        if (Math.abs(key - currentBoundedFrame) > HERO_PRELOAD_RADIUS + 10) {
+          if (image instanceof ImageBitmap) {
+            image.close();
+          }
+          images.delete(key);
+        }
+      }
     };
 
     const preloadFramesAround = (frame: number) => {
-      const endFrame = Math.min(HERO_FRAME_COUNT, frame + HERO_PRELOAD_RADIUS);
+      cleanupFrames(frame);
 
-      for (let nextFrame = frame; nextFrame <= endFrame; nextFrame += 1) {
-        loadFrame(nextFrame);
+      const endFrame = Math.min(HERO_FRAME_COUNT, frame + HERO_PRELOAD_RADIUS);
+      const startFrame = Math.max(1, frame - 5); 
+
+      for (let f = startFrame; f <= endFrame; f++) {
+        loadFrame(f);
       }
     };
 
@@ -269,7 +334,14 @@ export default function Home() {
       canvas.width = Math.round(width * pixelRatio);
       canvas.height = Math.round(height * pixelRatio);
       context.imageSmoothingEnabled = true;
-      context.imageSmoothingQuality = "high";
+      
+      drawCache.ready = false;
+      const currentImg = images.get(currentFrame);
+      if (currentImg) {
+        const w = currentImg instanceof window.HTMLImageElement ? currentImg.naturalWidth : currentImg.width;
+        const h = currentImg instanceof window.HTMLImageElement ? currentImg.naturalHeight : currentImg.height;
+        if (w && h) updateDrawCache(w, h);
+      }
     };
 
     const updateScrollState = () => {
@@ -280,6 +352,7 @@ export default function Home() {
     };
 
     const renderScrollFrame = () => {
+      if (isCancelled) return;
       animationFrame = null;
       currentProgress += (targetProgress - currentProgress) * HERO_FRAME_EASE;
 
@@ -294,12 +367,13 @@ export default function Home() {
 
       if (nextFrame !== currentFrame) {
         currentFrame = nextFrame;
-        const image = loadFrame(nextFrame);
-        preloadFramesAround(nextFrame + 1);
-
-        if (image.complete && image.naturalWidth > 0) {
+        const image = images.get(nextFrame);
+        if (!image) {
+          loadFrame(nextFrame);
+        } else {
           drawFrame(image);
         }
+        preloadFramesAround(nextFrame);
       }
 
       if (currentProgress !== targetProgress) {
@@ -320,7 +394,6 @@ export default function Home() {
 
     const handleResize = () => {
       resizeCanvas();
-      currentFrame = -1;
       hasSyncedInitialProgress = false;
       requestRender();
     };
@@ -358,6 +431,14 @@ export default function Home() {
           requestRender();
         }
       });
+      
+      // Delay resize check slightly to let GSAP pinning and Next.js DOM apply
+      setTimeout(() => {
+        handleResize();
+        // Force the first frame to redraw if it was missed
+        currentFrame = -1;
+        requestRender();
+      }, 50);
     };
 
     initGSAP();
@@ -373,6 +454,15 @@ export default function Home() {
       window.removeEventListener("resize", handleResize);
       clearTimeout(timer);
       if (st) st.kill();
+      
+      // Cleanup loaded ImageBitmaps to free memory
+      for (const image of images.values()) {
+        if (image instanceof ImageBitmap) {
+          image.close();
+        }
+      }
+      images.clear();
+      loadingFrames.clear();
     };
   }, []);
 
