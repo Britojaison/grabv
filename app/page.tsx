@@ -141,6 +141,22 @@ export default function Home() {
   const [isClient, setIsClient] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
 
+  // Mobile hero text cycling
+  const mobileDishes = [
+    "PANEER MATAR",
+    "CHICKEN DO PYAZA",
+    "EGG CURRY",
+    "MUTTON SUKHA"
+  ];
+  const [mobileDishIndex, setMobileDishIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setMobileDishIndex((prev) => (prev + 1) % mobileDishes.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [mobileDishes.length]);
+
   useEffect(() => {
     setIsClient(true);
     const handleResize = () => setIsDesktop(window.innerWidth >= 768);
@@ -320,9 +336,81 @@ export default function Home() {
         </div>
 
         {/* Freshly Made Product Section */}
-        <section ref={textSectionRef} className="relative w-full h-[140vw] md:h-[65vw] flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
+        <section ref={textSectionRef} className="relative w-full md:h-[65vw] flex items-center justify-center md:overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
+
+          {/* ── MOBILE HERO (hidden on md+) ── */}
+          <div className="relative w-full md:hidden h-[90vh] -mt-[9vh] min-[360px]:-mt-[6vh] min-[400px]:mt-0" style={{ backgroundColor: '#FBF5E1' }}>
+
+            {/* Product image — z-[1] keeps text overlays above it */}
+            <Image
+              src="/images/HomePage/mobile_hero.png"
+              alt="GrabV Product Package"
+              fill
+              className="object-contain object-center z-[1]"
+              priority
+            />
+
+            {/* Top-left: FRESHLY MADE — full block rotated left + yellow 3D shadow */}
+            <div
+              className="absolute left-[3vw] z-[20] font-kura uppercase leading-[0.85] tracking-[-0.04em] pointer-events-none select-none top-[calc(4.375rem+45vw)] min-[360px]:top-[calc(4.375rem+28vw)] min-[400px]:top-[calc(4.375rem+20vw)]"
+              style={{
+                color: '#146A36',
+                transform: 'rotate(-8deg)',
+                transformOrigin: 'left top',
+                textShadow: '1.2vw 1vw 0 #F7D80C',
+              }}
+            >
+              <div className="text-[14vw]">FRESHLY</div>
+              <div className="text-[14vw]">MADE</div>
+            </div>
+
+            {/* Veg or non-veg — aligned just below FRESHLY MADE text block */}
+            <div
+              className="absolute right-[12vw] z-[20] text-right pointer-events-none select-none top-[calc(4.375rem+50vw)] min-[360px]:top-[calc(4.375rem+33vw)] min-[400px]:top-[calc(4.375rem+25vw)]"
+            >
+              <div className="font-arpona font-medium text-[3vw] text-black leading-[1.3] tracking-[-0.03em]">Veg or non-veg</div>
+              <div className="font-arpona font-medium text-[3vw] text-black leading-[1.3] tracking-[-0.03em]">Possibilities are endless</div>
+            </div>
+
+            {/* ── Green CTA section — wave shape + HTML text ── */}
+            <div
+              className="absolute bottom-0 left-0 w-full z-[10] h-[33%] -translate-y-[4%] min-[360px]:translate-y-0 min-[400px]:translate-y-[9%]"
+            >
+              {/* Wave image (shape only — no text baked in) */}
+              <Image
+                src="/images/HomePage/mobile_green.png"
+                alt=""
+                fill
+                className="object-cover object-top z-[1] pointer-events-none"
+              />
+
+              {/* CTA text rendered over the wave */}
+              <div className="absolute inset-0 z-[2] flex flex-col justify-center px-[5vw] pt-[6vw] gap-[1vw]">
+                <div
+                  className="font-kura uppercase text-white leading-[0.9] tracking-[-0.02em]"
+                  style={{ fontSize: '14vw' }}
+                >
+                  READY FOR
+                </div>
+                <div
+                  className="font-kura uppercase leading-[0.9] tracking-[-0.02em] transition-all duration-300"
+                  style={{ fontSize: mobileDishes[mobileDishIndex] === 'CHICKEN DO PYAZA' ? '10.5vw' : mobileDishes[mobileDishIndex] === 'MUTTON SUKHA' ? '12vw' : '14vw', color: '#F7D80C', backgroundColor: '#C8001B', padding: '1vw 3vw', display: 'inline-block', whiteSpace: 'nowrap' }}
+                >
+                  {mobileDishes[mobileDishIndex]}
+                </div>
+                <div
+                  className="font-kura uppercase text-white leading-[0.9] tracking-[-0.02em]"
+                  style={{ fontSize: '14vw' }}
+                >
+                  IN 10 MINS?
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* ── DESKTOP HERO (hidden on mobile) ── */}
           {/* Background Text Overlay */}
-          <div className="absolute left-0 right-0 inset-y-0 flex flex-col justify-center items-center pointer-events-none select-none z-0 overflow-hidden font-kura uppercase tracking-[-0.07em] translate-y-0 px-[4vw]" style={{ color: '#146A36' }}>
+          <div className="hidden md:flex absolute left-0 right-0 inset-y-0 flex-col justify-center items-center pointer-events-none select-none z-0 overflow-hidden font-kura uppercase tracking-[-0.07em] translate-y-0 px-[4vw]" style={{ color: '#146A36' }}>
             <div 
               className="w-full flex justify-between h-[13vw] xl:h-[12vw] mb-[1.5vw] text-[13vw] xl:text-[12vw] leading-[1.0] transition-transform duration-1000 ease-out"
               style={{ transform: isTextVisible ? 'translateX(0)' : 'translateX(100vw)' }}
@@ -339,44 +427,25 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Product Image */}
-          <div className="relative z-10 w-[80vw] max-w-[110vw] h-[55vw] max-h-[1600px] translate-y-[2vw]">
+          {/* Desktop Product Image */}
+          <div className="relative z-10 w-[80vw] max-w-[110vw] h-[55vw] max-h-[1600px] translate-y-[2vw] hidden md:block">
             <Image
               src="/images/HomePage/product package 1.webp"
               alt="GrabV Product Package"
               fill
-              className="object-contain hidden md:block"
-              priority
-            />
-            <Image
-              src="/images/HomePage/mobile hero.png"
-              alt="GrabV Product Package Mobile"
-              fill
-              className="object-contain md:hidden"
+              className="object-contain"
               priority
             />
           </div>
 
-          {/* Mobile Green Wave Overlay */}
-          <div className="absolute bottom-[-10vw] left-0 w-full z-30 md:hidden">
-            <Image
-              src="/images/HomePage/mobile green.png"
-              alt="Ready for Paneer Matar in 10 mins"
-              width={1608}
-              height={796}
-              className="w-full h-auto"
-              priority
-            />
-          </div>
-
-          {/* Bottom Left Text */}
-          <div className="absolute bottom-[4vw] xl:bottom-[7vw] left-[4vw] z-40 flex flex-col gap-[2px] md:gap-0 tracking-[-0.05em] text-black">
+          {/* Bottom Left Text – desktop only */}
+          <div className="hidden md:flex absolute bottom-[4vw] xl:bottom-[7vw] left-[4vw] z-40 flex-col gap-0 tracking-[-0.05em] text-black">
             <span className="font-arpona font-medium text-[2.5vw] lg:text-[1.8vw] xl:text-[1.8vw] leading-[1.1]">Veg or non-veg</span>
             <span className="font-arpona font-medium text-[2.5vw] lg:text-[1.8vw] xl:text-[1.8vw] leading-[1.1]">Possibilities are endless</span>
           </div>
 
-          {/* Bottom Right Text */}
-          <div className="absolute bottom-[4vw] xl:bottom-[7vw] right-[4vw] z-40 flex flex-col gap-[2px] md:gap-0 tracking-[-0.05em] text-black text-right">
+          {/* Bottom Right Text – desktop only */}
+          <div className="hidden md:flex absolute bottom-[4vw] xl:bottom-[7vw] right-[4vw] z-40 flex-col gap-0 tracking-[-0.05em] text-black text-right">
             <span className="font-arpona font-medium text-[2.5vw] lg:text-[1.8vw] xl:text-[1.8vw] leading-[1.1]">Just add in the gravy</span>
             <span className="font-arpona font-medium text-[2.5vw] lg:text-[1.8vw] xl:text-[1.8vw] leading-[1.1]">And enjoy your meal</span>
           </div>
