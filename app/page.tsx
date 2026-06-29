@@ -393,7 +393,7 @@ export default function Home() {
           {/* Pouch to Plate Sticky Section */}
           <section className="relative mt-[70px] 2xl:mt-0 w-full h-auto 2xl:h-[calc(100vh-110px)] flex flex-col justify-start pt-0 2xl:pt-0 2xl:justify-center overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
             {/* Horizontal Scrolling Track */}
-            <div className="relative w-full z-30 h-auto 2xl:h-full flex items-start pt-0 2xl:items-center overflow-x-auto overflow-y-hidden 2xl:overflow-visible snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] touch-pan-x">
+            <div className="relative w-full z-30 h-auto 2xl:h-full flex items-start pt-0 2xl:items-center overflow-x-auto overflow-y-hidden 2xl:overflow-visible snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
               <div ref={stepsTrackRef} className="flex items-start 2xl:items-end gap-[20px] md:gap-[32px] lg:gap-[48px] 2xl:gap-[20px] pl-[5vw] 2xl:pl-[120px] pr-[5vw] 2xl:pr-[120px] pb-[4vw] 2xl:pb-0 will-change-transform w-max 2xl:w-[max-content]">
                 
                 {/* Step 1 */}
@@ -507,7 +507,7 @@ export default function Home() {
             <section className="relative top-[70px] 2xl:top-0 w-full h-auto 2xl:h-[calc(100vh-110px)] flex flex-col justify-start 2xl:justify-center overflow-hidden">
             
             {/* Horizontal Scrolling Track */}
-            <div className="relative w-full z-30 overflow-x-auto overflow-y-hidden 2xl:overflow-visible snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] touch-pan-x pb-4">
+            <div className="relative w-full z-30 overflow-x-auto overflow-y-hidden 2xl:overflow-visible snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] pb-4">
               <div ref={productsTrackRef} className="flex items-start 2xl:items-center gap-0 2xl:gap-[100px] pl-[5vw] 2xl:pl-[120px] pr-[5vw] 2xl:pr-[120px] pb-8 2xl:pb-0 will-change-transform w-max 2xl:w-[max-content]">
                 
                 {/* Product 1 */}
