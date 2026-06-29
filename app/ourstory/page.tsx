@@ -123,7 +123,7 @@ export default function OurStoryPage() {
                         <div className="w-[45%] md:w-[50%] flex justify-center md:justify-start">
                             <div className="story-reveal-image relative w-full aspect-square md:aspect-[581/593] max-w-[650px]" style={{ "--reveal-delay": "80ms" } as React.CSSProperties}>
                                 <Image
-                                    src="/images/ourstory2.svg"
+                                    src="/images/ourstory2.webp"
                                     alt="Our Story 2"
                                     fill
                                     className="object-contain"
@@ -189,7 +189,7 @@ export default function OurStoryPage() {
                         <div className="w-[45%] md:w-[50%] flex justify-center md:justify-end">
                             <div className="story-reveal-image relative w-full aspect-square md:aspect-[581/593] max-w-[700px]" style={{ "--reveal-delay": "120ms" } as React.CSSProperties}>
                                 <Image
-                                    src="/images/ourstory3.svg"
+                                    src="/images/ourstory3.webp"
                                     alt="Our Story 3"
                                     fill
                                     className="object-contain"
