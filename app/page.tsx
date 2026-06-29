@@ -320,7 +320,7 @@ export default function Home() {
         </div>
 
         {/* Freshly Made Product Section */}
-        <section ref={textSectionRef} className="relative w-full h-[65vw] flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
+        <section ref={textSectionRef} className="relative w-full h-[140vw] md:h-[65vw] flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
           {/* Background Text Overlay */}
           <div className="absolute left-0 right-0 inset-y-0 flex flex-col justify-center items-center pointer-events-none select-none z-0 overflow-hidden font-kura uppercase tracking-[-0.07em] translate-y-0 px-[4vw]" style={{ color: '#146A36' }}>
             <div 
@@ -345,19 +345,38 @@ export default function Home() {
               src="/images/HomePage/product package 1.webp"
               alt="GrabV Product Package"
               fill
-              className="object-contain"
+              className="object-contain hidden md:block"
+              priority
+            />
+            <Image
+              src="/images/HomePage/mobile hero.png"
+              alt="GrabV Product Package Mobile"
+              fill
+              className="object-contain md:hidden"
+              priority
+            />
+          </div>
+
+          {/* Mobile Green Wave Overlay */}
+          <div className="absolute bottom-[-10vw] left-0 w-full z-30 md:hidden">
+            <Image
+              src="/images/HomePage/mobile green.png"
+              alt="Ready for Paneer Matar in 10 mins"
+              width={1608}
+              height={796}
+              className="w-full h-auto"
               priority
             />
           </div>
 
           {/* Bottom Left Text */}
-          <div className="absolute bottom-[4vw] xl:bottom-[7vw] left-[4vw] z-20 flex flex-col gap-[2px] md:gap-0 tracking-[-0.05em] text-black">
+          <div className="absolute bottom-[4vw] xl:bottom-[7vw] left-[4vw] z-40 flex flex-col gap-[2px] md:gap-0 tracking-[-0.05em] text-black">
             <span className="font-arpona font-medium text-[2.5vw] lg:text-[1.8vw] xl:text-[1.8vw] leading-[1.1]">Veg or non-veg</span>
             <span className="font-arpona font-medium text-[2.5vw] lg:text-[1.8vw] xl:text-[1.8vw] leading-[1.1]">Possibilities are endless</span>
           </div>
 
           {/* Bottom Right Text */}
-          <div className="absolute bottom-[4vw] xl:bottom-[7vw] right-[4vw] z-20 flex flex-col gap-[2px] md:gap-0 tracking-[-0.05em] text-black text-right">
+          <div className="absolute bottom-[4vw] xl:bottom-[7vw] right-[4vw] z-40 flex flex-col gap-[2px] md:gap-0 tracking-[-0.05em] text-black text-right">
             <span className="font-arpona font-medium text-[2.5vw] lg:text-[1.8vw] xl:text-[1.8vw] leading-[1.1]">Just add in the gravy</span>
             <span className="font-arpona font-medium text-[2.5vw] lg:text-[1.8vw] xl:text-[1.8vw] leading-[1.1]">And enjoy your meal</span>
           </div>
