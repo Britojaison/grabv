@@ -452,84 +452,84 @@ export default function Home() {
         </section>
 
         {/* Pouch to Plate Section - Heading */}
-        <section className="relative w-full flex flex-col items-center pt-[8vw] 2xl:pt-24 pb-0 2xl:pb-12 overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
+        <section className="relative w-full flex flex-col items-center pt-[28vw] md:pt-[8vw] 2xl:pt-24 pb-0 2xl:pb-12 overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
           
           {/* Top text */}
-          <p className="font-arpona text-[3vw] md:text-[1.8vw] lg:text-[2vw] 2xl:text-[28px] leading-[1.0] tracking-[-0.05em] font-medium text-black mb-[4vw] 2xl:mb-10 text-center z-10">
+          <p className="font-arpona text-[4.2vw] md:text-[1.8vw] lg:text-[2vw] 2xl:text-[28px] leading-[1.0] tracking-[-0.05em] font-medium text-black mb-[6vw] md:mb-[4vw] 2xl:mb-10 text-center z-10">
             No Chopping. No Stress. Just Real Food.
           </p>
 
           {/* Huge Heading */}
-          <div className="relative font-kura uppercase text-[14vw] 2xl:text-[260px] leading-[0.85] tracking-[-0.02em] text-center w-full flex justify-center drop-shadow-lg 2xl:drop-shadow-xl z-10">
+          <div className="relative font-kura uppercase text-[16vw] md:text-[14vw] 2xl:text-[260px] leading-[0.85] tracking-[-0.02em] text-center w-full flex justify-center drop-shadow-lg 2xl:drop-shadow-xl z-10">
             {/* Vegetables Behind Text */}
-            <img src="/images/HomePage/tomato.webp" alt="" className="absolute top-[-6%] 2xl:top-[-5%] left-[26%] xl:left-[24%] 2xl:left-[25%] w-[15vw] xl:w-[13vw] 2xl:w-[220px] z-0 pointer-events-none" />
-            <img src="/images/HomePage/onion.webp" alt="" className="absolute top-[-6%] 2xl:top-[-4%] left-[20%] xl:left-[21%] 2xl:left-[22%] w-[12.5vw] xl:w-[10.5vw] 2xl:w-[170px] -rotate-[15deg] z-[1] 2xl:z-0 pointer-events-none opacity-90" />
+            <img src="/images/HomePage/tomato.webp" alt="" className="absolute top-[-6%] 2xl:top-[-5%] left-[26%] xl:left-[24%] 2xl:left-[25%] w-[18vw] md:w-[15vw] xl:w-[13vw] 2xl:w-[220px] z-0 pointer-events-none" />
+            <img src="/images/HomePage/onion.webp" alt="" className="absolute top-[-6%] 2xl:top-[-4%] left-[20%] xl:left-[21%] 2xl:left-[22%] w-[15vw] md:w-[12.5vw] xl:w-[10.5vw] 2xl:w-[170px] -rotate-[15deg] z-[1] 2xl:z-0 pointer-events-none opacity-90" />
 
             {/* Fill layer with integrated text-shadow */}
             <div className="relative z-10" style={{ color: '#156B37' }}>
-              <div className="[text-shadow:1vw_0.8vw_0_#F7D80C] md:[text-shadow:0.8vw_0.6vw_0_#F7D80C] xl:[text-shadow:9px_6px_0_#F7D80C] 2xl:[text-shadow:11px_6px_0_#F7D80C]">
+              <div className="[text-shadow:1.2vw_1vw_0_#F7D80C] md:[text-shadow:0.8vw_0.6vw_0_#F7D80C] xl:[text-shadow:9px_6px_0_#F7D80C] 2xl:[text-shadow:11px_6px_0_#F7D80C]">
                 POUCH TO<br/>PLATE IN<br/>5 STEPS
               </div>
               {/* Homemade Sticker */}
-              <img src="/images/HomePage/homemade.webp" alt="Homemade-ish" className="absolute bottom-[20%] 2xl:bottom-[25%] right-[-25%] 2xl:right-[-10%] w-[24vw] 2xl:w-[290px] rotate-2 drop-shadow-xl z-20 pointer-events-none" />
+              <img src="/images/HomePage/homemade.webp" alt="Homemade-ish" className="absolute bottom-[20%] 2xl:bottom-[25%] right-[-25%] 2xl:right-[-10%] w-[28vw] md:w-[24vw] 2xl:w-[290px] rotate-2 drop-shadow-xl z-20 pointer-events-none" />
             </div>
           </div>
         </section>
 
         {/* Pouch to Plate Wrapper for Scrolljacking */}
-        <div ref={stepsContainerRef} className="relative w-full h-auto 2xl:h-[400vh] pb-32 2xl:pb-0" style={{ backgroundColor: '#FBF5E1' }}>
+        <div ref={stepsContainerRef} className="relative w-full h-auto 2xl:h-[400vh] pb-20 md:pb-32 2xl:pb-0" style={{ backgroundColor: '#FBF5E1' }}>
           {/* Pouch to Plate Sticky Section */}
           <section className="relative mt-[70px] 2xl:mt-0 w-full h-auto 2xl:h-[calc(100vh-110px)] flex flex-col justify-start pt-0 2xl:pt-0 2xl:justify-center overflow-hidden" style={{ backgroundColor: '#FBF5E1' }}>
             {/* Horizontal Scrolling Track */}
             <div className="relative w-full z-30 h-auto 2xl:h-full flex items-start pt-0 2xl:items-center overflow-x-auto overflow-y-hidden 2xl:overflow-visible snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-              <div ref={stepsTrackRef} className="flex items-start 2xl:items-end gap-[20px] md:gap-[32px] lg:gap-[48px] 2xl:gap-[20px] pl-[5vw] 2xl:pl-[120px] pr-[5vw] 2xl:pr-[120px] pb-[4vw] 2xl:pb-0 will-change-transform w-max 2xl:w-[max-content]">
+              <div ref={stepsTrackRef} className="flex items-start 2xl:items-end gap-[20px] md:gap-[32px] lg:gap-[48px] 2xl:gap-[20px] pl-[5vw] 2xl:pl-[120px] pr-[5vw] 2xl:pr-[120px] pb-[2vw] md:pb-[4vw] 2xl:pb-0 will-change-transform w-max 2xl:w-[max-content]">
                 
                 {/* Step 1 */}
-                <div className="w-[80vw] sm:w-[95vw] md:w-[80vw] lg:w-[45vw] 2xl:w-[880px] flex-shrink-0 flex flex-col justify-end snap-center">
+                <div className="w-[88vw] sm:w-[95vw] md:w-[80vw] lg:w-[45vw] 2xl:w-[880px] flex-shrink-0 flex flex-col justify-end snap-center">
                   <div className="relative">
-                    <img src="/images/HomePage/cooking img1.webp" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[30vh] sm:max-h-[55vh] md:max-h-[60vh] lg:max-h-[55vh] 2xl:max-h-[60vh] scale-[0.95] origin-bottom -translate-y-3" alt="Step 1" />
+                    <img src="/images/HomePage/cooking img1.webp" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[36vh] sm:max-h-[55vh] md:max-h-[60vh] lg:max-h-[55vh] 2xl:max-h-[60vh] scale-[0.95] origin-bottom -translate-y-3" alt="Step 1" />
                   </div>
-                  <p className="mt-[4vw] md:mt-[3vw] lg:mt-[2vw] xl:mt-4 2xl:mt-6 ml-0 xl:ml-12 2xl:ml-16 font-arpona text-[4vw] sm:text-xl md:text-[3.5vw] lg:text-2xl xl:text-[28px] 2xl:text-[34px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center xl:text-left -translate-y-3">
+                  <p className="mt-[2.5vw] md:mt-[3vw] lg:mt-[2vw] xl:mt-4 2xl:mt-6 ml-0 xl:ml-12 2xl:ml-16 font-arpona text-[4.8vw] sm:text-xl md:text-[3.5vw] lg:text-2xl xl:text-[28px] 2xl:text-[34px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center xl:text-left -translate-y-3">
                     Add your tempering (tadka) in oil.
                   </p>
                 </div>
 
                 {/* Step 2 */}
-                <div className="w-[80vw] sm:w-[95vw] md:w-[80vw] lg:w-[45vw] 2xl:w-[880px] flex-shrink-0 flex flex-col justify-end snap-center">
+                <div className="w-[88vw] sm:w-[95vw] md:w-[80vw] lg:w-[45vw] 2xl:w-[880px] flex-shrink-0 flex flex-col justify-end snap-center">
                   <div className="relative">
-                    <img src="/images/HomePage/cooking img2.webp" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[30vh] sm:max-h-[55vh] md:max-h-[60vh] lg:max-h-[55vh] 2xl:max-h-[60vh]" alt="Step 2" />
+                    <img src="/images/HomePage/cooking img2.webp" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[36vh] sm:max-h-[55vh] md:max-h-[60vh] lg:max-h-[55vh] 2xl:max-h-[60vh]" alt="Step 2" />
                   </div>
-                  <p className="mt-[4vw] md:mt-[3vw] lg:mt-[2vw] xl:mt-4 2xl:mt-6 ml-0 xl:ml-12 2xl:ml-16 font-arpona text-[4vw] sm:text-xl md:text-[3.5vw] lg:text-2xl xl:text-[28px] 2xl:text-[34px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center xl:text-left">
+                  <p className="mt-[2.5vw] md:mt-[3vw] lg:mt-[2vw] xl:mt-4 2xl:mt-6 ml-0 xl:ml-12 2xl:ml-16 font-arpona text-[4.8vw] sm:text-xl md:text-[3.5vw] lg:text-2xl xl:text-[28px] 2xl:text-[34px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center xl:text-left">
                     Sauté veggies or protein of your choice.
                   </p>
                 </div>
 
                 {/* Step 3 */}
-                <div className="w-[80vw] sm:w-[95vw] md:w-[80vw] lg:w-[45vw] 2xl:w-[880px] flex-shrink-0 flex flex-col justify-end snap-center">
+                <div className="w-[88vw] sm:w-[95vw] md:w-[80vw] lg:w-[45vw] 2xl:w-[880px] flex-shrink-0 flex flex-col justify-end snap-center">
                   <div className="relative">
-                    <img src="/images/HomePage/cooking img3.webp" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[30vh] sm:max-h-[55vh] md:max-h-[60vh] lg:max-h-[55vh] 2xl:max-h-[60vh]" alt="Step 3" />
+                    <img src="/images/HomePage/cooking img3.webp" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[36vh] sm:max-h-[55vh] md:max-h-[60vh] lg:max-h-[55vh] 2xl:max-h-[60vh]" alt="Step 3" />
                   </div>
-                  <p className="mt-[4vw] md:mt-[3vw] lg:mt-[2vw] xl:mt-4 2xl:mt-6 ml-0 xl:ml-12 2xl:ml-16 font-arpona text-[4vw] sm:text-xl md:text-[3.5vw] lg:text-2xl xl:text-[28px] 2xl:text-[34px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center xl:text-left">
+                  <p className="mt-[2.5vw] md:mt-[3vw] lg:mt-[2vw] xl:mt-4 2xl:mt-6 ml-0 xl:ml-12 2xl:ml-16 font-arpona text-[4.8vw] sm:text-xl md:text-[3.5vw] lg:text-2xl xl:text-[28px] 2xl:text-[34px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center xl:text-left">
                     Pour GrabV & adjust consistency
                   </p>
                 </div>
 
                 {/* Step 4 */}
-                <div className="w-[80vw] sm:w-[95vw] md:w-[80vw] lg:w-[45vw] 2xl:w-[880px] flex-shrink-0 flex flex-col justify-end snap-center">
+                <div className="w-[88vw] sm:w-[95vw] md:w-[80vw] lg:w-[45vw] 2xl:w-[880px] flex-shrink-0 flex flex-col justify-end snap-center">
                   <div className="relative">
-                    <img src="/images/HomePage/cooking img4.webp" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[30vh] sm:max-h-[55vh] md:max-h-[60vh] lg:max-h-[55vh] 2xl:max-h-[60vh]" alt="Step 4" />
+                    <img src="/images/HomePage/cooking img4.webp" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[36vh] sm:max-h-[55vh] md:max-h-[60vh] lg:max-h-[55vh] 2xl:max-h-[60vh]" alt="Step 4" />
                   </div>
-                  <p className="mt-[4vw] md:mt-[3vw] lg:mt-[2vw] xl:mt-4 2xl:mt-6 ml-0 xl:ml-12 2xl:ml-16 font-arpona text-[4vw] sm:text-xl md:text-[3.5vw] lg:text-2xl xl:text-[28px] 2xl:text-[34px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center xl:text-left">
+                  <p className="mt-[2.5vw] md:mt-[3vw] lg:mt-[2vw] xl:mt-4 2xl:mt-6 ml-0 xl:ml-12 2xl:ml-16 font-arpona text-[4.8vw] sm:text-xl md:text-[3.5vw] lg:text-2xl xl:text-[28px] 2xl:text-[34px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center xl:text-left">
                     Add water as needed and let it simmer.
                   </p>
                 </div>
 
                 {/* Step 5 */}
-                <div className="w-[80vw] sm:w-[95vw] md:w-[80vw] lg:w-[45vw] 2xl:w-[880px] flex-shrink-0 flex flex-col justify-end snap-center">
+                <div className="w-[88vw] sm:w-[95vw] md:w-[80vw] lg:w-[45vw] 2xl:w-[880px] flex-shrink-0 flex flex-col justify-end snap-center">
                   <div className="relative">
-                    <img src="/images/HomePage/cooking img5.webp" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[30vh] sm:max-h-[55vh] md:max-h-[60vh] lg:max-h-[55vh] 2xl:max-h-[60vh]" alt="Step 5" />
+                    <img src="/images/HomePage/cooking img5.webp" className="w-full h-auto block drop-shadow-2xl object-contain object-bottom max-h-[36vh] sm:max-h-[55vh] md:max-h-[60vh] lg:max-h-[55vh] 2xl:max-h-[60vh]" alt="Step 5" />
                   </div>
-                  <p className="mt-[4vw] md:mt-[3vw] lg:mt-[2vw] xl:mt-4 2xl:mt-6 ml-0 xl:ml-12 2xl:ml-16 font-arpona text-[4vw] sm:text-xl md:text-[3.5vw] lg:text-2xl xl:text-[28px] 2xl:text-[34px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center xl:text-left">
+                  <p className="mt-[2.5vw] md:mt-[3vw] lg:mt-[2vw] xl:mt-4 2xl:mt-6 ml-0 xl:ml-12 2xl:ml-16 font-arpona text-[4.8vw] sm:text-xl md:text-[3.5vw] lg:text-2xl xl:text-[28px] 2xl:text-[34px] tracking-[-0.05em] font-medium text-black drop-shadow-lg relative z-10 text-center xl:text-left">
                     Garnish, serve hot, and show off!
                   </p>
                 </div>
