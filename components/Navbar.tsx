@@ -3,9 +3,11 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import OrderModal from './OrderModal';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
 
   return (
     <header
@@ -39,8 +41,9 @@ export default function Navbar() {
 
         <div className="flex items-center gap-4">
           {/* Order Now Button - Hidden on Mobile */}
-          <Link href="/products" className="hidden md:block">
+          <div className="hidden md:block">
             <button
+              onClick={() => setIsOrderModalOpen(true)}
               style={{
                 borderRadius: '0.3125rem',
                 backgroundColor: 'rgb(247, 216, 13)',
@@ -51,7 +54,7 @@ export default function Navbar() {
             >
               Order Now
             </button>
-          </Link>
+          </div>
 
           {/* Hamburger Menu - Mobile and Tablet */}
           <div className="lg:hidden flex items-center">
@@ -87,17 +90,23 @@ export default function Navbar() {
             <Link href="/ourstory" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Our Story</Link>
             <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">Contact Us</Link>
             <Link href="/faq" onClick={() => setIsMenuOpen(false)} className="hover:text-[rgb(247,216,13)] transition-colors">FAQ</Link>
-            <Link href="/products" onClick={() => setIsMenuOpen(false)}>
+            <div onClick={() => setIsMenuOpen(false)}>
               <button
+                onClick={() => setIsOrderModalOpen(true)}
                 style={{ backgroundColor: 'rgb(247, 216, 13)', color: '#156B37' }}
                 className="mt-4 px-14 py-3 rounded-full font-arpona font-medium text-[1.125rem] hover:bg-yellow-400 transition-colors"
               >
                 Order Now
               </button>
-            </Link>
+            </div>
           </nav>
         </div>
       )}
+      {/* Order Modal */}
+      <OrderModal 
+        isOpen={isOrderModalOpen} 
+        onClose={() => setIsOrderModalOpen(false)} 
+      />
     </header>
   );
 }

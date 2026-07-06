@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import OrderModal from "@/components/OrderModal";
 
 import dynamic from "next/dynamic";
 
@@ -140,6 +141,7 @@ export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
 
   // Mobile hero text cycling
   const mobileDishes = [
@@ -935,8 +937,9 @@ export default function Home() {
         <section ref={readyToCookSectionRef} className="relative w-full h-[450px] md:h-[700px] lg:h-[900px] xl:h-[1200px] 2xl:h-[83.3vw] bg-[#FBF5E1] pt-12 xl:pt-20 2xl:pt-[5.5vw] overflow-visible font-arpona flex flex-col items-center">
           
           {/* Order Now Button */}
-          <Link href="/products" className="mb-12 z-40">
+          <div className="mb-12 z-40">
             <button 
+              onClick={() => setIsOrderModalOpen(true)}
               style={{
                 borderRadius: '0.3125rem',
                 backgroundColor: 'rgb(247, 216, 13)',
@@ -947,7 +950,7 @@ export default function Home() {
             >
               Order Now
             </button>
-          </Link>
+          </div>
 
           {/* Main Heading */}
           <div className="relative w-full flex flex-col items-center justify-center text-center mt-4">
@@ -1019,6 +1022,12 @@ export default function Home() {
         {/* FOOTER SECTION REMOVED */}
 
       </main>
+
+      {/* Order Modal */}
+      <OrderModal 
+        isOpen={isOrderModalOpen} 
+        onClose={() => setIsOrderModalOpen(false)} 
+      />
     </div>
   );
 }
