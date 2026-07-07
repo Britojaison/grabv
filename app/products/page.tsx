@@ -83,12 +83,12 @@ export default function ProductsListPage() {
                         <p>Slow Cooked</p>
                       </div>
                       
-                      <Link href="/all-purposegravy" className="mt-[2vw] 2xl:mt-8 2xl:ml-4 bg-[rgb(247,216,13)] text-black px-[2.2vw] 2xl:px-4 py-[0.5vw] 2xl:py-1 rounded-[0.8vw] 2xl:rounded-[4px] font-medium text-[2.2vw] 2xl:text-[14px] hover:bg-yellow-400 transition-colors flex items-center justify-center gap-[1vw] 2xl:gap-1 shadow-sm whitespace-nowrap inline-flex w-fit">
+                      <button className="mt-[2vw] 2xl:mt-8 2xl:ml-4 bg-[rgb(247,216,13)] text-black px-[2.2vw] 2xl:px-4 py-[0.5vw] 2xl:py-1 rounded-[0.8vw] 2xl:rounded-[4px] font-medium text-[2.2vw] 2xl:text-[14px] hover:bg-yellow-400 transition-colors flex items-center justify-center gap-[1vw] 2xl:gap-1 shadow-sm whitespace-nowrap inline-flex w-fit cursor-pointer">
                         View Product
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[2vw] h-[2vw] 2xl:w-[14px] 2xl:h-[14px] ml-[0.5vw] 2xl:ml-1">
                           <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
-                      </Link>
+                      </button>
                     </div>
                   </div>
                 </div>
